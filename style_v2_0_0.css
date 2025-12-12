@@ -1,5 +1,5 @@
 /* ================================
-   HaloCyberlife v2.0.0 Styles
+   HaloCyberlife v2.0.2 Styles
    ================================ */
 
 /* ---------- Root / Reset ---------- */
@@ -72,139 +72,128 @@ body {
     top: 1rem;
 }
 
-/* ---------- Header / Nav ---------- */
+/* ---------- Header / Neon Nav ---------- */
 
-.site-header {
+.neon-header {
+    width: 100%;
+    padding: 1rem 0;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     position: sticky;
     top: 0;
-    z-index: 50;
-    backdrop-filter: blur(16px);
-    background: linear-gradient(
-        to bottom,
-        rgba(2, 6, 23, 0.9),
-        rgba(2, 6, 23, 0.75),
-        transparent
-    );
-    border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+    z-index: 9999;
 }
 
-.header-inner {
+.neon-header-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.9rem 0;
 }
 
-.brand-link {
-    display: inline-flex;
+/* BRAND */
+
+.neon-brand {
+    display: flex;
     align-items: center;
-    gap: 0.7rem;
+    gap: 0.5rem;
     text-decoration: none;
-    color: var(--text-main);
 }
 
-.brand-logo {
-    width: 40px;
-    height: auto;
+.neon-logo {
+    height: 40px;
+    width: auto;
 }
 
-.brand-text {
+.neon-brand-text {
+    font-size: 1.4rem;
     font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    font-size: 0.9rem;
+    color: #fff;
+    letter-spacing: 0.05em;
 }
 
-/* Nav */
+/* NAV */
 
-.main-nav {
-    display: none;
-}
-
-.nav-list {
-    list-style: none;
+.neon-nav {
     display: flex;
-    gap: 1.4rem;
+    gap: 1rem;
     align-items: center;
 }
 
-.nav-link {
-    color: var(--text-soft);
-    font-size: 0.9rem;
+.neon-link {
+    padding: 0.55rem 1.25rem;
+    border-radius: var(--radius-pill);
+    font-weight: 500;
     text-decoration: none;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.08em;
+    font-size: 0.92rem;
     text-transform: uppercase;
+
+    color: #fff;
+    border: 2px solid currentColor;
+    transition: 0.2s ease;
     position: relative;
-    padding-bottom: 0.2rem;
 }
 
-.nav-link::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 0;
-    height: 2px;
-    border-radius: 999px;
-    background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
-    transition: width 0.2s ease-out;
+/* Neon color variants */
+
+.color-blue    { color: #4cc3ff; }
+.color-purple  { color: #c084fc; }
+.color-cyan    { color: #5ffffa; }
+.color-magenta { color: #ff5df7; }
+.color-gold    { color: #ffe27a; }
+
+/* Glow effect */
+
+.neon-link:hover,
+.neon-link:focus-visible {
+    box-shadow: 0 0 18px currentColor, inset 0 0 18px currentColor;
+    background: currentColor;
+    color: #000;
+    transform: translateY(-1px);
 }
 
-.nav-link:hover::after,
-.nav-link:focus-visible::after,
-.nav-link[aria-current="page"]::after {
-    width: 100%;
-}
+/* Mobile toggle */
 
-.nav-link[aria-current="page"] {
-    color: #e5e7eb;
-}
-
-.nav-toggle {
-    background: none;
-    border: 1px solid rgba(148, 163, 184, 0.5);
-    border-radius: 999px;
-    padding: 0.35rem 0.55rem;
-    display: flex;
+.neon-nav-toggle {
+    display: none;
     flex-direction: column;
-    justify-content: center;
-    gap: 0.22rem;
+    gap: 5px;
+    background: transparent;
+    border: none;
     cursor: pointer;
 }
 
-.nav-toggle-line {
-    width: 18px;
-    height: 2px;
-    border-radius: 999px;
-    background: #e5e7eb;
+.neon-nav-toggle span {
+    width: 24px;
+    height: 3px;
+    background: #fff;
+    border-radius: 3px;
 }
 
-/* header desktop */
-@media (min-width: 768px) {
-    .nav-toggle {
+/* Mobile menu behavior */
+
+@media (max-width: 820px) {
+    .neon-nav-toggle {
+        display: flex;
+    }
+
+    .neon-nav {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        padding: 1.25rem 0;
+        background: rgba(0, 0, 0, 0.92);
         display: none;
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
     }
 
-    .main-nav {
-        display: block;
+    .neon-nav.open {
+        display: flex;
     }
-}
-
-/* mobile nav open state */
-.main-nav.is-open {
-    display: block;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    left: 0;
-    background: rgba(2, 6, 23, 0.98);
-    border-bottom: 1px solid rgba(148, 163, 184, 0.2);
-}
-
-.main-nav.is-open .nav-list {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0.8rem 1.5rem 1rem;
 }
 
 /* ---------- Hero ---------- */
@@ -671,7 +660,7 @@ body {
     bottom: 1.2rem;
     width: 40px;
     height: 40px;
-    border-radius: 999px;
+    border-radius: var(--radius-pill);
     border: none;
     cursor: pointer;
     background: var(--accent-primary);
@@ -687,7 +676,7 @@ body {
     display: flex;
 }
 
-/* ---------- Responsive ---------- */
+/* ---------- Responsive layouts ---------- */
 
 @media (min-width: 768px) {
     .section-split {
@@ -710,112 +699,20 @@ body {
     }
 }
 
+/* ---------- Blog card image normalization ---------- */
 
-/* === Normalize blog card image aspect ratio === */
-
-/* Only affect the blog cards, not random images site-wide */
+/* Only affect the blog cards in the dark insights section */
 .section-dark .card-grid .card-image-wrap {
     position: relative;
     overflow: hidden;
     border-radius: 18px;
-    
-    /* Force a consistent shape for all images */
-    aspect-ratio: 16 / 9;   /* try 21 / 9 or 3 / 1 if you want more banner-style */
-    max-height: 260px;      /* adjust up/down if you want taller or shorter cards */
+    aspect-ratio: 16 / 9;
+    max-height: 260px;
 }
 
-/* Make images fully fill that frame, cropping instead of shrinking */
 .section-dark .card-grid .card-image {
     width: 100%;
     height: 100%;
-    object-fit: cover;       /* key line */
+    object-fit: cover;
     display: block;
 }
-
-
-/*-------------------- Neon Menu --------------------------*/
-/* === NEON LINK PORTAL === */
-
-.neon-links {
-    background: radial-gradient(circle at top, #0f172a 0%, #020617 55%, #000 100%);
-    text-align: center;
-    padding: 3rem 1.5rem 3.5rem;
-}
-
-.neon-links h2 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.neon-links p {
-    max-width: 520px;
-    margin: 0 auto 2rem;
-    font-size: 0.95rem;
-    color: #e2e8f0;
-}
-
-/* neon button core */
-
-.neon-btn {
-    display: inline-block;
-    text-decoration: none;
-    font-size: 0.9rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #14fff1;
-    border: 2px solid #14fff1;
-    padding: 0.7rem 3rem;
-    border-radius: 999px;
-    margin: 0.35rem 0.5rem;
-
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.35), 0 0 22px #14fff1;
-
-    box-shadow: inset 0 0 22px #14fff1, 0 0 22px #14fff1;
-
-    position: relative;
-    transition: color 120ms linear, background-color 120ms linear, transform 120ms ease-out;
-}
-
-.neon-btn::before {
-    pointer-events: none;
-    content: "";
-    position: absolute;
-    width: 0%;
-    height: 0%;
-    background-color: #14fff1;
-    left: 0;
-    top: 120%;
-    transform: perspective(64px) rotateX(40deg) scale(1, 0.35);
-    filter: blur(48px);
-    opacity: 0.7;
-}
-
-.neon-btn::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-color: #14fff1;
-    box-shadow: 0 0 96px 24px #14fff1;
-    z-index: -1;
-    opacity: 0;
-    transition: opacity 120ms linear;
-}
-
-.neon-btn:hover::after,
-.neon-btn:focus-visible::after {
-    opacity: 1;
-}
-
-.neon-btn:hover::before,
-.neon-btn:focus-visible::before {
-    opacity: 1;
-}
-
-.neon-btn:hover,
-.neon-btn:focus-visible {
-    color: #020617;
-    background-color: #14fff1;
-    text-shadow: none;
-    transform: translateY(-1px);
-}
-
