@@ -136,7 +136,6 @@ body {
 }
 
 /* Neon color variants */
-
 .color-blue    { color: #4cc3ff; }
 .color-purple  { color: #c084fc; }
 .color-cyan    { color: #5ffffa; }
@@ -144,7 +143,6 @@ body {
 .color-gold    { color: #ffe27a; }
 
 /* Glow effect */
-
 .neon-link:hover,
 .neon-link:focus-visible {
     box-shadow: 0 0 18px currentColor, inset 0 0 18px currentColor;
@@ -154,7 +152,6 @@ body {
 }
 
 /* Mobile toggle */
-
 .neon-nav-toggle {
     display: none;
     flex-direction: column;
@@ -172,7 +169,6 @@ body {
 }
 
 /* Mobile menu behavior */
-
 @media (max-width: 820px) {
     .neon-nav-toggle {
         display: flex;
@@ -462,23 +458,28 @@ body {
     box-shadow: var(--shadow-subtle);
 }
 
+/* Card link should stack content vertically */
 .card-link {
-    display: block;
+    display: flex;
+    flex-direction: column;
     color: inherit;
     text-decoration: none;
     height: 100%;
 }
 
+/* SINGLE SOURCE OF TRUTH for card images */
 .card-image-wrap {
-    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
     overflow: hidden;
-    max-height: 290px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.03);
 }
 
 .card-image {
-    display: block;
     width: 100%;
     height: 100%;
+    display: block;
     object-fit: cover;
     transform: scale(1.01);
     transition: transform 0.25s ease-out;
@@ -494,17 +495,20 @@ body {
     letter-spacing: 0.14em;
     color: var(--text-muted);
     margin-bottom: 0.4rem;
+    line-height: 1.2;
 }
 
 .card-title {
     font-size: 1.05rem;
     margin-bottom: 0.45rem;
+    line-height: 1.2;
 }
 
 .card-text {
     font-size: 0.9rem;
     color: var(--text-soft);
     margin-bottom: 0.7rem;
+    line-height: 1.55;
 }
 
 .card-cta {
@@ -698,61 +702,3 @@ body {
         grid-template-columns: minmax(0, 1fr);
     }
 }
-
-/* ---------- Blog card image normalization ---------- */
-
-/* Only affect the blog cards in the dark insights section */
-.section-dark .card-grid .card-image-wrap {
-    position: relative;
-    overflow: hidden;
-    border-radius: 18px;
-    aspect-ratio: 16 / 9;
-    max-height: 260px;
-}
-
-.section-dark .card-grid .card-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-/* === FIX: make card images full-width with stable height === */
-.card-image-wrap{
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  height: auto;           /* let aspect-ratio define the height */
-  max-height: none;       /* remove the "maybe" height */
-  overflow: hidden;
-}
-
-.card-image{
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
-}
-
-/* === CARD IMAGE FIX: consistent, full-width, clean crop === */
-.card-link{
-  display: flex;
-  flex-direction: column;
-}
-
-.card-image-wrap{
-  width: 100%;
-  aspect-ratio: 21 / 9;   /* try 16/9 if you want taller */
-  overflow: hidden;
-  border-radius: 18px;
-}
-
-.card-image{
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
-}
-
-
-
-
