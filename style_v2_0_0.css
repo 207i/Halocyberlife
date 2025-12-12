@@ -716,3 +716,19 @@ body {
     object-fit: cover;
     display: block;
 }
+
+/* === FIX: make card images full-width with stable height === */
+.card-image-wrap{
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;           /* let aspect-ratio define the height */
+  max-height: none;       /* remove the "maybe" height */
+  overflow: hidden;
+}
+
+.card-image{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
