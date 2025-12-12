@@ -483,7 +483,7 @@ body {
 .card-image-wrap {
     position: relative;
     overflow: hidden;
-    max-height: 220px;
+    max-height: 290px;
 }
 
 .card-image {
