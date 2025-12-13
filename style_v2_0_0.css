@@ -702,3 +702,90 @@ body {
         grid-template-columns: minmax(0, 1fr);
     }
 }
+
+
+
+
+
+
+
+
+
+/* ===== Header styles for .site-header (matches your contact page HTML) ===== */
+.site-header{
+  width: 100%;
+  padding: 1rem 0;
+  background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+}
+
+.header-inner{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.brand-link{
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.brand-logo{
+  width: 44px;          /* THIS prevents the giant logo issue */
+  height: 44px;
+  object-fit: contain;
+  display: block;
+}
+
+.brand-text{
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  color: #fff;
+}
+
+.main-nav .nav-list{
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  list-style: none;
+}
+
+.main-nav .nav-link{
+  padding: .55rem 1rem;
+  border-radius: var(--radius-pill);
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: .08em;
+  font-size: .9rem;
+  text-transform: uppercase;
+  color: #fff;
+  border: 2px solid rgba(255,255,255,0.45);
+  transition: .2s ease;
+}
+
+.main-nav .nav-link:hover,
+.main-nav .nav-link:focus-visible{
+  border-color: var(--accent-secondary);
+  box-shadow: 0 0 18px rgba(34,211,238,0.45);
+}
+
+/* Mobile: hide nav by default, show when toggled via JS */
+@media (max-width: 820px){
+  .nav-toggle{ display: flex; flex-direction: column; gap: 5px; background: transparent; border: 0; cursor: pointer; }
+  .nav-toggle-line{ width: 24px; height: 3px; background: #fff; border-radius: 3px; }
+
+  .main-nav{ position: absolute; top: 100%; left: 0; right: 0; display: none; padding: 1rem 0; background: rgba(0,0,0,0.92); }
+  .main-nav.open{ display: block; }
+  .main-nav .nav-list{ flex-direction: column; gap: .9rem; justify-content: center; }
+}
+
+
