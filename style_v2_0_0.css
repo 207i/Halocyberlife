@@ -706,12 +706,12 @@ body {
 
 
 
+/*=========== Patching/udgrade need to clean entire css when im satisfy ==================*/
 
 
 
 
-
-/* ===== Header styles for .site-header (matches your contact page HTML) ===== */
+/* ===== Header styles for .site-header ===== */
 .site-header{
   width: 100%;
   padding: 1rem 0;
@@ -788,4 +788,126 @@ body {
   .main-nav .nav-list{ flex-direction: column; gap: .9rem; justify-content: center; }
 }
 
+/* =========================
+   CONTACT PAGE POLISH 
+   ========================= */
+
+/* Make section header feel more “hero” */
+.section-header h1{
+  font-size: clamp(2rem, 3.2vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  margin-bottom: .5rem;
+}
+
+.section-header p{
+  max-width: 52ch;
+  margin: 0.35rem auto 0;
+  color: rgba(209,213,219,0.85);
+}
+
+/* Align split content to top (not vertically centered) */
+@media (min-width: 768px){
+  .section-split{
+    align-items: start; /* overrides your current center */
+    gap: 2.6rem;
+  }
+}
+
+/* Fix the white card — keep it “soft glass” instead */
+.section-card{
+  background: rgba(16, 22, 40, 0.72);
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  color: var(--text-soft);
+  backdrop-filter: blur(10px);
+}
+
+.section-card h3{
+  color: var(--text-main);
+  margin-bottom: .7rem;
+}
+
+/* Bullet links cleaner */
+.section-card a{
+  color: var(--accent-secondary);
+  text-decoration: none;
+}
+.section-card a:hover{ text-decoration: underline; }
+
+/* Form card: tighter, cleaner, more “app-like” */
+.contact-form.card{
+  border-radius: 20px;
+}
+
+.contact-form .card-body{
+  padding: 1.35rem 1.35rem 1.2rem;
+}
+
+.contact-form .card-title{
+  font-size: 1.15rem;
+  margin-bottom: .35rem;
+}
+
+.contact-form .card-text{
+  color: rgba(209,213,219,0.82);
+  margin-bottom: 1rem;
+}
+
+/* Make form groups breathe */
+.form-group{
+  margin-top: .85rem;
+}
+
+/* Labels: small + consistent */
+.form-group label{
+  display: inline-block;
+  font-size: .85rem;
+  letter-spacing: .02em;
+  color: rgba(209,213,219,0.9);
+  margin-bottom: .35rem;
+}
+
+/* Inputs: full width, modern, readable */
+.contact-form input,
+.contact-form select,
+.contact-form textarea{
+  width: 100%;
+  font: inherit;
+  color: var(--text-main);
+  background: rgba(2, 6, 23, 0.55);
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  border-radius: 14px;
+  padding: .7rem .85rem;
+  outline: none;
+}
+
+.contact-form textarea{
+  resize: vertical;
+  min-height: 140px;
+}
+
+/* Focus glow */
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus{
+  border-color: rgba(34, 211, 238, 0.65);
+  box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.14);
+}
+
+/* Button: bigger + centered */
+.contact-form .primary-btn{
+  width: 100%;
+  margin-top: .85rem !important;
+  padding: .85rem 1rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+}
+
+/* Improve link contrast in footer column */
+.site-footer a{
+  color: rgba(209,213,219,0.88);
+}
+.site-footer a:hover{
+  color: var(--accent-secondary);
+}
 
