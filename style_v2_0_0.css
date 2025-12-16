@@ -487,8 +487,12 @@ body {
     height: 100%;
     display: block;
     object-fit: cover;
-    transform: scale(1.01);
+    transform: scale(1);
     transition: transform 0.25s ease-out;
+}
+
+.card:hover .card-image{
+  transform: scale(1.05);
 }
 
 .card-body {
