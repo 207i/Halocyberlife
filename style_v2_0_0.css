@@ -468,12 +468,18 @@ body {
 }
 
 /* SINGLE SOURCE OF TRUTH for card images */
-.card-image-wrap {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    overflow: hidden;
-    border-radius: 18px;
-    background: rgba(255, 255, 255, 0.03);
+.card-image-wrap{
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+.card-image-wrap{
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: 18px;
+  width: 100%;
+  background: rgba(0,0,0,.15);
 }
 
 .card-image {
