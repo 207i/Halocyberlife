@@ -406,8 +406,7 @@
     <button class="back-to-top" aria-label="Back to top">↑</button>
   </footer>
 
-  <script src="../main_v2_0_0.js"></script>
-  <script>
+<script>
 (() => {
   const slider = document.querySelector(".vision-slider");
   if (!slider) return;
@@ -457,7 +456,45 @@
   // Swipe support (mobile)
   let startX = 0;
   let isDown = false;
-  const viewport = slider.q
+  const viewport = slider.querySelector(".vision-slider__viewport");
 
+  viewport.addEventListener("pointerdown", (e) => {
+    isDown = true;
+    startX = e.clientX;
+  });
+
+  viewport.addEventListener("pointerup", (e) => {
+    if (!isDown) return;
+    isDown = false;
+    const dx = e.clientX - startX;
+    if (Math.abs(dx) > 40) {
+      dx < 0 ? next(true) : prev(true);
+    }
+  });
+
+  viewport.addEventListener("pointercancel", () => { isDown = false; });
+
+  function startAutoplay() {
+    stopAutoplay();
+    timer = setInterval(() => next(false), 5000);
+  }
+
+  function stopAutoplay() {
+    if (timer) clearInterval(timer);
+    timer = null;
+  }
+
+  function restartAutoplay() {
+    startAutoplay();
+  }
+
+  // Pause autoplay on hover (desktop)
+  slider.addEventListener("mouseenter", stopAutoplay);
+  slider.addEventListener("mouseleave", startAutoplay);
+
+  update();
+  startAutoplay();
+})();
+</script>
 </body>
 </html>
