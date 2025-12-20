@@ -980,4 +980,43 @@ body {
   }
 }
 
+/* Resonance Tech Vision - Gallery */
+.vision-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap:16px;
+  margin-top:16px;
+}
 
+.vision-card{
+  margin:0;
+  border-radius:16px;
+  overflow:hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.03);
+}
+
+.vision-card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  display:block;
+}
+
+.vision-card figcaption{
+  padding:12px 12px 14px;
+  font-size:0.95rem;
+  line-height:1.35;
+}
+
+.note-box{
+  margin-top:18px;
+  padding:14px 14px 12px;
+  border-radius:14px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.04);
+}
+
+.note-box h4{
+  margin:0 0 8px 0;
+}
