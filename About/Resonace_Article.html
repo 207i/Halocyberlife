@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0b0f1a" />
+
+  <title>Resonance & Frequency Tech | HaloCyberLife</title>
+  <meta name="description" content="A HaloCyberLife knowledge article on resonance, frequency, harmonics, photonics, and real-world technologies that use wave behavior to do useful work." />
+  <meta name="keywords" content="resonance, frequency, harmonics, photonics, acoustics, electromagnetics, vibration, energy, HaloCyberLife" />
+  <meta name="author" content="Luis Amaya" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Resonance & Frequency Tech | HaloCyberLife" />
+  <meta property="og:description" content="A practical, idea-rich guide to resonance and frequency-based technology—from sound and EM to photonic and experimental systems." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://halocyberlife.com/Article_Resonance.html" />
+  <meta property="og:site_name" content="HaloCyberLife" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Resonance & Frequency Tech | HaloCyberLife" />
+  <meta name="twitter:description" content="Resonance, harmonics, wave behavior, and the tech that turns them into results." />
+
+  <!-- Optional: if you already have a site stylesheet, keep this line and delete the <style> block below -->
+  <!-- <link rel="stylesheet" href="/style_v2_0_2.css" /> -->
+
+  <style>
+    :root{
+      --bg:#0b0f1a;
+      --panel:#111a2a;
+      --panel2:#0f1726;
+      --text:#e7eefc;
+      --muted:#a9b7d6;
+      --line:rgba(255,255,255,0.10);
+      --accent:#8b5cf6;
+      --accent2:#22d3ee;
+      --good:#34d399;
+      --warn:#fbbf24;
+      --bad:#fb7185;
+      --radius:18px;
+      --shadow: 0 12px 30px rgba(0,0,0,0.35);
+      --max: 1060px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(900px 600px at 20% -10%, rgba(139,92,246,0.25), transparent 55%),
+                  radial-gradient(900px 600px at 80% 0%, rgba(34,211,238,0.18), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.55;
+    }
+    a{color:inherit;text-decoration:none}
+    a:hover{color:var(--accent2)}
+    .wrap{max-width:var(--max); margin:0 auto; padding:24px 18px 64px}
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      background: rgba(11,15,26,0.70);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+    .topbar-inner{max-width:var(--max); margin:0 auto; padding:14px 18px; display:flex; align-items:center; gap:14px;}
+    .brand{
+      display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:0.4px;
+    }
+    .brand-badge{
+      width:34px; height:34px; border-radius:12px;
+      background: linear-gradient(135deg, rgba(139,92,246,1), rgba(34,211,238,1));
+      box-shadow: 0 10px 25px rgba(139,92,246,0.25);
+    }
+    nav{margin-left:auto; display:flex; gap:10px; flex-wrap:wrap}
+    .navlink{
+      padding:8px 12px; border-radius:999px;
+      border:1px solid transparent;
+      color:var(--muted);
+      transition: 0.2s ease;
+    }
+    .navlink:hover{border-color:var(--line); color:var(--text)}
+    .navlink.active{border-color:rgba(139,92,246,0.55); color:var(--text)}
+    .hero{
+      margin-top:18px;
+      background: linear-gradient(180deg, rgba(17,26,42,0.75), rgba(17,26,42,0.35));
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .hero-inner{padding:26px}
+    .crumbs{color:var(--muted); font-size:0.95rem}
+    .crumbs a{color:var(--muted)}
+    .crumbs a:hover{color:var(--text)}
+    h1{margin:10px 0 8px; font-size:2.15rem; line-height:1.1}
+    .sub{color:var(--muted); max-width: 70ch; margin:0}
+    .meta{display:flex; gap:14px; flex-wrap:wrap; margin-top:14px; color:var(--muted); font-size:0.95rem}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:6px 10px; border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(15,23,38,0.55);
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:18px;
+      margin-top:18px;
+    }
+    @media (min-width: 980px){
+      .grid{grid-template-columns: 0.38fr 0.62fr; align-items:start}
+      .sidebar{position:sticky; top:92px}
+    }
+    .card{
+      background: rgba(17,26,42,0.55);
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .card-inner{padding:18px}
+    .card h2{margin:0 0 10px; font-size:1.25rem}
+    .toc a{display:block; padding:8px 10px; border-radius:12px; color:var(--muted); border:1px solid transparent}
+    .toc a:hover{border-color:var(--line); color:var(--text)}
+    .section{scroll-margin-top: 110px;}
+    .section h2{font-size:1.5rem; margin:0 0 8px}
+    .section p{margin:0 0 12px; color:var(--text)}
+    .muted{color:var(--muted)}
+    .callout{
+      border-left: 4px solid rgba(139,92,246,0.85);
+      background: rgba(139,92,246,0.10);
+      padding:12px 12px 12px 14px;
+      border-radius: 12px;
+      margin: 12px 0;
+    }
+    .callout strong{color:var(--text)}
+    .chips{display:flex; gap:8px; flex-wrap:wrap; margin-top:10px}
+    .chip{
+      font-size:0.9rem;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      color:var(--muted);
+      background: rgba(15,23,38,0.40);
+    }
+    .two{
+      display:grid; gap:14px;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 720px){ .two{grid-template-columns: 1fr 1fr;} }
+    .mini{
+      border:1px solid var(--line);
+      background: rgba(15,23,38,0.45);
+      border-radius: 16px;
+      padding:14px;
+    }
+    .mini h3{margin:0 0 8px; font-size:1.05rem}
+    .mini p{margin:0; color:var(--muted)}
+    .hr{height:1px; background: var(--line); margin:16px 0}
+    .footer{
+      margin-top:26px;
+      color:var(--muted);
+      font-size:0.95rem;
+      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(17,26,42,0.75), rgba(17,26,42,0.35));
+      color: var(--text);
+      cursor:pointer;
+      transition:0.2s ease;
+    }
+    .btn:hover{border-color: rgba(34,211,238,0.55); transform: translateY(-1px)}
+    .btnrow{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
+    code,kbd{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;}
+  </style>
+
+  <!-- Optional schema.org Article -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"Resonance & Frequency Tech",
+    "author":{"@type":"Person","name":"Luis Amaya"},
+    "publisher":{"@type":"Organization","name":"HaloCyberLife"},
+    "mainEntityOfPage":"https://halocyberlife.com/Article_Resonance.html",
+    "about":["Resonance","Frequency","Harmonics","Photonics","Acoustics","Electromagnetics"]
+  }
+  </script>
+</head>
+
+<body>
+  <!-- Top Navigation -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="../index.html" aria-label="HaloCyberLife Home">
+        <span class="brand-badge" aria-hidden="true"></span>
+        <span>HaloCyberLife</span>
+      </a>
+
+      <nav aria-label="Primary">
+        <a class="navlink" href="../index.html">Home</a>
+        <a class="navlink" href="../about.html">About</a>
+        <a class="navlink active" href="../Article_Resonance.html">Articles</a>
+        <a class="navlink" href="../contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="crumbs">
+          <a href="../index.html">Home</a> <span class="muted">/</span>
+          <a href="../about.html">About</a> <span class="muted">/</span>
+          <span class="muted">Article</span>
+        </div>
+
+        <h1>Resonance & Frequency Tech</h1>
+        <p class="sub">
+          A HaloCyberLife knowledge page on resonance, harmonics, wave behavior, and technologies—real and experimental—that use frequency
