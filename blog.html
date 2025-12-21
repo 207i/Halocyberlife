@@ -2,15 +2,14 @@
 <html lang="en">
 <head>
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0HZN617CB1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0HZN617CB1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-0HZN617CB1');
+  </script>
 
-  gtag('config', 'G-0HZN617CB1');
-</script>
-  <!-- Halocyberlife: Blog / Articles -->
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -40,6 +39,18 @@
 
   <!-- Main stylesheet -->
   <link rel="stylesheet" href="style_v2_0_0.css" />
+
+  <!-- Small safety net so images/margins never go wild -->
+  <style>
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 18px; }
+    .articles-grid { display: grid; gap: 18px; grid-template-columns: repeat(12, 1fr); }
+    .articles-grid .card { grid-column: span 12; overflow: hidden; }
+    @media (min-width: 820px) { .articles-grid .card { grid-column: span 6; } }
+
+    .card-image-wrap { width: 100%; overflow: hidden; border-radius: 16px; }
+    .card-image { width: 100%; height: 320px; object-fit: cover; display: block; }
+    @media (max-width: 520px) { .card-image { height: 220px; } }
+  </style>
 </head>
 
 <body>
@@ -95,45 +106,42 @@
       </div>
     </section>
 
-    
-          <!-- Coming soon 1 -->
-         <article class="card card-soft coming-soon">
-            <a href="./blog/resonance_light_energy.html" class="card-link" aria-disabled="true">
+    <!-- Articles -->
+    <section class="section">
+      <div class="container">
+        <div class="articles-grid">
+          <!-- Card 1 -->
+          <article class="card card-soft coming-soon">
+            <a href="./blog/resonance_light_energy.html" class="card-link" aria-disabled="false">
               <div class="card-image-wrap">
-                <img src="images/Resonance_Light.png"
-                     alt="Abstract geometric placeholder for future article"
-                     class="card-image"
-                     loading="lazy" />
+                <img src="images/Resonance_Light.png" alt="Resonance and light experimentation visual" class="card-image" loading="lazy" />
               </div>
               <div class="card-body">
-                <p class="card-meta">Experiments & Tech · Coming Soon</p>
-                <h2 class="card-title">Resonance, Energy & Experimental Devices</h2>
+                <p class="card-meta">Experiments &amp; Tech</p>
+                <h2 class="card-title">Resonance, Energy &amp; Experimental Devices</h2>
                 <p class="card-text">
                   A build-log style archive: resonance concepts, prototypes, material experiments, and how ideas evolve
                   from theory into tested hardware.
                 </p>
-                <span class="card-cta">Soon →</span>
+                <span class="card-cta">Read →</span>
               </div>
             </a>
-          </article>      
+          </article>
 
-          <!-- Coming soon 2 -->
-        <article class="card card-soft coming-soon">
-            <a href="./blog/pyramid.html" class="card-link" aria-disabled="true">
+          <!-- Card 2 -->
+          <article class="card card-soft coming-soon">
+            <a href="./blog/pyramid.html" class="card-link" aria-disabled="false">
               <div class="card-image-wrap">
-                <img src="images/Pyramid_image.png"
-                     alt="Abstract cosmic background placeholder for future article"
-                     class="card-image"
-                     loading="lazy" />
+                <img src="images/Pyramid_image.png" alt="Pyramids and hidden architecture visual" class="card-image" loading="lazy" />
               </div>
               <div class="card-body">
-                <p class="card-meta">Coming Soon</p>
-                <h2 class="card-title">Pyramids & Hidden Architecture</h2>
+                <p class="card-meta">Inner Wisdom</p>
+                <h2 class="card-title">Pyramids &amp; Hidden Architecture</h2>
                 <p class="card-text">
-                  A future series exploring ancient structures, geometric intelligence, and what the mainstream story leaves out —
+                  A series exploring ancient structures, geometric intelligence, and what the mainstream story leaves out —
                   with grounded analysis and clear visuals.
                 </p>
-                <span class="card-cta">Soon →</span>
+                <span class="card-cta">Read →</span>
               </div>
             </a>
           </article>
@@ -189,3 +197,25 @@
   <script src="main_v2_0_0.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
