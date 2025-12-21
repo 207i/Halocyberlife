@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>NEW ARTICLE TITLE | Halocyberlife</title>
+  <meta name="description" content="Write your new article description here." />
+  <meta name="author" content="Luis Amaya" />
+  <meta name="keywords" content="resonance, photonics, frequency, experimental technology" />
+
+  <!-- OPTIONAL: if you want your global site CSS too, keep this -->
+  <!-- <link rel="stylesheet" href="../style_v2_0_0.css" /> -->
+
+  <!-- Inline page styles (self-contained) -->
+  <style>
+    :root{
+      --bg: #020617;
+      --bg2:#0b1020;
+      --text:#f9fafb;
+      --muted:#9ca3af;
+      --soft:#d1d5db;
+      --border: rgba(148,163,184,0.28);
+      --accent:#22d3ee;
+      --accent2:#8b5cf6;
+      --radius:18px;
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{
+      font-family: system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020617 55%, #02040a 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a{ color: var(--accent); text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+
+    .container{
+      width:100%;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    /* Simple header (self-contained). Replace with your site header if you want. */
+    header{
+      position: sticky;
+      top:0;
+      z-index: 50;
+      background: rgba(0,0,0,0.65);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+    }
+    .header-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:1rem;
+      padding: 0.9rem 0;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:.65rem;
+      font-weight:700;
+      letter-spacing:.05em;
+      text-transform: uppercase;
+      font-size:.9rem;
+      color: var(--text);
+    }
+    .brand img{
+      width:40px; height:40px; object-fit:contain;
+    }
+    nav a{
+      display:inline-block;
+      padding:.5rem .9rem;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.18);
+      color: var(--text);
+      font-size:.85rem;
+      letter-spacing:.08em;
+      text-transform: uppercase;
+      margin-left:.4rem;
+      background: rgba(255,255,255,0.05);
+    }
+    nav a:hover{
+      border-color: rgba(34,211,238,0.65);
+      box-shadow: 0 0 18px rgba(34,211,238,0.18);
+      text-decoration:none;
+    }
+
+    main{ padding: 2rem 0 3rem; }
+
+    .article-head{
+      text-align:center;
+      margin: 1rem auto 1.25rem;
+    }
+    .meta{
+      color: var(--muted);
+      font-size: .85rem;
+      letter-spacing:.12em;
+      text-transform: uppercase;
+      margin-bottom:.6rem;
+    }
+    h1{
+      font-size: clamp(1.9rem, 3vw, 2.6rem);
+      line-height:1.15;
+      margin-bottom:.6rem;
+    }
+    .subtitle{
+      color: var(--soft);
+      max-width: 760px;
+      margin: 0 auto;
+      font-size: 1rem;
+    }
+
+    /* =========================
+       Vision Slider (working)
+       ========================= */
+    .vision-slider{
+      margin: 1.25rem auto 1.5rem;
+    }
+    .vision-viewport{
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+    }
+    .vision-track{
+      display:flex;
+      width:100%;
+      transform: translateX(0);
+      transition: transform .45s ease;
+    }
+    .vision-slide{
+      flex: 0 0 100%;
+      margin:0;
+    }
+    .vision-slide img{
+      width:100%;
+      height: clamp(240px, 44vw, 520px);
+      display:block;
+      object-fit: cover;
+      background: rgba(255,255,255,0.05);
+    }
+    .vision-slide figcaption{
+      padding: .7rem .85rem;
+      font-size: .95rem;
+      color: rgba(209,213,219,0.92);
+      background: rgba(2,6,23,0.62);
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .vision-btn{
+      position:absolute;
+      top:50%;
+      transform: translateY(-50%);
+      width: 42px;
+      height: 42px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.18);
+      background: rgba(2,6,23,0.55);
+      color:#fff;
+      font-size: 1.6rem;
+      line-height:1;
+      cursor:pointer;
+      display:grid;
+      place-items:center;
+      z-index: 5;
+      user-select:none;
+    }
+    .vision-btn:hover{
+      border-color: rgba(34,211,238,0.65);
+      box-shadow: 0 0 18px rgba(34,211,238,0.20);
+    }
+    .vision-prev{ left: 12px; }
+    .vision-next{ right: 12px; }
+
+    .vision-dots{
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      margin-top: 12px;
+    }
+    .vision-dot{
+      width:10px;
+      height:10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.35);
+      background: rgba(255,255,255,0.10);
+      cursor:pointer;
+    }
+    .vision-dot[aria-selected="true"]{
+      background: rgba(34,211,238,0.9);
+      border-color: rgba(34,211,238,0.95);
+    }
+
+    .note{
+      margin-top: 10px;
+      color: rgba(209,213,219,0.82);
+      font-size: .92rem;
+      text-align:center;
+    }
+
+    /* Article body */
+    .article-body{
+      max-width: 760px;
+      margin: 0 auto;
+      font-size: 1rem;
+      color: rgba(209,213,219,0.92);
+    }
+    .article-body h2{
+      margin: 1.6rem 0 .6rem;
+      color: var(--text);
+      font-size: 1.35rem;
+    }
+    .article-body p{ margin: .75rem 0; }
+    .article-body ul, .article-body ol{
+      margin: .6rem 0 .9rem 1.2rem;
+    }
+    hr{
+      border:0;
+      border-top:1px solid rgba(148,163,184,0.35);
+      margin: 1.6rem 0;
+    }
+
+    footer{
+      border-top: 1px solid rgba(148,163,184,0.25);
+      margin-top: 2.5rem;
+      padding: 1.5rem 0 2rem;
+      color: rgba(156,163,175,0.9);
+      font-size: .9rem;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container header-inner">
+      <div class="brand">
+        <!-- OPTIONAL logo path (edit or remove) -->
+        <img src="../images/negative_white_halocyberlife_logo.png" alt="Halocyberlife logo" />
+        <span>Halocyberlife</span>
+      </div>
+      <nav>
+        <a href="../index.html">Home</a>
+        <a href="../blog.html">Articles</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="article-head">
+      <p class="meta">Experiments &amp; Tech · New Article</p>
+      <h1>NEW ARTICLE TITLE GOES HERE</h1>
+      <p class="subtitle">
+        Write a short subtitle that previews the idea. Keep it 1–2 lines. This page is a clean template with a working slider.
+      </p>
+    </section>
+
+    <!-- ===== Working Slider ===== -->
+    <section class="vision-slider" aria-label="Article image slider">
+      <div class="vision-viewport">
+        <div class="vision-track">
+
+          <!-- Slide 1 (edit src + caption) -->
+          <figure class="vision-slide">
+            <img src="./Images/blog_images/resonance-activated-wall-panels.png"
+                 alt="Slide 1"
+                 loading="eager" />
+            <figcaption>Slide caption 1 — replace me</figcaption>
+          </figure>
+
+          <!-- Slide 2 -->
+          <figure class="vision-slide">
+            <img src="./Images/blog_images/resonant-frequency-wave-instruction.png"
+                 alt="Slide 2"
+                 loading="lazy" />
+            <figcaption>Slide caption 2 — replace me</figcaption>
+          </figure>
+
+          <!-- Slide 3 -->
+          <figure class="vision-slide">
+            <img src="./Images/blog_images/resonant-photonic-layer-stack.png"
+                 alt="Slide 3"
+                 loading="lazy" />
+            <figcaption>Slide caption 3 — replace me</figcaption>
+          </figure>
+
+        </div>
+
+        <button class="vision-btn vision-prev" type="button" aria-label="Previous slide">‹</button>
+        <button class="vision-btn vision-next" type="button" aria-label="Next slide">›</button>
+      </div>
+
+      <div class="vision-dots" role="tablist" aria-label="Slide navigation"></div>
+
+      <p class="note">
+        <strong>Concept Visuals:</strong> These are illustrative renderings of possible implementations.
+      </p>
+    </section>
+
+    <!-- ===== Article Body (replace with your content) ===== -->
+    <article class="article-body">
+      <p>
+        Paste your new article content here. This template is meant to be easy to extend.
+      </p>
+
+      <hr />
+
+      <h2>Section Heading</h2>
+      <p>
+        Add your paragraphs, bullet lists, and embedded images below.
+      </p>
+
+      <ul>
+        <li>Point one</li>
+        <li>Point two</li>
+        <li>Point three</li>
+      </ul>
+
+      <h2>Another Section</h2>
+      <p>
+        Keep building. When you’re ready, we’ll add your patent visuals under each “bubble subject” in the body.
+      </p>
+    </article>
+
+    <footer>
+      © <span id="year"></span> Halocyberlife.com · Built as a clean, self-contained article template.
+    </footer>
+  </main>
+
+  <!-- Inline JS (self-contained) -->
+  <script>
+    (() => {
+      // Footer year
+      const y = document.getElementById("year");
+      if (y) y.textContent = String(new Date().getFullYear());
+
+      // Slider
+      const slider = document.querySelector(".vision-slider");
+      if (!slider) return;
+
+      const track = slider.querySelector(".vision-track");
+      const slides = Array.from(slider.querySelectorAll(".vision-slide"));
+      const prevBtn = slider.querySelector(".vision-prev");
+      const nextBtn = slider.querySelector(".vision-next");
+      const dotsWrap = slider.querySelector(".vision-dots");
+      const viewport = slider.querySelector(".vision-viewport");
+
+      if (!track || slides.length === 0 || !prevBtn || !nextBtn || !dotsWrap) return;
+
+      let index = 0;
+      let timer = null;
+
+      // Build dots
+      dotsWrap.innerHTML = "";
+      slides.forEach((_, i) => {
+        const dot = document.createElement("button");
+        dot.type = "button";
+        dot.className = "vision-dot";
+        dot.setAttribute("aria-label", "Go to slide " + (i + 1));
+        dot.setAttribute("aria-selected", i === 0 ? "true" : "false");
+        dot.addEventListener("click", () => goTo(i, true));
+        dotsWrap.appendChild(dot);
+      });
+      const dots = Array.from(slider.querySelectorAll(".vision-dot"));
+
+      function update() {
+        track.style.transform = "translateX(-" + (index * 100) + "%)";
+        dots.forEach((d, i) => d.setAttribute("aria-selected", i === index ? "true" : "false"));
+      }
+
+      function goTo(i, userAction=false) {
+        index = (i + slides.length) % slides.length;
+        update();
+        if (userAction) restartAutoplay();
+      }
+
+      function next(userAction=false) { goTo(index + 1, userAction); }
+      function prev(userAction=false) { goTo(index - 1, userAction); }
+
+      prevBtn.addEventListener("click", () => prev(true));
+      nextBtn.addEventListener("click", () => next(true));
+
+      // Mobile swipe
+      let startX = 0;
+      let down = false;
+
+      if (viewport) {
+        viewport.addEventListener("pointerdown", (e) => {
+          down = true;
+          startX = e.clientX;
+        });
+
+        viewport.addEventListener("pointerup", (e) => {
+          if (!down) return;
+          down = false;
+          const dx = e.clientX - startX;
+          if (Math.abs(dx) > 40) dx < 0 ? next(true) : prev(true);
+        });
+
+        viewport.addEventListener("pointercancel", () => { down = false; });
+      }
+
+      function startAutoplay() {
+        stopAutoplay();
+        timer = setInterval(() => next(false), 5000);
+      }
+      function stopAutoplay() {
+        if (timer) clearInterval(timer);
+        timer = null;
+      }
+      function restartAutoplay() { startAutoplay(); }
+
+      // Pause on hover (desktop)
+      slider.addEventListener("mouseenter", stopAutoplay);
+      slider.addEventListener("mouseleave", startAutoplay);
+
+      update();
+      startAutoplay();
+    })();
+  </script>
+</body>
+</html>
