@@ -36,7 +36,7 @@
       setExpanded(isOpen);
     });
 
-    // Close menu when clicking any nav link (nice mobile UX)
+    // Close menu when clicking any nav link (mobile UX)
     $$("a", siteNav).forEach((a) => {
       a.addEventListener("click", () => {
         if (siteNav.classList.contains("open")) {
@@ -64,7 +64,7 @@
   // -----------------------------
   // 4) Back to top button
   // -----------------------------
-  const backToTopBtn = $(".back-to-top");
+  const backToTopBtn = $(".back-to-top") || $("#backToTop");
   if (backToTopBtn) {
     const toggleBackToTop = () => {
       if (window.scrollY > 500) backToTopBtn.classList.add("show");
@@ -80,64 +80,115 @@
   }
 
   // -----------------------------
-  // 5) Contact form submit (POST /api/contact)
-  // Safe on pages without the form/status elements
+  // 5) Contact form submit (stable)
+  // - Uses form[data-endpoint] if provided
+  // - Falls back to /api/contact
+  // - Safe on pages without the form/status elements
   // -----------------------------
   const contactForm = $("#contactForm");
+
   if (contactForm) {
-    const status = $("#formStatus");
+    const statusEl = $("#formStatus");
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+
     const setStatus = (msg) => {
-      if (status) status.textContent = msg;
+      if (statusEl) statusEl.textContent = msg;
+    };
+
+    const setBusy = (busy) => {
+      if (!submitBtn) return;
+      submitBtn.disabled = busy;
+      submitBtn.style.opacity = busy ? "0.75" : "1";
+      submitBtn.style.cursor = busy ? "not-allowed" : "pointer";
+    };
+
+    // Endpoint priority:
+    // 1) <form data-endpoint="https://...">
+    // 2) form.action if you set action="https://..."
+    // 3) fallback /api/contact
+    const getEndpoint = () => {
+      const ds = contactForm.dataset?.endpoint?.trim();
+      if (ds) return ds;
+
+      const action = (contactForm.getAttribute("action") || "").trim();
+      if (action) return action;
+
+      return "/api/contact";
     };
 
     contactForm.addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      setStatus("Sending...");
+      setStatus("Sending…");
+      setBusy(true);
 
-      // Honeypot: if filled, silently stop (spam bots)
-      const company = contactForm.querySelector('input[name="company"]')?.value?.trim();
-      if (company) {
-        setStatus("✅ Sent.");
+      // Honeypot: if filled, silently pretend success
+      const hp = contactForm.querySelector("#company");
+      if (hp && hp.value.trim()) {
+        setStatus("Sent ✅");
         contactForm.reset();
+        setBusy(false);
         return;
       }
 
-      const data = Object.fromEntries(new FormData(contactForm).entries());
+      const fd = new FormData(contactForm);
+      const payload = {
+        name: String(fd.get("name") || "").trim(),
+        email: String(fd.get("email") || "").trim(),
+        subject: String(fd.get("subject") || "").trim(),
+        message: String(fd.get("message") || "").trim(),
+      };
 
       // Basic validation
-      if (!data.name || !data.email || !data.subject || !data.message) {
+      if (!payload.name || !payload.email || !payload.subject || !payload.message) {
         setStatus("❌ Please fill out all required fields.");
+        setBusy(false);
         return;
       }
 
+      // Light email sanity check (no overkill)
+      const looksLikeEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email);
+      if (!looksLikeEmail) {
+        setStatus("❌ Please enter a valid email address.");
+        setBusy(false);
+        return;
+      }
+
+      const endpoint = getEndpoint();
+
       try {
-        const res = await fetch("/api/contact", {
+        const res = await fetch(endpoint, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            name: data.name,
-            email: data.email,
-            subject: data.subject,
-            message: data.message,
-          }),
+          body: JSON.stringify(payload),
         });
 
-        if (!res.ok) throw new Error("Request failed");
+        // Try to read json for error messages (if any)
+        const data = await res.json().catch(() => ({}));
 
-        setStatus("✅ Sent. Thank you — your message was received.");
+        if (!res.ok) {
+          const msg =
+            data?.error ||
+            data?.message ||
+            `❌ Could not send right now. (HTTP ${res.status}) Please try again later.`;
+          setStatus(msg);
+          setBusy(false);
+          return;
+        }
+
+        setStatus("Sent ✅ Thanks — message received.");
         contactForm.reset();
       } catch (err) {
-        setStatus("❌ Could not send right now. Please try again later.");
+        setStatus("❌ Network error. Please try again.");
+      } finally {
+        setBusy(false);
       }
     });
   }
 
   // -----------------------------
   // 6) Vision Slider (optional GLOBAL)
-  // Keep this ONLY if you want the slider to work on any page that includes
-  // the .vision-slider HTML. Safe if missing.
-  // If you prefer inline JS inside the blog page, delete this section.
+  // Safe if missing.
   // -----------------------------
   const slider = $(".vision-slider");
   if (slider) {
@@ -151,7 +202,6 @@
       let index = 0;
       let timer = null;
 
-      // Build dots
       dotsWrap.innerHTML = "";
       slides.forEach((_, i) => {
         const dot = document.createElement("button");
@@ -182,7 +232,7 @@
       prevBtn.addEventListener("click", () => prev(true));
       nextBtn.addEventListener("click", () => next(true));
 
-      // Swipe support (mobile)
+      // Swipe support
       let startX = 0;
       let isDown = false;
       const viewport = $(".vision-slider__viewport", slider);
@@ -197,9 +247,7 @@
           if (!isDown) return;
           isDown = false;
           const dx = e.clientX - startX;
-          if (Math.abs(dx) > 40) {
-            dx < 0 ? next(true) : prev(true);
-          }
+          if (Math.abs(dx) > 40) dx < 0 ? next(true) : prev(true);
         });
 
         viewport.addEventListener("pointercancel", () => {
@@ -219,7 +267,6 @@
 
       const restartAutoplay = () => startAutoplay();
 
-      // Pause autoplay on hover
       slider.addEventListener("mouseenter", stopAutoplay);
       slider.addEventListener("mouseleave", startAutoplay);
 
@@ -228,7 +275,6 @@
     }
   }
 })();
-
 
 
 
