@@ -1,14 +1,11 @@
-// functions/api/contact.js
-
 export async function onRequestPost({ request, env }) {
   try {
     const form = await request.formData();
 
-    // Honeypot (spam trap)
+    // Honeypot spam trap
     const company = (form.get("company") || "").toString().trim();
     if (company) {
-      // Pretend success (bots get nothing)
-      return json({ ok: true });
+      return json({ ok: true }); // silently succeed (bot)
     }
 
     const name = (form.get("name") || "").toString().trim();
@@ -17,19 +14,24 @@ export async function onRequestPost({ request, env }) {
     const message = (form.get("message") || "").toString().trim();
 
     if (!name || !email || !subject || !message) {
-      return json({ ok: false, error: "Missing required fields." }, 400);
+      return json({ error: "Missing required fields." }, 400);
     }
 
-    // Send email using MailChannels (works great on Cloudflare)
-    const toEmail = env.TO_EMAIL;         // set in CF Pages env vars
-    const fromEmail = env.FROM_EMAIL;     // set in CF Pages env vars (ex: noreply@halocyberlife.com)
+    // ✅ Send email via MailChannels (works on Cloudflare Workers/Pages)
+    const toEmail = env.TO_EMAIL; // set in Pages env vars
+    const fromEmail = env.FROM_EMAIL || "noreply@halocyberlife.com";
 
-    if (!toEmail || !fromEmail) {
-      return json({ ok: false, error: "Server not configured (missing env vars)." }, 500);
-    }
-
-    const bodyText =
-`New Contact Form Message
+    const payload = {
+      personalizations: [
+        { to: [{ email: toEmail }], reply_to: { email, name } }
+      ],
+      from: { email: fromEmail, name: "Halocyberlife Contact Form" },
+      subject: `[Halocyberlife] ${subject}`,
+      content: [
+        {
+          type: "text/plain",
+          value:
+`New contact form submission:
 
 Name: ${name}
 Email: ${email}
@@ -37,34 +39,26 @@ Subject: ${subject}
 
 Message:
 ${message}
-`;
+`
+        }
+      ]
+    };
 
     const resp = await fetch("https://api.mailchannels.net/tx/v1/send", {
       method: "POST",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify({
-        personalizations: [{ to: [{ email: toEmail }] }],
-        from: { email: fromEmail, name: "Halocyberlife Contact" },
-        reply_to: { email, name },
-        subject: `Halocyberlife: ${subject}`,
-        content: [{ type: "text/plain", value: bodyText }]
-      })
+      body: JSON.stringify(payload),
     });
 
     if (!resp.ok) {
-      const errText = await resp.text().catch(() => "");
-      return json({ ok: false, error: "Email provider rejected the request.", details: errText }, 502);
+      const text = await resp.text().catch(() => "");
+      return json({ error: "Email service rejected the request.", detail: text }, 502);
     }
 
     return json({ ok: true });
   } catch (err) {
-    return json({ ok: false, error: "Server error." }, 500);
+    return json({ error: "Server error." }, 500);
   }
-}
-
-export async function onRequestGet() {
-  // Helpful if you visit /api/contact in browser
-  return new Response("OK - contact endpoint is alive. Use POST.", { status: 200 });
 }
 
 function json(data, status = 200) {
@@ -72,7 +66,7 @@ function json(data, status = 200) {
     status,
     headers: {
       "content-type": "application/json",
-      "cache-control": "no-store"
-    }
+      "cache-control": "no-store",
+    },
   });
 }
