@@ -5,118 +5,108 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Resonance Light Energy — Patent (Public) | Halocyberlife</title>
-  <meta name="description" content="Read the full public patent PDF for Resonance Light Energy by Luis Amaya / Halo Cyber Life." />
+  <title>Resonance Light Energy — Public Patent | Halocyberlife</title>
+  <meta name="description" content="Public disclosure of Resonance Light Energy by Luis Amaya / Halo Cyber Life." />
   <meta name="author" content="Luis Amaya" />
 
   <style>
-    :root{
+    :root {
       --bg: #020617;
-      --bg2:#0b1020;
-      --text:#f9fafb;
-      --muted:#9ca3af;
-      --soft:#d1d5db;
+      --text: #f9fafb;
+      --muted: #9ca3af;
       --border: rgba(148,163,184,0.28);
-      --accent:#22d3ee;
-      --accent2:#8b5cf6;
-      --radius:18px;
+      --accent: #22d3ee;
+      --radius: 18px;
       --shadow: 0 24px 70px rgba(0,0,0,.45);
     }
-    *{ box-sizing:border-box; margin:0; padding:0; }
-    body{
-      font-family: system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
       background: radial-gradient(circle at top, #111827 0, #020617 55%, #02040a 100%);
       color: var(--text);
       line-height: 1.6;
     }
-    a{ color: var(--accent); text-decoration:none; }
-    a:hover{ text-decoration:underline; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
-    .container{
-      width:100%;
+    .container {
       max-width: 1100px;
       margin: 0 auto;
       padding: 0 1.25rem;
     }
 
-    header{
+    header {
       position: sticky;
-      top:0;
+      top: 0;
       z-index: 50;
       background: rgba(0,0,0,0.65);
       border-bottom: 1px solid rgba(255,255,255,0.08);
       backdrop-filter: blur(12px);
     }
-    .header-inner{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:1rem;
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       padding: 0.9rem 0;
     }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:.65rem;
-      font-weight:700;
-      letter-spacing:.05em;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: .65rem;
+      font-weight: 700;
       text-transform: uppercase;
-      font-size:.9rem;
+      font-size: .9rem;
       color: var(--text);
     }
-    .brand img{ width:40px; height:40px; object-fit:contain; }
+    .brand img { width: 40px; height: 40px; object-fit: contain; }
 
-    nav a{
-      display:inline-block;
-      padding:.5rem .9rem;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,0.18);
+    nav a {
+      display: inline-block;
+      padding: .5rem .9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.18);
       color: var(--text);
-      font-size:.85rem;
-      letter-spacing:.08em;
+      font-size: .85rem;
       text-transform: uppercase;
-      margin-left:.4rem;
+      margin-left: .4rem;
       background: rgba(255,255,255,0.05);
     }
-    nav a:hover{
+    nav a:hover {
       border-color: rgba(34,211,238,0.65);
       box-shadow: 0 0 18px rgba(34,211,238,0.18);
-      text-decoration:none;
     }
 
-    main{ padding: 2.1rem 0 3rem; }
+    main { padding: 2.1rem 0 3rem; }
 
-    .hero{
-      text-align:center;
+    .hero {
+      text-align: center;
       margin: .5rem auto 1.4rem;
     }
-    .meta{
+    .meta {
       color: var(--muted);
       font-size: .85rem;
-      letter-spacing:.12em;
       text-transform: uppercase;
-      margin-bottom:.6rem;
+      margin-bottom: .6rem;
     }
-    h1{
+    h1 {
       font-size: clamp(1.9rem, 3.2vw, 2.8rem);
-      line-height:1.15;
-      margin-bottom:.65rem;
+      margin-bottom: .65rem;
     }
-    .subtitle{
+    .subtitle {
       color: rgba(209,213,219,0.92);
       max-width: 860px;
       margin: 0 auto;
       font-size: 1rem;
     }
 
-    .pill-row{
-      display:flex;
-      flex-wrap:wrap;
-      gap:.6rem;
-      justify-content:center;
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .6rem;
+      justify-content: center;
       margin-top: 1.1rem;
     }
-    .pill{
+    .pill {
       border: 1px solid rgba(255,255,255,0.16);
       background: rgba(255,255,255,0.05);
       padding: .45rem .75rem;
@@ -124,91 +114,58 @@
       font-size: .85rem;
       color: rgba(209,213,219,0.92);
     }
-    .pill strong{ color: #fff; }
+    .pill strong { color: #fff; }
 
-    .card{
+    .card {
       margin: 1.6rem auto;
       border-radius: var(--radius);
       border: 1px solid var(--border);
       background: rgba(255,255,255,0.035);
       box-shadow: var(--shadow);
-      overflow:hidden;
+      overflow: hidden;
     }
-    .card-head{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: .75rem;
-      padding: 1rem 1rem;
+    .card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem;
       border-bottom: 1px solid rgba(255,255,255,0.08);
       background: rgba(2,6,23,0.55);
     }
-    .card-head h2{
+    .card-head h2 {
       font-size: 1.05rem;
-      letter-spacing:.08em;
       text-transform: uppercase;
-    }
-    .actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:.5rem;
-      justify-content:flex-end;
-    }
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      gap:.5rem;
-      padding:.55rem .85rem;
-      border-radius: 999px;
-      border:1px solid rgba(255,255,255,0.16);
-      background: rgba(255,255,255,0.05);
-      color:#fff;
-      font-size:.85rem;
-      text-transform: uppercase;
-      letter-spacing:.08em;
-    }
-    .btn:hover{
-      border-color: rgba(34,211,238,0.65);
-      box-shadow: 0 0 18px rgba(34,211,238,0.18);
-      text-decoration:none;
     }
 
-    /* PDF embed area */
-    .pdf-wrap{
-      padding: 0;
+    .pdf-wrap {
       background: rgba(0,0,0,0.25);
     }
-    .pdf-frame{
+    .pdf-frame {
       width: 100%;
       height: min(78vh, 980px);
       border: 0;
-      display:block;
+      display: block;
       background: rgba(255,255,255,0.02);
     }
 
-    .fallback{
+    .fallback {
       padding: 1.1rem 1rem 1.2rem;
       color: rgba(209,213,219,0.92);
       font-size: .95rem;
     }
-    .fallback p{ margin: .5rem 0; }
 
-    footer{
+    footer {
       border-top: 1px solid rgba(148,163,184,0.25);
       margin-top: 2.2rem;
       padding: 1.5rem 0 2rem;
       color: rgba(156,163,175,0.9);
       font-size: .9rem;
-      text-align:center;
+      text-align: center;
     }
 
-    @media (max-width: 640px){
-      .card-head{
-        flex-direction: column;
-        align-items:flex-start;
-      }
-      .actions{ justify-content:flex-start; }
-      .pdf-frame{ height: 72vh; }
+    @media (max-width: 640px) {
+      .card-head { flex-direction: column; align-items: flex-start; }
+      .pdf-frame { height: 72vh; }
     }
   </style>
 </head>
@@ -228,103 +185,47 @@
   </header>
 
   <main class="container">
-
-    <!-- ✅ SET YOUR PDF PATH RIGHT HERE -->
-    <!-- Example if this page is /blog/patents/rpas_public.html and PDF is /blog/pdfs/rpas_public.pdf -->
-    <script>
-      window.HCL_PDF_URL = "./pdfs/resonance_light_energy_public.pdf";
-    </script>
-
     <section class="hero">
-      <p class="meta">Public Patent · Full Document</p>
+      <p class="meta">Public Disclosure · Patent Concept</p>
       <h1>Resonance Light Energy — Public Patent PDF</h1>
       <p class="subtitle">
-        This page hosts the full public PDF so anyone can read, share, and verify the complete technical disclosure.
-        If your browser doesn’t embed PDFs, use the buttons to open or download.
+        This page hosts a read-only version of the complete multi-page PDF for public timestamping and disclosure.
       </p>
 
       <div class="pill-row">
         <span class="pill"><strong>Inventor:</strong> Luis Amaya</span>
         <span class="pill"><strong>Assignee:</strong> Halo Cyber Life</span>
-        <span class="pill"><strong>Format:</strong> Public PDF</span>
+        <span class="pill"><strong>Status:</strong> Public Disclosure</span>
       </div>
     </section>
 
     <section class="card" aria-label="Embedded patent PDF">
       <div class="card-head">
         <h2>Patent Document Viewer</h2>
-        <div class="actions">
-          <a class="btn" id="openFull" href="#" target="_blank" rel="noopener">Open full screen</a>
-          <a class="btn" id="downloadPdf" href="#" download>Download PDF</a>
-        </div>
       </div>
 
       <div class="pdf-wrap">
-        <!-- Option A: iframe -->
-        <iframe class="pdf-frame" id="pdfFrame" title="Patent PDF Viewer"></iframe>
+        <iframe
+          class="pdf-frame"
+          src="/blog/Images/blog_images/BIOGLOW_v6_1_0.pdf"
+          title="Public Patent Viewer (Read-Only)">
+        </iframe>
 
-        <!-- Fallback text (shows if iframe blocked or PDF fails) -->
-        <div class="fallback" id="fallback" hidden>
-          <p><strong>PDF viewer not available in this browser.</strong></p>
-          <p>
-            Use <a id="fallbackOpen" href="#" target="_blank" rel="noopener">Open full screen</a>
-            or <a id="fallbackDownload" href="#" download>Download PDF</a>.
-          </p>
+        <!-- Optional fallback -->
+        <div class="fallback" hidden>
+          <p><strong>PDF viewer not available.</strong></p>
+          <p>This file is only viewable in-browser and is not downloadable.</p>
         </div>
       </div>
     </section>
 
     <footer>
-      © <span id="year"></span> Halocyberlife.com · Public patent viewer page
+      © <span id="year"></span> Halocyberlife.com · Public patent disclosure
     </footer>
   </main>
 
   <script>
-    (() => {
-      // Footer year
-      const y = document.getElementById("year");
-      if (y) y.textContent = String(new Date().getFullYear());
-
-      const pdfUrl = window.HCL_PDF_URL || "./pdfs/resonance_light_energy_public.pdf";
-
-      // Buttons
-      const openFull = document.getElementById("openFull");
-      const downloadPdf = document.getElementById("downloadPdf");
-      const fallbackOpen = document.getElementById("fallbackOpen");
-      const fallbackDownload = document.getElementById("fallbackDownload");
-
-      [openFull, fallbackOpen].forEach(a => a && a.setAttribute("href", pdfUrl));
-      [downloadPdf, fallbackDownload].forEach(a => a && a.setAttribute("href", pdfUrl));
-
-      // Embed
-      const frame = document.getElementById("pdfFrame");
-      const fallback = document.getElementById("fallback");
-
-      if (!frame) return;
-
-      // Try to load PDF in iframe
-      frame.src = pdfUrl;
-
-      // Basic failure detection (not perfect, but good enough)
-      frame.addEventListener("load", () => {
-        // If it loads, keep it.
-        // Some browsers still show blank due to PDF settings—fallback button still exists above.
-      });
-
-      frame.addEventListener("error", () => {
-        if (fallback) fallback.hidden = false;
-        frame.style.display = "none";
-      });
-
-      // If you want: auto-show fallback after a delay (covers “blank embed” scenarios)
-      setTimeout(() => {
-        // If the iframe is visible, do nothing.
-        // If not, show fallback.
-        if (getComputedStyle(frame).display === "none") return;
-        // Optional: uncomment to always show fallback on mobile
-        // if (window.innerWidth < 500) { fallback.hidden = false; }
-      }, 1200);
-    })();
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
