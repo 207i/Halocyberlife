@@ -1020,3 +1020,54 @@ body {
 .note-box h4{
   margin:0 0 8px 0;
 }
+
+(() => {
+  const form = document.getElementById("contactForm");
+  const statusEl = document.getElementById("formStatus");
+  if (!form || !statusEl) return;
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    statusEl.textContent = "Sending…";
+    const btn = form.querySelector('button[type="submit"]');
+    if (btn) btn.disabled = true;
+
+    // Honeypot: if filled, silently pretend success
+    const hp = form.querySelector("#company");
+    if (hp && hp.value.trim()) {
+      statusEl.textContent = "Sent ✅";
+      form.reset();
+      if (btn) btn.disabled = false;
+      return;
+    }
+
+    const payload = {
+      name: form.name.value.trim(),
+      email: form.email.value.trim(),
+      subject: form.subject.value.trim(),
+      message: form.message.value.trim()
+    };
+
+    try {
+      const res = await fetch(form.action, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+
+      const data = await res.json().catch(() => ({}));
+
+      if (!res.ok) {
+        statusEl.textContent = data?.error || "❌ Could not send right now. Please try again later.";
+      } else {
+        statusEl.textContent = "Sent ✅";
+        form.reset();
+      }
+    } catch (err) {
+      statusEl.textContent = "❌ Network error. Try again.";
+    } finally {
+      if (btn) btn.disabled = false;
+    }
+  });
+})();
