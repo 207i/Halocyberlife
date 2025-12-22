@@ -814,7 +814,7 @@ body {
 .section-header p{
   max-width: 52ch;
   margin: 0.35rem auto 0;
-  color: rgba(209,213,219,0.85);
+  color: dimgrey;
 }
 
 /* Align split content to top (not vertically centered) */
