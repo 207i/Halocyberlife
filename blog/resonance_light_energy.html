@@ -12,8 +12,7 @@
 
   <style>
     :root{
-      --bg: #020617;
-      --bg2:#0b1020;
+      --bg:#020617;
       --text:#f9fafb;
       --muted:#9ca3af;
       --soft:#d1d5db;
@@ -21,8 +20,6 @@
       --accent:#22d3ee;
       --accent2:#8b5cf6;
       --radius:18px;
-      --glass: rgba(255,255,255,0.06);
-      --glass2: rgba(255,255,255,0.03);
       --shadow: 0 18px 60px rgba(0,0,0,0.45);
     }
     *{ box-sizing:border-box; margin:0; padding:0; }
@@ -42,6 +39,7 @@
       padding: 0 1.25rem;
     }
 
+    /* Header */
     header{
       position: sticky;
       top:0;
@@ -55,7 +53,7 @@
       align-items:center;
       justify-content:space-between;
       gap:1rem;
-      padding: 0.9rem 0;
+      padding: .9rem 0;
     }
     .brand{
       display:flex;
@@ -66,8 +64,21 @@
       text-transform: uppercase;
       font-size:.9rem;
       color: var(--text);
+      white-space: nowrap;
     }
     .brand img{ width:40px; height:40px; object-fit:contain; }
+
+    /* Nav */
+    .nav-wrap{
+      display:flex;
+      align-items:center;
+      gap:.6rem;
+    }
+    nav{
+      display:flex;
+      align-items:center;
+      gap:.4rem;
+    }
     nav a{
       display:inline-block;
       padding:.5rem .9rem;
@@ -77,13 +88,50 @@
       font-size:.85rem;
       letter-spacing:.08em;
       text-transform: uppercase;
-      margin-left:.4rem;
       background: rgba(255,255,255,0.05);
     }
     nav a:hover{
       border-color: rgba(34,211,238,0.65);
       box-shadow: 0 0 18px rgba(34,211,238,0.18);
       text-decoration:none;
+    }
+
+    /* Mobile menu button */
+    .menu-btn{
+      display:none;
+      width:42px;
+      height:42px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.06);
+      color:#fff;
+      cursor:pointer;
+      font-size: 1.1rem;
+      line-height:1;
+    }
+    .menu-btn:hover{
+      border-color: rgba(34,211,238,0.65);
+      box-shadow: 0 0 18px rgba(34,211,238,0.18);
+    }
+
+    @media (max-width: 720px){
+      .menu-btn{ display:inline-grid; place-items:center; }
+      nav{
+        position:absolute;
+        top: 68px;
+        right: 1.25rem;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 10px;
+        border-radius: 16px;
+        border: 1px solid rgba(255,255,255,0.12);
+        background: rgba(2,6,23,0.92);
+        box-shadow: var(--shadow);
+        display:none;
+        min-width: 210px;
+      }
+      nav.open{ display:flex; }
+      nav a{ width:100%; text-align:center; }
     }
 
     main{ padding: 2rem 0 3rem; }
@@ -112,9 +160,67 @@
       font-size: 1.02rem;
     }
 
-    /* =========================
-       Vision Slider (working)
-       ========================= */
+    /* CTA row */
+    .cta{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+      justify-content:center;
+      margin: 1rem 0 0.2rem;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.06);
+      color: #fff;
+      cursor:pointer;
+      font-size: .92rem;
+      letter-spacing:.08em;
+      text-transform: uppercase;
+      text-decoration:none;
+      user-select:none;
+    }
+    .btn:hover{
+      border-color: rgba(34,211,238,0.65);
+      box-shadow: 0 0 18px rgba(34,211,238,0.18);
+      text-decoration:none;
+    }
+    .btn.primary{
+      border-color: rgba(34,211,238,0.55);
+      background: linear-gradient(90deg, rgba(34,211,238,0.18), rgba(139,92,246,0.14));
+    }
+    .btn.secondary{
+      border-color: rgba(139,92,246,0.55);
+      background: rgba(139,92,246,0.10);
+    }
+
+    .tag-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top: 10px;
+      justify-content:center;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.06);
+      padding: 6px 10px;
+      border-radius: 999px;
+      color: rgba(229,231,235,0.95);
+      font-size: .86rem;
+      letter-spacing:.04em;
+    }
+    .pill strong{ color: #fff; font-weight: 700; }
+
+    /* Slider */
     .vision-slider{ margin: 1.25rem auto 1.3rem; }
     .vision-viewport{
       position: relative;
@@ -169,7 +275,6 @@
     }
     .vision-prev{ left: 12px; }
     .vision-next{ right: 12px; }
-
     .vision-dots{
       display:flex;
       justify-content:center;
@@ -188,7 +293,6 @@
       background: rgba(34,211,238,0.9);
       border-color: rgba(34,211,238,0.95);
     }
-
     .note{
       margin-top: 10px;
       color: rgba(209,213,219,0.82);
@@ -210,7 +314,6 @@
       letter-spacing: -0.01em;
     }
     .article-body p{ margin: .78rem 0; }
-    .article-body ul, .article-body ol{ margin: .6rem 0 .9rem 1.2rem; }
 
     hr{
       border:0;
@@ -218,165 +321,65 @@
       margin: 1.6rem 0;
     }
 
-    /* Callouts / Cards */
-    .grid{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-      margin: 1rem 0 0.4rem;
+    /* Possibilities Grid */
+    .possibilities{
+      max-width: 980px;
+      margin: 2.2rem auto 0;
     }
-    @media (min-width: 820px){
-      .grid.two{ grid-template-columns: 1fr 1fr; }
-      .grid.three{ grid-template-columns: 1fr 1fr 1fr; }
+    .possibilities h2{
+      margin: 0 0 .35rem;
+      font-size: 1.6rem;
+      color: var(--text);
     }
-    .card{
-      border: 1px solid var(--border);
-      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
-      border-radius: 16px;
-      padding: 14px 14px;
-      box-shadow: 0 18px 40px rgba(0,0,0,0.25);
-    }
-    .card h3{
-      font-size: 1.03rem;
-      margin-bottom: 6px;
-      color: #fff;
-      letter-spacing: -0.01em;
-    }
-    .card p{
-      margin: 0;
+    .possibilities .lead{
       color: rgba(209,213,219,0.9);
-      font-size: .98rem;
+      margin: 0 0 1.25rem;
+      max-width: 860px;
     }
-    .tag-row{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin-top: 10px;
+    .cards-grid{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
     }
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      border: 1px solid rgba(255,255,255,0.16);
-      background: rgba(255,255,255,0.06);
-      padding: 6px 10px;
-      border-radius: 999px;
-      color: rgba(229,231,235,0.95);
-      font-size: .86rem;
-      letter-spacing:.04em;
+    @media (max-width: 760px){
+      .cards-grid{ grid-template-columns: 1fr; }
     }
-    .pill strong{ color: #fff; font-weight: 700; }
-
-    /* CTA row */
-    .cta{
-      display:flex;
-      flex-wrap:wrap;
-      gap: 10px;
-      justify-content:center;
-      margin: 1rem 0 0.2rem;
-    }
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      padding: 10px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(255,255,255,0.06);
-      color: #fff;
-      cursor:pointer;
-      font-size: .92rem;
-      letter-spacing:.08em;
-      text-transform: uppercase;
-      text-decoration:none;
-      user-select:none;
-    }
-    .btn:hover{
-      border-color: rgba(34,211,238,0.65);
-      box-shadow: 0 0 18px rgba(34,211,238,0.18);
-      text-decoration:none;
-    }
-    .btn.primary{
-      border-color: rgba(34,211,238,0.55);
-      background: linear-gradient(90deg, rgba(34,211,238,0.18), rgba(139,92,246,0.14));
-    }
-    .btn.secondary{
-      border-color: rgba(139,92,246,0.55);
-      background: rgba(139,92,246,0.10);
-    }
-
-    /* Patent drawer */
-    details.patent{
-      margin: 1.2rem 0 0.6rem;
-      border-radius: 16px;
-      border: 1px solid var(--border);
+    .feature-card{
+      border: 1px solid rgba(148,163,184,0.28);
+      border-radius: 18px;
       background: rgba(255,255,255,0.04);
       overflow:hidden;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+      min-height: 260px;
     }
-    details.patent > summary{
-      cursor:pointer;
-      list-style:none;
-      padding: 12px 14px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 12px;
-      user-select:none;
+    .feature-card:hover{
+      transform: translateY(-2px);
+      border-color: rgba(34,211,238,0.55);
+      box-shadow: 0 0 26px rgba(34,211,238,0.08);
     }
-    details.patent > summary::-webkit-details-marker{ display:none; }
-    .sum-left{
-      display:flex;
-      flex-direction:column;
-      gap:2px;
+    .feature-card .card-media{
+      width:100%;
+      height: 170px;
+      object-fit: cover;
+      display:block;
+      background: rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
-    .sum-title{
-      font-weight: 800;
-      letter-spacing:.06em;
-      text-transform: uppercase;
-      font-size: .9rem;
-      color:#fff;
-    }
-    .sum-sub{
-      color: rgba(209,213,219,0.82);
-      font-size: .92rem;
-    }
-    .chev{
-      width: 34px;
-      height: 34px;
+    .feature-card .card-body{ padding: 14px 14px 16px; }
+    .feature-card h3{ margin: 0 0 .35rem; color: var(--text); font-size: 1.05rem; }
+    .feature-card p{ margin: 0; color: rgba(209,213,219,0.9); font-size: .98rem; }
+    .feature-card .tag{
+      display:inline-block;
+      margin-top: .75rem;
+      padding: .25rem .6rem;
       border-radius: 999px;
       border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(2,6,23,0.35);
-      display:grid;
-      place-items:center;
-      flex: 0 0 auto;
+      background: rgba(255,255,255,0.05);
+      color: rgba(209,213,219,0.9);
+      font-size: .78rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
     }
-    details[open] .chev{ transform: rotate(180deg); }
-    .patent-body{
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding: 12px 14px 14px;
-    }
-    .patent-body pre{
-      margin: 0;
-      white-space: pre-wrap;
-      word-break: break-word;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      font-size: .9rem;
-      line-height: 1.55;
-      color: rgba(226,232,240,0.92);
-    }
-
-    /* Disclaimer box */
-    .disclaimer{
-      margin: 1.1rem 0 0.2rem;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.14);
-      background: rgba(2,6,23,0.35);
-      padding: 12px 14px;
-      color: rgba(209,213,219,0.86);
-      font-size: .95rem;
-    }
-    .disclaimer strong{ color:#fff; }
 
     footer{
       border-top: 1px solid rgba(148,163,184,0.25);
@@ -386,94 +389,6 @@
       font-size: .9rem;
       text-align:center;
     }
-
-
-    /* ===== Possibilities Grid (Bigger cards + images) ===== */
-.possibilities{
-  max-width: 980px;              /* wider section */
-  margin: 2.2rem auto 0;
-}
-
-.possibilities h2{
-  margin: 0 0 .35rem;
-  font-size: 1.6rem;
-  color: var(--text);
-}
-.possibilities .lead{
-  color: rgba(209,213,219,0.9);
-  margin: 0 0 1.25rem;
-  max-width: 860px;
-}
-
-/* 2-up on desktop, 1-up on mobile */
-.cards-grid{
-  display:grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
-}
-
-@media (max-width: 760px){
-  .cards-grid{ grid-template-columns: 1fr; }
-}
-
-/* Bigger card */
-.feature-card{
-  border: 1px solid rgba(148,163,184,0.28);
-  border-radius: 18px;
-  background: rgba(255,255,255,0.04);
-  overflow:hidden;               /* lets image clip to rounded corners */
-  box-shadow: 0 0 0 rgba(0,0,0,0);
-  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-  min-height: 260px;             /* makes them feel “bigger” */
-}
-
-.feature-card:hover{
-  transform: translateY(-2px);
-  border-color: rgba(34,211,238,0.55);
-  box-shadow: 0 0 26px rgba(34,211,238,0.08);
-}
-
-/* Image on top */
-.feature-card .card-media{
-  width:100%;
-  height: 170px;                 /* adjust for bigger/smaller image */
-  object-fit: cover;
-  display:block;
-  background: rgba(255,255,255,0.06);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-
-/* Content area */
-.feature-card .card-body{
-  padding: 14px 14px 16px;
-}
-
-.feature-card h3{
-  margin: 0 0 .35rem;
-  color: var(--text);
-  font-size: 1.05rem;
-}
-
-.feature-card p{
-  margin: 0;
-  color: rgba(209,213,219,0.9);
-  font-size: .98rem;
-}
-
-/* Optional: tiny tag line */
-.feature-card .tag{
-  display:inline-block;
-  margin-top: .75rem;
-  padding: .25rem .6rem;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.18);
-  background: rgba(255,255,255,0.05);
-  color: rgba(209,213,219,0.9);
-  font-size: .78rem;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-}
-
   </style>
 </head>
 
@@ -481,13 +396,18 @@
   <header>
     <div class="container header-inner">
       <div class="brand">
-        <img src="../images/negative_white_halocyberlife_logo.png" alt="Halocyberlife logo" />
+        <!-- FIX: Make sure this path matches your real folder name EXACTLY (case-sensitive on servers) -->
+        <img src="../Images/negative_white_halocyberlife_logo.png" alt="Halocyberlife logo" />
         <span>Halocyberlife</span>
       </div>
-      <nav>
-        <a href="../index.html">Home</a>
-        <a href="../blog.html">Articles</a>
-      </nav>
+
+      <div class="nav-wrap">
+        <button class="menu-btn" type="button" id="menuBtn" aria-label="Open menu">☰</button>
+        <nav id="mainNav" aria-label="Primary">
+          <a href="../index.html">Home</a>
+          <a href="../blog.html">Articles</a>
+        </nav>
+      </div>
     </div>
   </header>
 
@@ -501,8 +421,7 @@
       </p>
 
       <div class="cta">
-        <!-- Paste your real patent URL below -->
-        <a class="btn primary" id="patentLink" href="https://halocyberlife.com/blog/Patent_Bio_Glow.html" target="_blank" rel="noopener">
+        <a class="btn primary" href="https://halocyberlife.com/blog/Patent_Bio_Glow.html" target="_blank" rel="noopener">
           View Official Patent Link ↗
         </a>
         <button class="btn secondary" type="button" id="jumpToPossibilities">
@@ -517,11 +436,9 @@
       </div>
     </section>
 
-    <!-- ===== Working Slider ===== -->
     <section class="vision-slider" aria-label="Article image slider">
       <div class="vision-viewport">
         <div class="vision-track">
-
           <figure class="vision-slide">
             <img src="./Images/blog_images/resonance-activated-wall-panels.png"
                  alt="Architectural surfaces emitting light through resonance-driven activation (concept art)"
@@ -542,7 +459,6 @@
                  loading="lazy" />
             <figcaption>The stack — photonic layers, coupling regions, and a structure built to respond.</figcaption>
           </figure>
-
         </div>
 
         <button class="vision-btn vision-prev" type="button" aria-label="Previous slide">‹</button>
@@ -567,266 +483,99 @@
         but because the material is designed to respond to resonance like a musical instrument
         responds to the right note.
       </p>
-      <p>
-        That’s the spirit of this patent-backed concept: <strong>Resonant Photonic Amplification</strong> —
-        exploring how engineered layers could be encouraged (or “pushed”) into brighter emission
-        using frequency-based excitation.
-      </p>
 
       <hr />
 
-      <h2>The Big Shift: From “Powering a Bulb” to “Tuning a Material”</h2>
-      <p>
-        Traditional lighting is basically a power story: feed electricity into a device that’s designed to emit light.
-        This concept flips the narrative:
-      </p>
+      <!-- FIX: This ID is what your button scrolls to -->
+      <section class="possibilities" id="possibilities" aria-label="Possibilities that change the game">
+        <h2>Possibilities That Change the Game</h2>
+        <p class="lead">
+          If materials can be designed to emit more light when properly excited,
+          the ripple effects are huge — not just for lighting, but for sensing, signaling, displays, safety,
+          architecture, and energy efficiency.
+        </p>
 
-      <div class="grid two">
-        <div class="card">
-          <h3>Old model</h3>
-          <p>
-            Energy → device (bulb/LED) → light.
-          </p>
-        </div>
-        <div class="card">
-          <h3>Explored model</h3>
-          <p>
-            Frequency + coupling → material response → amplified emission.
-          </p>
-        </div>
-      </div>
+        <div class="cards-grid">
+          <article class="feature-card">
+            <img class="card-media"
+                 src="./Images/blog_images/living-architecture-light-without-fixtures.png"
+                 alt="Concept: living architecture illumination"
+                 loading="lazy">
+            <div class="card-body">
+              <h3>Living architecture</h3>
+              <p>Walls, ceilings, corridors, tunnels, and public spaces with embedded illumination response — fewer fixtures, fewer failure points.</p>
+              <span class="tag">Built-in light</span>
+            </div>
+          </article>
 
-      <p>
-        In other words, instead of forcing light through a conventional emitter, the system explores
-        how to <strong>encourage photonic layers to do more with less</strong> by driving the right resonance conditions.
-      </p>
+          <article class="feature-card">
+            <img class="card-media"
+                 src="./Images/blog_images/Sleek_glowing_accents_in_modern_spaces.png"
+                 alt="Concept: ultra low profile lighting"
+                 loading="lazy">
+            <div class="card-body">
+              <h3>Ultra-low profile lighting</h3>
+              <p>Thin surfaces that glow without bulky assemblies — useful in tight spaces, vehicles, and wearables.</p>
+              <span class="tag">Slim systems</span>
+            </div>
+          </article>
+
+          <article class="feature-card">
+            <img class="card-media"
+                 src="./Images/blog_images/Adaptive_lighting_control_interface_in_motion.png"
+                 alt="Concept: adaptive light controlled by waveforms"
+                 loading="lazy">
+            <div class="card-body">
+              <h3>Adaptive environments</h3>
+              <p>Light intensity and tone shaped by frequency patterns — like “lighting presets” that are literally waveforms.</p>
+              <span class="tag">Waveform presets</span>
+            </div>
+          </article>
+
+          <article class="feature-card">
+            <img class="card-media"
+                 src="./Images/blog_images/Futuristic_photonic_resonance_structure.png"
+                 alt="Concept: redundancy for emergency illumination"
+                 loading="lazy">
+            <div class="card-body">
+              <h3>Emergency + redundancy</h3>
+              <p>Surfaces that can be driven by multiple excitation methods — if one fails, another can still trigger visibility.</p>
+              <span class="tag">Failsafe modes</span>
+            </div>
+          </article>
+
+          <article class="feature-card">
+            <img class="card-media"
+                 src="./Images/blog_images/Futuristic_resonance_in_photonic_technology.png"
+                 alt="Concept: emissive materials as a new display paradigm"
+                 loading="lazy">
+            <div class="card-body">
+              <h3>New display paradigms</h3>
+              <p>Not a screen that shines at you — but materials that become emissive where and when stimulated.</p>
+              <span class="tag">Material display</span>
+            </div>
+          </article>
+
+          <article class="feature-card">
+            <img class="card-media"
+                 src="./Images/blog_images/Futuristic_illuminated_pathway_at_dusk.png"
+                 alt="Concept: navigation markers and hazard indicators"
+                 loading="lazy">
+            <div class="card-body">
+              <h3>Signals, markers, navigation</h3>
+              <p>Wayfinding strips, runway markers, hazard indicators — activated by tuned excitation patterns.</p>
+              <span class="tag">Guidance + safety</span>
+            </div>
+          </article>
+        </div>
+      </section>
 
       <hr />
 
-      <h2>How It Works (Concept Overview)</h2>
       <p>
-        The patent concept describes a structure where a photonic layer (or layered stack)
-        is paired with a method of excitation — such as acoustic, mechanical, or electromagnetic stimulation —
-        designed to couple energy into the system efficiently.
+        If your mind immediately jumped to “what does this do for energy efficiency,” you’re thinking like an inventor.
+        The dream is always: <strong>less input, more usable effect</strong>.
       </p>
-
-      <div class="grid three">
-        <div class="card">
-          <h3>1) Photonic layer</h3>
-          <p>
-            A material engineered for emission — potentially doped, structured, or layered for response.
-          </p>
-        </div>
-        <div class="card">
-          <h3>2) Coupling interface</h3>
-          <p>
-            A bridge that helps the “push” reach the emission layer (so energy isn’t wasted).
-          </p>
-        </div>
-        <div class="card">
-          <h3>3) Resonant excitation</h3>
-          <p>
-            A controllable stimulus: frequency, modulation, pulses, harmonics — the “tuning knob.”
-          </p>
-        </div>
-      </div>
-
-      <p>
-        Think of it like this: if you hit the wrong note, nothing special happens. But hit the right note,
-        and the system responds harder — the way a wine glass can sing when the frequency matches.
-        Here, the “song” is photonic emission.
-      </p>
-
-      <div class="disclaimer">
-        <strong>Note:</strong> This article is a high-level, public-friendly explanation of a patent-backed concept.
-        It’s not a promise of performance, and it avoids revealing any private or sensitive implementation steps.
-      </div>
-
-      <hr />
-
-      <section class="possibilities" aria-label="Possibilities that change the game">
-  <h2>Possibilities That Change the Game</h2>
-  <p class="lead">
-    This is where it gets fun. If materials can be designed to emit more light when properly excited,
-    the ripple effects are huge — not just for lighting, but for sensing, signaling, displays, safety,
-    architecture, and energy efficiency.
-  </p>
-
-  <div class="cards-grid">
-    <!-- 1 -->
-   <article class="feature-card">
-  <img class="card-media"
-       src="./Images/blog_images/living-architecture-light-without-fixtures.png"
-       alt="Concept: living architecture illumination"
-       loading="lazy">
-  <div class="card-body">
-    <h3>Living architecture</h3>
-    <p>Walls, ceilings, corridors, tunnels, and public spaces with embedded illumination response — fewer fixtures, fewer failure points, cleaner aesthetics.</p>
-    <span class="tag">Built-in light</span>
-  </div>
-</article>
-
-
-    <!-- 2 -->
-    <article class="feature-card">
-      <img class="card-media" src="./Images/blog_images/Sleek_glowing_accents_in_modern_spaces.png" loading="lazy">
-      <div class="card-body">
-        <h3>Ultra-low profile lighting</h3>
-        <p>Thin surfaces that glow without bulky assemblies — useful in tight spaces, vehicles, and wearables.</p>
-        <span class="tag">Slim systems</span>
-      </div>
-    </article>
-
-    <!-- 3 -->
-    <article class="feature-card">
-      <img class="card-media" src="./Images/blog_images/Adaptive_lighting_control_interface_in_motion.png" alt="Concept: adaptive light controlled by waveforms" loading="lazy">
-      <div class="card-body">
-        <h3>Adaptive environments</h3>
-        <p>Light intensity and tone shaped by frequency patterns — like “lighting presets” that are literally waveforms.</p>
-        <span class="tag">Waveform presets</span>
-      </div>
-    </article>
-
-    <!-- 4 -->
-    <article class="feature-card">
-      <img class="card-media" src="./Images/blog_images/Futuristic_photonic_resonance_structure.png" alt="Concept: redundancy for emergency illumination" loading="lazy">
-      <div class="card-body">
-        <h3>Emergency + redundancy</h3>
-        <p>Surfaces that can be driven by multiple excitation methods — if one fails, another can still trigger visibility.</p>
-        <span class="tag">Failsafe modes</span>
-      </div>
-    </article>
-
-    <!-- 5 -->
-    <article class="feature-card">
-      <img class="card-media" src="./Images/blog_images/Futuristic_resonance_in_photonic_technology.png" alt="Concept: emissive materials as a new display paradigm" loading="lazy">
-      <div class="card-body">
-        <h3>New display paradigms</h3>
-        <p>Not a screen that shines at you — but materials that become emissive where and when stimulated.</p>
-        <span class="tag">Material display</span>
-      </div>
-    </article>
-
-    <!-- 6 -->
-    <article class="feature-card">
-      <img class="card-media" src="./Images/blog_images/Futuristic_illuminated_pathway_at_dusk.png" alt="Concept: navigation markers and hazard indicators" loading="lazy">
-      <div class="card-body">
-        <h3>Signals, markers, navigation</h3>
-        <p>Wayfinding strips, runway markers, hazard indicators — activated by tuned excitation patterns.</p>
-        <span class="tag">Guidance + safety</span>
-      </div>
-    </article>
-  </div>
-</section>
-
-      <!-- <h2 id="possibilities">Possibilities That Change the Game</h2>
-      <p>
-        This is where it gets fun. If materials can be designed to emit more light when properly excited,
-        the ripple effects are huge — not just for lighting, but for sensing, signaling, displays, safety,
-        architecture, and energy efficiency.
-      </p>
-
-      <div class="grid two">
-        <div class="card">
-          <h3>Living architecture</h3>
-          <p>
-            Walls, ceilings, corridors, tunnels, and public spaces with embedded illumination response —
-            fewer fixtures, fewer failure points, cleaner aesthetics.
-          </p>
-        </div>
-        <div class="card">
-          <h3>Ultra-low profile lighting</h3>
-          <p>
-            Thin surfaces that glow without bulky assemblies — useful in tight spaces, vehicles, and wearables.
-          </p>
-        </div>
-      </div>
-
-      <div class="grid two">
-        <div class="card">
-          <h3>Adaptive environments</h3>
-          <p>
-            Light intensity and tone shaped by frequency patterns — like “lighting presets” that are literally waveforms.
-          </p>
-        </div>
-        <div class="card">
-          <h3>Emergency + redundancy</h3>
-          <p>
-            Surfaces that can be driven by multiple excitation methods — if one fails, another can still trigger visibility.
-          </p>
-        </div>
-      </div>
-
-      <div class="grid two">
-        <div class="card">
-          <h3>New display paradigms</h3>
-          <p>
-            Not a screen that shines at you — but materials that become emissive where and when stimulated.
-          </p>
-        </div>
-        <div class="card">
-          <h3>Signals, markers, navigation</h3>
-          <p>
-            Wayfinding strips, runway markers, hazard indicators — activated by tuned excitation patterns.
-          </p>
-        </div>
-      </div> -->
-
-      <p>
-        And yes — if your mind immediately jumped to “what does this do for energy efficiency,”
-        you’re thinking like an inventor. The dream is always: <strong>less input, more usable effect</strong>.
-      </p>
-
-      <hr />
-
-      <h2>Why This Matters: The World Is Built on Surfaces</h2>
-      <p>
-        We don’t live inside light bulbs. We live inside buildings, vehicles, walkways, devices, and tools —
-        all made of surfaces.
-      </p>
-      <p>
-        If surfaces can become active participants — emitting, signaling, adapting — then design stops being
-        “decor around technology” and becomes “technology built into reality.”
-      </p>
-
-      <hr />
-
-      <h2>What You’ll See Here Next</h2>
-      <p>
-        This page is designed to grow. You can drop your own visuals into each section and expand with:
-      </p>
-      <ul>
-        <li><strong>Figure breakdowns</strong>: “What Fig. 1 implies,” “How Fig. 3 connects to the stack,” etc.</li>
-        <li><strong>Use-case galleries</strong>: architecture, transport, safety, aerospace, industrial.</li>
-        <li><strong>Prototype narrative</strong>: constraints, goals, and test pathways (without exposing sensitive steps).</li>
-        <li><strong>FAQs</strong>: what it is, what it isn’t, and why it’s different from conventional lighting.</li>
-      </ul>
-
-      <!-- ===== Patent drawer (hidden until clicked) ===== -->
-      <details class="patent">
-        <summary>
-          <div class="sum-left">
-            <div class="sum-title">Patent Text (Click to Expand)</div>
-            <div class="sum-sub">Stored on-page, hidden by default — paste your full patent text inside.</div>
-          </div>
-          <div class="chev" aria-hidden="true">⌄</div>
-        </summary>
-        <div class="patent-body">
-          <pre>
-PASTE YOUR PATENT TEXT HERE
-
-Tip:
-- Keep the official link above for the authoritative source.
-- This drawer is for readers who want the full text without leaving the article.
-- You can also paste a condensed “public summary” version instead of the full patent if you prefer.
-          </pre>
-        </div>
-      </details>
-
-      <div class="disclaimer">
-        <strong>Creator note:</strong> Images on this page can be your own original concept renders. If you want,
-        I can help you plan the image list so every section has a “wow” visual that also tells the story cleanly.
-      </div>
     </article>
 
     <footer>
@@ -839,6 +588,23 @@ Tip:
       // Footer year
       const y = document.getElementById("year");
       if (y) y.textContent = String(new Date().getFullYear());
+
+      // Mobile menu toggle
+      const menuBtn = document.getElementById("menuBtn");
+      const nav = document.getElementById("mainNav");
+      if (menuBtn && nav) {
+        menuBtn.addEventListener("click", () => nav.classList.toggle("open"));
+        // close menu when clicking a link (mobile)
+        nav.querySelectorAll("a").forEach(a => {
+          a.addEventListener("click", () => nav.classList.remove("open"));
+        });
+        // click outside closes (mobile)
+        document.addEventListener("click", (e) => {
+          if (window.matchMedia("(max-width: 720px)").matches) {
+            if (!nav.contains(e.target) && e.target !== menuBtn) nav.classList.remove("open");
+          }
+        });
+      }
 
       // Smooth jump
       const jumpBtn = document.getElementById("jumpToPossibilities");
@@ -900,18 +666,13 @@ Tip:
       let down = false;
 
       if (viewport) {
-        viewport.addEventListener("pointerdown", (e) => {
-          down = true;
-          startX = e.clientX;
-        });
-
+        viewport.addEventListener("pointerdown", (e) => { down = true; startX = e.clientX; });
         viewport.addEventListener("pointerup", (e) => {
           if (!down) return;
           down = false;
           const dx = e.clientX - startX;
           if (Math.abs(dx) > 40) dx < 0 ? next(true) : prev(true);
         });
-
         viewport.addEventListener("pointercancel", () => { down = false; });
       }
 
@@ -935,21 +696,3 @@ Tip:
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
