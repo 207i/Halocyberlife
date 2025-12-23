@@ -635,7 +635,7 @@ body {
 
 .main-nav .nav-link[aria-current="page"]{
   border-color: var(--accent-primary);
-  background: rgba(139, 92, 246, 0.16);
+  background: var(--accent-primary);
   box-shadow: 0 0 18px rgba(139, 92, 246, 0.35);
 }
 
