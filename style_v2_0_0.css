@@ -138,7 +138,7 @@ body {
 .neon-link:hover,
 .neon-link:focus-visible {
   box-shadow: 0 0 18px currentColor, inset 0 0 18px currentColor;
-  background: currentColor;
+  background: var(--accent-primary);
   color: #000;
   transform: translateY(-1px);
 }
