@@ -74,7 +74,6 @@
       align-items:center;
       gap:.6rem;
       margin-right: 10px;
-      position: relative;
     }
     nav{
       display:flex;
@@ -120,8 +119,8 @@
       .menu-btn{ display:inline-grid; place-items:center; }
       nav{
         position:absolute;
-        top: 56px;
-        right: 0;
+        top: 68px;
+        right: 1.25rem;
         flex-direction: column;
         align-items: stretch;
         padding: 10px;
@@ -366,17 +365,7 @@
       display:block;
       background: rgba(255,255,255,0.06);
       border-bottom: 1px solid rgba(255,255,255,0.08);
-
-      /* clickable feel */
-      cursor: zoom-in;
-      transform: translateZ(0);
-      transition: transform .18s ease, filter .18s ease;
     }
-    .feature-card:hover .card-media{
-      transform: scale(1.02);
-      filter: brightness(1.04);
-    }
-
     .feature-card .card-body{ padding: 14px 14px 16px; }
     .feature-card h3{ margin: 0 0 .35rem; color: var(--text); font-size: 1.05rem; }
     .feature-card p{ margin: 0; color: rgba(209,213,219,0.9); font-size: .98rem; }
@@ -393,6 +382,146 @@
       text-transform: uppercase;
     }
 
+    /* ✅ NEW: Make only the bottom card images feel clickable */
+    .feature-card .card-media{
+      cursor: zoom-in;
+      transition: transform .18s ease, filter .18s ease;
+      will-change: transform;
+    }
+    .feature-card:hover .card-media{
+      transform: scale(1.02);
+      filter: saturate(1.05);
+    }
+
+    /* ✅ NEW: Lightbox (modal) */
+    .lightbox{
+      position: fixed;
+      inset: 0;
+      display: none;
+      place-items: center;
+      padding: 22px;
+      background: rgba(0,0,0,0.72);
+      backdrop-filter: blur(10px);
+      z-index: 9999;
+    }
+    .lightbox.open{ display: grid; }
+
+    .lightbox__panel{
+      width: min(980px, 100%);
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(2,6,23,0.86);
+      box-shadow: 0 28px 120px rgba(0,0,0,0.65);
+      overflow: hidden;
+      transform: translateY(8px) scale(0.985);
+      opacity: 0;
+      transition: transform .22s ease, opacity .22s ease;
+    }
+    .lightbox.open .lightbox__panel{
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+
+    .lightbox__top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+      padding: 12px 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.03);
+    }
+    .lightbox__title{
+      font-size: .92rem;
+      color: rgba(229,231,235,0.92);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .lightbox__btn{
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.06);
+      color: #fff;
+      cursor: pointer;
+      display:grid;
+      place-items:center;
+      font-size: 1.05rem;
+    }
+    .lightbox__btn:hover{
+      border-color: rgba(34,211,238,0.65);
+      box-shadow: 0 0 18px rgba(34,211,238,0.20);
+    }
+
+    .lightbox__stage{
+      position: relative;
+      padding: 14px;
+      perspective: 900px; /* 👈 gives the “3D” feel */
+    }
+
+    .lightbox__imgWrap{
+      position: relative;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.12);
+      overflow: hidden;
+      background: rgba(255,255,255,0.04);
+      transform-style: preserve-3d;
+      will-change: transform;
+      transition: transform .12s ease;
+    }
+
+    .lightbox__img{
+      width: 100%;
+      height: auto;
+      max-height: 72vh;
+      display:block;
+      object-fit: contain;
+      background: rgba(255,255,255,0.03);
+      transform: translateZ(0);
+    }
+
+    .lightbox__caption{
+      padding: 12px 14px 14px;
+      color: rgba(209,213,219,0.92);
+      border-top: 1px solid rgba(255,255,255,0.10);
+      font-size: .98rem;
+      line-height: 1.45;
+    }
+
+    .lightbox__nav{
+      position: absolute;
+      inset: 14px;
+      pointer-events: none;
+    }
+    .lightbox__arrow{
+      pointer-events: auto;
+      position:absolute;
+      top:50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      border:1px solid rgba(255,255,255,0.18);
+      background: rgba(2,6,23,0.55);
+      color:#fff;
+      font-size: 1.6rem;
+      line-height:1;
+      cursor:pointer;
+      display:grid;
+      place-items:center;
+      user-select:none;
+    }
+    .lightbox__arrow:hover{
+      border-color: rgba(34,211,238,0.65);
+      box-shadow: 0 0 18px rgba(34,211,238,0.20);
+    }
+    .lightbox__arrow.prev{ left: 10px; }
+    .lightbox__arrow.next{ right: 10px; }
+
     footer{
       border-top: 1px solid rgba(148,163,184,0.25);
       margin-top: 2.5rem;
@@ -402,114 +531,8 @@
       text-align:center;
     }
 
-    /* ================================
-       CLICK-TO-ZOOM (3D POP) MODAL
-       ================================ */
-
-    .zoom-modal{
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 22px;
-      background: rgba(0,0,0,0.72);
-      backdrop-filter: blur(10px);
-    }
-    .zoom-modal.open{ display:flex; }
-
-    .zoom-stage{
-      width: min(980px, 96vw);
-      max-height: 84vh;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(2,6,23,0.82);
-      box-shadow: 0 30px 120px rgba(0,0,0,0.55);
-      overflow: hidden;
-      transform-style: preserve-3d;
-    }
-
-    .zoom-topbar{
-      display:flex;
-      align-items:center;
-      justify-content: space-between;
-      gap: 10px;
-      padding: 10px 12px;
-      border-bottom: 1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.04);
-    }
-    .zoom-title{
-      color: rgba(229,231,235,0.95);
-      font-size: .92rem;
-      letter-spacing:.06em;
-      text-transform: uppercase;
-      white-space: nowrap;
-      overflow:hidden;
-      text-overflow: ellipsis;
-    }
-    .zoom-actions{
-      display:flex;
-      align-items:center;
-      gap: 8px;
-    }
-    .zoom-btn{
-      width: 40px;
-      height: 40px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(255,255,255,0.06);
-      color: #fff;
-      cursor: pointer;
-      font-size: 1.1rem;
-      line-height: 1;
-      display:grid;
-      place-items:center;
-      user-select:none;
-    }
-    .zoom-btn:hover{
-      border-color: rgba(34,211,238,0.65);
-      box-shadow: 0 0 18px rgba(34,211,238,0.18);
-    }
-
-    .zoom-media{
-      position: relative;
-      perspective: 1200px;
-      background: radial-gradient(circle at top, rgba(34,211,238,0.10), transparent 55%),
-                  radial-gradient(circle at bottom, rgba(139,92,246,0.10), transparent 60%);
-    }
-
-    .zoom-img{
-      width: 100%;
-      height: auto;
-      max-height: calc(84vh - 56px);
-      object-fit: contain;
-      display:block;
-
-      /* initial pop-in */
-      transform: translateZ(60px) scale(0.92);
-      filter: drop-shadow(0 30px 70px rgba(0,0,0,0.45));
-      opacity: 0;
-      transition: transform .26s ease, opacity .18s ease;
-      transform-style: preserve-3d;
-    }
-    .zoom-modal.open .zoom-img{
-      opacity: 1;
-      transform: translateZ(60px) scale(1);
-    }
-
-    /* Tilt effect driven by JS */
-    .zoom-tilt{
-      transform-style: preserve-3d;
-      transition: transform .08s linear;
-      will-change: transform;
-    }
-
-    /* Respect reduced motion */
     @media (prefers-reduced-motion: reduce){
-      .vision-track, .feature-card, .feature-card .card-media, .zoom-img, .zoom-tilt{
-        transition: none !important;
-      }
+      *{ scroll-behavior:auto !important; transition:none !important; }
     }
   </style>
 </head>
@@ -588,13 +611,12 @@
             <figcaption>The stack — photonic layers, coupling regions, and a structure built to respond.</figcaption>
           </figure>
 
-          <!-- FIXED: this must be class="vision-slide" so the slider JS counts it -->
-          <figure class="vision-slide">
-            <img src="futuristic_city_rpas.jpg"
-                 alt="Future city illuminated by RPAS technology"
-                 loading="lazy" />
+          <!-- NOTE: this one is NOT a "vision-slide", so it won't be part of slider/dots.
+               Leaving it as-is per your current code, but it's still displayed in the track. -->
+          <figure>
+            <img src="futuristic_city_rpas.jpg" alt="Future city illuminated by RPAS technology">
             <figcaption>
-              <strong>Figure: BioGlow™ Urban Illumination Concept</strong> — A visionary depiction of a future city where buildings, streets, and ceilings emit ambient light through embedded RPAS layers, reducing traditional lighting infrastructure.
+              <strong>Figure: BioGlow™ Urban Illumination Concept</strong> — A visionary depiction of a future city where buildings, streets, and ceilings emit ambient light through embedded Resonant Photonic Amplification System (RPAS) layers, eliminating the need for traditional lighting infrastructure.
             </figcaption>
           </figure>
         </div>
@@ -632,7 +654,7 @@
           architecture, and energy efficiency.
         </p>
 
-        <div class="cards-grid">
+        <div class="cards-grid" id="cardsGrid">
           <article class="feature-card">
             <img class="card-media"
                  src="./Images/blog_images/living-architecture-light-without-fixtures.png"
@@ -708,24 +730,24 @@
           <article class="feature-card">
             <img class="card-media"
                  src="./Images/blog_images/Layers_Bio_Glow.png"
-                 alt="Concept: layered photonic stack (BioGlow)"
+                 alt="Concept: layer stack / BioGlow"
                  loading="lazy">
             <div class="card-body">
-              <h3>Layered photonic stack</h3>
-              <p>A visual cue for how engineered layers can be tuned, coupled, and driven to produce controlled emission.</p>
-              <span class="tag">Layer logic</span>
+              <h3>Layered emission stacks</h3>
+              <p>Stack engineering: coupling, dopants, and resonance-friendly interfaces for controlled emission.</p>
+              <span class="tag">Layer stack</span>
             </div>
           </article>
 
           <article class="feature-card">
             <img class="card-media"
                  src="./Images/blog_images/Futuristic_illuminated_pathway_at_dusk.png"
-                 alt="Concept: pathways and edge lighting"
+                 alt="Concept: navigation markers and hazard indicators (variant)"
                  loading="lazy">
             <div class="card-body">
-              <h3>Pathways + edges</h3>
-              <p>Curbs, stairs, edges, and low-visibility zones that become readable when driven by safe excitation patterns.</p>
-              <span class="tag">Edge safety</span>
+              <h3>Guidance systems</h3>
+              <p>Runways, tunnels, emergency paths — tuned activation that stays readable in harsh conditions.</p>
+              <span class="tag">Safety lines</span>
             </div>
           </article>
         </div>
@@ -744,22 +766,29 @@
     </footer>
   </main>
 
-  <!-- CLICK-TO-ZOOM MODAL -->
-  <div class="zoom-modal" id="zoomModal" aria-hidden="true">
-    <div class="zoom-stage" role="dialog" aria-modal="true" aria-label="Image preview">
-      <div class="zoom-topbar">
-        <div class="zoom-title" id="zoomTitle">Preview</div>
-        <div class="zoom-actions">
-          <button class="zoom-btn" type="button" id="zoomOpenNew" aria-label="Open image in new tab">↗</button>
-          <button class="zoom-btn" type="button" id="zoomClose" aria-label="Close preview">✕</button>
+  <!-- ✅ NEW: Lightbox modal (hidden until you click a bottom card image) -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox__panel" role="dialog" aria-modal="true" aria-label="Image viewer">
+      <div class="lightbox__top">
+        <div class="lightbox__title" id="lightboxTitle">Preview</div>
+        <div style="display:flex; gap:10px;">
+          <button class="lightbox__btn" type="button" id="lightboxPrev" aria-label="Previous">‹</button>
+          <button class="lightbox__btn" type="button" id="lightboxNext" aria-label="Next">›</button>
+          <button class="lightbox__btn" type="button" id="lightboxClose" aria-label="Close">✕</button>
         </div>
       </div>
 
-      <div class="zoom-media">
-        <div class="zoom-tilt" id="zoomTilt">
-          <img class="zoom-img" id="zoomImg" alt="">
+      <div class="lightbox__stage">
+        <div class="lightbox__imgWrap" id="lightboxWrap">
+          <img class="lightbox__img" id="lightboxImg" alt="" />
+        </div>
+        <div class="lightbox__nav" aria-hidden="true">
+          <button class="lightbox__arrow prev" type="button" id="lightboxArrowPrev" aria-label="Previous">‹</button>
+          <button class="lightbox__arrow next" type="button" id="lightboxArrowNext" aria-label="Next">›</button>
         </div>
       </div>
+
+      <div class="lightbox__caption" id="lightboxCaption"></div>
     </div>
   </div>
 
@@ -822,7 +851,7 @@
           function goTo(i, userAction=false) {
             index = (i + slides.length) % slides.length;
             update();
-            if (userAction) restartAutoplay();
+            if (userAction) startAutoplay();
           }
           function next(userAction=false) { goTo(index + 1, userAction); }
           function prev(userAction=false) { goTo(index - 1, userAction); }
@@ -845,16 +874,10 @@
           }
 
           function startAutoplay() {
-            stopAutoplay();
+            if (timer) clearInterval(timer);
             timer = setInterval(() => next(false), 5000);
           }
-          function stopAutoplay() {
-            if (timer) clearInterval(timer);
-            timer = null;
-          }
-          function restartAutoplay() { startAutoplay(); }
-
-          slider.addEventListener("mouseenter", stopAutoplay);
+          slider.addEventListener("mouseenter", () => { if (timer) clearInterval(timer); timer = null; });
           slider.addEventListener("mouseleave", startAutoplay);
 
           update();
@@ -862,112 +885,125 @@
         }
       }
 
-      /* ================================
-         CLICK-TO-ZOOM (3D POP) for grid images
-         ================================ */
-      const modal = document.getElementById("zoomModal");
-      const zoomImg = document.getElementById("zoomImg");
-      const zoomTitle = document.getElementById("zoomTitle");
-      const zoomClose = document.getElementById("zoomClose");
-      const zoomOpenNew = document.getElementById("zoomOpenNew");
-      const zoomTilt = document.getElementById("zoomTilt");
+      // ✅ NEW: Lightbox for bottom grid images ONLY
+      const grid = document.getElementById("cardsGrid");
+      const lb = document.getElementById("lightbox");
+      const lbPanel = lb?.querySelector(".lightbox__panel");
+      const lbImg = document.getElementById("lightboxImg");
+      const lbTitle = document.getElementById("lightboxTitle");
+      const lbCaption = document.getElementById("lightboxCaption");
+      const btnClose = document.getElementById("lightboxClose");
+      const btnPrev = document.getElementById("lightboxPrev");
+      const btnNext = document.getElementById("lightboxNext");
+      const arrowPrev = document.getElementById("lightboxArrowPrev");
+      const arrowNext = document.getElementById("lightboxArrowNext");
+      const wrap = document.getElementById("lightboxWrap");
 
-      if (!modal || !zoomImg || !zoomClose || !zoomOpenNew || !zoomTilt || !zoomTitle) return;
+      if (!grid || !lb || !lbImg || !lbTitle || !lbCaption || !btnClose || !btnPrev || !btnNext || !arrowPrev || !arrowNext || !wrap) return;
 
-      const galleryImgs = Array.from(document.querySelectorAll(".cards-grid .card-media"));
+      const thumbs = Array.from(grid.querySelectorAll("img.card-media"));
 
-      let lastSrc = "";
-      let isOpen = false;
+      // store caption + title from the card (h3 + p)
+      const items = thumbs.map(img => {
+        const card = img.closest(".feature-card");
+        const h3 = card?.querySelector("h3")?.textContent?.trim() || "Preview";
+        const p = card?.querySelector("p")?.textContent?.trim() || img.alt || "";
+        return { src: img.getAttribute("src") || "", alt: img.alt || h3, title: h3, caption: p };
+      });
 
-      function openModalFromImage(imgEl){
-        const src = imgEl.getAttribute("src") || "";
-        const alt = imgEl.getAttribute("alt") || "Image preview";
-        if (!src) return;
+      let current = 0;
+      let lastFocus = null;
 
-        lastSrc = src;
-        zoomImg.src = src;
-        zoomImg.alt = alt;
-        zoomTitle.textContent = alt;
+      function openAt(i){
+        current = (i + items.length) % items.length;
+        const it = items[current];
 
-        modal.classList.add("open");
-        modal.setAttribute("aria-hidden", "false");
+        lastFocus = document.activeElement;
+
+        lb.classList.add("open");
+        lb.setAttribute("aria-hidden", "false");
         document.body.style.overflow = "hidden";
-        isOpen = true;
 
-        // reset tilt
-        zoomTilt.style.transform = "rotateX(0deg) rotateY(0deg) translateZ(0)";
+        lbImg.src = it.src;
+        lbImg.alt = it.alt;
+        lbTitle.textContent = it.title;
+        lbCaption.textContent = it.caption;
+
+        // focus close for keyboard users
+        btnClose.focus();
       }
 
-      function closeModal(){
-        modal.classList.remove("open");
-        modal.setAttribute("aria-hidden", "true");
+      function close(){
+        lb.classList.remove("open");
+        lb.setAttribute("aria-hidden", "true");
         document.body.style.overflow = "";
-        isOpen = false;
-
-        // clear to avoid flash on next open
-        window.setTimeout(() => {
-          if (!isOpen) {
-            zoomImg.removeAttribute("src");
-            zoomImg.alt = "";
-            zoomTitle.textContent = "Preview";
-          }
-        }, 120);
+        resetTilt();
+        if (lastFocus && typeof lastFocus.focus === "function") lastFocus.focus();
       }
 
-      // Click image opens modal
-      galleryImgs.forEach(img => {
-        img.addEventListener("click", () => openModalFromImage(img));
-        // keyboard access
-        img.setAttribute("tabindex", "0");
+      function next(){ openAt(current + 1); }
+      function prev(){ openAt(current - 1); }
+
+      thumbs.forEach((img, idx) => {
         img.setAttribute("role", "button");
+        img.setAttribute("tabindex", "0");
         img.setAttribute("aria-label", "Open image preview");
+        img.addEventListener("click", () => openAt(idx));
         img.addEventListener("keydown", (e) => {
-          if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            openModalFromImage(img);
-          }
+          if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openAt(idx); }
         });
       });
 
-      // Close actions
-      zoomClose.addEventListener("click", closeModal);
-      modal.addEventListener("click", (e) => {
-        // click outside the dialog closes
-        if (e.target === modal) closeModal();
+      btnClose.addEventListener("click", close);
+      btnNext.addEventListener("click", next);
+      btnPrev.addEventListener("click", prev);
+      arrowNext.addEventListener("click", next);
+      arrowPrev.addEventListener("click", prev);
+
+      // click outside panel closes
+      lb.addEventListener("click", (e) => {
+        if (e.target === lb) close();
       });
 
-      // Escape closes
+      // Esc + arrows
       document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && isOpen) closeModal();
+        if (!lb.classList.contains("open")) return;
+        if (e.key === "Escape") close();
+        if (e.key === "ArrowRight") next();
+        if (e.key === "ArrowLeft") prev();
       });
 
-      // Open in new tab
-      zoomOpenNew.addEventListener("click", () => {
-        if (!lastSrc) return;
-        window.open(lastSrc, "_blank", "noopener,noreferrer");
-      });
-
-      // 3D tilt effect (mouse move)
-      const stage = modal.querySelector(".zoom-stage");
-      if (stage) {
-        stage.addEventListener("mousemove", (e) => {
-          if (!isOpen) return;
-          const rect = stage.getBoundingClientRect();
-          const x = (e.clientX - rect.left) / rect.width;   // 0..1
-          const y = (e.clientY - rect.top) / rect.height;  // 0..1
-
-          const rotY = (x - 0.5) * 10;  // -5..5 deg
-          const rotX = (0.5 - y) * 10;  // -5..5 deg
-
-          zoomTilt.style.transform =
-            "rotateX(" + rotX.toFixed(2) + "deg) rotateY(" + rotY.toFixed(2) + "deg) translateZ(0)";
-        });
-
-        stage.addEventListener("mouseleave", () => {
-          if (!isOpen) return;
-          zoomTilt.style.transform = "rotateX(0deg) rotateY(0deg) translateZ(0)";
-        });
+      // ✅ Subtle 3D tilt on mouse move (fun but not obnoxious)
+      let rect = null;
+      function resetTilt(){
+        wrap.style.transform = "rotateX(0deg) rotateY(0deg) scale(1)";
       }
+
+      lbImg.addEventListener("load", () => {
+        rect = wrap.getBoundingClientRect();
+        resetTilt();
+      });
+
+      lbPanel?.addEventListener("mousemove", (e) => {
+        if (!lb.classList.contains("open")) return;
+        if (!rect) rect = wrap.getBoundingClientRect();
+
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const cx = rect.width / 2;
+        const cy = rect.height / 2;
+
+        const dx = (x - cx) / cx; // -1..1
+        const dy = (y - cy) / cy; // -1..1
+
+        const rotateY = dx * 6;   // degrees
+        const rotateX = -dy * 6;  // degrees
+
+        wrap.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.01)`;
+      });
+
+      lbPanel?.addEventListener("mouseleave", resetTilt);
+
     })();
   </script>
 </body>
