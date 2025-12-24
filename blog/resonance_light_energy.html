@@ -10,53 +10,8 @@
   <meta name="author" content="Luis Amaya" />
   <meta name="keywords" content="resonance, photonics, frequency, experimental technology, luminescence, excitation, Halocyberlife" />
 
-  <style>
-    /* ================================
-       HaloCyberlife v2.0.2 Styles
-       ================================ */
-    /* your entire existing CSS goes here unchanged... */
-
-    /* LIGHTBOX for Vision Zoom */
-    .image-lightbox {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.85);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      backdrop-filter: blur(6px);
-      cursor: zoom-out;
-      transition: opacity 0.25s ease;
-    }
-    .image-lightbox.show {
-      display: flex;
-    }
-    .image-lightbox img {
-      max-width: 92vw;
-      max-height: 92vh;
-      border-radius: 14px;
-      box-shadow: 0 30px 80px rgba(0,0,0,0.6);
-      transform: scale(0.92) rotateX(2deg) rotateY(2deg);
-      animation: zoomIn 0.3s ease forwards;
-    }
-    @keyframes zoomIn {
-      to {
-        transform: scale(1) rotateX(0deg) rotateY(0deg);
-      }
-    }
-    .lightbox-close {
-      position: absolute;
-      top: 1.2rem;
-      right: 1.4rem;
-      font-size: 2rem;
-      background: none;
-      border: none;
-      color: #fff;
-      cursor: pointer;
-      z-index: 10000;
-    }
-  </style>
+  <!-- ORIGINAL CSS -->
+  <link rel="stylesheet" href="./style_v2_0_0.css" />
 </head>
 
 <body>
@@ -102,54 +57,52 @@
       </div>
     </section>
 
-    <!-- ========================
-         Slider with data-enlarge
-         ======================== -->
     <section class="vision-slider" aria-label="Article image slider">
       <div class="vision-viewport">
         <div class="vision-track">
-
           <figure class="vision-slide">
             <img src="./Images/blog_images/resonance-activated-wall-panels.png"
-                 alt="Architectural surfaces emitting light through resonance-driven activation (concept art)" />
+                 alt="Architectural surfaces emitting light through resonance-driven activation (concept art)"
+                 loading="eager" />
             <figcaption>Living surfaces — materials engineered to glow when “tuned” (concept visual).</figcaption>
           </figure>
 
           <figure class="vision-slide">
             <img src="./Images/blog_images/resonant-frequency-wave-instruction.png"
-                 alt="Resonant frequency wave injection and control pathway (concept diagram)" />
+                 alt="Resonant frequency wave injection and control pathway (concept diagram)"
+                 loading="lazy" />
             <figcaption>Control layer — the frequency pathway that turns emission into a dial, not a switch.</figcaption>
           </figure>
 
           <figure class="vision-slide">
             <img src="./Images/blog_images/resonant-photonic-layer-stack.png"
-                 alt="Layer stack showing photonic materials, coupling interfaces, and resonance structures" />
+                 alt="Layer stack showing photonic materials, coupling interfaces, and resonance structures"
+                 loading="lazy" />
             <figcaption>The stack — photonic layers, coupling regions, and a structure built to respond.</figcaption>
           </figure>
 
           <figure class="vision-slide">
             <img src="./Images/blog_images/Layers_Bio_Glow.png"
-                 alt="Layer stack showing photonic materials, coupling interfaces, and resonance structures" />
+                 alt="Layer stack showing photonic materials, coupling interfaces, and resonance structures"
+                 loading="lazy" />
             <figcaption>The stack — photonic layers, coupling regions, and a structure built to respond.</figcaption>
           </figure>
 
-          <!-- **These have data-enlarge so they open in lightbox** -->
           <figure class="vision-slide">
             <img src="./Images/blog_images/futuristic_city_rpas.png"
-                 alt="Future city illuminated by RPAS technology" data-enlarge />
+                 alt="Future city illuminated by RPAS technology" />
             <figcaption>
-              <strong>BioGlow™ Urban Illumination Concept</strong> — visionary depiction.
+            <strong>Figure: BioGlow™ Urban Illumination Concept</strong> — A visionary depiction of a future city where buildings, streets, and ceilings emit ambient light through embedded Resonant Photonic Amplification System (RPAS) layers, eliminating the need for traditional lighting infrastructure.
             </figcaption>
           </figure>
 
           <figure class="vision-slide">
             <img src="./Images/blog_images/Layers_Fiber_Optics.png"
-                 alt="Resonant system with embedded fiber optics" data-enlarge />
+                 alt="Future city illuminated by RPAS technology" />
             <figcaption>
-              <strong>BioGlow™ With Fiber Routing Concept</strong> — conceptual illustration.
+            <strong>Figure: BioGlow™ Urban Illumination Concept</strong> — A visionary depiction of a future city where buildings, streets, and ceilings emit ambient light through embedded Resonant Photonic Amplification System (RPAS) layers, eliminating the need for traditional lighting infrastructure.
             </figcaption>
           </figure>
-
         </div>
 
         <button class="vision-btn vision-prev" type="button" aria-label="Previous slide">‹</button>
@@ -159,36 +112,36 @@
       <div class="vision-dots" role="tablist" aria-label="Slide navigation"></div>
 
       <p class="note">
-        <strong>Concept Visuals:</strong> Illustrations for storytelling and education — not a finished product.
+        <strong>Concept Visuals:</strong> Illustrations for storytelling and education — not a finished consumer product rendering.
       </p>
     </section>
 
-    <!-- your article body continues here... -->
+    <article class="article-body">
+      <p>Imagine you walk into a room with no fixtures on the ceiling. No bulbs. No glowing panels. No visible light source at all.</p>
+      <p>You tap a control, a subtle vibration rolls through the structure, and the wall itself begins to emit a calm, stable glow.</p>
+      <!-- Rest of your original article content -->
+    </article>
 
+    <section class="possibilities" id="possibilities" aria-label="Possibilities that change the game">
+      <h2>Possibilities That Change the Game</h2>
+      <p class="lead">If materials can be designed to emit more light when properly excited, the ripple effects are huge — not just for lighting, but for sensing, signaling, displays, safety, architecture, and energy efficiency.</p>
+
+      <div class="cards-grid">
+        <!-- Your original feature cards go here -->
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Halocyberlife.com · Luis Amaya, self-contained article.
+    </footer>
   </main>
 
-  <footer>
-    © <span id="year"></span> Halocyberlife.com · Luis Amaya, self-contained article.
-  </footer>
-
-  <!-- ==========================
-       Lightbox HTML (only once)
-       ========================== -->
-  <div class="image-lightbox" id="lightbox">
-    <img id="lightbox-img" src="" alt="Expanded image" />
-    <button class="lightbox-close" id="lightbox-close" aria-label="Close enlarged image">×</button>
-  </div>
-
-  <!-- ==========================
-       Combined Script Block
-       ========================== -->
+  <!-- ORIGINAL SCRIPTS -->
   <script>
     (() => {
-      // ▶ Footer year
       const y = document.getElementById("year");
       if (y) y.textContent = String(new Date().getFullYear());
 
-      // ▶ Mobile menu toggle
       const menuBtn = document.getElementById("menuBtn");
       const nav = document.getElementById("mainNav");
       if (menuBtn && nav) {
@@ -203,14 +156,14 @@
         });
       }
 
-      // ▶ Smooth jump
       const jumpBtn = document.getElementById("jumpToPossibilities");
       const poss = document.getElementById("possibilities");
       if (jumpBtn && poss) {
-        jumpBtn.addEventListener("click", () => poss.scrollIntoView({ behavior: "smooth", block: "start" }));
+        jumpBtn.addEventListener("click", () => {
+          poss.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
       }
 
-      // ▶ Slider logic
       const slider = document.querySelector(".vision-slider");
       if (!slider) return;
 
@@ -223,9 +176,9 @@
 
       if (!track || slides.length === 0 || !prevBtn || !nextBtn || !dotsWrap) return;
 
-      let index = 0, timer = null;
-
+      let index = 0, timer=null;
       dotsWrap.innerHTML = "";
+
       slides.forEach((_, i) => {
         const dot = document.createElement("button");
         dot.type = "button";
@@ -237,7 +190,6 @@
       });
 
       const dots = Array.from(slider.querySelectorAll(".vision-dot"));
-
       function update() {
         track.style.transform = "translateX(-" + (index * 100) + "%)";
         dots.forEach((d, i) => d.setAttribute("aria-selected", i === index ? "true" : "false"));
@@ -247,58 +199,35 @@
         update();
         if (userAction) restartAutoplay();
       }
-      function next(userAction=false) { goTo(index + 1, userAction); }
-      function prev(userAction=false) { goTo(index - 1, userAction); }
+      function next(userAction=false){ goTo(index+1,userAction); }
+      function prev(userAction=false){ goTo(index-1,userAction); }
 
-      prevBtn.addEventListener("click", () => prev(true));
-      nextBtn.addEventListener("click", () => next(true));
+      prevBtn.addEventListener("click", ()=>prev(true));
+      nextBtn.addEventListener("click", ()=>next(true));
 
-      let startX = 0, down = false;
-      if (viewport) {
-        viewport.addEventListener("pointerdown", (e) => { down=true; startX=e.clientX; });
-        viewport.addEventListener("pointerup", (e) => {
-          if (!down) return;
-          down = false;
-          const dx = e.clientX - startX;
-          if (Math.abs(dx) > 40) dx < 0 ? next(true) : prev(true);
+      let startX=0, down=false;
+      if(viewport){
+        viewport.addEventListener("pointerdown",(e)=>{down=true;startX=e.clientX;});
+        viewport.addEventListener("pointerup",(e)=>{
+          if(!down)return;
+          down=false;
+          const dx=e.clientX-startX;
+          if(Math.abs(dx)>40)dx<0?next(true):prev(true);
         });
-        viewport.addEventListener("pointercancel", () => { down=false; });
+        viewport.addEventListener("pointercancel",()=>{down=false;});
       }
 
-      function startAutoplay() {
+      function startAutoplay(){
         stopAutoplay();
-        timer = setInterval(() => next(false), 5000);
+        timer=setInterval(()=>next(false),5000);
       }
-      function stopAutoplay() { if (timer) clearInterval(timer); timer = null; }
-      function restartAutoplay() { startAutoplay(); }
+      function stopAutoplay(){ if(timer)clearInterval(timer); timer=null; }
+      function restartAutoplay(){ startAutoplay(); }
 
-      slider.addEventListener("mouseenter", stopAutoplay);
-      slider.addEventListener("mouseleave", startAutoplay);
-
-      update();
-      startAutoplay();
-
+      slider.addEventListener("mouseenter",stopAutoplay);
+      slider.addEventListener("mouseleave",startAutoplay);
+      update();startAutoplay();
     })();
-
-    // ▶ Lightbox Script
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    const lightboxClose = document.getElementById('lightbox-close');
-
-    document.querySelectorAll('img[data-enlarge]').forEach(img => {
-      img.style.cursor = 'zoom-in';
-      img.addEventListener('click', () => {
-        lightboxImg.src = img.src;
-        lightbox.classList.add('show');
-      });
-    });
-
-    lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox || e.target === lightboxClose) {
-        lightbox.classList.remove('show');
-        lightboxImg.src = '';
-      }
-    });
   </script>
 </body>
 </html>
