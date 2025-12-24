@@ -257,7 +257,7 @@
 
       const startAutoplay = () => {
         stopAutoplay();
-        timer = setInterval(() => next(false), 5000);
+        timer = setInterval(() => next(false), 3000);
       };
 
       const stopAutoplay = () => {
