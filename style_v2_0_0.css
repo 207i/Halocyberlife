@@ -753,7 +753,7 @@ body {
   display:block;
 }
 
-.vision-card figcaption{
+/* .vision-card figcaption{
   padding:12px 12px 14px;
   font-size:0.95rem;
   line-height:1.35;
@@ -764,9 +764,9 @@ body {
   height: clamp(240px, 44vw, 520px);
   object-fit: contain;
   display: block;
-  background: rgba(0, 0, 0, 0.2); /* optional: adds backdrop to preserve aspect ratio */
+  background: rgba(0, 0, 0, 0.2); /* optional: adds backdrop to preserve aspect ratio 
   margin-inline: auto;
-}
+} */
 
 .note-box{
   margin-top:18px;
