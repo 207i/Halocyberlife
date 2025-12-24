@@ -74,6 +74,7 @@
       align-items:center;
       gap:.6rem;
       margin-right: 10px;
+      position: relative;
     }
     nav{
       display:flex;
@@ -119,8 +120,8 @@
       .menu-btn{ display:inline-grid; place-items:center; }
       nav{
         position:absolute;
-        top: 68px;
-        right: 1.25rem;
+        top: 56px;
+        right: 0;
         flex-direction: column;
         align-items: stretch;
         padding: 10px;
@@ -365,7 +366,17 @@
       display:block;
       background: rgba(255,255,255,0.06);
       border-bottom: 1px solid rgba(255,255,255,0.08);
+
+      /* clickable feel */
+      cursor: zoom-in;
+      transform: translateZ(0);
+      transition: transform .18s ease, filter .18s ease;
     }
+    .feature-card:hover .card-media{
+      transform: scale(1.02);
+      filter: brightness(1.04);
+    }
+
     .feature-card .card-body{ padding: 14px 14px 16px; }
     .feature-card h3{ margin: 0 0 .35rem; color: var(--text); font-size: 1.05rem; }
     .feature-card p{ margin: 0; color: rgba(209,213,219,0.9); font-size: .98rem; }
@@ -390,6 +401,116 @@
       font-size: .9rem;
       text-align:center;
     }
+
+    /* ================================
+       CLICK-TO-ZOOM (3D POP) MODAL
+       ================================ */
+
+    .zoom-modal{
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 22px;
+      background: rgba(0,0,0,0.72);
+      backdrop-filter: blur(10px);
+    }
+    .zoom-modal.open{ display:flex; }
+
+    .zoom-stage{
+      width: min(980px, 96vw);
+      max-height: 84vh;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(2,6,23,0.82);
+      box-shadow: 0 30px 120px rgba(0,0,0,0.55);
+      overflow: hidden;
+      transform-style: preserve-3d;
+    }
+
+    .zoom-topbar{
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.04);
+    }
+    .zoom-title{
+      color: rgba(229,231,235,0.95);
+      font-size: .92rem;
+      letter-spacing:.06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      overflow:hidden;
+      text-overflow: ellipsis;
+    }
+    .zoom-actions{
+      display:flex;
+      align-items:center;
+      gap: 8px;
+    }
+    .zoom-btn{
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.06);
+      color: #fff;
+      cursor: pointer;
+      font-size: 1.1rem;
+      line-height: 1;
+      display:grid;
+      place-items:center;
+      user-select:none;
+    }
+    .zoom-btn:hover{
+      border-color: rgba(34,211,238,0.65);
+      box-shadow: 0 0 18px rgba(34,211,238,0.18);
+    }
+
+    .zoom-media{
+      position: relative;
+      perspective: 1200px;
+      background: radial-gradient(circle at top, rgba(34,211,238,0.10), transparent 55%),
+                  radial-gradient(circle at bottom, rgba(139,92,246,0.10), transparent 60%);
+    }
+
+    .zoom-img{
+      width: 100%;
+      height: auto;
+      max-height: calc(84vh - 56px);
+      object-fit: contain;
+      display:block;
+
+      /* initial pop-in */
+      transform: translateZ(60px) scale(0.92);
+      filter: drop-shadow(0 30px 70px rgba(0,0,0,0.45));
+      opacity: 0;
+      transition: transform .26s ease, opacity .18s ease;
+      transform-style: preserve-3d;
+    }
+    .zoom-modal.open .zoom-img{
+      opacity: 1;
+      transform: translateZ(60px) scale(1);
+    }
+
+    /* Tilt effect driven by JS */
+    .zoom-tilt{
+      transform-style: preserve-3d;
+      transition: transform .08s linear;
+      will-change: transform;
+    }
+
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      .vision-track, .feature-card, .feature-card .card-media, .zoom-img, .zoom-tilt{
+        transition: none !important;
+      }
+    }
   </style>
 </head>
 
@@ -397,7 +518,6 @@
   <header>
     <div class="container header-inner">
       <div class="brand">
-        <!-- FIX: Make sure this path matches your real folder name EXACTLY (case-sensitive on servers) -->
         <img src="../images/negative_white_halocyberlife_logo.png" alt="Halocyberlife logo" />
         <span>Halocyberlife</span>
       </div>
@@ -461,17 +581,20 @@
             <figcaption>The stack — photonic layers, coupling regions, and a structure built to respond.</figcaption>
           </figure>
 
-           <figure class="vision-slide">
+          <figure class="vision-slide">
             <img src="./Images/blog_images/Layers_Bio_Glow.png"
                  alt="Layer stack showing photonic materials, coupling interfaces, and resonance structures"
                  loading="lazy" />
             <figcaption>The stack — photonic layers, coupling regions, and a structure built to respond.</figcaption>
           </figure>
 
-           <figure>
-            <img src="futuristic_city_rpas.jpg" alt="Future city illuminated by RPAS technology">
+          <!-- FIXED: this must be class="vision-slide" so the slider JS counts it -->
+          <figure class="vision-slide">
+            <img src="futuristic_city_rpas.jpg"
+                 alt="Future city illuminated by RPAS technology"
+                 loading="lazy" />
             <figcaption>
-              <strong>Figure: BioGlow™ Urban Illumination Concept</strong> — A visionary depiction of a future city where buildings, streets, and ceilings emit ambient light through embedded Resonant Photonic Amplification System (RPAS) layers, eliminating the need for traditional lighting infrastructure.
+              <strong>Figure: BioGlow™ Urban Illumination Concept</strong> — A visionary depiction of a future city where buildings, streets, and ceilings emit ambient light through embedded RPAS layers, reducing traditional lighting infrastructure.
             </figcaption>
           </figure>
         </div>
@@ -501,7 +624,6 @@
 
       <hr />
 
-      <!-- FIX: This ID is what your button scrolls to -->
       <section class="possibilities" id="possibilities" aria-label="Possibilities that change the game">
         <h2>Possibilities That Change the Game</h2>
         <p class="lead">
@@ -586,24 +708,24 @@
           <article class="feature-card">
             <img class="card-media"
                  src="./Images/blog_images/Layers_Bio_Glow.png"
-                 alt="Concept: emissive materials as a new display paradigm"
+                 alt="Concept: layered photonic stack (BioGlow)"
                  loading="lazy">
             <div class="card-body">
-              <h3>New display paradigms</h3>
-              <p>Not a screen that shines at you — but materials that become emissive where and when stimulated.</p>
-              <span class="tag">Material display</span>
+              <h3>Layered photonic stack</h3>
+              <p>A visual cue for how engineered layers can be tuned, coupled, and driven to produce controlled emission.</p>
+              <span class="tag">Layer logic</span>
             </div>
           </article>
 
           <article class="feature-card">
             <img class="card-media"
                  src="./Images/blog_images/Futuristic_illuminated_pathway_at_dusk.png"
-                 alt="Concept: navigation markers and hazard indicators"
+                 alt="Concept: pathways and edge lighting"
                  loading="lazy">
             <div class="card-body">
-              <h3>Signals, markers, navigation</h3>
-              <p>Wayfinding strips, runway markers, hazard indicators — activated by tuned excitation patterns.</p>
-              <span class="tag">Guidance + safety</span>
+              <h3>Pathways + edges</h3>
+              <p>Curbs, stairs, edges, and low-visibility zones that become readable when driven by safe excitation patterns.</p>
+              <span class="tag">Edge safety</span>
             </div>
           </article>
         </div>
@@ -622,6 +744,25 @@
     </footer>
   </main>
 
+  <!-- CLICK-TO-ZOOM MODAL -->
+  <div class="zoom-modal" id="zoomModal" aria-hidden="true">
+    <div class="zoom-stage" role="dialog" aria-modal="true" aria-label="Image preview">
+      <div class="zoom-topbar">
+        <div class="zoom-title" id="zoomTitle">Preview</div>
+        <div class="zoom-actions">
+          <button class="zoom-btn" type="button" id="zoomOpenNew" aria-label="Open image in new tab">↗</button>
+          <button class="zoom-btn" type="button" id="zoomClose" aria-label="Close preview">✕</button>
+        </div>
+      </div>
+
+      <div class="zoom-media">
+        <div class="zoom-tilt" id="zoomTilt">
+          <img class="zoom-img" id="zoomImg" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
     (() => {
       // Footer year
@@ -633,11 +774,7 @@
       const nav = document.getElementById("mainNav");
       if (menuBtn && nav) {
         menuBtn.addEventListener("click", () => nav.classList.toggle("open"));
-        // close menu when clicking a link (mobile)
-        nav.querySelectorAll("a").forEach(a => {
-          a.addEventListener("click", () => nav.classList.remove("open"));
-        });
-        // click outside closes (mobile)
+        nav.querySelectorAll("a").forEach(a => a.addEventListener("click", () => nav.classList.remove("open")));
         document.addEventListener("click", (e) => {
           if (window.matchMedia("(max-width: 720px)").matches) {
             if (!nav.contains(e.target) && e.target !== menuBtn) nav.classList.remove("open");
@@ -649,103 +786,189 @@
       const jumpBtn = document.getElementById("jumpToPossibilities");
       const poss = document.getElementById("possibilities");
       if (jumpBtn && poss) {
-        jumpBtn.addEventListener("click", () => {
-          poss.scrollIntoView({ behavior: "smooth", block: "start" });
-        });
+        jumpBtn.addEventListener("click", () => poss.scrollIntoView({ behavior: "smooth", block: "start" }));
       }
 
       // Slider
       const slider = document.querySelector(".vision-slider");
-      if (!slider) return;
+      if (slider) {
+        const track = slider.querySelector(".vision-track");
+        const slides = Array.from(slider.querySelectorAll(".vision-slide"));
+        const prevBtn = slider.querySelector(".vision-prev");
+        const nextBtn = slider.querySelector(".vision-next");
+        const dotsWrap = slider.querySelector(".vision-dots");
+        const viewport = slider.querySelector(".vision-viewport");
 
-      const track = slider.querySelector(".vision-track");
-      const slides = Array.from(slider.querySelectorAll(".vision-slide"));
-      const prevBtn = slider.querySelector(".vision-prev");
-      const nextBtn = slider.querySelector(".vision-next");
-      const dotsWrap = slider.querySelector(".vision-dots");
-      const viewport = slider.querySelector(".vision-viewport");
+        if (track && slides.length && prevBtn && nextBtn && dotsWrap) {
+          let index = 0;
+          let timer = null;
 
-      if (!track || slides.length === 0 || !prevBtn || !nextBtn || !dotsWrap) return;
+          dotsWrap.innerHTML = "";
+          slides.forEach((_, i) => {
+            const dot = document.createElement("button");
+            dot.type = "button";
+            dot.className = "vision-dot";
+            dot.setAttribute("aria-label", "Go to slide " + (i + 1));
+            dot.setAttribute("aria-selected", i === 0 ? "true" : "false");
+            dot.addEventListener("click", () => goTo(i, true));
+            dotsWrap.appendChild(dot);
+          });
+          const dots = Array.from(slider.querySelectorAll(".vision-dot"));
 
-      let index = 0;
-      let timer = null;
+          function update() {
+            track.style.transform = "translateX(-" + (index * 100) + "%)";
+            dots.forEach((d, i) => d.setAttribute("aria-selected", i === index ? "true" : "false"));
+          }
+          function goTo(i, userAction=false) {
+            index = (i + slides.length) % slides.length;
+            update();
+            if (userAction) restartAutoplay();
+          }
+          function next(userAction=false) { goTo(index + 1, userAction); }
+          function prev(userAction=false) { goTo(index - 1, userAction); }
 
-      // Build dots
-      dotsWrap.innerHTML = "";
-      slides.forEach((_, i) => {
-        const dot = document.createElement("button");
-        dot.type = "button";
-        dot.className = "vision-dot";
-        dot.setAttribute("aria-label", "Go to slide " + (i + 1));
-        dot.setAttribute("aria-selected", i === 0 ? "true" : "false");
-        dot.addEventListener("click", () => goTo(i, true));
-        dotsWrap.appendChild(dot);
-      });
-      const dots = Array.from(slider.querySelectorAll(".vision-dot"));
+          prevBtn.addEventListener("click", () => prev(true));
+          nextBtn.addEventListener("click", () => next(true));
 
-      function update() {
-        track.style.transform = "translateX(-" + (index * 100) + "%)";
-        dots.forEach((d, i) => d.setAttribute("aria-selected", i === index ? "true" : "false"));
+          // Swipe
+          let startX = 0;
+          let down = false;
+          if (viewport) {
+            viewport.addEventListener("pointerdown", (e) => { down = true; startX = e.clientX; });
+            viewport.addEventListener("pointerup", (e) => {
+              if (!down) return;
+              down = false;
+              const dx = e.clientX - startX;
+              if (Math.abs(dx) > 40) dx < 0 ? next(true) : prev(true);
+            });
+            viewport.addEventListener("pointercancel", () => { down = false; });
+          }
+
+          function startAutoplay() {
+            stopAutoplay();
+            timer = setInterval(() => next(false), 5000);
+          }
+          function stopAutoplay() {
+            if (timer) clearInterval(timer);
+            timer = null;
+          }
+          function restartAutoplay() { startAutoplay(); }
+
+          slider.addEventListener("mouseenter", stopAutoplay);
+          slider.addEventListener("mouseleave", startAutoplay);
+
+          update();
+          startAutoplay();
+        }
       }
 
-      function goTo(i, userAction=false) {
-        index = (i + slides.length) % slides.length;
-        update();
-        if (userAction) restartAutoplay();
+      /* ================================
+         CLICK-TO-ZOOM (3D POP) for grid images
+         ================================ */
+      const modal = document.getElementById("zoomModal");
+      const zoomImg = document.getElementById("zoomImg");
+      const zoomTitle = document.getElementById("zoomTitle");
+      const zoomClose = document.getElementById("zoomClose");
+      const zoomOpenNew = document.getElementById("zoomOpenNew");
+      const zoomTilt = document.getElementById("zoomTilt");
+
+      if (!modal || !zoomImg || !zoomClose || !zoomOpenNew || !zoomTilt || !zoomTitle) return;
+
+      const galleryImgs = Array.from(document.querySelectorAll(".cards-grid .card-media"));
+
+      let lastSrc = "";
+      let isOpen = false;
+
+      function openModalFromImage(imgEl){
+        const src = imgEl.getAttribute("src") || "";
+        const alt = imgEl.getAttribute("alt") || "Image preview";
+        if (!src) return;
+
+        lastSrc = src;
+        zoomImg.src = src;
+        zoomImg.alt = alt;
+        zoomTitle.textContent = alt;
+
+        modal.classList.add("open");
+        modal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+        isOpen = true;
+
+        // reset tilt
+        zoomTilt.style.transform = "rotateX(0deg) rotateY(0deg) translateZ(0)";
       }
 
-      function next(userAction=false) { goTo(index + 1, userAction); }
-      function prev(userAction=false) { goTo(index - 1, userAction); }
+      function closeModal(){
+        modal.classList.remove("open");
+        modal.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+        isOpen = false;
 
-      prevBtn.addEventListener("click", () => prev(true));
-      nextBtn.addEventListener("click", () => next(true));
+        // clear to avoid flash on next open
+        window.setTimeout(() => {
+          if (!isOpen) {
+            zoomImg.removeAttribute("src");
+            zoomImg.alt = "";
+            zoomTitle.textContent = "Preview";
+          }
+        }, 120);
+      }
 
-      // Mobile swipe
-      let startX = 0;
-      let down = false;
-
-      if (viewport) {
-        viewport.addEventListener("pointerdown", (e) => { down = true; startX = e.clientX; });
-        viewport.addEventListener("pointerup", (e) => {
-          if (!down) return;
-          down = false;
-          const dx = e.clientX - startX;
-          if (Math.abs(dx) > 40) dx < 0 ? next(true) : prev(true);
+      // Click image opens modal
+      galleryImgs.forEach(img => {
+        img.addEventListener("click", () => openModalFromImage(img));
+        // keyboard access
+        img.setAttribute("tabindex", "0");
+        img.setAttribute("role", "button");
+        img.setAttribute("aria-label", "Open image preview");
+        img.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            openModalFromImage(img);
+          }
         });
-        viewport.addEventListener("pointercancel", () => { down = false; });
-      }
+      });
 
-      function startAutoplay() {
-        stopAutoplay();
-        timer = setInterval(() => next(false), 5000);
-      }
-      function stopAutoplay() {
-        if (timer) clearInterval(timer);
-        timer = null;
-      }
-      function restartAutoplay() { startAutoplay(); }
+      // Close actions
+      zoomClose.addEventListener("click", closeModal);
+      modal.addEventListener("click", (e) => {
+        // click outside the dialog closes
+        if (e.target === modal) closeModal();
+      });
 
-      // Pause on hover (desktop)
-      slider.addEventListener("mouseenter", stopAutoplay);
-      slider.addEventListener("mouseleave", startAutoplay);
+      // Escape closes
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && isOpen) closeModal();
+      });
 
-      update();
-      startAutoplay();
+      // Open in new tab
+      zoomOpenNew.addEventListener("click", () => {
+        if (!lastSrc) return;
+        window.open(lastSrc, "_blank", "noopener,noreferrer");
+      });
+
+      // 3D tilt effect (mouse move)
+      const stage = modal.querySelector(".zoom-stage");
+      if (stage) {
+        stage.addEventListener("mousemove", (e) => {
+          if (!isOpen) return;
+          const rect = stage.getBoundingClientRect();
+          const x = (e.clientX - rect.left) / rect.width;   // 0..1
+          const y = (e.clientY - rect.top) / rect.height;  // 0..1
+
+          const rotY = (x - 0.5) * 10;  // -5..5 deg
+          const rotX = (0.5 - y) * 10;  // -5..5 deg
+
+          zoomTilt.style.transform =
+            "rotateX(" + rotX.toFixed(2) + "deg) rotateY(" + rotY.toFixed(2) + "deg) translateZ(0)";
+        });
+
+        stage.addEventListener("mouseleave", () => {
+          if (!isOpen) return;
+          zoomTilt.style.transform = "rotateX(0deg) rotateY(0deg) translateZ(0)";
+        });
+      }
     })();
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
