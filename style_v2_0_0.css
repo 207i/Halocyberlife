@@ -753,21 +753,6 @@ body {
   display:block;
 }
 
-/* .vision-card figcaption{
-  padding:12px 12px 14px;
-  font-size:0.95rem;
-  line-height:1.35;
-}
-
-.vision-slide img {
-  width: 100%;
-  height: clamp(240px, 44vw, 520px);
-  object-fit: contain;
-  display: block;
-  background: rgba(0, 0, 0, 0.2); /* optional: adds backdrop to preserve aspect ratio 
-  margin-inline: auto;
-} */
-
 .note-box{
   margin-top:18px;
   padding:14px 14px 12px;
@@ -777,3 +762,44 @@ body {
 }
 
 .note-box h4{ margin:0 0 8px 0; }
+
+/* LIGHTBOX for Vision Zoom */
+.image-lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  backdrop-filter: blur(6px);
+  cursor: zoom-out;
+  transition: opacity 0.25s ease;
+}
+.image-lightbox.show {
+  display: flex;
+}
+.image-lightbox img {
+  max-width: 92vw;
+  max-height: 92vh;
+  border-radius: 14px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+  transform: scale(0.92) rotateX(2deg) rotateY(2deg);
+  animation: zoomIn 0.3s ease forwards;
+}
+@keyframes zoomIn {
+  to {
+    transform: scale(1) rotateX(0deg) rotateY(0deg);
+  }
+}
+.lightbox-close {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.4rem;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  z-index: 10000;
+}
