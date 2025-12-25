@@ -1,3 +1,254 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BIOGLOW™ Patent · Public Disclosure | Halocyberlife</title>
+  <meta name="description" content="BIOGLOW™ — Architectural Resonant Illumination System, public disclosure by Luis Amaya." />
+  <meta name="author" content="Luis Amaya" />
+
+  <style>
+    :root {
+      --bg: #020617;
+      --text: #f9fafb;
+      --muted: #9ca3af;
+      --accent: #22d3ee;
+      --border: rgba(148,163,184,0.28);
+      --radius: 18px;
+      --shadow: 0 24px 70px rgba(0,0,0,.45);
+      --panel: rgba(0,0,0,0.38);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020617 55%, #02040a 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(0,0,0,0.65);
+      backdrop-filter: blur(12px);
+      padding: 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: .65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: .9rem;
+      letter-spacing: .06em;
+    }
+
+    header img {
+      width: 40px;
+      height: 40px;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1rem 4rem;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: .5rem;
+    }
+
+    .meta {
+      text-align: center;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+    }
+
+    /* ===== Public Disclosure Note ===== */
+    .disclosure {
+      max-width: 980px;
+      margin: 0 auto 1.75rem;
+      padding: .85rem 1rem;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: var(--panel);
+      color: var(--muted);
+      font-size: .86rem;
+      line-height: 1.55;
+      text-align: center;
+    }
+
+    .disclosure strong {
+      color: var(--text);
+      font-weight: 650;
+    }
+
+    .disclosure a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px dashed rgba(34,211,238,0.55);
+    }
+    .disclosure a:hover { border-bottom-style: solid; }
+
+    /* ===== SLIDER ===== */
+    .slider {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,0.3);
+    }
+
+    .slider-track {
+      display: flex;
+      transition: transform 0.5s ease;
+      will-change: transform;
+    }
+
+    .slide {
+      min-width: 100%;
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .slide img {
+      max-width: 100%;
+      max-height: 84vh;
+      width: auto;
+      height: auto;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
+      margin: auto;
+    }
+
+    .nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.65);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 999px;
+      padding: .6rem 1rem;
+      cursor: pointer;
+      font-size: .9rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      user-select: none;
+    }
+
+    .nav-btn:hover { border-color: var(--accent); }
+    .prev { left: 1rem; }
+    .next { right: 1rem; }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: .9rem;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="brand">
+    <img src="../images/negative_white_halocyberlife_logo.png" alt="Halocyberlife logo">
+    <span>Halocyberlife</span>
+  </div>
+</header>
+
+<main>
+  <div class="meta">Public Disclosure · Patent Pages</div>
+  <h1>BIOGLOW™ — Resonant Architectural Illumination</h1>
+
+  <!-- ✅ Public-view disclaimer (blended + small) -->
+  <div class="disclosure" role="note" aria-label="Public disclosure formatting note">
+    <strong>Disclosure:</strong> This page is a <strong>public-view</strong> presentation of BIOGLOW™ materials.
+    The <strong>original patent filing</strong> is formatted differently to meet <strong>USPTO</strong> requirements.
+    This version may be modified for readability (layout, spacing, and presentation) while keeping the underlying content intent.
+  </div>
+
+  <div class="slider" aria-label="BIOGLOW Patent Slider">
+    <div class="slider-track" id="sliderTrack">
+
+      <!-- SLIDES -->
+      <div class="slide"><img src="/blog/Images/blog_images/BIOGLOW_v6_1_0_copy-01.png" alt="BIOGLOW page 1"></div>
+      <div class="slide"><img src="/blog/Images/blog_images/BIOGLOW_v6_1_0_copy-02.png" alt="BIOGLOW page 2"></div>
+      <div class="slide"><img src="/blog/Images/blog_images/BIOGLOW_v6_1_0_copy-03.png" alt="BIOGLOW page 3"></div>
+      <div class="slide"><img src="/blog/Images/blog_images/BIOGLOW_v6_1_0_copy-04.png" alt="BIOGLOW page 4"></div>
+      <div class="slide"><img src="/blog/Images/blog_images/BIOGLOW_v6_1_0_copy-05.png" alt="BIOGLOW page 5"></div>
+      <div class="slide"><img src="/blog/Images/blog_images/BIOGLOW_v6_1_0_copy-06.png" alt="BIOGLOW page 6"></div>
+      <div class="slide"><img src="/blog/Images/blog_images/BIOGLOW_v6_1_0_copy-07.png" alt="BIOGLOW page 7"></div>
+      <div class="slide"><img src="/blog/Images/blog_images/BIOGLOW_v6_1_0_copy-08.png" alt="BIOGLOW page 8"></div>
+      <div class="slide"><img src="/blog/Images/blog_images/BIOGLOW_v6_1_0_copy-09.png" alt="BIOGLOW page 9"></div>
+      <div class="slide"><img src="/blog/Images/blog_images/BIOGLOW_v6_1_0_copy-10.png" alt="BIOGLOW page 10"></div>
+      <div class="slide"><img src="/blog/Images/blog_images/BIOGLOW_v6_1_0_copy-11.png" alt="BIOGLOW page 11"></div>
+      <div class="slide"><img src="/blog/Images/blog_images/BIOGLOW_v6_1_0_copy-12.png" alt="BIOGLOW page 12"></div>
+      <div class="slide"><img src="/blog/Images/blog_images/BIOGLOW_v6_1_0_copy-13.png" alt="BIOGLOW page 13"></div>
+      <div class="slide"><img src="/blog/Images/blog_images/BIOGLOW_v6_1_0_copy-14.png" alt="BIOGLOW page 14"></div>
+      <div class="slide"><img src="/blog/Images/blog_images/BIOGLOW_v6_1_0_copy-15.png" alt="BIOGLOW page 15"></div>
+      <div class="slide"><img src="/blog/Images/blog_images/BIOGLOW_v6_1_0_copy-16.png" alt="BIOGLOW page 16"></div>
+
+    </div>
+
+    <button class="nav-btn prev" type="button" onclick="moveSlide(-1)">Prev</button>
+    <button class="nav-btn next" type="button" onclick="moveSlide(1)">Next</button>
+  </div>
+</main>
+
+<footer>
+  © <script>document.write(new Date().getFullYear())</script> Halocyberlife · Public disclosure by Luis Amaya
+</footer>
+
+<script>
+  let index = 0;
+  const track = document.getElementById("sliderTrack");
+  const total = track.children.length;
+
+  function moveSlide(direction) {
+    index += direction;
+    if (index < 0) index = total - 1;
+    if (index >= total) index = 0;
+    track.style.transform = `translateX(-${index * 100}%)`;
+  }
+</script>
+
+</body>
+</html>
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
