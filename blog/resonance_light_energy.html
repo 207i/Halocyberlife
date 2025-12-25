@@ -3,297 +3,366 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Resonant Photonic Amplification — Public Disclosure | Halocyberlife</title>
-  <meta name="description" content="RPAS — Resonant Photonic Amplification System, public disclosure by Luis Amaya." />
+  <title>Resonant Photonic Amplification — Light From Frequency | Halocyberlife</title>
+  <meta name="description" content="A concept technology exploring frequency-driven photonic excitation: how resonance could amplify light emission from engineered layers—without relying on traditional light sources." />
   <meta name="author" content="Luis Amaya" />
 
   <style>
-    :root {
-      --bg: #020617;
-      --text: #f9fafb;
-      --muted: #9ca3af;
-      --accent: #22d3ee;
-      --border: rgba(148,163,184,0.28);
-      --radius: 18px;
-      --shadow: 0 24px 70px rgba(0,0,0,.45);
-      --panel: rgba(0,0,0,0.38);
+    :root{
+      --bg:#020617;
+      --bg2:#0b1020;
+      --text:#f9fafb;
+      --muted:#9ca3af;
+      --accent:#22d3ee;
+      --border:rgba(148,163,184,.28);
+      --radius:18px;
+      --shadow:0 24px 70px rgba(0,0,0,.45);
+
+      /* Lightbox */
+      --lb-bg: rgba(0,0,0,.86);
+      --btn-bg: rgba(0,0,0,.55);
+      --btn-border: rgba(255,255,255,.22);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    *{box-sizing:border-box;margin:0;padding:0}
 
-    body {
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+    body{
+      font-family: system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
       background: radial-gradient(circle at top, #111827 0, #020617 55%, #02040a 100%);
-      color: var(--text);
-      line-height: 1.6;
+      color:var(--text);
+      line-height:1.6;
     }
 
-    header {
+    header{
       position: sticky;
       top: 0;
-      z-index: 20;
+      z-index: 10;
       background: rgba(0,0,0,0.65);
       backdrop-filter: blur(12px);
       padding: 1rem;
       border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: .65rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      font-size: .9rem;
-      letter-spacing: .06em;
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:.65rem;
+      font-weight:700;
+      text-transform:uppercase;
+      font-size:.9rem;
+      letter-spacing:.06em;
     }
 
-    header img { width: 40px; height: 40px; }
+    header img{width:40px;height:40px}
 
-    /* ✅ Less constraint = bigger patent */
-    main {
-      width: min(1600px, 100%);
+    /* ✅ REMOVE “CONFINING BOX” — use more of the screen */
+    main{
+      width: min(1400px, 96vw);   /* bigger than 1200 + less wasted space */
       margin: 0 auto;
-      padding: 1.25rem clamp(.75rem, 2vw, 1.5rem) 4rem;
+      padding: 1.75rem 1rem 4rem;
     }
 
-    h1 {
-      text-align: center;
-      font-size: clamp(1.85rem, 3.6vw, 3rem);
-      margin-bottom: .35rem;
+    h1{
+      text-align:center;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      margin-bottom:.35rem;
     }
 
-    .meta {
-      text-align: center;
-      color: var(--muted);
-      margin-bottom: .9rem;
+    .sub{
+      text-align:center;
+      color:var(--muted);
+      margin-bottom: 1.5rem;
     }
 
-    .disclosure {
-      width: min(1200px, 100%);
-      margin: 0 auto 1.1rem;
-      padding: .85rem 1rem;
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      background: var(--panel);
-      color: var(--muted);
-      font-size: .86rem;
-      line-height: 1.55;
-      text-align: center;
-    }
-    .disclosure strong { color: var(--text); font-weight: 650; }
-
-    /* ===== Gallery / Pages ===== */
-    .pages {
-      display: grid;
-      gap: 14px;
+    /* ===== Feature grid ===== */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1.25rem;
     }
 
-    /* One big viewer (like your slider, but without arrows) */
-    .viewer {
-      position: relative;
-      overflow: hidden;
+    @media (max-width: 980px){
+      .grid{ grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 640px){
+      main{ width: 100vw; padding-left: .75rem; padding-right: .75rem; }
+      .grid{ grid-template-columns: 1fr; }
+    }
+
+    .feature-card{
+      border:1px solid var(--border);
       border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      border: 1px solid var(--border);
-      background: rgba(0,0,0,0.28);
+      overflow:hidden;
+      background: rgba(0,0,0,.28);
+      box-shadow: 0 14px 40px rgba(0,0,0,.28);
+      display:flex;
+      flex-direction:column;
     }
 
-    .viewer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: clamp(.5rem, 1.6vw, 1.25rem);
-    }
-
-    /* ✅ Bigger patent image: uses more of the screen */
-    .patent-img {
-      display: block;
-      width: 100%;
-      height: auto;
-
-      /* key: allow huge display without weird cropping */
-      max-width: 1400px;     /* bigger than before */
-      max-height: 92vh;      /* larger than 84vh */
-      object-fit: contain;
-
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.50);
+    .card-media{
+      width:100%;
+      height: 240px;
+      object-fit: cover;
+      display:block;
       cursor: zoom-in;
+      transition: transform .22s ease;
+    }
+    .feature-card:hover .card-media{ transform: scale(1.02); }
+
+    .card-body{
+      padding: 1rem;
     }
 
-    /* Make it even bigger on wide screens */
-    @media (min-width: 1100px) {
-      .patent-img { max-width: 1520px; max-height: 93vh; }
+    .card-body h3{
+      font-size: 1.05rem;
+      margin-bottom: .25rem;
+      letter-spacing:.01em;
     }
 
-    /* ===== Footer ===== */
-    footer {
-      text-align: center;
+    .card-body p{
       color: var(--muted);
-      font-size: .9rem;
-      margin-top: 2.2rem;
+      font-size: .95rem;
+      margin-bottom: .65rem;
+    }
+
+    .tag{
+      display:inline-block;
+      padding:.35rem .7rem;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      color: rgba(255,255,255,.86);
+      background: rgba(255,255,255,.06);
+      font-size:.78rem;
+      letter-spacing:.06em;
+      text-transform: uppercase;
+    }
+
+    /* ===== Lightbox (FULLY WORKING) ===== */
+    .lightbox{
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      background: var(--lb-bg);
+      padding: 18px;
+    }
+    .lightbox.is-open{ display:flex; }
+
+    .lightbox__stage{
+      position: relative;
+      width: min(1200px, 96vw);
+      height: min(86vh, 820px);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .lightbox__img{
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: 0 18px 60px rgba(0,0,0,.5);
+      background: rgba(255,255,255,.03);
+    }
+
+    .lightbox__btn{
+      position:absolute;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      background: var(--btn-bg);
+      border: 1px solid var(--btn-border);
+      color: #fff;
+      border-radius: 999px;
+      cursor:pointer;
+      user-select:none;
+      -webkit-tap-highlight-color: transparent;
+      transition: border-color .18s ease, transform .18s ease;
+    }
+    .lightbox__btn:hover{ border-color: var(--accent); transform: translateY(-1px); }
+
+    /* ✅ Keep the X (close) */
+    .lightbox__close{
+      top: 12px;
+      right: 12px;
+      width: 44px;
+      height: 44px;
+      font-size: 20px;
+    }
+
+    /* ✅ Prev/Next WORKING */
+    .lightbox__prev,
+    .lightbox__next{
+      top: 50%;
+      transform: translateY(-50%);
+      width: 52px;
+      height: 52px;
+      font-size: 22px;
+    }
+    .lightbox__prev{ left: 12px; }
+    .lightbox__next{ right: 12px; }
+
+    .lightbox__caption{
+      position:absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -48px;
+      width: min(980px, 90vw);
+      text-align:center;
+      color: rgba(255,255,255,.78);
+      font-size: .92rem;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 640px){
+      .card-media{ height: 220px; }
+      .lightbox__stage{ height: 78vh; }
+      .lightbox__caption{ bottom: -58px; font-size: .88rem; }
+    }
+
+    footer{
+      text-align:center;
+      color: var(--muted);
+      font-size:.9rem;
+      margin-top: 2.5rem;
       padding-top: 2rem;
       border-top: 1px solid rgba(255,255,255,0.08);
     }
-
-    /* ===== Lightbox ===== */
-    .lightbox {
-      position: fixed;
-      inset: 0;
-      z-index: 999;
-      display: none;
-      background: rgba(0,0,0,0.78);
-      backdrop-filter: blur(10px);
-      padding: clamp(.75rem, 2vw, 1.5rem);
-    }
-
-    .lightbox.is-open { display: grid; place-items: center; }
-
-    .lightbox__panel {
-      width: min(1700px, 100%);
-      height: min(94vh, 980px);
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.14);
-      background: rgba(0,0,0,0.35);
-      box-shadow: 0 30px 90px rgba(0,0,0,.6);
-      position: relative;
-      overflow: hidden;
-      display: grid;
-      place-items: center;
-      padding: clamp(.5rem, 1.6vw, 1.25rem);
-    }
-
-    .lightbox__img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(0,0,0,0.18);
-      cursor: zoom-out;
-    }
-
-    /* ✅ Keep ONLY the X */
-    .lightbox__close {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      z-index: 5;
-      width: 44px;
-      height: 44px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.25);
-      background: rgba(0,0,0,0.65);
-      color: #fff;
-      cursor: pointer;
-      display: grid;
-      place-items: center;
-      font-size: 18px;
-      user-select: none;
-    }
-    .lightbox__close:hover { border-color: var(--accent); }
-
-    /* Scroll lock helper */
-    body.no-scroll { overflow: hidden; }
   </style>
 </head>
 
 <body>
-  <header>
-    <div class="brand">
-      <img src="../images/negative_white_halocyberlife_logo.png" alt="Halocyberlife logo">
-      <span>Halocyberlife</span>
-    </div>
-  </header>
 
-  <main>
-    <div class="meta">Public Disclosure · Patent Pages</div>
-    <h1>Resonant Photonic Amplification (RPAS)</h1>
-
-    <div class="disclosure" role="note" aria-label="Public disclosure formatting note">
-      <strong>Disclosure:</strong> This page is a <strong>public-view</strong> presentation.
-      The <strong>original patent filing</strong> is formatted differently to meet <strong>USPTO</strong> requirements.
-      This version may be modified for readability (layout, spacing, and presentation) while keeping the underlying content intent.
-    </div>
-
-    <section class="pages" aria-label="RPAS patent pages">
-      <div class="viewer">
-        <div class="viewer-inner">
-          <!-- ✅ Put your current RPAS page image here (or keep as a “current page viewer”) -->
-          <img
-            class="patent-img"
-            src="/blog/Images/blog_images/rpas_page_01.png"
-            alt="RPAS patent page"
-            loading="eager"
-            data-lightbox
-          />
-        </div>
-      </div>
-
-      <!-- If you want multiple pages stacked (scroll gallery), duplicate viewer blocks:
-      <div class="viewer"><div class="viewer-inner">
-        <img class="patent-img" src="/blog/Images/blog_images/rpas_page_02.png" alt="RPAS patent page 2" loading="lazy" data-lightbox />
-      </div></div>
-      -->
-    </section>
-
-    <footer>
-      © <script>document.write(new Date().getFullYear())</script> Halocyberlife · Public disclosure by Luis Amaya
-    </footer>
-  </main>
-
-  <!-- ✅ Lightbox (X works, no arrows) -->
-  <div class="lightbox" id="lightbox" aria-hidden="true" aria-label="Image viewer">
-    <div class="lightbox__panel" role="dialog" aria-modal="true" aria-label="Patent image enlarged view">
-      <button class="lightbox__close" id="lightboxClose" type="button" aria-label="Close">✕</button>
-      <img class="lightbox__img" id="lightboxImg" alt="Enlarged patent page" />
-    </div>
+<header>
+  <div class="brand">
+    <img src="../images/negative_white_halocyberlife_logo.png" alt="Halocyberlife logo">
+    <span>Halocyberlife</span>
   </div>
+</header>
 
-  <script>
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightboxImg");
-    const lightboxClose = document.getElementById("lightboxClose");
+<main>
+  <h1>Resonant Photonic Amplification</h1>
+  <div class="sub">Concept visuals · Frequency-driven luminescence exploration</div>
 
-    function openLightbox(src, alt) {
-      lightboxImg.src = src;
-      lightboxImg.alt = alt || "Enlarged patent page";
-      lightbox.classList.add("is-open");
-      lightbox.setAttribute("aria-hidden", "false");
-      document.body.classList.add("no-scroll");
-    }
+  <!-- YOUR GRID (example cards — keep your own cards/images/labels) -->
+  <section class="grid" aria-label="Resonance concept gallery">
 
-    function closeLightbox() {
-      lightbox.classList.remove("is-open");
-      lightbox.setAttribute("aria-hidden", "true");
-      document.body.classList.remove("no-scroll");
-      // optional: clear src to stop memory bloat on huge images
-      lightboxImg.src = "";
-    }
+    <article class="feature-card">
+      <img class="card-media"
+           src="./Images/blog_images/futuristic_city_rpas.png"
+           alt="Futuristic city surfaces showing resonance-enabled architectural glow"
+           loading="lazy">
+      <div class="card-body">
+        <h3>Resonant city surfaces</h3>
+        <p>Ambient architectural glow concepts: distributed illumination integrated into built environments.</p>
+        <span class="tag">Urban concept</span>
+      </div>
+    </article>
 
-    // Click any image with data-lightbox
-    document.addEventListener("click", (e) => {
-      const img = e.target.closest("img[data-lightbox]");
-      if (img) openLightbox(img.currentSrc || img.src, img.alt);
+    <!-- Add your other cards here... -->
+    <!-- Make sure each img has class="card-media" and a good alt -->
+
+  </section>
+
+  <footer>
+    © <script>document.write(new Date().getFullYear())</script> Halocyberlife · Concept presentation by Luis Amaya
+  </footer>
+</main>
+
+<!-- ✅ WORKING LIGHTBOX -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <div class="lightbox__stage" role="dialog" aria-label="Image viewer">
+
+    <button class="lightbox__btn lightbox__close" id="lbClose" type="button" aria-label="Close">✕</button>
+    <button class="lightbox__btn lightbox__prev" id="lbPrev" type="button" aria-label="Previous">‹</button>
+    <button class="lightbox__btn lightbox__next" id="lbNext" type="button" aria-label="Next">›</button>
+
+    <img class="lightbox__img" id="lbImg" alt="">
+    <div class="lightbox__caption" id="lbCaption"></div>
+  </div>
+</div>
+
+<script>
+  // Collect gallery images (the small ones)
+  const thumbs = Array.from(document.querySelectorAll(".card-media"));
+  const lightbox = document.getElementById("lightbox");
+  const lbImg = document.getElementById("lbImg");
+  const lbCaption = document.getElementById("lbCaption");
+
+  const btnClose = document.getElementById("lbClose");
+  const btnPrev  = document.getElementById("lbPrev");
+  const btnNext  = document.getElementById("lbNext");
+
+  let currentIndex = 0;
+
+  function openLightbox(i){
+    if (!thumbs.length) return;
+    currentIndex = i;
+
+    const img = thumbs[currentIndex];
+    lbImg.src = img.currentSrc || img.src;
+    lbImg.alt = img.alt || "Concept image";
+    lbCaption.textContent = img.alt || "";
+
+    lightbox.classList.add("is-open");
+    lightbox.setAttribute("aria-hidden", "false");
+
+    // prevent background scroll
+    document.documentElement.style.overflow = "hidden";
+  }
+
+  function closeLightbox(){
+    lightbox.classList.remove("is-open");
+    lightbox.setAttribute("aria-hidden", "true");
+
+    document.documentElement.style.overflow = "";
+    lbImg.src = ""; // helps memory on mobile
+  }
+
+  function showNext(dir){
+    if (!thumbs.length) return;
+    currentIndex = (currentIndex + dir + thumbs.length) % thumbs.length;
+    const img = thumbs[currentIndex];
+    lbImg.src = img.currentSrc || img.src;
+    lbImg.alt = img.alt || "Concept image";
+    lbCaption.textContent = img.alt || "";
+  }
+
+  // Click thumbnail -> open
+  thumbs.forEach((img, i) => {
+    img.addEventListener("click", () => openLightbox(i));
+    img.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") openLightbox(i);
     });
+    img.setAttribute("tabindex", "0");
+  });
 
-    // Close on X
-    lightboxClose.addEventListener("click", closeLightbox);
+  // Buttons
+  btnClose.addEventListener("click", closeLightbox);
+  btnPrev.addEventListener("click", () => showNext(-1));
+  btnNext.addEventListener("click", () => showNext(1));
 
-    // Close if you click outside the panel (overlay area)
-    lightbox.addEventListener("click", (e) => {
-      if (e.target === lightbox) closeLightbox();
-    });
+  // Click outside image (the dark area) closes
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
 
-    // Close on ESC
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && lightbox.classList.contains("is-open")) closeLightbox();
-    });
+  // Keyboard support
+  window.addEventListener("keydown", (e) => {
+    if (!lightbox.classList.contains("is-open")) return;
 
-    // Close if you click the big image (nice UX)
-    lightboxImg.addEventListener("click", closeLightbox);
-  </script>
+    if (e.key === "Escape") closeLightbox();
+    if (e.key === "ArrowLeft") showNext(-1);
+    if (e.key === "ArrowRight") showNext(1);
+  });
+</script>
+
 </body>
 </html>
