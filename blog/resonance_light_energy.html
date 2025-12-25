@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BIOGLOW™ Patent · Public Disclosure | Halocyberlife</title>
-  <meta name="description" content="BIOGLOW™ — Architectural Resonant Illumination System, public disclosure by Luis Amaya." />
+  <title>Resonant Photonic Amplification — Public Disclosure | Halocyberlife</title>
+  <meta name="description" content="RPAS — Resonant Photonic Amplification System, public disclosure by Luis Amaya." />
   <meta name="author" content="Luis Amaya" />
 
   <style>
@@ -31,7 +31,7 @@
     header {
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 20;
       background: rgba(0,0,0,0.65);
       backdrop-filter: blur(12px);
       padding: 1rem;
@@ -50,16 +50,16 @@
 
     header img { width: 40px; height: 40px; }
 
-    /* ✅ Bigger patent area: wider container + less padding */
+    /* ✅ Less constraint = bigger patent */
     main {
-      max-width: 1600px;              /* was 1200 */
+      width: min(1600px, 100%);
       margin: 0 auto;
-      padding: 1.25rem .5rem 3rem;    /* tighter sides */
+      padding: 1.25rem clamp(.75rem, 2vw, 1.5rem) 4rem;
     }
 
     h1 {
       text-align: center;
-      font-size: clamp(1.85rem, 4vw, 3rem);
+      font-size: clamp(1.85rem, 3.6vw, 3rem);
       margin-bottom: .35rem;
     }
 
@@ -70,8 +70,8 @@
     }
 
     .disclosure {
-      max-width: 1200px;
-      margin: 0 auto 1.2rem;
+      width: min(1200px, 100%);
+      margin: 0 auto 1.1rem;
       padding: .85rem 1rem;
       border-radius: 14px;
       border: 1px solid var(--border);
@@ -83,237 +83,217 @@
     }
     .disclosure strong { color: var(--text); font-weight: 650; }
 
-    /* ===== SLIDER ===== */
-    .slider {
+    /* ===== Gallery / Pages ===== */
+    .pages {
+      display: grid;
+      gap: 14px;
+    }
+
+    /* One big viewer (like your slider, but without arrows) */
+    .viewer {
       position: relative;
       overflow: hidden;
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       border: 1px solid var(--border);
-      background: rgba(0,0,0,0.3);
+      background: rgba(0,0,0,0.28);
     }
 
-    .slider-track {
+    .viewer-inner {
       display: flex;
-      transition: transform 0.5s ease;
-      will-change: transform;
-    }
-
-    /* ✅ less padding so the image can be larger */
-    .slide {
-      min-width: 100%;
-      padding: .45rem; /* was 1rem */
-      display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
+      padding: clamp(.5rem, 1.6vw, 1.25rem);
     }
 
-    /* ✅ Bigger patent pages: allow more viewport height */
-    .slide img {
-      max-width: 99%;
-      max-height: 92vh; /* was 84vh */
-      width: auto;
+    /* ✅ Bigger patent image: uses more of the screen */
+    .patent-img {
+      display: block;
+      width: 100%;
       height: auto;
+
+      /* key: allow huge display without weird cropping */
+      max-width: 1400px;     /* bigger than before */
+      max-height: 92vh;      /* larger than 84vh */
+      object-fit: contain;
+
       border-radius: 12px;
       border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
-      margin: auto;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.50);
       cursor: zoom-in;
     }
 
-    /* Optional: keep slider buttons (page navigation) */
-    .nav-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0,0,0,0.65);
-      color: white;
-      border: 1px solid rgba(255,255,255,0.25);
-      border-radius: 999px;
-      padding: .55rem .95rem;
-      cursor: pointer;
-      font-size: .85rem;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      user-select: none;
-    }
-    .nav-btn:hover { border-color: var(--accent); }
-    .prev { left: .75rem; }
-    .next { right: .75rem; }
-
-    /* ✅ Mobile: even tighter margins so the patent fills screen */
-    @media (max-width: 600px) {
-      main { padding: 1rem .35rem 2rem; }
-      .slide { padding: .35rem; }
-      .nav-btn { display: none; } /* you said no use for left/right on mobile */
-      .slide img { max-height: 90vh; }
+    /* Make it even bigger on wide screens */
+    @media (min-width: 1100px) {
+      .patent-img { max-width: 1520px; max-height: 93vh; }
     }
 
+    /* ===== Footer ===== */
     footer {
       text-align: center;
       color: var(--muted);
       font-size: .9rem;
-      margin-top: 2rem;
-      padding-top: 1.25rem;
+      margin-top: 2.2rem;
+      padding-top: 2rem;
       border-top: 1px solid rgba(255,255,255,0.08);
     }
 
-    /* ===== LIGHTBOX (keeps X, removes left/right) ===== */
+    /* ===== Lightbox ===== */
     .lightbox {
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.82);
-      backdrop-filter: blur(6px);
-      display: none;
-      align-items: center;
-      justify-content: center;
       z-index: 999;
-      padding: 1rem;
+      display: none;
+      background: rgba(0,0,0,0.78);
+      backdrop-filter: blur(10px);
+      padding: clamp(.75rem, 2vw, 1.5rem);
     }
-    .lightbox.is-open { display: flex; }
+
+    .lightbox.is-open { display: grid; place-items: center; }
+
+    .lightbox__panel {
+      width: min(1700px, 100%);
+      height: min(94vh, 980px);
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(0,0,0,0.35);
+      box-shadow: 0 30px 90px rgba(0,0,0,.6);
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+      padding: clamp(.5rem, 1.6vw, 1.25rem);
+    }
 
     .lightbox__img {
-      max-width: min(1800px, 98vw);
-      max-height: 96vh;
-      width: auto;
-      height: auto;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.12);
-      box-shadow: 0 18px 60px rgba(0,0,0,0.55);
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(0,0,0,0.18);
       cursor: zoom-out;
     }
 
-    /* ✅ THE X BUTTON (the 3rd button you’re talking about) */
+    /* ✅ Keep ONLY the X */
     .lightbox__close {
       position: absolute;
-      top: 16px;
-      right: 16px;
+      top: 12px;
+      right: 12px;
+      z-index: 5;
       width: 44px;
       height: 44px;
       border-radius: 999px;
       border: 1px solid rgba(255,255,255,0.25);
-      background: rgba(0,0,0,0.55);
+      background: rgba(0,0,0,0.65);
       color: #fff;
-      font-size: 22px;
-      line-height: 1;
+      cursor: pointer;
       display: grid;
       place-items: center;
-      cursor: pointer;
+      font-size: 18px;
       user-select: none;
     }
     .lightbox__close:hover { border-color: var(--accent); }
+
+    /* Scroll lock helper */
+    body.no-scroll { overflow: hidden; }
   </style>
 </head>
 
 <body>
-<header>
-  <div class="brand">
-    <img src="../images/negative_white_halocyberlife_logo.png" alt="Halocyberlife logo">
-    <span>Halocyberlife</span>
-  </div>
-</header>
+  <header>
+    <div class="brand">
+      <img src="../images/negative_white_halocyberlife_logo.png" alt="Halocyberlife logo">
+      <span>Halocyberlife</span>
+    </div>
+  </header>
 
-<main>
-  <div class="meta">Public Disclosure · Patent Pages</div>
-  <h1>BIOGLOW™ — Resonant Architectural Illumination</h1>
+  <main>
+    <div class="meta">Public Disclosure · Patent Pages</div>
+    <h1>Resonant Photonic Amplification (RPAS)</h1>
 
-  <div class="disclosure" role="note" aria-label="Public disclosure formatting note">
-    <strong>Disclosure:</strong> This page is a <strong>public-view</strong> presentation of BIOGLOW™ materials.
-    The <strong>original patent filing</strong> is formatted differently to meet <strong>USPTO</strong> requirements.
-    This version may be modified for readability (layout, spacing, and presentation) while keeping the underlying content intent.
-  </div>
-
-  <div class="slider" aria-label="BIOGLOW Patent Slider">
-    <div class="slider-track" id="sliderTrack">
-
-      <!-- SLIDES -->
-      <div class="slide"><img src="/blog/Images/blog_images/BIOGLOW_v6_1_0_copy-01.png" alt="BIOGLOW page 1"></div>
-      <div class="slide"><img src="/blog/Images/blog_images/BIOGLOW_v6_1_0_copy-02.png" alt="BIOGLOW page 2"></div>
-      <div class="slide"><img src="/blog/Images/blog_images/BIOGLOW_v6_1_0_copy-03.png" alt="BIOGLOW page 3"></div>
-      <div class="slide"><img src="/blog/Images/blog_images/BIOGLOW_v6_1_0_copy-04.png" alt="BIOGLOW page 4"></div>
-      <div class="slide"><img src="/blog/Images/blog_images/BIOGLOW_v6_1_0_copy-05.png" alt="BIOGLOW page 5"></div>
-      <div class="slide"><img src="/blog/Images/blog_images/BIOGLOW_v6_1_0_copy-06.png" alt="BIOGLOW page 6"></div>
-      <div class="slide"><img src="/blog/Images/blog_images/BIOGLOW_v6_1_0_copy-07.png" alt="BIOGLOW page 7"></div>
-      <div class="slide"><img src="/blog/Images/blog_images/BIOGLOW_v6_1_0_copy-08.png" alt="BIOGLOW page 8"></div>
-      <div class="slide"><img src="/blog/Images/blog_images/BIOGLOW_v6_1_0_copy-09.png" alt="BIOGLOW page 9"></div>
-      <div class="slide"><img src="/blog/Images/blog_images/BIOGLOW_v6_1_0_copy-10.png" alt="BIOGLOW page 10"></div>
-      <div class="slide"><img src="/blog/Images/blog_images/BIOGLOW_v6_1_0_copy-11.png" alt="BIOGLOW page 11"></div>
-      <div class="slide"><img src="/blog/Images/blog_images/BIOGLOW_v6_1_0_copy-12.png" alt="BIOGLOW page 12"></div>
-      <div class="slide"><img src="/blog/Images/blog_images/BIOGLOW_v6_1_0_copy-13.png" alt="BIOGLOW page 13"></div>
-      <div class="slide"><img src="/blog/Images/blog_images/BIOGLOW_v6_1_0_copy-14.png" alt="BIOGLOW page 14"></div>
-      <div class="slide"><img src="/blog/Images/blog_images/BIOGLOW_v6_1_0_copy-15.png" alt="BIOGLOW page 15"></div>
-      <div class="slide"><img src="/blog/Images/blog_images/BIOGLOW_v6_1_0_copy-16.png" alt="BIOGLOW page 16"></div>
-
+    <div class="disclosure" role="note" aria-label="Public disclosure formatting note">
+      <strong>Disclosure:</strong> This page is a <strong>public-view</strong> presentation.
+      The <strong>original patent filing</strong> is formatted differently to meet <strong>USPTO</strong> requirements.
+      This version may be modified for readability (layout, spacing, and presentation) while keeping the underlying content intent.
     </div>
 
-    <button class="nav-btn prev" type="button" onclick="moveSlide(-1)">Prev</button>
-    <button class="nav-btn next" type="button" onclick="moveSlide(1)">Next</button>
+    <section class="pages" aria-label="RPAS patent pages">
+      <div class="viewer">
+        <div class="viewer-inner">
+          <!-- ✅ Put your current RPAS page image here (or keep as a “current page viewer”) -->
+          <img
+            class="patent-img"
+            src="/blog/Images/blog_images/rpas_page_01.png"
+            alt="RPAS patent page"
+            loading="eager"
+            data-lightbox
+          />
+        </div>
+      </div>
+
+      <!-- If you want multiple pages stacked (scroll gallery), duplicate viewer blocks:
+      <div class="viewer"><div class="viewer-inner">
+        <img class="patent-img" src="/blog/Images/blog_images/rpas_page_02.png" alt="RPAS patent page 2" loading="lazy" data-lightbox />
+      </div></div>
+      -->
+    </section>
+
+    <footer>
+      © <script>document.write(new Date().getFullYear())</script> Halocyberlife · Public disclosure by Luis Amaya
+    </footer>
+  </main>
+
+  <!-- ✅ Lightbox (X works, no arrows) -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" aria-label="Image viewer">
+    <div class="lightbox__panel" role="dialog" aria-modal="true" aria-label="Patent image enlarged view">
+      <button class="lightbox__close" id="lightboxClose" type="button" aria-label="Close">✕</button>
+      <img class="lightbox__img" id="lightboxImg" alt="Enlarged patent page" />
+    </div>
   </div>
-</main>
 
-<footer>
-  © <script>document.write(new Date().getFullYear())</script> Halocyberlife · Public disclosure by Luis Amaya
-</footer>
+  <script>
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightboxImg");
+    const lightboxClose = document.getElementById("lightboxClose");
 
-<!-- ✅ Lightbox (no left/right, ONLY X) -->
-<div class="lightbox" id="lightbox" aria-hidden="true">
-  <button class="lightbox__close" id="lightboxClose" type="button" aria-label="Close (Esc)">×</button>
-  <img class="lightbox__img" id="lightboxImg" alt="">
-</div>
+    function openLightbox(src, alt) {
+      lightboxImg.src = src;
+      lightboxImg.alt = alt || "Enlarged patent page";
+      lightbox.classList.add("is-open");
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.classList.add("no-scroll");
+    }
 
-<script>
-  let index = 0;
-  const track = document.getElementById("sliderTrack");
-  const total = track.children.length;
+    function closeLightbox() {
+      lightbox.classList.remove("is-open");
+      lightbox.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("no-scroll");
+      // optional: clear src to stop memory bloat on huge images
+      lightboxImg.src = "";
+    }
 
-  function moveSlide(direction) {
-    index += direction;
-    if (index < 0) index = total - 1;
-    if (index >= total) index = 0;
-    track.style.transform = `translateX(-${index * 100}%)`;
-  }
+    // Click any image with data-lightbox
+    document.addEventListener("click", (e) => {
+      const img = e.target.closest("img[data-lightbox]");
+      if (img) openLightbox(img.currentSrc || img.src, img.alt);
+    });
 
-  // ✅ Lightbox logic (click image to open, X / outside / Esc to close)
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImg = document.getElementById("lightboxImg");
-  const lightboxClose = document.getElementById("lightboxClose");
+    // Close on X
+    lightboxClose.addEventListener("click", closeLightbox);
 
-  function openLightbox(src, alt) {
-    lightboxImg.src = src;
-    lightboxImg.alt = alt || "Patent page";
-    lightbox.classList.add("is-open");
-    lightbox.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
-  }
+    // Close if you click outside the panel (overlay area)
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
 
-  function closeLightbox() {
-    lightbox.classList.remove("is-open");
-    lightbox.setAttribute("aria-hidden", "true");
-    lightboxImg.src = "";
-    document.body.style.overflow = "";
-  }
+    // Close on ESC
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && lightbox.classList.contains("is-open")) closeLightbox();
+    });
 
-  // Open on any slide image click
-  document.querySelectorAll(".slide img").forEach(img => {
-    img.addEventListener("click", () => openLightbox(img.src, img.alt));
-  });
-
-  // Close via X
-  lightboxClose.addEventListener("click", closeLightbox);
-
-  // Close by clicking outside the image
-  lightbox.addEventListener("click", (e) => {
-    if (e.target === lightbox) closeLightbox();
-  });
-
-  // Close by clicking the zoomed image
-  lightboxImg.addEventListener("click", closeLightbox);
-
-  // Close on Esc
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && lightbox.classList.contains("is-open")) closeLightbox();
-  });
-</script>
-
+    // Close if you click the big image (nice UX)
+    lightboxImg.addEventListener("click", closeLightbox);
+  </script>
 </body>
 </html>
