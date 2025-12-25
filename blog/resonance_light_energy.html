@@ -757,12 +757,23 @@
       </p>
     </article>
 
-    <footer>
-      © <span id="year"></span> Halocyberlife.com · Luis Amaya, self-contained article.
-    </footer>
+     <hr />
+      <div style="margin-top: 2rem; display: flex; justify-content: center;">
+        <iframe width="560" height="315"
+                src="https://www.youtube.com/embed/https://youtu.be/OgVZcnWb8NM&loop=1&cc_load_policy=0"
+                title="BioGlow™ Concept Video"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                style="border-radius: 12px; box-shadow: 0 18px 60px rgba(0,0,0,0.45);">
+        </iframe>
+      </div>
+      <footer>
+        © <span id="year"></span> Halocyberlife.com · Luis Amaya, self-contained article.
+      </footer>
   </main>
 
-  <!-- ✅ NEW: Lightbox modal (hidden until you click a bottom card image) -->
+  <!-- NEW: Lightbox modal (hidden until you click a bottom card image) -->
   <div class="lightbox" id="lightbox" aria-hidden="true">
     <div class="lightbox__panel" role="dialog" aria-modal="true" aria-label="Image viewer">
       <div class="lightbox__top">
@@ -881,7 +892,7 @@
         }
       }
 
-      // ✅ NEW: Lightbox for bottom grid images ONLY
+      //NEW: Lightbox for bottom grid images ONLY
       const grid = document.getElementById("cardsGrid");
       const lb = document.getElementById("lightbox");
       const lbPanel = lb?.querySelector(".lightbox__panel");
