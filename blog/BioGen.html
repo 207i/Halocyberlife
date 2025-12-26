@@ -4,6 +4,309 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Ocean Generator™ v2 — Freshwater From Solar‑Thermal | Halocyberlife</title>
+  <meta name="description" content="Ocean Generator™ v2 — Modular near‑shore solar‑thermal seawater evaporation and freshwater generation system. Patent Number: posting soon." />
+  <meta name="author" content="Luis Amaya" />
+  <meta name="keywords" content="Ocean Generator, freshwater generation, solar thermal desalination, modular system, clean water tech, Halocyberlife" />
+
+  <style>
+    :root{
+      --bg:#020617;
+      --text:#f9fafb;
+      --muted:#9ca3af;
+      --soft:#d1d5db;
+      --border: rgba(148,163,184,0.28);
+      --accent:#22d3ee;
+      --accent2:#8b5cf6;
+      --radius:18px;
+      --shadow: 0 18px 60px rgba(0,0,0,0.45);
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{
+      font-family: system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020617 55%, #02040a 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a{ color: var(--accent); text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+    .container{ width:100%; max-width: 980px; margin:0 auto; padding:0 1.25rem; }
+
+    header{ position: sticky; top:0; background: rgba(0,0,0,0.65); border-bottom: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(12px); }
+    .header-inner{ display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:.9rem 0; }
+    .brand{ display:flex; align-items:center; gap:.65rem; font-weight:700; letter-spacing:.05em; text-transform: uppercase; font-size:.9rem; color: var(--text); }
+    .brand img{ width:40px; height:40px; object-fit:contain; }
+    nav{ display:flex; align-items:center; gap:.4rem; }
+    nav a{ padding:.5rem .9rem; border-radius:999px; border:1px solid rgba(255,255,255,0.18); background: rgba(255,255,255,0.05); font-size:.85rem; text-transform: uppercase; }
+    nav a:hover{ border-color: rgba(34,211,238,0.65); box-shadow: 0 0 18px rgba(34,211,238,0.18); }
+
+    .menu-btn{ display:none; }
+
+    @media (max-width:720px){
+      .menu-btn{ display:inline-block; }
+      nav{ position:absolute; top:68px; right:1.25rem; flex-direction:column; background: rgba(2,6,23,0.92); display:none; padding:10px; border-radius:16px; }
+      nav.open{ display:flex; }
+      nav a{ width:100%; text-align:center; }
+    }
+
+    main{ padding:2rem 0 3rem; }
+    .article-head{ text-align:center; margin:1rem auto 1.25rem; }
+    .meta{ color:var(--muted); font-size:.85rem; text-transform:uppercase; margin-bottom:.6rem; }
+    h1{ font-size:clamp(2rem,3.5vw,2.85rem); margin-bottom:.65rem; letter-spacing:-.015em; }
+    .subtitle{ color:var(--soft); font-size:1.02rem; max-width:820px; margin:0 auto .6rem; }
+
+    .cta{ display:flex; justify-content:center; gap:10px; margin:1rem 0 .2rem; }
+    .btn{ display:inline-flex; align-items:center; gap:10px; padding:10px 14px; border-radius:999px; border:1px solid rgba(255,255,255,0.18); background:rgba(255,255,255,0.06); font-size:.92rem; text-transform:uppercase; }
+    .btn.primary{ border-color: rgba(34,211,238,0.55); background: linear-gradient(90deg, rgba(34,211,238,0.18), rgba(139,92,246,0.14)); }
+
+    .tag-row{ display:flex; justify-content:center; gap:8px; flex-wrap:wrap; margin-top:10px; }
+    .pill{ padding:6px 10px; border-radius:999px; border:1px solid rgba(255,255,255,0.16); background:rgba(255,255,255,0.06); font-size:.86rem; }
+
+    /* Slider */
+    .vision-slider{ margin:1.25rem auto 1.3rem; position:relative; }
+    .vision-viewport{ overflow:hidden; border-radius:var(--radius); border:1px solid var(--border); background:rgba(255,255,255,0.03); box-shadow:var(--shadow); }
+    .vision-track{ display:flex; transition:transform .45s ease; }
+    .vision-slide{ flex:0 0 100%; }
+    .vision-slide img{ width:100%; object-fit:cover; height:clamp(240px,44vw,520px); }
+    .vision-slide figcaption{ padding:.75rem .9rem; font-size:.96rem; color:rgba(209,213,219,0.92); background:rgba(2,6,23,0.62); }
+
+    .vision-btn{ position:absolute; top:50%; transform:translateY(-50%); width:42px; height:42px; border-radius:999px; border:1px solid rgba(255,255,255,0.18); background:rgba(2,6,23,0.55); font-size:1.6rem; cursor:pointer; color:#fff; }
+    .vision-prev{ left:12px; }
+    .vision-next{ right:12px; }
+
+    .vision-dots{ display:flex; justify-content:center; gap:10px; margin-top:12px; }
+    .vision-dot{ width:10px; height:10px; border-radius:999px; border:1px solid rgba(255,255,255,0.35); background:rgba(255,255,255,0.10); cursor:pointer; }
+    .vision-dot[aria-selected="true"]{ background:rgba(34,211,238,0.9); border-color:rgba(34,211,238,0.95); }
+
+    .article-body{ max-width:820px; margin:0 auto; font-size:1.02rem; color:rgba(209,213,219,0.92); }
+    .article-body h2{ margin:1.6rem 0 .6rem; color:var(--text); font-size:1.38rem; }
+    .article-body p{ margin:.78rem 0; }
+
+    .cards-grid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin-top:1.25rem; }
+    @media (max-width:760px){ .cards-grid{ grid-template-columns:1fr; } }
+    .feature-card{ background:rgba(255,255,255,0.04); border-radius:18px; overflow:hidden; border:1px solid rgba(148,163,184,0.28); }
+    .feature-card img{ width:100%; height:170px; object-fit:cover; border-bottom:1px solid rgba(255,255,255,0.08); }
+    .feature-card .card-body{ padding:12px; }
+    .feature-card h3{ color:var(--text); font-size:1.05rem; margin-bottom:.35rem; }
+    .feature-card p{ color:rgba(209,213,219,0.9); font-size:.98rem; }
+    footer{ text-align:center; padding:2rem 0; color:var(--muted); font-size:.9rem; }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container header-inner">
+      <div class="brand">
+        <img src="../images/negative_white_halocyberlife_logo.png" alt="Halocyberlife logo" />
+        <span>Halocyberlife</span>
+      </div>
+      <button class="menu-btn" type="button" id="menuBtn">☰</button>
+      <nav id="mainNav">
+        <a href="../index.html">Home</a>
+        <a href="../blog.html">Articles</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="article-head">
+      <p class="meta">Innovation · Freshwater Tech · Marine Energy</p>
+      <h1>Ocean Generator™ v2</h1>
+      <p class="subtitle">
+        Modular near‑shore solar‑thermal seawater evaporation and condensation system — Patent Number: posting soon.
+      </p>
+
+      <div class="cta">
+        <a class="btn primary" href="https://halocyberlife.com/blog/Patent_Ocean_Generator_v2.html" target="_blank">
+          View Patent (Posting Soon) ↗
+        </a>
+      </div>
+
+      <div class="tag-row">
+        <span class="pill"><strong>Core idea:</strong> solar‑thermal freshwater</span>
+        <span class="pill"><strong>Goal:</strong> scalable modular system</span>
+        <span class="pill"><strong>Focus:</strong> safe, eco‑friendly</span>
+      </div>
+    </section>
+
+    <!-- Image Slider -->
+    <section class="vision-slider">
+      <div class="vision-viewport">
+        <div class="vision-track">
+          <figure class="vision-slide">
+            <img src="./Images/blog_images/OceanGenv2_SolarThermal_Concept.png" alt="Solar‑thermal concept" />
+            <figcaption>Solar‑thermal freshwater generation concept.</figcaption>
+          </figure>
+          <figure class="vision-slide">
+            <img src="./Images/blog_images/OceanGenv2_ModularArray.png" alt="Modular array deployment" />
+            <figcaption>Modular array deployment in near shore.</figcaption>
+          </figure>
+          <figure class="vision-slide">
+            <img src="./Images/blog_images/OceanGenv2_CondensationModule.png" alt="Condensation module" />
+            <figcaption>Condensation and freshwater collection.</figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="vision-dots"></div>
+    </section>
+
+    <article class="article-body">
+      <h2>Overview</h2>
+      <p>The Ocean Generator™ v2 is a modular near‑shore solar‑thermal seawater evaporation and condensation system engineered to deliver scalable freshwater production with minimal environmental impact.</p>
+
+      <hr />
+
+      <h2>Key Modules & Components</h2>
+
+      <div class="cards-grid">
+        <article class="feature-card">
+          <img src="./Images/blog_images/OceanGenv2_Intake.png" alt="Intake module">
+          <div class="card-body">
+            <h3>Seawater Intake Module</h3>
+            <p>Passive screened intake with low‑pressure ecological protection.</p>
+          </div>
+        </article>
+
+        <article class="feature-card">
+          <img src="./Images/blog_images/OceanGenv2_Thermal.png" alt="Solar thermal module">
+          <div class="card-body">
+            <h3>Solar‑Thermal Evaporation</h3>
+            <p>Segmented concentrators with fail‑safe shutters and thermal balancing.</p>
+          </div>
+        </article>
+
+        <article class="feature-card">
+          <img src="./Images/blog_images/OceanGenv2_Condenser.png" alt="Condenser unit">
+          <div class="card-body">
+            <h3>Condensation Module</h3>
+            <p>Heat exchange condensation and sealed freshwater collection.</p>
+          </div>
+        </article>
+
+        <article class="feature-card">
+          <img src="./Images/blog_images/OceanGenv2_ThermalControl.png" alt="Thermal control">
+          <div class="card-body">
+            <h3>Thermal Control & Safety</h3>
+            <p>Shutters, sensors, and passive safety ensure safe operation under all conditions.</p>
+          </div>
+        </article>
+
+        <article class="feature-card">
+          <img src="./Images/blog_images/OceanGenv2_ModularPlatform.png" alt="Modular platform">
+          <div class="card-body">
+            <h3>Modular Platform</h3>
+            <p>Floating or fixed base with corrosion resistance and rapid deployment design.</p>
+          </div>
+        </article>
+
+        <article class="feature-card">
+          <img src="./Images/blog_images/OceanGenv2_Control.png" alt="Control and automation">
+          <div class="card-body">
+            <h3>Control & Automation</h3>
+            <p>Monitoring of temperature, pressure, and system health with automated responses.</p>
+          </div>
+        </article>
+
+        <article class="feature-card">
+          <img src="./Images/blog_images/OceanGenv2_Isolation.png" alt="Isolation architecture">
+          <div class="card-body">
+            <h3>Isolation Architecture</h3>
+            <p>Sealed conduit architecture protects electrical systems and ensures predictable failure behavior.</p>
+          </div>
+        </article>
+      </div>
+
+      <!-- YouTube Embed (update YOUR_VIDEO_ID) -->
+      <div style="margin-top:2rem; display:flex; justify-content:center;">
+        <iframe width="560" height="315"
+                src="https://www.youtube.com/embed/YOUR_VIDEO_ID?playlist=YOUR_VIDEO_ID&loop=1&cc_load_policy=0"
+                title="Ocean Generator™ v2 Video"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                style="border-radius:12px; box-shadow:0 18px 60px rgba(0,0,0,0.45);">
+        </iframe>
+      </div>
+
+      <footer>
+        <div class="container" style="text-align:center;">
+          <img src="../images/negative_white_halocyberlife_logo.png" alt="Halocyberlife Logo" style="height:42px; margin-bottom:1rem;" />
+          <p style="color:var(--muted); font-size:.92rem;">
+            © <span id="year"></span> Halocyberlife · Built by Luis Amaya.
+          </p>
+        </div>
+      </footer>
+
+    </article>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = String(new Date().getFullYear());
+
+    const menuBtn = document.getElementById("menuBtn");
+    const nav = document.getElementById("mainNav");
+    menuBtn?.addEventListener("click", () => nav?.classList.toggle("open"));
+
+    // Slider
+    const slider = document.querySelector(".vision-slider");
+    if (slider) {
+      const track = slider.querySelector(".vision-track");
+      const slides = Array.from(slider.querySelectorAll(".vision-slide"));
+      const dotsWrap = slider.querySelector(".vision-dots");
+      let index = 0;
+
+      slides.forEach((_, i) => {
+        const dot = document.createElement("button");
+        dot.className = "vision-dot";
+        dot.setAttribute("aria-selected", i===0?"true":"false");
+        dot.addEventListener("click", () => { index = i; update(); });
+        dotsWrap.appendChild(dot);
+      });
+
+      function update() {
+        track.style.transform = `translateX(-${index*100}%)`;
+        dotsWrap.querySelectorAll(".vision-dot").forEach((d,i) => d.setAttribute("aria-selected", i===index?"true":"false"));
+      }
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ocean Generator™ v2 — Freshwater from Solar‑Thermal | Halocyberlife</title>
   <meta name="description" content="Ocean Generator™ v2 — Modular near‑shore solar‑thermal seawater evaporation and freshwater generation system. Patent pending." />
   <meta name="author" content="Luis Amaya" />
