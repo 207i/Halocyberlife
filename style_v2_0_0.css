@@ -855,3 +855,25 @@ body {
   margin: 0;
   color: #fff;
 }
+
+/* ==============================
+   Mobile tweak: 4 cards + 1 column
+   ============================== */
+
+@media (max-width: 767px) {
+  /* One column instead of two */
+  .two-column-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  /* Hide selected cards on mobile */
+  .hide-mobile {
+    display: none !important;
+  }
+
+  /* Optional: make cards feel roomier on mobile */
+  .mini-card-image {
+    height: 170px;
+  }
+}
