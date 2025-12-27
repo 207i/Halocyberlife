@@ -874,6 +874,6 @@ body {
 
   /* Optional: make cards feel roomier on mobile */
   .mini-card-image {
-    height: 170px;
+    height: 270px;
   }
 }
