@@ -59,11 +59,17 @@
         <span class="neon-brand-text">Halocyberlife</span>
       </a>
 
-      <button class="neon-nav-toggle" aria-label="Toggle menu">
+      <!-- Added: aria-controls + aria-expanded -->
+      <button
+        class="neon-nav-toggle"
+        aria-label="Toggle menu"
+        aria-controls="primary-navigation"
+        aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
 
-      <nav class="neon-nav">
+      <!-- Added: id for aria-controls -->
+      <nav class="neon-nav" id="primary-navigation">
         <a href="#insights" class="neon-link color-blue">Insights</a>
         <a href="#atelier" class="neon-link color-purple">HaloCraft</a>
         <a href="./blog.html" class="neon-link color-cyan">Articles</a>
@@ -80,7 +86,6 @@
       <div class="container hero-inner">
         <div class="hero-copy">
           <p class="hero-kicker">Version 2.0.0 · Knowledge First</p>
-          <h1>Coming Soon!</h1>
           <h1 class="hero-title">
             Your Portal to Esoteric Wisdom,<br>
             Frequency Intelligence &amp; Future Tools.
@@ -355,7 +360,7 @@
           <li><a href="#insights">Latest Insights</a></li>
           <li><a href="./blog.html">All Articles</a></li>
           <li><a href="./about.html">About</a></li>
-          <li><a href="./contact.html">Contact</a></li>
+          <li><a href="./contact_us.html">Contact</a></li>
           <li><a href="./policypage.html">Privacy &amp; Terms</a></li>
         </ul>
       </div>
