@@ -175,9 +175,9 @@ body {
     text-align: center;
   }
 
-  .neon-nav.open {
-    display: flex !important;
-  }
+ .neon-nav.open {
+  display: flex !important;
+}
 }
 
 /* ---------- Hero ---------- */
