@@ -550,6 +550,32 @@ body {
 .back-to-top.show { display: flex; }
 
 /* ---------- Responsive layouts ---------- */
+@media (max-width: 640px){
+  .vision-slide{
+    position: relative;
+  }
+
+  .vision-slide figcaption{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    padding: .5rem .75rem;
+    font-size: .82rem;
+    line-height: 1.35;
+
+    background: linear-gradient(
+      to top,
+      rgba(2,6,23,0.85),
+      rgba(2,6,23,0.55),
+      rgba(2,6,23,0)
+    );
+
+    border-top: none;
+  }
+}
+
 
 @media (min-width: 768px) {
   .section-split {
@@ -878,16 +904,4 @@ body {
     display: none !important;
   }
 
-  /* Optional: make cards feel roomier on mobile */
-  .mini-card-image {
-    height: 270px;
-  }
-}
 
-@media (max-width: 640px){
-  .vision-slide figcaption{
-    padding: .45rem .6rem;      /* shrink padding */
-    font-size: .82rem;          /* shrink text */
-    line-height: 1.35;
-  }
-}
