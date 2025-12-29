@@ -160,30 +160,6 @@ body {
   border-radius: 3px;
 }
 
-/* Mobile nav behavior */
-@media (max-width: 768px) {
-  .neon-nav {
-    display: none;
-    flex-direction: column;
-    gap: 1rem;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background: var(--bg-elevated);
-    padding: 1rem;
-    border-radius: 12px;
-    z-index: 999;
-  }
-
-  .neon-nav.open {
-    display: flex;
-  }
-
-  .neon-nav-toggle {
-    display: flex;
-  }
-}
-
 /* Mobile menu behavior */
  @media (max-width: 820px) {
   .neon-nav-toggle {
