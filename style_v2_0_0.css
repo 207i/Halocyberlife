@@ -550,43 +550,14 @@ body {
 .back-to-top.show { display: flex; }
 
 /* ---------- Responsive layouts ---------- */
-/* @media (max-width: 640px){
-  .vision-slide{
-    position: relative;
-  }
-
-  .vision-slide figcaption{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-
-    padding: .5rem .75rem;
-    font-size: .82rem;
-    line-height: 1.35;
-
-    background: linear-gradient(
-      to top,
-      rgba(2,6,23,0.85),
-      rgba(2,6,23,0.55),
-      rgba(2,6,23,0)
-    );
-
-    border-top: none;
-  }
-} */
-/* ==============================
-   FIX: Mobile image height ratio
-   ============================== */
 @media (max-width: 767px) {
 
   .mini-card-image {
-    height: 180px;          /* thinner bottom */
-    object-fit: cover;
+    aspect-ratio: 4 / 3; /* or 1 / 1 if you want square */
   }
 
   .mini-card-body {
-    padding: 10px 14px;     /* tighter caption */
+    padding: 10px 14px;
   }
 
   .mini-card-meta {
@@ -599,7 +570,6 @@ body {
     line-height: 1.25;
   }
 }
-
 
 @media (min-width: 768px) {
   .section-split {
