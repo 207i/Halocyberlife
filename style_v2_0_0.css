@@ -904,4 +904,7 @@ body {
     display: none !important;
   }
 
+.vision-slide figcaption{
+  line-height: 1.25;
+}
 
