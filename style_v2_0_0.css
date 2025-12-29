@@ -883,3 +883,11 @@ body {
     height: 270px;
   }
 }
+
+@media (max-width: 640px){
+  .vision-slide figcaption{
+    padding: .45rem .6rem;      /* shrink padding */
+    font-size: .82rem;          /* shrink text */
+    line-height: 1.35;
+  }
+}
