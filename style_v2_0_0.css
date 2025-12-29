@@ -575,6 +575,30 @@ body {
     border-top: none;
   }
 } */
+/* ==============================
+   FIX: Mobile image height ratio
+   ============================== */
+@media (max-width: 767px) {
+
+  .mini-card-image {
+    height: 180px;          /* thinner bottom */
+    object-fit: cover;
+  }
+
+  .mini-card-body {
+    padding: 10px 14px;     /* tighter caption */
+  }
+
+  .mini-card-meta {
+    font-size: 0.7rem;
+    margin-bottom: 2px;
+  }
+
+  .mini-card-body h3 {
+    font-size: 0.95rem;
+    line-height: 1.25;
+  }
+}
 
 
 @media (min-width: 768px) {
