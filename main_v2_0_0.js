@@ -1,29 +1,31 @@
 // =====================================
-// HaloCyberlife main_v2_0_0.js (safe)
+// HaloCyberlife main_v3_0_0.js (safe)
 // Works across ALL pages (no crashes)
+// =====================================
+// =====================================
+// HaloCyberlife main_v2_0_0.js (clean full version)
+// Works across ALL pages (legacy + modern)
 // =====================================
 
 (() => {
-  // -----------------------------
-  // Helpers
-  // -----------------------------
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
   // -----------------------------
-  // 1) Neon header nav toggle (legacy pages)
+  // Neon header nav toggle (legacy header)
   // -----------------------------
   const neonToggle = $(".neon-nav-toggle");
   const neonNav = $(".neon-nav");
 
   if (neonToggle && neonNav) {
     neonToggle.addEventListener("click", () => {
-      neonNav.classList.toggle("open");
+      const isOpen = neonNav.classList.toggle("open");
+      neonToggle.setAttribute("aria-expanded", String(isOpen));
     });
   }
 
   // -----------------------------
-  // 2) Site header nav toggle (current header)
+  // Site nav toggle (modern nav with .main-nav)
   // -----------------------------
   const siteToggle = $(".nav-toggle");
   const siteNav = $(".main-nav");
@@ -36,7 +38,6 @@
       setExpanded(isOpen);
     });
 
-    // Close menu when clicking any nav link (mobile UX)
     $$("a", siteNav).forEach((a) => {
       a.addEventListener("click", () => {
         if (siteNav.classList.contains("open")) {
@@ -46,7 +47,6 @@
       });
     });
 
-    // Close menu when resizing to desktop width
     window.addEventListener("resize", () => {
       if (window.innerWidth > 820 && siteNav.classList.contains("open")) {
         siteNav.classList.remove("open");
@@ -56,13 +56,36 @@
   }
 
   // -----------------------------
-  // 3) Footer year
+  // Smooth scroll for in-page anchor links with offset
+  // -----------------------------
+  $$('a[href^="#"]').forEach((el) => {
+    el.addEventListener("click", function (e) {
+      const href = this.getAttribute("href");
+      const id = href.startsWith("#") ? href.slice(1) : null;
+      const target = id ? document.getElementById(id) : null;
+      if (!target) return;
+
+      e.preventDefault();
+      const yOffset = -80; // offset for fixed header
+      const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+
+      // Close nav if open
+      if (neonNav?.classList.contains("open")) {
+        neonNav.classList.remove("open");
+        neonToggle?.setAttribute("aria-expanded", "false");
+      }
+    });
+  });
+
+  // -----------------------------
+  // Footer year
   // -----------------------------
   const yearEl = $("#year");
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
   // -----------------------------
-  // 4) Back to top button
+  // Back to top button
   // -----------------------------
   const backToTopBtn = $(".back-to-top") || $("#backToTop");
   if (backToTopBtn) {
@@ -80,13 +103,9 @@
   }
 
   // -----------------------------
-  // 5) Contact form submit (stable)
-  // - Uses form[data-endpoint] if provided
-  // - Falls back to /api/contact
-  // - Safe on pages without the form/status elements
+  // Contact form
   // -----------------------------
   const contactForm = $("#contactForm");
-
   if (contactForm) {
     const statusEl = $("#formStatus");
     const submitBtn = contactForm.querySelector('button[type="submit"]');
@@ -102,10 +121,6 @@
       submitBtn.style.cursor = busy ? "not-allowed" : "pointer";
     };
 
-    // Endpoint priority:
-    // 1) <form data-endpoint="https://...">
-    // 2) form.action if you set action="https://..."
-    // 3) fallback /api/contact
     const getEndpoint = () => {
       const ds = contactForm.dataset?.endpoint?.trim();
       if (ds) return ds;
@@ -122,7 +137,6 @@
       setStatus("Sending…");
       setBusy(true);
 
-      // Honeypot: if filled, silently pretend success
       const hp = contactForm.querySelector("#company");
       if (hp && hp.value.trim()) {
         setStatus("Sent ✅");
@@ -139,14 +153,12 @@
         message: String(fd.get("message") || "").trim(),
       };
 
-      // Basic validation
       if (!payload.name || !payload.email || !payload.subject || !payload.message) {
         setStatus("❌ Please fill out all required fields.");
         setBusy(false);
         return;
       }
 
-      // Light email sanity check (no overkill)
       const looksLikeEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email);
       if (!looksLikeEmail) {
         setStatus("❌ Please enter a valid email address.");
@@ -154,24 +166,17 @@
         return;
       }
 
-      const endpoint = getEndpoint();
-
       try {
-        const res = await fetch(endpoint, {
+        const res = await fetch(getEndpoint(), {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
         });
 
-        // Try to read json for error messages (if any)
         const data = await res.json().catch(() => ({}));
 
         if (!res.ok) {
-          const msg =
-            data?.error ||
-            data?.message ||
-            `❌ Could not send right now. (HTTP ${res.status}) Please try again later.`;
-          setStatus(msg);
+          setStatus(data?.error || data?.message || `❌ Error (HTTP ${res.status})`);
           setBusy(false);
           return;
         }
@@ -187,8 +192,7 @@
   }
 
   // -----------------------------
-  // 6) Vision Slider (optional GLOBAL)
-  // Safe if missing.
+  // Vision slider (optional / only loads if present)
   // -----------------------------
   const slider = $(".vision-slider");
   if (slider) {
@@ -232,10 +236,9 @@
       prevBtn.addEventListener("click", () => prev(true));
       nextBtn.addEventListener("click", () => next(true));
 
-      // Swipe support
+      const viewport = $(".vision-slider__viewport", slider);
       let startX = 0;
       let isDown = false;
-      const viewport = $(".vision-slider__viewport", slider);
 
       if (viewport) {
         viewport.addEventListener("pointerdown", (e) => {
@@ -275,28 +278,6 @@
     }
   }
 })();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
