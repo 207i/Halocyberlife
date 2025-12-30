@@ -5,225 +5,214 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>RESONANT PHOTONIC AMPLIFICATION SYSTEM | (RPAS) </title>
+  <title>RESONANT PHOTONIC AMPLIFICATION SYSTEM | (RPAS)</title>
   <meta name="description" content="A concept technology exploring frequency-driven photonic excitation: how resonance could amplify light emission from engineered layers—without relying on traditional light sources." />
   <meta name="author" content="Luis Amaya" />
   <meta name="keywords" content="resonance, photonics, frequency, experimental technology, luminescence, excitation, Halocyberlife" />
 
   <style>
-    :root{
-      --bg:#020617;
-      --text:#f9fafb;
-      --muted:#9ca3af;
-      --soft:#d1d5db;
+    /* ───────────────────────────────────────────────────────────────────────── */
+    /* BASIC VARIABLES */
+    :root {
+      --bg: #020617;
+      --text: #f9fafb;
+      --muted: #9ca3af;
+      --soft: #d1d5db;
       --border: rgba(148,163,184,0.28);
-      --accent:#22d3ee;
-      --accent2:#8b5cf6;
-      --radius:18px;
+      --accent: #22d3ee;
+      --accent2: #8b5cf6;
+      --radius: 18px;
       --shadow: 0 18px 60px rgba(0,0,0,0.45);
     }
-    *{ box-sizing:border-box; margin:0; padding:0; }
-    body{
-      font-family: system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
-      background: radial-gradient(circle at top, #111827 0, #020617 55%, #02040a 100%);
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+      background: radial-gradient(circle at top, #111827 0%, #020617 55%, #02040a 100%);
       color: var(--text);
       line-height: 1.6;
     }
-    a{ color: var(--accent); text-decoration:none; }
-    a:hover{ text-decoration:underline; }
 
-    .container{
-      width:100%;
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container {
+      width: 100%;
       max-width: 980px;
       margin: 0 auto;
       padding: 0 1.25rem;
     }
 
-    /* Header */
-    header{
+    /* ───────────────────────────────────────────────────────────────────────── */
+    /* HEADER + NAV */
+    header {
       position: sticky;
-      top:0;
+      top: 0;
       z-index: 50;
       background: rgba(0,0,0,0.65);
       border-bottom: 1px solid rgba(255,255,255,0.08);
       backdrop-filter: blur(12px);
     }
-    .header-inner{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:1rem;
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
       padding: .9rem 0;
     }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:.65rem;
-      font-weight:700;
-      letter-spacing:.05em;
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: .65rem;
+      font-weight: 700;
+      letter-spacing: .05em;
       text-transform: uppercase;
-      font-size:.9rem;
+      font-size: .9rem;
       color: var(--text);
       white-space: nowrap;
     }
-    .brand img{ width:40px; height:40px; object-fit:contain; }
+    .brand img { width: 40px; height: 40px; }
 
-    /* Nav */
-    .nav-wrap{
-      display:flex;
-      align-items:center;
-      gap:.6rem;
-      margin-right: 10px;
+    .nav-wrap { display: flex; align-items: center; gap: .6rem; }
+    nav {
+      display: flex;
+      align-items: center;
+      gap: .4rem;
     }
-    nav{
-      display:flex;
-      align-items:center;
-      gap:.4rem;
-    }
-    nav a{
-      display:inline-block;
-      padding:.5rem .9rem;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,0.18);
-      color: var(--text);
-      font-size:.85rem;
-      letter-spacing:.08em;
+    nav a {
+      padding: .5rem .9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.18);
+      font-size: .85rem;
+      letter-spacing: .08em;
       text-transform: uppercase;
       background: rgba(255,255,255,0.05);
+      color: var(--text);
     }
-    nav a:hover{
+    nav a:hover {
       border-color: rgba(34,211,238,0.65);
       box-shadow: 0 0 18px rgba(34,211,238,0.18);
-      text-decoration:none;
     }
 
-    /* Mobile menu button */
-    .menu-btn{
-      display:none;
-      width:42px;
-      height:42px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,0.18);
+    .menu-btn {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.18);
       background: rgba(255,255,255,0.06);
-      color:#fff;
-      cursor:pointer;
+      color: #fff;
       font-size: 1.1rem;
-      line-height:1;
+      cursor: pointer;
     }
-    .menu-btn:hover{
+    .menu-btn:hover {
       border-color: rgba(34,211,238,0.65);
       box-shadow: 0 0 18px rgba(34,211,238,0.18);
     }
 
-    @media (max-width: 720px){
-      .menu-btn{ display:inline-grid; place-items:center; }
-      nav{
-        position:absolute;
+    @media (max-width: 720px) {
+      .menu-btn { display: inline-grid; place-items: center; }
+      nav {
+        position: absolute;
         top: 68px;
         right: 1.25rem;
         flex-direction: column;
-        align-items: stretch;
         padding: 10px;
         border-radius: 16px;
         border: 1px solid rgba(255,255,255,0.12);
         background: rgba(2,6,23,0.92);
         box-shadow: var(--shadow);
-        display:none;
+        display: none;
         min-width: 210px;
       }
-      nav.open{ display:flex; }
-      nav a{ width:100%; text-align:center; }
+      nav.open { display: flex; }
+      nav a { width: 100%; text-align: center; }
     }
 
-    main{ padding: 2rem 0 3rem; }
+    /* ───────────────────────────────────────────────────────────────────────── */
+    /* ARTICLE HEADER */
+    .article-head { text-align: center; margin: 1rem auto 1.25rem; }
 
-    .article-head{
-      text-align:center;
-      margin: 1rem auto 1.25rem;
-    }
-    .meta{
+    .meta {
       color: var(--muted);
       font-size: .85rem;
-      letter-spacing:.12em;
+      letter-spacing: .12em;
       text-transform: uppercase;
-      margin-bottom:.6rem;
+      margin-bottom: .6rem;
     }
-    h1{
+
+    h1 {
       font-size: clamp(2.05rem, 3.4vw, 2.85rem);
-      line-height:1.12;
-      margin-bottom:.65rem;
       letter-spacing: -0.015em;
+      margin-bottom: .65rem;
     }
-    .subtitle{
+
+    .subtitle {
       color: var(--soft);
       max-width: 820px;
-      margin: 0.2rem auto 0;
+      margin: .2rem auto 0;
       font-size: 1.02rem;
     }
 
-    /* CTA row */
-    .cta{
-      display:flex;
-      flex-wrap:wrap;
+    .cta {
+      display: flex;
       gap: 10px;
-      justify-content:center;
-      margin: 1rem 0 0.2rem;
+      justify-content: center;
+      margin: 1rem 0 .2rem;
     }
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
       padding: 10px 14px;
       border-radius: 999px;
       border: 1px solid rgba(255,255,255,0.18);
       background: rgba(255,255,255,0.06);
-      color: #fff;
-      cursor:pointer;
       font-size: .92rem;
-      letter-spacing:.08em;
+      letter-spacing: .08em;
       text-transform: uppercase;
-      text-decoration:none;
-      user-select:none;
+      color: #fff;
+      cursor: pointer;
     }
-    .btn:hover{
+    .btn:hover {
       border-color: rgba(34,211,238,0.65);
       box-shadow: 0 0 18px rgba(34,211,238,0.18);
-      text-decoration:none;
     }
-    .btn.primary{
+    .btn.primary {
       border-color: rgba(34,211,238,0.55);
       background: linear-gradient(90deg, rgba(34,211,238,0.18), rgba(139,92,246,0.14));
     }
-    .btn.secondary{
+    .btn.secondary {
       border-color: rgba(139,92,246,0.55);
       background: rgba(139,92,246,0.10);
     }
 
-    .tag-row{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
       margin-top: 10px;
-      justify-content:center;
     }
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      border: 1px solid rgba(255,255,255,0.16);
-      background: rgba(255,255,255,0.06);
+    .pill {
       padding: 6px 10px;
       border-radius: 999px;
-      color: rgba(229,231,235,0.95);
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.16);
       font-size: .86rem;
-      letter-spacing:.04em;
+      color: var(--text);
+      letter-spacing: .04em;
     }
-    .pill strong{ color: #fff; font-weight: 700; }
 
-    /* Slider */
-    .vision-slider{ margin: 1.25rem auto 1.3rem; }
-    .vision-viewport{
+    /* ───────────────────────────────────────────────────────────────────────── */
+    /* SLIDER */
+    .vision-slider { margin: 1.25rem auto 1.3rem; }
+    .vision-viewport {
       position: relative;
       overflow: hidden;
       border-radius: var(--radius);
@@ -231,146 +220,139 @@
       background: rgba(255,255,255,0.03);
       box-shadow: var(--shadow);
     }
-    .vision-track{
-      display:flex;
-      width:100%;
-      transform: translateX(0);
+
+    .vision-track {
+      display: flex;
       transition: transform .45s ease;
     }
-    .vision-slide{ flex: 0 0 100%; margin:0; }
-    .vision-slide img{
-      width:100%;
-      height: clamp(240px, 44vw, 520px);
-      display:block;
-      object-fit: cover;
-      background: rgba(255,255,255,0.05);
+    .vision-slide {
+      flex: 0 0 100%;
     }
-    .vision-slide figcaption{
+    .vision-slide img {
+      width: 100%;
+      height: clamp(240px, 44vw, 520px);
+      object-fit: cover;
+      display: block;
+    }
+    .vision-slide figcaption {
       padding: .75rem .9rem;
       font-size: .96rem;
-      color: rgba(209,213,219,0.92);
       background: rgba(2,6,23,0.62);
+      color: rgba(209,213,219,0.92);
       border-top: 1px solid rgba(255,255,255,0.08);
     }
-    .vision-btn{
-      position:absolute;
-      top:50%;
+
+    .vision-btn {
+      position: absolute;
+      top: 50%;
       transform: translateY(-50%);
       width: 42px;
       height: 42px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 999px;
       background: rgba(2,6,23,0.55);
-      color:#fff;
+      color: #fff;
       font-size: 1.6rem;
-      line-height:1;
-      cursor:pointer;
-      display:grid;
-      place-items:center;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
       z-index: 5;
-      user-select:none;
     }
-    .vision-btn:hover{
-      border-color: rgba(34,211,238,0.65);
-      box-shadow: 0 0 18px rgba(34,211,238,0.20);
-    }
-    .vision-prev{ left: 12px; }
-    .vision-next{ right: 12px; }
-    .vision-dots{
-      display:flex;
-      justify-content:center;
-      gap:10px;
+    .vision-prev { left: 12px; }
+    .vision-next { right: 12px; }
+
+    .vision-dots {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
       margin-top: 12px;
     }
-    .vision-dot{
-      width:10px;
-      height:10px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,0.35);
+    .vision-dot {
+      width: 10px; height: 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.35);
       background: rgba(255,255,255,0.10);
-      cursor:pointer;
+      cursor: pointer;
     }
-    .vision-dot[aria-selected="true"]{
+    .vision-dot[aria-selected="true"] {
       background: rgba(34,211,238,0.9);
       border-color: rgba(34,211,238,0.95);
     }
-    .note{
+
+    .note {
       margin-top: 10px;
       color: rgba(209,213,219,0.82);
       font-size: .92rem;
-      text-align:center;
+      text-align: center;
     }
 
-    /* Article body */
-    .article-body{
+    /* ───────────────────────────────────────────────────────────────────────── */
+    /* ARTICLE BODY */
+    .article-body {
       max-width: 820px;
       margin: 0 auto;
+      padding-top: 1rem;
       font-size: 1.02rem;
       color: rgba(209,213,219,0.92);
     }
-    .article-body h2{
+    .article-body h2 {
       margin: 1.6rem 0 .6rem;
-      color: var(--text);
       font-size: 1.38rem;
-      letter-spacing: -0.01em;
+      color: var(--text);
     }
-    .article-body p{ margin: .78rem 0; }
+    .article-body p { margin: .78rem 0; }
 
-    hr{
-      border:0;
-      border-top:1px solid rgba(148,163,184,0.35);
+    hr {
+      border-top: 1px solid rgba(148,163,184,0.35);
       margin: 1.6rem 0;
     }
 
-    /* Possibilities Grid */
-    .possibilities{
-      max-width: 980px;
-      margin: 2.2rem auto 0;
-    }
-    .possibilities h2{
-      margin: 0 0 .35rem;
-      font-size: 1.6rem;
-      color: var(--text);
-    }
-    .possibilities .lead{
-      color: rgba(209,213,219,0.9);
-      margin: 0 0 1.25rem;
-      max-width: 860px;
-    }
-    .cards-grid{
-      display:grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+    /* ───────────────────────────────────────────────────────────────────────── */
+    /* GRID CARDS */
+    .cards-grid {
+      display: grid;
       gap: 16px;
+      grid-template-columns: repeat(2, 1fr);
     }
-    @media (max-width: 760px){
-      .cards-grid{ grid-template-columns: 1fr; }
+    @media (max-width: 760px) {
+      .cards-grid { grid-template-columns: 1fr; }
     }
-    .feature-card{
+
+    .feature-card {
       border: 1px solid rgba(148,163,184,0.28);
-      border-radius: 18px;
+      border-radius: var(--radius);
       background: rgba(255,255,255,0.04);
-      overflow:hidden;
+      overflow: hidden;
       transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
       min-height: 260px;
     }
-    .feature-card:hover{
+    .feature-card:hover {
       transform: translateY(-2px);
       border-color: rgba(34,211,238,0.55);
       box-shadow: 0 0 26px rgba(34,211,238,0.08);
     }
-    .feature-card .card-media{
-      width:100%;
+    .card-media {
+      width: 100%;
       height: 170px;
       object-fit: cover;
-      display:block;
+      display: block;
       background: rgba(255,255,255,0.06);
       border-bottom: 1px solid rgba(255,255,255,0.08);
+      cursor: zoom-in;
     }
-    .feature-card .card-body{ padding: 14px 14px 16px; }
-    .feature-card h3{ margin: 0 0 .35rem; color: var(--text); font-size: 1.05rem; }
-    .feature-card p{ margin: 0; color: rgba(209,213,219,0.9); font-size: .98rem; }
-    .feature-card .tag{
-      display:inline-block;
+    .card-body { padding: 14px; }
+    .feature-card h3 {
+      margin: 0 0 .35rem;
+      font-size: 1.05rem;
+      color: var(--text);
+    }
+    .feature-card p {
+      margin: 0;
+      color: rgba(209,213,219,0.9);
+      font-size: .98rem;
+    }
+    .tag {
+      display: inline-block;
       margin-top: .75rem;
       padding: .25rem .6rem;
       border-radius: 999px;
@@ -378,161 +360,117 @@
       background: rgba(255,255,255,0.05);
       color: rgba(209,213,219,0.9);
       font-size: .78rem;
-      letter-spacing: .08em;
       text-transform: uppercase;
+      letter-spacing: .08em;
     }
 
-    /* NEW: Make only the bottom card images feel clickable */
-    .feature-card .card-media{
-      cursor: zoom-in;
-      transition: transform .18s ease, filter .18s ease;
-      will-change: transform;
-    }
-    .feature-card:hover .card-media{
-      transform: scale(1.02);
-      filter: saturate(1.05);
-    }
-
-    /* NEW: Lightbox (modal) */
-    .lightbox{
+    /* ───────────────────────────────────────────────────────────────────────── */
+    /* LIGHTBOX */
+    .lightbox {
       position: fixed;
       inset: 0;
       display: none;
       place-items: center;
-      padding: 22px;
       background: rgba(0,0,0,0.72);
+      padding: 22px;
       backdrop-filter: blur(10px);
       z-index: 9999;
     }
-    .lightbox.open{ display: grid; }
+    .lightbox.open { display: grid; }
 
-    .lightbox__panel{
+    .lightbox__panel {
       width: min(980px, 100%);
-      border-radius: 18px;
       background: rgba(2,6,23,0.86);
+      border-radius: var(--radius);
       border: 1px solid rgba(255,255,255,0.14);
       box-shadow: 0 28px 120px rgba(0,0,0,0.65);
       overflow: hidden;
-      transform: translateY(8px) scale(0.985);
       opacity: 0;
+      transform: translateY(8px) scale(0.985);
       transition: transform .22s ease, opacity .22s ease;
     }
-    .lightbox.open .lightbox__panel{
-      transform: translateY(0) scale(1);
+    .lightbox.open .lightbox__panel {
       opacity: 1;
+      transform: translateY(0) scale(1);
     }
 
-    .lightbox__top{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 10px;
-      padding: 12px 12px;
+    .lightbox__top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px;
       border-bottom: 1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.03);
     }
-    .lightbox__title{
+    .lightbox__title {
       font-size: .92rem;
-      color: rgba(229,231,235,0.92);
-      letter-spacing: .08em;
       text-transform: uppercase;
+      letter-spacing: .08em;
+      color: rgba(229,231,235,0.92);
+      white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      white-space: nowrap;
     }
-    .lightbox__btn{
+    .lightbox__btn {
       width: 40px;
       height: 40px;
-      border-radius: 999px;
       border: 1px solid rgba(255,255,255,0.18);
       background: rgba(255,255,255,0.06);
+      border-radius: 999px;
       color: #fff;
-      cursor: pointer;
-      display:grid;
-      place-items:center;
       font-size: 1.05rem;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
     }
-    .lightbox__btn:hover{
+    .lightbox__btn:hover {
       border-color: rgba(34,211,238,0.65);
       box-shadow: 0 0 18px rgba(34,211,238,0.20);
     }
 
-    .lightbox__stage{
-      position: relative;
-      padding: 14px;
-      perspective: 900px; /* 👈 gives the “3D” feel */
-    }
-
-    .lightbox__imgWrap{
-      position: relative;
+    .lightbox__stage { padding: 14px; perspective: 900px; }
+    .lightbox__imgWrap {
       border-radius: 16px;
       border: 1px solid rgba(255,255,255,0.12);
-      overflow: hidden;
       background: rgba(255,255,255,0.04);
-      transform-style: preserve-3d;
-      will-change: transform;
+      overflow: hidden;
       transition: transform .12s ease;
+      will-change: transform;
     }
-
-    .lightbox__img{
-      width: 100%;
-      height: auto;
+    .lightbox__img {
+      width: 100%; height: auto;
       max-height: 72vh;
-      display:block;
       object-fit: contain;
       background: rgba(255,255,255,0.03);
-      transform: translateZ(0);
     }
 
-    .lightbox__caption{
-      padding: 12px 14px 14px;
-      color: rgba(209,213,219,0.92);
-      border-top: 1px solid rgba(255,255,255,0.10);
-      font-size: .98rem;
-      line-height: 1.45;
-    }
-
-    .lightbox__nav{
+    .lightbox__nav .lightbox__arrow {
       position: absolute;
-      inset: 14px;
-      pointer-events: none;
-    }
-    .lightbox__arrow{
-      pointer-events: auto;
-      position:absolute;
-      top:50%;
+      top: 50%;
       transform: translateY(-50%);
-      width: 44px;
-      height: 44px;
-      border-radius: 999px;
-      border:1px solid rgba(255,255,255,0.18);
+      width: 44px; height: 44px;
       background: rgba(2,6,23,0.55);
-      color:#fff;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.18);
       font-size: 1.6rem;
-      line-height:1;
-      cursor:pointer;
-      display:grid;
-      place-items:center;
-      user-select:none;
+      cursor: pointer;
+      display: grid; place-items: center;
+      border-radius: 999px;
     }
-    .lightbox__arrow:hover{
+    .lightbox__arrow:hover {
       border-color: rgba(34,211,238,0.65);
       box-shadow: 0 0 18px rgba(34,211,238,0.20);
     }
-    .lightbox__arrow.prev{ left: 10px; }
-    .lightbox__arrow.next{ right: 10px; }
+    .lightbox__arrow.prev { left: 10px; }
+    .lightbox__arrow.next { right: 10px; }
 
-    footer{
+    /* ───────────────────────────────────────────────────────────────────────── */
+    footer {
       border-top: 1px solid rgba(148,163,184,0.25);
-      margin-top: 2.5rem;
       padding: 1.5rem 0 2rem;
       color: rgba(156,163,175,0.9);
       font-size: .9rem;
-      text-align:center;
-    }
-
-    @media (prefers-reduced-motion: reduce){
-      *{ scroll-behavior:auto !important; transition:none !important; }
+      text-align: center;
+      margin-top: 2rem;
     }
   </style>
 </head>
@@ -544,10 +482,9 @@
         <img src="../images/negative_white_halocyberlife_logo.png" alt="Halocyberlife logo" />
         <span>Halocyberlife</span>
       </div>
-
       <div class="nav-wrap">
-        <button class="menu-btn" type="button" id="menuBtn" aria-label="Open menu">☰</button>
-        <nav id="mainNav" aria-label="Primary">
+        <button class="menu-btn" type="button" id="menuBtn" aria-label="Toggle nav">☰</button>
+        <nav id="mainNav">
           <a href="../index.html">Home</a>
           <a href="../blog.html">Articles</a>
         </nav>
@@ -557,65 +494,46 @@
 
   <main class="container">
     <section class="article-head">
-      <p class="meta">Experiments &amp Tech · Resonance / Photonics</p>
+      <p class="meta">Experiments & Tech · Resonance / Photonics</p>
       <h1>Resonant Photonic Amplification System: Using Frequency to Amplify Light Emission</h1>
       <p class="subtitle">
         A novel system that uses acoustic and electromagnetic resonance to amplify light emission in engineered photonic layers — enabling illumination without traditional bulbs, LEDs, or filaments.
       </p>
       <div class="cta">
-        <a class="btn primary" href="#" target="_blank" rel="noopener">
-          View Official Patent Link ↗
-        </a>
-        <button class="btn secondary" type="button" id="jumpToPossibilities">
-          Explore World-Changing Uses
-        </button>
+        <a class="btn primary" href="#" target="_blank" rel="noopener">View Official Patent Link ↗</a>
+        <button class="btn secondary" type="button" id="jumpToPossibilities">Explore World-Changing Uses</button>
       </div>
-      <div class="tag-row" aria-label="Key themes">
-      <span class="pill"><strong>Core idea:</strong> resonant amplification</span>
-      <span class="pill"><strong>Goal:</strong> bulb-less light generation</span>
-      <span class="pill"><strong>Method:</strong> acoustic & EM stimulation</span>
-      <span class="pill"><strong>Structure:</strong> multi-layer photonic stack</span>
+
+      <div class="tag-row">
+        <span class="pill"><strong>Core idea:</strong> resonant amplification</span>
+        <span class="pill"><strong>Goal:</strong> bulb-less light generation</span>
+        <span class="pill"><strong>Method:</strong> acoustic & EM stimulation</span>
+        <span class="pill"><strong>Structure:</strong> multi-layer photonic stack</span>
       </div>
     </section>
 
-    <section class="vision-slider" aria-label="Article image slider">
+    <!-- SLIDER -->
+    <section class="vision-slider">
       <div class="vision-viewport">
         <div class="vision-track">
           <figure class="vision-slide">
-            <img src="./Images/blog_images/RPAS_Core_Amplification_Stack_Render.png"
-                 alt="Architectural surfaces emitting light through resonance-driven activation (concept art)"
-                 loading="eager" />
-            <figcaption>Embedded photonic surfaces — materials that emit light when activated by resonant stimulation (concept visual).</figcaption>
+            <img src="./Images/blog_images/RPAS_Core_Amplification_Stack_Render.png" alt="Architectural surfaces emitting light through resonance-driven activation" loading="eager" />
+            <figcaption>Embedded photonic surfaces — materials that emit light when activated by resonant stimulation.</figcaption>
           </figure>
-           <figure class="vision-slide">
-            <img src="./Images/blog_images/rpas_control_layer.png"
-                 alt="Control interface for RPAS frequency activation system"
-                 loading="lazy" />
-            <figcaption>Control architecture — converts signal input into targeted resonance for precise photonic activation.</figcaption>
-          </figure>
-          
           <figure class="vision-slide">
-            <img src="./Images/blog_images/rpas_photonic_layer_stack.png"
-                 alt="Resonant Photonic Amplification System layered material stack"
-                 loading="lazy" />
-            <figcaption>Layered system — engineered materials arranged for dielectric resonance and energy transfer efficiency.</figcaption>
+            <img src="./Images/blog_images/rpas_control_layer.png" alt="Control interface for RPAS frequency activation system" loading="lazy" />
+            <figcaption>Control architecture — converts signal input into targeted resonance for activation.</figcaption>
           </figure>
-          
           <figure class="vision-slide">
-            <img src="./Images/blog_images/rpas_material_interface_coupling.png"
-                 alt="Interface diagram showing coupling regions and emission zones"
-                 loading="lazy" />
-            <figcaption>Coupling zones — surface and sub-layer interfaces optimized for light amplification under resonance input.</figcaption>
+            <img src="./Images/blog_images/rpas_photonic_layer_stack.png" alt="Layered resonant photonic amplification system stack" loading="lazy" />
+            <figcaption>Layered system — engineered materials arranged for dielectric resonance.</figcaption>
           </figure>
-          <!-- NOTE: this one is NOT a "vision-slide", so it won't be part of slider/dots.
-               Leaving it as-is per your current code, but it's still displayed in the track. -->
-          <figure>
-            <img src="./Images/blog_images/rpas_material_interface_coupling.png" alt="Future city illuminated by embedded RPAS photonic layers">
-            <figcaption>
-              <strong>Figure: RPAS Urban Integration Concept</strong> — A conceptual vision of urban environments illuminated through embedded Resonant Photonic Amplification System (RPAS) layers in architecture, walkways, and infrastructure — enabling emission without bulbs, LEDs, or traditional fixtures.
-            </figcaption>
+          <figure class="vision-slide">
+            <img src="./Images/blog_images/rpas_material_interface_coupling.png" alt="Interface diagram showing coupling regions and emission zones" loading="lazy" />
+            <figcaption>Coupling zones — optimized for light amplification under resonance input.</figcaption>
           </figure>
         </div>
+
         <button class="vision-btn vision-prev" type="button" aria-label="Previous slide">‹</button>
         <button class="vision-btn vision-next" type="button" aria-label="Next slide">›</button>
       </div>
@@ -623,424 +541,285 @@
       <div class="vision-dots" role="tablist" aria-label="Slide navigation"></div>
 
       <p class="note">
-        <strong>Concept Visuals:</strong> Illustrations for storytelling and education — not a finished consumer product rendering.
+        <strong>Concept Visuals:</strong> Illustrations for storytelling and education — not product renders.
       </p>
     </section>
 
-   <article class="article-body">
-      <p>
-        Picture a space with no visible lights — no bulbs, no panels, no fixtures at all. Just surface.
-      </p>
-      <p>
-        Then, with a signal — vibration, frequency, pressure — those surfaces begin to emit light.
-        Not through projection, but through direct resonance. The material itself becomes the source,
-        activated by engineered excitation pathways built into the structure.
-      </p>
+    <!-- MOVED FIGURE OUTSIDE SLIDER -->
+    <figure style="margin: 2rem auto; text-align: center;">
+      <img src="./Images/blog_images/rpas_material_interface_coupling.png" alt="Future city illuminated by embedded RPAS photonic layers" style="width:100%; border-radius:16px; max-width:1000px;" />
+      <figcaption style="margin-top:.8rem; color:var(--muted);">
+        <strong>Figure: RPAS Urban Integration Concept</strong> — A conceptual vision of environments illuminated by RPAS surfaces — without visible fixtures.
+      </figcaption>
+    </figure>
+
+    <!-- ARTICLE BODY -->
+    <article class="article-body">
+      <p>Picture a space with no visible lights — no bulbs, no panels, no fixtures at all. Just surface.</p>
+      <p>Then, with a signal — vibration, frequency, pressure — those surfaces begin to emit light. Not through projection, but through direct resonance.</p>
     </article>
 
-      <hr />
+    <hr />
 
-      <section class="possibilities" id="possibilities" aria-label="Possibilities that change the game">
-        <h2>Possibilities That Change the Game</h2>
-        <p class="lead">
-          If materials can be designed to emit more light when properly excited,
-          the ripple effects are huge — not just for lighting, but for sensing, signaling, displays, safety,
-          architecture, and energy efficiency.
-        </p>
+    <section class="possibilities" id="possibilities">
+      <h2>Possibilities That Change the Game</h2>
+      <p class="lead">If materials can be designed to emit more light when properly excited, the ripple effects are huge — not just for lighting, but for sensing, signaling, architecture, safety, and displays.</p>
 
-        <div class="cards-grid" id="cardsGrid">
-          <article class="feature-card">
-            <img class="card-media"
-                 src="./Images/blog_images/Resonance_Amplification/RPAS_Exploded_Architecture_Labeled.png"
-                 alt="Concept: living architecture illumination"
-                 loading="lazy">
-            <div class="card-body">
-              <h3>Living architecture</h3>
-              <p>Walls, ceilings, corridors, tunnels, and public spaces with embedded illumination response — fewer fixtures, fewer failure points.</p>
-              <span class="tag">Built-in light</span>
-            </div>
-          </article>
-
-          <article class="feature-card">
-            <img class="card-media" src="./Images/blog_images/Resonance_Amplification/RPAS_Internal_Amplification_Module_Cutaway.png" alt="Concept: ultra low profile lighting" loading="lazy">
-            <div class="card-body">
-              <h3>Ultra-low profile lighting</h3>
-              <p>Thin surfaces that glow without bulky assemblies — useful in tight spaces, vehicles, and wearables.</p>
-              <span class="tag">Slim systems</span>
-            </div>
-          </article>
-
-          <article class="feature-card">
-            <img class="card-media"
-                 src="./Images/blog_images/Adaptive_lighting_control_interface_in_motion.png"
-                 alt="Concept: adaptive light controlled by waveforms"
-                 loading="lazy">
-            <div class="card-body">
-              <h3>Adaptive environments</h3>
-              <p>Light intensity and tone shaped by frequency patterns — like “lighting presets” that are literally waveforms.</p>
-              <span class="tag">Waveform presets</span>
-            </div>
-          </article>
-
-          <article class="feature-card">
-            <img class="card-media"
-                 src="./Images/blog_images/Futuristic_photonic_resonance_structure.png"
-                 alt="Concept: redundancy for emergency illumination"
-                 loading="lazy">
-            <div class="card-body">
-              <h3>Emergency + redundancy</h3>
-              <p>Surfaces that can be driven by multiple excitation methods — if one fails, another can still trigger visibility.</p>
-              <span class="tag">Failsafe modes</span>
-            </div>
-          </article>
-
-          <article class="feature-card" style="grid-column: span 2; display: flex; justify-content: center; align-items: center; padding: 1rem;">
-            <div style="max-width: 100%; width: 100%; aspect-ratio: 16/9;">
-              <iframe
-                src="https://www.youtube.com/embed/enHb_FBTWtU"
-                title="BioGlow™ v2 — Light Emission Through Resonant Energy | Concept Technology"
-                style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0;"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen>
-              </iframe>
-            </div>
-          </article>
-
-          
-          <article class="feature-card">
-            <img class="card-media"
-                 src="./Images/blog_images/Futuristic_resonance_in_photonic_technology.png"
-                 alt="Concept: emissive materials as a new display paradigm"
-                 loading="lazy">
-            <div class="card-body">
-              <h3>New display paradigms</h3>
-              <p>Not a screen that shines at you — but materials that become emissive where and when stimulated.</p>
-              <span class="tag">Material display</span>
-            </div>
-          </article>
-
-          <article class="feature-card">
-            <img class="card-media"
-                 src="./Images/blog_images/Resonance_Amplification/RPAS_Core_Amplification_Stack_Render.png"
-                 alt="Concept: navigation markers and hazard indicators"
-                 loading="lazy">
-            <div class="card-body">
-              <h3>Signals, markers, navigation</h3>
-              <p>Wayfinding strips, runway markers, hazard indicators — activated by tuned excitation patterns.</p>
-              <span class="tag">Guidance + safety</span>
-            </div>
-          </article>
-
-          <article class="feature-card">
-            <img class="card-media"
-                 src="./Images/blog_images/Resonance_Amplification/RPAS_CrossSectional_Driver_Interface.png"
-                 alt="Concept: layer stack / BioGlow"
-                 loading="lazy">
-            <div class="card-body">
-              <h3>Layered emission stacks</h3>
-              <p>Stack engineering: coupling, dopants, and resonance-friendly interfaces for controlled emission.</p>
-              <span class="tag">Layer stack</span>
-            </div>
-          </article>
-          
-           <article class="feature-card">
-            <img class="card-media"
-                 src="./Images/blog_images/Resonance_Amplification/RPAS_Core_Amplification_Stack_Render.png"
-                 alt="RESONANT PHOTONIC AMPLIFICATION SYSTEM (RPAS)"
-                 loading="lazy">
-            <div class="card-body">
-              <h3>Resonant architectural illumination</h3>
-              <p>Walls and structures emit light directly through embedded dielectric resonance, photonic activation layers, and synchronized acoustic stimulation—without bulbs, LEDs, or visible fixtures.</p>
-              <span class="tag">RESONANT PHOTONIC AMPLIFICATION SYSTEM (RPAS)™ surfaces</span>
-            </div>
-           </article>
-      <hr />
-      <p>
-        If your mind immediately jumped to “what does this do for energy efficiency,” you’re thinking like an inventor.
-        The dream is always: <strong>less input, more usable effect</strong>.
-      </p>
-    </article>
-
-     <hr />
-      <!-- <div style="margin-top: 2rem; display: flex; justify-content: center;">
-        <iframe width="560" height="315"
-                src="https://www.youtube.com/embed/https://youtu.be/OgVZcnWb8NM&loop=1&cc_load_policy=0"
-                title="BioGlow™ Concept Video"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-                style="border-radius: 12px; box-shadow: 0 18px 60px rgba(0,0,0,0.45);">
-        </iframe>
-      </div> -->
-       <footer>
-        <div class="container" style="text-align: center; padding: 2rem 1rem;">
-          <img src="../images/negative_white_halocyberlife_logo.png" alt="Halocyberlife Logo" style="height: 42px; margin-bottom: 1rem;" />
-          
-          <p style="color: var(--muted); font-size: .92rem;">
-            © <span id="year"></span> Halocyberlife · All rights reserved. Built by Luis Amaya.
-          </p>
-      
-          <nav style="margin: 1rem 0;">
-            <a href="/index.html">Home</a> · 
-            <a href="/blog.html">Articles</a> · 
-            <a href="/about.html">About</a> · 
-            <a href="/contact.html">Contact</a>
-          </nav>
-      
-          <div class="social-icons" style="margin-top: 1rem;">
-            <a href="https://youtube.com/@halocyberlife" target="_blank" aria-label="YouTube">
-              <img src="../icons/youtube.svg" alt="YouTube" style="height: 22px; margin: 0 6px;">
-            </a>
-            <a href="https://www.linkedin.com/in/halocyberlife/" target="_blank" aria-label="Twitter">
-               <img src="../icons/linkedin.svg" alt="LinkedIn" style="height: 22px; margin: 0 6px;">
-            </a>
-            <a href="mailto:halocyberlife@gmail.com" aria-label="Email">
-              <img src="../icons/email.svg" alt="Email" style="height: 22px; margin: 0 6px;">
-            </a>
+      <div class="cards-grid" id="cardsGrid">
+        <!-- CARD: Living Architecture -->
+        <article class="feature-card">
+          <img class="card-media" src="./Images/blog_images/Resonance_Amplification/RPAS_Exploded_Architecture_Labeled.png" alt="Living architecture concept" loading="lazy" />
+          <div class="card-body">
+            <h3>Living architecture</h3>
+            <p>Walls, ceilings, corridors, public spaces with embedded illumination response — fewer fixtures, fewer failure points.</p>
+            <span class="tag">Built-in light</span>
           </div>
-        </div>
-      </footer>
+        </article>
+
+        <!-- CARD: Ultra-low Profile Lighting -->
+        <article class="feature-card">
+          <img class="card-media" src="./Images/blog_images/Resonance_Amplification/RPAS_Internal_Amplification_Module_Cutaway.png" alt="Ultra-low profile lighting concept" loading="lazy" />
+          <div class="card-body">
+            <h3>Ultra-low profile lighting</h3>
+            <p>Thin surfaces glow without bulky assemblies — ideal in tight spaces, vehicles, and wearables.</p>
+            <span class="tag">Slim systems</span>
+          </div>
+        </article>
+
+        <!-- CARD: Adaptive Environments -->
+        <article class="feature-card">
+          <img class="card-media" src="./Images/blog_images/Adaptive_lighting_control_interface_in_motion.png" alt="Adaptive light control concept" loading="lazy" />
+          <div class="card-body">
+            <h3>Adaptive environments</h3>
+            <p>Light intensity and tone shaped by frequency patterns — like waveform lighting presets.</p>
+            <span class="tag">Waveform presets</span>
+          </div>
+        </article>
+
+        <!-- CARD: Emergency Redundancy -->
+        <article class="feature-card">
+          <img class="card-media" src="./Images/blog_images/Futuristic_photonic_resonance_structure.png" alt="Emergency redundancy concept" loading="lazy" />
+          <div class="card-body">
+            <h3>Emergency + redundancy</h3>
+            <p>Surfaces with multiple excitation methods — if one fails, another still triggers visibility.</p>
+            <span class="tag">Failsafe modes</span>
+          </div>
+        </article>
+
+        <!-- VIDEO CARD (Span 2) -->
+        <article class="feature-card" style="grid-column: span 2; display: flex; justify-content: center; align-items: center;">
+          <div style="position:relative; width:100%; padding-bottom:56.25%;">
+            <iframe src="https://www.youtube.com/embed/enHb_FBTWtU"
+                    title="BioGlow™ v2 — Light Emission Through Resonant Energy"
+                    style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+          </div>
+        </article>
+
+        <!-- ADDITIONAL CARDS -->
+        <article class="feature-card">
+          <img class="card-media" src="./Images/blog_images/Futuristic_resonance_in_photonic_technology.png" alt="New display paradigm concept" loading="lazy" />
+          <div class="card-body">
+            <h3>New display paradigms</h3>
+            <p>Not just screens — materials that become emissive where and when stimulated.</p>
+            <span class="tag">Material display</span>
+          </div>
+        </article>
+
+        <article class="feature-card">
+          <img class="card-media" src="./Images/blog_images/Resonance_Amplification/RPAS_Core_Amplification_Stack_Render.png" alt="Navigation markers concept" loading="lazy" />
+          <div class="card-body">
+            <h3>Signals, markers, navigation</h3>
+            <p>Wayfinding strips and hazard indicators activated by tuned excitation patterns.</p>
+            <span class="tag">Guidance + safety</span>
+          </div>
+        </article>
+
+        <article class="feature-card">
+          <img class="card-media" src="./Images/blog_images/Resonance_Amplification/RPAS_CrossSectional_Driver_Interface.png" alt="Layer stack concept" loading="lazy" />
+          <div class="card-body">
+            <h3>Layered emission stacks</h3>
+            <p>Stack engineering: coupling, dopants, resonance-friendly interfaces for controlled emission.</p>
+            <span class="tag">Layer stack</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <hr />
+
+    <footer>
+      <div class="container">
+        <img src="../images/negative_white_halocyberlife_logo.png" alt="Halocyberlife Logo" style="height:42px; margin-bottom:1rem;" />
+        <p style="color: var(--muted); font-size:.92rem;">
+          © <span id="year"></span> Halocyberlife · All rights reserved. Built by Luis Amaya.
+        </p>
+        <nav style="margin:1rem 0;">
+          <a href="../index.html">Home</a> ·
+          <a href="../blog.html">Articles</a> ·
+          <a href="../about.html">About</a> ·
+          <a href="../contact.html">Contact</a>
+        </nav>
+      </div>
+    </footer>
 
   </main>
 
-  <!-- NEW: Lightbox modal (hidden until you click a bottom card image) -->
+  <!-- LIGHTBOX MODAL -->
   <div class="lightbox" id="lightbox" aria-hidden="true">
-    <div class="lightbox__panel" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <div class="lightbox__panel" role="dialog" aria-modal="true">
       <div class="lightbox__top">
         <div class="lightbox__title" id="lightboxTitle">Preview</div>
         <div style="display:flex; gap:10px;">
-          <button class="lightbox__btn" type="button" id="lightboxPrev" aria-label="Previous">‹</button>
-          <button class="lightbox__btn" type="button" id="lightboxNext" aria-label="Next">›</button>
-          <button class="lightbox__btn" type="button" id="lightboxClose" aria-label="Close">✕</button>
+          <button class="lightbox__btn" type="button" id="lightboxPrev">‹</button>
+          <button class="lightbox__btn" type="button" id="lightboxNext">›</button>
+          <button class="lightbox__btn" type="button" id="lightboxClose">✕</button>
         </div>
       </div>
-
       <div class="lightbox__stage">
         <div class="lightbox__imgWrap" id="lightboxWrap">
           <img class="lightbox__img" id="lightboxImg" alt="" />
         </div>
-        <div class="lightbox__nav" aria-hidden="true">
-          <button class="lightbox__arrow prev" type="button" id="lightboxArrowPrev" aria-label="Previous">‹</button>
-          <button class="lightbox__arrow next" type="button" id="lightboxArrowNext" aria-label="Next">›</button>
+        <div class="lightbox__nav">
+          <button class="lightbox__arrow prev" id="lightboxArrowPrev">‹</button>
+          <button class="lightbox__arrow next" id="lightboxArrowNext">›</button>
         </div>
       </div>
-
       <div class="lightbox__caption" id="lightboxCaption"></div>
     </div>
   </div>
 
   <script>
     (() => {
-      // Footer year
-      const y = document.getElementById("year");
-      if (y) y.textContent = String(new Date().getFullYear());
+      /* FOOTER YEAR */
+      const yearEl = document.getElementById("year");
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-      // Mobile menu toggle
-      const menuBtn = document.getElementById("menuBtn");
-      const nav = document.getElementById("mainNav");
+      /* MOBILE MENU TOGGLE */
+      const menuBtn = document.getElementById("menuBtn"), nav = document.getElementById("mainNav");
       if (menuBtn && nav) {
         menuBtn.addEventListener("click", () => nav.classList.toggle("open"));
         nav.querySelectorAll("a").forEach(a => a.addEventListener("click", () => nav.classList.remove("open")));
-        document.addEventListener("click", (e) => {
-          if (window.matchMedia("(max-width: 720px)").matches) {
-            if (!nav.contains(e.target) && e.target !== menuBtn) nav.classList.remove("open");
-          }
-        });
       }
 
-      // Smooth jump
-      const jumpBtn = document.getElementById("jumpToPossibilities");
-      const poss = document.getElementById("possibilities");
-      if (jumpBtn && poss) {
-        jumpBtn.addEventListener("click", () => poss.scrollIntoView({ behavior: "smooth", block: "start" }));
-      }
+      /* SMOOTH SCROLL BUTTON */
+      const jumpBtn = document.getElementById("jumpToPossibilities"), poss = document.getElementById("possibilities");
+      if (jumpBtn && poss) jumpBtn.addEventListener("click", () => poss.scrollIntoView({ behavior: "smooth" }));
 
-      // Slider
+      /* SLIDER */
       const slider = document.querySelector(".vision-slider");
       if (slider) {
-        const track = slider.querySelector(".vision-track");
-        const slides = Array.from(slider.querySelectorAll(".vision-slide"));
-        const prevBtn = slider.querySelector(".vision-prev");
-        const nextBtn = slider.querySelector(".vision-next");
-        const dotsWrap = slider.querySelector(".vision-dots");
-        const viewport = slider.querySelector(".vision-viewport");
+        const track = slider.querySelector(".vision-track"),
+              slides = Array.from(slider.querySelectorAll(".vision-slide")),
+              prevBtn = slider.querySelector(".vision-prev"),
+              nextBtn = slider.querySelector(".vision-next"),
+              dotsWrap = slider.querySelector(".vision-dots");
 
-        if (track && slides.length && prevBtn && nextBtn && dotsWrap) {
-          let index = 0;
-          let timer = null;
-
+        if (track && slides.length) {
+          let index = 0, timer = null;
           dotsWrap.innerHTML = "";
+
           slides.forEach((_, i) => {
             const dot = document.createElement("button");
-            dot.type = "button";
             dot.className = "vision-dot";
-            dot.setAttribute("aria-label", "Go to slide " + (i + 1));
             dot.setAttribute("aria-selected", i === 0 ? "true" : "false");
             dot.addEventListener("click", () => goTo(i, true));
             dotsWrap.appendChild(dot);
           });
-          const dots = Array.from(slider.querySelectorAll(".vision-dot"));
+          const dots = Array.from(dotsWrap.querySelectorAll(".vision-dot"));
 
-          function update() {
-            track.style.transform = "translateX(-" + (index * 100) + "%)";
-            dots.forEach((d, i) => d.setAttribute("aria-selected", i === index ? "true" : "false"));
-          }
-          function goTo(i, userAction=false) {
-            index = (i + slides.length) % slides.length;
-            update();
-            if (userAction) startAutoplay();
-          }
-          function next(userAction=false) { goTo(index + 1, userAction); }
-          function prev(userAction=false) { goTo(index - 1, userAction); }
+          const update = () => {
+            track.style.transform = `translateX(-${index * 100}%)`;
+            dots.forEach((d,i) => d.setAttribute("aria-selected", i === index ? "true" : "false"));
+          };
+          const goTo = (i,user=false) => { index = (i + slides.length) % slides.length; update(); if(user) start(); };
+          const next = (user=false) => goTo(index+1,user);
+          const prev = (user=false) => goTo(index-1,user);
 
-          prevBtn.addEventListener("click", () => prev(true));
-          nextBtn.addEventListener("click", () => next(true));
+          prevBtn.addEventListener("click",()=>prev(true));
+          nextBtn.addEventListener("click",()=>next(true));
 
-          // Swipe
-          let startX = 0;
-          let down = false;
-          if (viewport) {
-            viewport.addEventListener("pointerdown", (e) => { down = true; startX = e.clientX; });
-            viewport.addEventListener("pointerup", (e) => {
-              if (!down) return;
-              down = false;
-              const dx = e.clientX - startX;
-              if (Math.abs(dx) > 40) dx < 0 ? next(true) : prev(true);
-            });
-            viewport.addEventListener("pointercancel", () => { down = false; });
-          }
-
-          function startAutoplay() {
-            if (timer) clearInterval(timer);
-            timer = setInterval(() => next(false), 5000);
-          }
-          slider.addEventListener("mouseenter", () => { if (timer) clearInterval(timer); timer = null; });
-          slider.addEventListener("mouseleave", startAutoplay);
+          const start = () => {
+            if(timer) clearInterval(timer);
+            timer = setInterval(()=>next(false), 5000);
+          };
+          slider.addEventListener("mouseenter",()=>{ if(timer) clearInterval(timer); });
+          slider.addEventListener("mouseleave", start);
 
           update();
-          startAutoplay();
+          start();
         }
       }
 
-      //NEW: Lightbox for bottom grid images ONLY
-      const grid = document.getElementById("cardsGrid");
-      const lb = document.getElementById("lightbox");
-      const lbPanel = lb?.querySelector(".lightbox__panel");
-      const lbImg = document.getElementById("lightboxImg");
-      const lbTitle = document.getElementById("lightboxTitle");
-      const lbCaption = document.getElementById("lightboxCaption");
-      const btnClose = document.getElementById("lightboxClose");
-      const btnPrev = document.getElementById("lightboxPrev");
-      const btnNext = document.getElementById("lightboxNext");
-      const arrowPrev = document.getElementById("lightboxArrowPrev");
-      const arrowNext = document.getElementById("lightboxArrowNext");
-      const wrap = document.getElementById("lightboxWrap");
+      /* LIGHTBOX */
+      const grid = document.getElementById("cardsGrid"),
+            lb = document.getElementById("lightbox"),
+            lbImg = document.getElementById("lightboxImg"),
+            lbTitle = document.getElementById("lightboxTitle"),
+            lbCaption = document.getElementById("lightboxCaption"),
+            btnClose = document.getElementById("lightboxClose"),
+            btnPrev = document.getElementById("lightboxPrev"),
+            btnNext = document.getElementById("lightboxNext"),
+            arrowPrev = document.getElementById("lightboxArrowPrev"),
+            arrowNext = document.getElementById("lightboxArrowNext"),
+            wrap = document.getElementById("lightboxWrap");
 
-      if (!grid || !lb || !lbImg || !lbTitle || !lbCaption || !btnClose || !btnPrev || !btnNext || !arrowPrev || !arrowNext || !wrap) return;
-
-      const thumbs = Array.from(grid.querySelectorAll("img.card-media"));
-
-      // store caption + title from the card (h3 + p)
-      const items = thumbs.map(img => {
-        const card = img.closest(".feature-card");
-        const h3 = card?.querySelector("h3")?.textContent?.trim() || "Preview";
-        const p = card?.querySelector("p")?.textContent?.trim() || img.alt || "";
-        return { src: img.getAttribute("src") || "", alt: img.alt || h3, title: h3, caption: p };
-      });
-
-      let current = 0;
-      let lastFocus = null;
-
-      function openAt(i){
-        current = (i + items.length) % items.length;
-        const it = items[current];
-
-        lastFocus = document.activeElement;
-
-        lb.classList.add("open");
-        lb.setAttribute("aria-hidden", "false");
-        document.body.style.overflow = "hidden";
-
-        lbImg.src = it.src;
-        lbImg.alt = it.alt;
-        lbTitle.textContent = it.title;
-        lbCaption.textContent = it.caption;
-
-        // focus close for keyboard users
-        btnClose.focus();
-      }
-
-      function close(){
-        lb.classList.remove("open");
-        lb.setAttribute("aria-hidden", "true");
-        document.body.style.overflow = "";
-        resetTilt();
-        if (lastFocus && typeof lastFocus.focus === "function") lastFocus.focus();
-      }
-
-      function next(){ openAt(current + 1); }
-      function prev(){ openAt(current - 1); }
-
-      thumbs.forEach((img, idx) => {
-        img.setAttribute("role", "button");
-        img.setAttribute("tabindex", "0");
-        img.setAttribute("aria-label", "Open image preview");
-        img.addEventListener("click", () => openAt(idx));
-        img.addEventListener("keydown", (e) => {
-          if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openAt(idx); }
+      if (grid && lb && lbImg && lbTitle && lbCaption && btnClose && btnPrev && btnNext && arrowPrev && arrowNext && wrap) {
+        const thumbs = Array.from(grid.querySelectorAll("img.card-media"));
+        const items = thumbs.map(img => {
+          const card = img.closest(".feature-card"),
+                title = card?.querySelector("h3")?.textContent.trim() || "Preview",
+                caption = card?.querySelector("p")?.textContent.trim() || img.alt || "";
+          return {src: img.src, alt: img.alt, title, caption};
         });
-      });
+        let current = 0, lastFocus = null;
 
-      btnClose.addEventListener("click", close);
-      btnNext.addEventListener("click", next);
-      btnPrev.addEventListener("click", prev);
-      arrowNext.addEventListener("click", next);
-      arrowPrev.addEventListener("click", prev);
+        const openAt = i => {
+          current = (i + items.length) % items.length;
+          const it = items[current];
+          lastFocus = document.activeElement;
 
-      // click outside panel closes
-      lb.addEventListener("click", (e) => {
-        if (e.target === lb) close();
-      });
+          lb.classList.add("open");
+          document.body.style.overflow = "hidden";
 
-      // Esc + arrows
-      document.addEventListener("keydown", (e) => {
-        if (!lb.classList.contains("open")) return;
-        if (e.key === "Escape") close();
-        if (e.key === "ArrowRight") next();
-        if (e.key === "ArrowLeft") prev();
-      });
+          lbImg.src = it.src;
+          lbImg.alt = it.alt;
+          lbTitle.textContent = it.title;
+          lbCaption.textContent = it.caption;
 
-      // ✅ Subtle 3D tilt on mouse move (fun but not obnoxious)
-      let rect = null;
-      function resetTilt(){
-        wrap.style.transform = "rotateX(0deg) rotateY(0deg) scale(1)";
+          btnClose.focus();
+        };
+
+        const close = () => {
+          lb.classList.remove("open");
+          document.body.style.overflow = "";
+          if(lastFocus && lastFocus.focus) lastFocus.focus();
+        };
+
+        thumbs.forEach((img, idx) => {
+          img.setAttribute("role","button");
+          img.setAttribute("tabindex","0");
+          img.addEventListener("click",()=>openAt(idx));
+          img.addEventListener("keydown",e=>{ if(e.key==="Enter"||e.key===" ") { e.preventDefault(); openAt(idx); } });
+        });
+
+        btnClose.addEventListener("click", close);
+        btnPrev.addEventListener("click", ()=>openAt(current-1));
+        btnNext.addEventListener("click", ()=>openAt(current+1));
+        arrowPrev.addEventListener("click", ()=>openAt(current-1));
+        arrowNext.addEventListener("click", ()=>openAt(current+1));
+
+        lb.addEventListener("click",e => { if(e.target===lb) close(); });
+
+        document.addEventListener("keydown",e => {
+          if(!lb.classList.contains("open")) return;
+          if(e.key==="Escape") close();
+          if(e.key==="ArrowRight") openAt(current+1);
+          if(e.key==="ArrowLeft") openAt(current-1);
+        });
       }
-
-      lbImg.addEventListener("load", () => {
-        rect = wrap.getBoundingClientRect();
-        resetTilt();
-      });
-
-      lbPanel?.addEventListener("mousemove", (e) => {
-        if (!lb.classList.contains("open")) return;
-        if (!rect) rect = wrap.getBoundingClientRect();
-
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const cx = rect.width / 2;
-        const cy = rect.height / 2;
-
-        const dx = (x - cx) / cx; // -1..1
-        const dy = (y - cy) / cy; // -1..1
-
-        const rotateY = dx * 6;   // degrees
-        const rotateX = -dy * 6;  // degrees
-
-        wrap.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.01)`;
-      });
-
-      lbPanel?.addEventListener("mouseleave", resetTilt);
 
     })();
   </script>
