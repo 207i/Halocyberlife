@@ -389,6 +389,28 @@
 </script>
 
   <!-- Optional: if your main JS doesn't already handle neon menu, this makes it work -->
+ <script>
+document.addEventListener("DOMContentLoaded", function () {
+  // smooth scroll with offset + close nav
+  document.querySelectorAll('a[href^="#"]').forEach(el => {
+    el.addEventListener("click", function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute("href").substring(1);
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) {
+        const yOffset = -80; // header height offset
+        const y = targetEl.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: "smooth" });
+      }
+      const nav = document.querySelector(".neon-nav");
+      if (nav && nav.classList.contains("open")) {
+        nav.classList.remove("open");
+        document.querySelector(".neon-nav-toggle").setAttribute("aria-expanded", "false");
+      }
+    });
+  });
+});
+</script>
 
 </body>
 </html>
