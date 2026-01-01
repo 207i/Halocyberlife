@@ -1103,35 +1103,6 @@
 
 
 
-<main class="container">
-
-
- 
-</main>
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-
-  const btn = document.getElementById("menuBtn");
-  const nav = document.getElementById("mainNav");
-  btn.onclick = () => nav.classList.toggle("open");
-</script>
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1198,31 +1169,7 @@
       <h2>Key Modules & Components</h2>
   </main>
 
-  <!-- NEW: Lightbox modal (hidden until you click a bottom card image) -->
-  <div class="lightbox" id="lightbox" aria-hidden="true">
-    <div class="lightbox__panel" role="dialog" aria-modal="true" aria-label="Image viewer">
-      <div class="lightbox__top">
-        <div class="lightbox__title" id="lightboxTitle">Preview</div>
-        <div style="display:flex; gap:10px;">
-          <button class="lightbox__btn" type="button" id="lightboxPrev" aria-label="Previous">‹</button>
-          <button class="lightbox__btn" type="button" id="lightboxNext" aria-label="Next">›</button>
-          <button class="lightbox__btn" type="button" id="lightboxClose" aria-label="Close">✕</button>
-        </div>
-      </div>
 
-      <div class="lightbox__stage">
-        <div class="lightbox__imgWrap" id="lightboxWrap">
-          <img class="lightbox__img" id="lightboxImg" alt="" />
-        </div>
-        <div class="lightbox__nav" aria-hidden="true">
-          <button class="lightbox__arrow prev" type="button" id="lightboxArrowPrev" aria-label="Previous">‹</button>
-          <button class="lightbox__arrow next" type="button" id="lightboxArrowNext" aria-label="Next">›</button>
-        </div>
-      </div>
-
-      <div class="lightbox__caption" id="lightboxCaption"></div>
-    </div>
-  </div>
 
 
 
