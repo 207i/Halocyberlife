@@ -230,7 +230,7 @@
     .vision-slide img {
       width: 100%;
       height: clamp(240px, 44vw, 520px);
-      object-fit: cover;
+      object-fit: cover; /* ANTI-STRETCH FIX */
       display: block;
     }
     .vision-slide figcaption {
@@ -313,9 +313,20 @@
       gap: 16px;
       grid-template-columns: repeat(2, 1fr);
     }
+    
     @media (max-width: 760px) {
-      .cards-grid { grid-template-columns: 1fr; }
+    .cards-grid { 
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        align-items: center; /* This prevents the cards from stretching to full width/height unnecessarily */
     }
+    
+    .feature-card {
+        width: 100%;
+        max-width: 400px; /* Keeps them from looking like giant bricks on mobile */
+    }
+}
 
     /* ───────────────────────────────────────────────────────────────────────── */
 /* GRID CARDS - RESPONSIVE FIX */
@@ -326,7 +337,6 @@
   background: rgba(255,255,255,0.04);
   overflow: hidden;
   transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-  /* Removed fixed min-height to prevent stretching */
   display: flex;
   flex-direction: column;
 }
@@ -337,20 +347,28 @@
   box-shadow: 0 0 26px rgba(34,211,238,0.08);
 }
 
+/* .card-media {
+  width: 100%;
+  aspect-ratio: 16 / 9; 
+  object-fit: cover; 
+  display: block;
+  background: rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  cursor: zoom-in;
+} */
+
 .card-media {
   width: 100%;
-  /* Use aspect-ratio instead of fixed 170px height */
-  aspect-ratio: 16 / 9; 
+  aspect-ratio: 21 / 9; /* This makes the image a wider, shorter "strip" like a tag */
   object-fit: cover;
   display: block;
   background: rgba(255,255,255,0.06);
   border-bottom: 1px solid rgba(255,255,255,0.08);
   cursor: zoom-in;
 }
-
 .card-body { 
   padding: 14px; 
-  flex-grow: 1; /* Pushes content to fill the space naturally */
+  /* flex-grow: 1;  */
 }
 
 .feature-card h3 {
@@ -511,8 +529,8 @@
       <p class="meta">Experiments & Tech · Resonance / Lighting Photonics</p>
       <h1>BioGlow| Resonant Photonic Light: When Frequency Becomes the “Switch” for Light</h1>
       <p class="subtitle">
-         What if illumination didn’t need a bulb, a filament, or a visible emitter at all — and instead
-        emerged from engineered materials when you “tune” them the right way?</p>
+          What if illumination didn’t need a bulb, a filament, or a visible emitter at all — and instead
+         emerged from engineered materials when you “tune” them the right way?</p>
       <div class="cta">
         <a class="btn primary" href="./Patent_Bio_Glow.html" target="_blank" rel="noopener">View Official Patent Link ↗</a>
         <button class="btn secondary" type="button" id="jumpToPossibilities">Explore World-Changing Uses</button>
@@ -527,7 +545,6 @@
       </div>
     </section>
 
-    <!-- SLIDER -->
     <section class="vision-slider">
       <div class="vision-viewport">
         <div class="vision-track">
@@ -560,7 +577,6 @@
       </p>
     </section>
 
-    <!-- MOVED FIGURE OUTSIDE SLIDER -->
     <figure style="margin: 2rem auto; text-align: center;">
       <img src="./Images/blog_images/rpas_material_interface_coupling.png" alt="Future city illuminated by embedded RPAS photonic layers" style="width:100%; border-radius:16px; max-width:1000px;" />
       <figcaption style="margin-top:.8rem; color:var(--muted);">
@@ -568,7 +584,6 @@
       </figcaption>
     </figure>
 
-    <!-- ARTICLE BODY -->
     <article class="article-body">
       <p>Picture a space with no visible lights — no bulbs, no panels, no fixtures at all. Just surface.</p>
       <p>Then, with a signal — vibration, frequency, pressure — those surfaces begin to emit light. Not through projection, but through direct resonance.</p>
@@ -581,7 +596,6 @@
       <p class="lead">If materials can be designed to emit more light when properly excited, the ripple effects are huge — not just for lighting, but for sensing, signaling, architecture, safety, and displays.</p>
 
       <div class="cards-grid" id="cardsGrid">
-        <!-- CARD: Living Architecture -->
         <article class="feature-card">
           <img class="card-media" src="./Images/blog_images/resonant-photonic-layer-stack.png" alt="Living architecture concept" loading="lazy" />
           <div class="card-body">
@@ -591,7 +605,6 @@
           </div>
         </article>
 
-        <!-- CARD:  -->
         <article class="feature-card">
           <img class="card-media" src="./Images/blog_images/resonant-photonic-energy-orb.png" alt="Ultra-low profile lighting concept" loading="lazy" />
           <div class="card-body">
@@ -601,7 +614,6 @@
           </div>
         </article>
 
-        <!-- CARD:  -->
         <article class="feature-card">
           <img class="card-media" src="./Images/blog_images/resonant-frequency-wave-instruction.png" alt="Adaptive light control concept" loading="lazy" />
           <div class="card-body">
@@ -611,7 +623,6 @@
           </div>
         </article>
 
-        <!-- CARD:  -->
         <article class="feature-card">
           <img class="card-media" src="./Images/blog_images/resonance-activated-wall-panels.png" alt="Emergency redundancy concept" loading="lazy" />
           <div class="card-body">
@@ -621,7 +632,6 @@
           </div>
         </article>
 
-        <!-- Youtube Video -->
         <article class="feature-card" style="grid-column: span 2; display: flex; justify-content: center; align-items: center;">
           <div style="position:relative; width:100%; padding-bottom:56.25%;">
             <iframe src="https://www.youtube.com/embed/enHb_FBTWtU"
@@ -631,7 +641,6 @@
                     allowfullscreen></iframe>
           </div>
         </article>
-        <!-- xxx -->
         <article class="feature-card">
           <img class="card-media" src="./Images/blog_images/living-architecture-light-without-fixtures.png" alt="New display paradigm concept" loading="lazy" />
           <div class="card-body">
@@ -681,7 +690,6 @@
 
   </main>
 
-  <!-- LIGHTBOX MODAL -->
   <div class="lightbox" id="lightbox" aria-hidden="true">
     <div class="lightbox__panel" role="dialog" aria-modal="true">
       <div class="lightbox__top">
@@ -839,54 +847,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
