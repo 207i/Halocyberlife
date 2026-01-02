@@ -12,30 +12,32 @@
 
   <style>
     /* ───────────────────────────────────────────────────────────────────────── */
-    /* BASIC VARIABLES */
+    /* BASIC VARIABLES - UPDATED WITH ELECTRIC PURPLE ATTRIBUTES */
     :root {
       --bg: #020617;
       --text: #f9fafb;
       --muted: #9ca3af;
       --soft: #d1d5db;
-      --border: rgba(148,163,184,0.28);
-      --accent: #22d3ee;
-      --accent2: #8b5cf6;
+      --border: rgba(139, 92, 246, 0.3); /* Purple tinted border */
+      --accent: #22d3ee; /* Cyan */
+      --accent2: #8b5cf6; /* Electric Purple */
+      --accent-magenta: #d946ef; /* High-energy Magenta */
       --radius: 18px;
-      --shadow: 0 18px 60px rgba(0,0,0,0.45);
+      --shadow: 0 18px 60px rgba(139, 92, 246, 0.25);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
-      background: radial-gradient(circle at top, #111827 0%, #020617 55%, #02040a 100%);
+      /* Updated gradient to include deeper indigo/purple tones */
+      background: radial-gradient(circle at top right, #1e1b4b 0%, #020617 55%, #000000 100%);
       color: var(--text);
       line-height: 1.6;
     }
 
     a { color: var(--accent); text-decoration: none; transition: 0.3s; }
-    a:hover { color: var(--accent2); }
+    a:hover { color: var(--accent-magenta); }
 
     .container {
       width: 100%;
@@ -50,8 +52,8 @@
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(0,0,0,0.65);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      background: rgba(2, 6, 23, 0.8);
+      border-bottom: 1px solid rgba(139, 92, 246, 0.3); /* Purple border */
       backdrop-filter: blur(12px);
     }
 
@@ -74,47 +76,27 @@
       color: var(--text);
       white-space: nowrap;
     }
-    .brand img { width: 40px; height: 40px; }
+    .brand img { 
+      width: 40px; height: 40px; 
+      filter: drop-shadow(0 0 5px var(--accent)); /* Subtle Cyan glow */
+    }
 
     .nav-wrap { display: flex; align-items: center; gap: .6rem; }
     nav { display: flex; align-items: center; gap: .4rem; }
     nav a {
       padding: .5rem .9rem;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.18);
+      border: 1px solid rgba(139, 92, 246, 0.4);
       font-size: .85rem;
       letter-spacing: .08em;
       text-transform: uppercase;
-      background: rgba(255,255,255,0.05);
+      background: rgba(139, 92, 246, 0.1);
       color: var(--text);
     }
     nav a:hover {
-      border-color: rgba(34,211,238,0.65);
-      box-shadow: 0 0 18px rgba(34,211,238,0.18);
-    }
-
-    .menu-btn {
-      display: none;
-      width: 42px; height: 42px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(255,255,255,0.06);
-      color: #fff;
-      font-size: 1.1rem;
-      cursor: pointer;
-    }
-
-    @media (max-width: 720px) {
-      .menu-btn { display: inline-grid; place-items: center; }
-      nav {
-        position: absolute; top: 68px; right: 1.25rem;
-        flex-direction: column; padding: 10px;
-        border-radius: 16px; border: 1px solid rgba(255,255,255,0.12);
-        background: rgba(2,6,23,0.95); box-shadow: var(--shadow);
-        display: none; min-width: 210px;
-      }
-      nav.open { display: flex; }
-      nav a { width: 100%; text-align: center; }
+      border-color: var(--accent);
+      box-shadow: 0 0 18px rgba(34, 211, 238, 0.3);
+      color: var(--accent);
     }
 
     /* ───────────────────────────────────────────────────────────────────────── */
@@ -135,7 +117,8 @@
       line-height: 1.1;
       letter-spacing: -0.02em;
       margin-bottom: 1.5rem;
-      background: linear-gradient(to right, #fff, var(--muted));
+      /* Gradient matches the photonic excitation aesthetic */
+      background: linear-gradient(to right, #fff, var(--accent2), var(--accent-magenta));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -157,19 +140,23 @@
     .btn {
       display: inline-flex; align-items: center; justify-content: center;
       gap: 10px; padding: 12px 24px;
-      border-radius: 999px; border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 999px; border: 1px solid rgba(255,255,255,0.2);
       background: rgba(255,255,255,0.06);
-      font-size: .9rem; font-weight: 600;
+      font-size: .9rem; font-weight: 700;
       letter-spacing: .08em; text-transform: uppercase;
       color: #fff; cursor: pointer; transition: 0.3s;
     }
+
+    /* THE PURPLE BUTTON ATTRIBUTE */
     .btn.primary {
-      border-color: var(--accent);
-      background: linear-gradient(90deg, rgba(34,211,238,0.2), rgba(139,92,246,0.2));
+      border: none;
+      background: linear-gradient(135deg, var(--accent2) 0%, var(--accent-magenta) 100%);
+      box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
     }
     .btn:hover {
       border-color: #fff;
       transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(217, 70, 239, 0.4);
     }
 
     /* ───────────────────────────────────────────────────────────────────────── */
@@ -177,9 +164,11 @@
     .vision-slider { margin: 3rem auto; }
     .vision-viewport {
       position: relative; overflow: hidden;
-      border-radius: var(--radius); border: 1px solid var(--border);
+      border-radius: var(--radius); 
+      border: 1px solid rgba(139, 92, 246, 0.4); /* Purple border */
       background: #000; box-shadow: var(--shadow);
     }
+    /* ... rest of your slider CSS ... */
     .vision-track { display: flex; transition: transform .6s cubic-bezier(0.16, 1, 0.3, 1); }
     .vision-slide { flex: 0 0 100%; }
     .vision-slide img {
@@ -189,20 +178,20 @@
     .vision-slide figcaption {
       padding: 1.5rem; font-size: 1rem;
       background: rgba(2,6,23,0.85); color: var(--soft);
-      border-top: 1px solid rgba(255,255,255,0.1);
+      border-top: 1px solid rgba(139, 92, 246, 0.2);
     }
 
     .vision-btn {
       position: absolute; top: 50%; transform: translateY(-50%);
       width: 48px; height: 48px; border-radius: 999px;
-      background: rgba(0,0,0,0.5); color: #fff; border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(139, 92, 246, 0.2); color: #fff; border: 1px solid rgba(255,255,255,0.2);
       cursor: pointer; display: grid; place-items: center; z-index: 5; backdrop-filter: blur(4px);
     }
     .vision-prev { left: 20px; }
     .vision-next { right: 20px; }
 
     /* ───────────────────────────────────────────────────────────────────────── */
-    /* GRID CARDS */
+    /* GRID CARDS - UPDATED WITH PURPLE ATTRIBUTES */
     .cards-grid {
       display: grid; gap: 24px;
       grid-template-columns: repeat(2, 1fr);
@@ -216,17 +205,17 @@
     .feature-card {
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      background: rgba(255,255,255,0.03);
+      background: rgba(139, 92, 246, 0.03); /* Subtle purple tint */
       overflow: hidden; transition: 0.3s ease;
     }
     .feature-card:hover {
       transform: translateY(-5px);
-      border-color: var(--accent);
-      background: rgba(255,255,255,0.06);
+      border-color: var(--accent2);
+      background: rgba(139, 92, 246, 0.08);
     }
     .card-media {
       width: 100%; height: 220px;
-      object-fit: cover; border-bottom: 1px solid rgba(255,255,255,0.08);
+      object-fit: cover; border-bottom: 1px solid rgba(139, 92, 246, 0.2);
       cursor: zoom-in;
     }
     .card-body { padding: 1.5rem; }
@@ -235,26 +224,29 @@
 
     .tag {
       display: inline-block; margin-top: 1rem; padding: 4px 12px;
-      border-radius: 999px; border: 1px solid rgba(34,211,238,0.3);
-      background: rgba(34,211,238,0.1); color: var(--accent);
+      border-radius: 999px; 
+      border: 1px solid var(--accent2);
+      background: rgba(139, 92, 246, 0.15); 
+      color: #e9d5ff;
       font-size: .75rem; font-weight: 700; text-transform: uppercase;
     }
 
     footer {
-      border-top: 1px solid rgba(148,163,184,0.1);
+      border-top: 1px solid rgba(139, 92, 246, 0.2);
       padding: 4rem 0; text-align: center; margin-top: 5rem;
     }
 
-    /* LIGHTBOX */
+    /* LIGHTBOX UPDATED */
     .lightbox {
       position: fixed; inset: 0; display: none; place-items: center;
-      background: rgba(0,0,0,0.9); padding: 20px;
+      background: rgba(0,0,0,0.95); padding: 20px;
       backdrop-filter: blur(15px); z-index: 10000;
     }
     .lightbox.open { display: grid; }
     .lightbox__panel {
       width: min(1100px, 100%); background: #000;
-      border-radius: 20px; border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px; border: 2px solid var(--accent2); /* Glowing purple border */
+      box-shadow: 0 0 40px rgba(139, 92, 246, 0.3);
       overflow: hidden;
     }
     .lightbox__img { width: 100%; max-height: 80vh; object-fit: contain; }
@@ -310,13 +302,12 @@
         <button class="vision-btn vision-prev">‹</button>
         <button class="vision-btn vision-next">›</button>
       </div>
-      <div class="vision-dots"></div>
     </section>
 
     <figure style="margin: 4rem auto; text-align: center;">
       <img src="./Images/blog_images/rpas_material_interface_coupling.png" alt="Urban Integration" style="width:100%; border-radius:16px; border: 1px solid var(--border);" />
       <figcaption style="margin-top:1.5rem; color:var(--muted); font-size: 0.9rem; max-width: 700px; margin-inline: auto;">
-        <strong>Figure 1: RPAS Urban Integration</strong> — A conceptual vision of future environments illuminated by embedded photonic layers, removing the need for visible fixtures.
+        <strong>Figure 1: RPAS Urban Integration</strong> — A conceptual vision of future environments illuminated by embedded photonic layers.
       </figcaption>
     </figure>
 
@@ -385,7 +376,7 @@
   <div class="lightbox" id="lightbox">
     <div class="lightbox__panel">
       <div style="padding: 15px; border-bottom: 1px solid #333; display: flex; justify-content: space-between; align-items: center;">
-        <span id="lbTitle" style="text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.1em;">Preview</span>
+        <span id="lbTitle" style="text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.1em;">Technical Preview</span>
         <button id="lbClose" style="background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer;">✕</button>
       </div>
       <img id="lbImg" class="lightbox__img" src="" alt="" />
@@ -393,18 +384,12 @@
   </div>
 
   <script>
-    /* YEAR */
     document.getElementById("year").textContent = new Date().getFullYear();
-
-    /* NAV */
     const menuBtn = document.getElementById("menuBtn"), nav = document.getElementById("mainNav");
     menuBtn.onclick = () => nav.classList.toggle("open");
-
-    /* SCROLL */
     document.getElementById("jumpToPossibilities").onclick = () => 
       document.getElementById("possibilities").scrollIntoView({ behavior: "smooth" });
 
-    /* SLIDER */
     const track = document.querySelector(".vision-track");
     const slides = document.querySelectorAll(".vision-slide");
     const next = document.querySelector(".vision-next");
@@ -419,7 +404,6 @@
     prev.onclick = () => move(index - 1);
     setInterval(() => move(index + 1), 6000);
 
-    /* LIGHTBOX */
     const lb = document.getElementById("lightbox"), lbImg = document.getElementById("lbImg"), lbTitle = document.getElementById("lbTitle");
     document.querySelectorAll(".card-media").forEach(img => {
       img.onclick = () => {
