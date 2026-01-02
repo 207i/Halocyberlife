@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-0HZN617CB1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -15,272 +14,235 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Articles & Insights | Halocyberlife</title>
-  <meta name="description" content="Explore all esoteric articles, frequency insights, dream decoding, and sound healing content from Halocyberlife by Luis Amaya." />
+  <meta name="description" content="Explore esoteric articles, biophotonic research, and frequency-driven tech from Halocyberlife." />
   <meta name="author" content="Luis Amaya" />
-  <link rel="canonical" href="https://halocyberlife.com/blog.html" />
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Articles & Insights | Halocyberlife" />
-  <meta property="og:description" content="Browse the full collection of esoteric insights, frequency teachings, and experimental ideas from Halocyberlife." />
-  <meta property="og:url" content="https://halocyberlife.com/blog.html" />
-  <meta property="og:image" content="https://halocyberlife.com/images/blogs/Gemini_Generated_Image_gtj8magtj8magtj8.png" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Articles & Insights | Halocyberlife" />
-  <meta name="twitter:description" content="Esoteric insights, frequency wisdom, and experiments at the edge of mind and matter." />
-  <meta name="twitter:image" content="https://halocyberlife.com/images/blogs/Gemini_Generated_Image_gtj8magtj8magtj8.png" />
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-
-  <!-- Main stylesheet -->
-  <link rel="stylesheet" href="style_v2_0_0.css" />
-
-  <!-- Small safety net so images/margins never go wild -->
   <style>
-    .container { max-width: 1120px; margin: 0 auto; padding: 0 18px; }
-    .articles-grid { display: grid; gap: 18px; grid-template-columns: repeat(12, 1fr); }
-    .articles-grid .card { grid-column: span 12; overflow: hidden; }
-    @media (min-width: 820px) { .articles-grid .card { grid-column: span 6; } }
+    /* ───────────────────────────────────────────────────────────────────────── */
+    /* HALOCYBERLIFE ELECTRIC DESIGN SYSTEM */
+    :root {
+      --bg: #020617;
+      --text: #f9fafb;
+      --muted: #9ca3af;
+      --soft: #d1d5db;
+      --border: rgba(139, 92, 246, 0.3);
+      --accent-cyan: #22d3ee;
+      --accent-purple: #8b5cf6;
+      --accent-magenta: #d946ef;
+      --radius: 18px;
+    }
 
-    .card-image-wrap { width: 100%; overflow: hidden; border-radius: 16px; }
-    .card-image { width: 100%; height: 320px; object-fit: cover; display: block; }
-    @media (max-width: 520px) { .card-image { height: 220px; } }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: radial-gradient(circle at top right, #1e1b4b 0%, #020617 55%, #000000 100%);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* HEADER */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(2, 6, 23, 0.85); border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+    }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; padding: 1rem 0; }
+    .brand { display: flex; align-items: center; gap: .7rem; font-weight: 700; text-transform: uppercase; font-size: .9rem; color: #fff; text-decoration: none; }
+    .brand img { width: 40px; height: 40px; filter: drop-shadow(0 0 5px var(--accent-cyan)); }
+    
+    nav { display: flex; gap: .5rem; }
+    nav a { 
+      padding: .5rem 1rem; border-radius: 999px; border: 1px solid rgba(139, 92, 246, 0.4);
+      font-size: .8rem; text-transform: uppercase; color: #fff; text-decoration: none; transition: 0.3s;
+      background: rgba(139, 92, 246, 0.1);
+    }
+    nav a:hover { border-color: var(--accent-cyan); color: var(--accent-cyan); box-shadow: 0 0 15px rgba(34, 211, 238, 0.3); }
+
+    /* HERO */
+    .hero { text-align: center; padding: 5rem 0 3rem; }
+    h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1; margin-bottom: 1.5rem;
+      background: linear-gradient(to right, #fff, var(--accent-purple), var(--accent-magenta));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hero p { color: var(--soft); font-size: 1.2rem; max-width: 700px; margin: 0 auto 2rem; }
+
+    /* FILTERS */
+    .filter-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 4rem; }
+    .chip { 
+      padding: 8px 18px; border-radius: 999px; border: 1px solid var(--border);
+      background: rgba(255,255,255,0.05); color: var(--muted); font-size: .85rem; cursor: pointer; transition: 0.3s;
+    }
+    .chip:hover, .chip.active { border-color: var(--accent-cyan); color: #fff; background: rgba(34, 211, 238, 0.1); }
+
+    /* GRID & CARDS (21:9 RATIO) */
+    .articles-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+    @media (max-width: 820px) { .articles-grid { grid-template-columns: 1fr; } }
+
+    .card {
+      background: rgba(139, 92, 246, 0.03); border: 1px solid var(--border);
+      border-radius: var(--radius); overflow: hidden; transition: 0.4s ease;
+      text-decoration: none; display: flex; flex-direction: column;
+    }
+    .card:hover { transform: translateY(-8px); border-color: var(--accent-purple); background: rgba(139, 92, 246, 0.08); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+
+    .card-img-wrap { width: 100%; aspect-ratio: 21 / 9; overflow: hidden; border-bottom: 1px solid var(--border); }
+    .card-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+    .card:hover img { scale: 1.05; }
+
+    .card-body { padding: 1.5rem; flex-grow: 1; }
+    .card-meta { color: var(--accent-cyan); font-size: .75rem; font-weight: 700; text-transform: uppercase; margin-bottom: .5rem; letter-spacing: 1px; }
+    .card-title { font-size: 1.4rem; color: #fff; margin-bottom: .8rem; line-height: 1.3; }
+    .card-text { color: var(--muted); font-size: .95rem; margin-bottom: 1.5rem; }
+    
+    .card-cta { 
+        display: inline-block; color: var(--accent-purple); font-weight: 700; font-size: .9rem; 
+        text-transform: uppercase; transition: 0.3s;
+    }
+    .card:hover .card-cta { color: var(--accent-magenta); transform: translateX(5px); }
+
+    /* FOOTER */
+    footer { border-top: 1px solid var(--border); padding: 4rem 0; margin-top: 6rem; text-align: center; }
+    .footer-brand img { height: 40px; margin-bottom: 1rem; }
+    .footer-links { display: flex; justify-content: center; gap: 20px; list-style: none; margin: 1.5rem 0; }
+    .footer-links a { color: var(--muted); text-decoration: none; font-size: .9rem; }
+    .footer-links a:hover { color: var(--accent-cyan); }
   </style>
 </head>
 
 <body>
-  <a class="skip-link" href="#main-content">Skip to content</a>
 
-  <!-- Neon header -->
-  <header class="neon-header">
-    <div class="container neon-header-inner">
-      <a href="index.html" class="neon-brand">
-        <img src="images/negative_white_halocyberlife_logo.png" alt="Halocyberlife logo" class="neon-logo" />
-        <span class="neon-brand-text">Halocyberlife</span>
+  <header>
+    <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <img src="images/negative_white_halocyberlife_logo.png" alt="Logo" />
+        <span>Halocyberlife</span>
       </a>
-
-      <button class="neon-nav-toggle" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
-
-      <nav class="neon-nav" aria-label="Main navigation">
-        <a href="index.html#insights" class="neon-link color-blue">Insights</a>
-        <a href="index.html#atelier" class="neon-link color-purple">HaloCraft</a>
-        <a href="blog.html" class="neon-link color-cyan">Articles</a>
-        <a href="about.html" class="neon-link color-magenta">About</a>
-        <a href="contact_us.html" class="neon-link color-gold">Contact</a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="blog.html" style="border-color: var(--accent-cyan);">Articles</a>
+        <a href="contact_us.html">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main id="main-content">
-    <!-- Hero -->
-    <section class="section blog-hero">
-      <div class="container">
-        <header class="section-header">
-          <h1>Articles & Esoteric Insights</h1>
-          <p>Browse all transmissions from the Halocyberlife field.</p>
-        </header>
-
-        <p class="blog-hero-text">
-          Here you’ll find practical spiritual tools, frequency-based perspectives, dream decoding, and experimental ideas —
-          written to be useful, grounded, and strange in the best way.
-        </p>
-
-        <!-- Filters (static now) -->
-        <section class="filter-panel" aria-label="Article filters">
-          <p class="filter-label">Explore by theme:</p>
-          <div class="filter-chips">
-            <button class="btn ghost-btn" type="button">All</button>
-            <button class="btn ghost-btn" type="button">Spiritual Practice</button>
-            <button class="btn ghost-btn" type="button">Inner Wisdom</button>
-            <button class="btn ghost-btn" type="button">Vibrational Energy</button>
-            <button class="btn ghost-btn" type="button">Experiments & Tech</button>
-          </div>
-        </section>
+  <main class="container">
+    <section class="hero">
+      <h1>Articles & Transmissions</h1>
+      <p>Exploring the intersections of frequency, biophotonics, and esoteric architecture.</p>
+      
+      <div class="filter-chips">
+        <button class="chip active">All</button>
+        <button class="chip">Experiments & Tech</button>
+        <button class="chip">Inner Wisdom</button>
+        <button class="chip">Patents</button>
       </div>
     </section>
 
-    <!-- Articles -->
-    <section class="section">
-      <div class="container">
-        <div class="articles-grid">
-          <!-- Card 1 -->
-          <article class="card card-soft coming-soon">
-            <a href="./blog/BioGlow_resonance_light_energy.html" class="card-link" aria-disabled="false">
-              <div class="card-image-wrap">
-                <img src="images/Resonance_Light.png" alt="BioGlow | Resonance and light experimentation visual" class="card-image" loading="lazy" />
-              </div>
-              <div class="card-body">
-                <p class="card-meta">Experiments &amp; Tech</p>
-                <h2 class="card-title">BioGlow_Resonance, Energy &amp; Experimental Devices</h2>
-                <p class="card-text">
-                  A build-log style archive: resonance concepts, prototypes, material experiments, and how ideas evolve
-                  from theory into tested hardware.
-                </p>
-                <span class="card-cta">Read →</span>
-              </div>
-            </a>
-          </article>
+    <div class="articles-grid">
+      <a href="./blog/BioGlow_resonance_light_energy.html" class="card">
+        <div class="card-img-wrap">
+          <img src="images/Resonance_Light.png" alt="BioGlow Resonance" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <p class="card-meta">Experiments & Tech</p>
+          <h2 class="card-title">BioGlow: Resonance & Experimental Devices</h2>
+          <p class="card-text">A build-log documenting how resonance theory transforms into functional hardware and prototype luminescent modules.</p>
+          <span class="card-cta">Read Transmission →</span>
+        </div>
+      </a>
 
-          <!-- Card 2 -->
-             <article class="card card-soft coming-soon">
-            <a href="blog/BioLoop.html" class="card-link" aria-disabled="false">
-              <div class="card-image-wrap">
-                <img src="blog/Images/blog_images/BioLoop_img/Toilet_Seat.png" alt="Pyramids and hidden architecture visual" class="card-image" loading="lazy" />
-              </div>
-              <div class="card-body">
-                <p class="card-meta">Inner Wisdom</p>
-                <h2 class="card-title">BioLoop &amp; System</h2>
-                <p class="card-text">
-                  A series exploring ancient structures, geometric intelligence, and what the mainstream story leaves out —
-                  with grounded analysis and clear visuals.
-                </p>
-                <span class="card-cta">Read →</span>
-              </div>
-            </a>
-          </article>
-           <!-- Card 3 -->
-            <article class="card card-soft">
-              <a href="blog/RESONANT PHOTONIC AMPLIFICATION SYSTEM (RPAS).html" class="card-link" aria-disabled="false">
-                <div class="card-image-wrap">
-                  <img src="blog/Images/blog_images/Resonance_Amplification/RPAS_Core_Amplification_Stack_Render.png" alt="Resonant Photonic Amplification System overview diagram" class="card-image" loading="lazy" />
-                </div>
-                <div class="card-body">
-                  <p class="card-meta">Photonics &amp; Resonance Tech</p>
-                  <h2 class="card-title">Resonant Photonic Amplification System (RPAS)</h2>
-                  <p class="card-text">
-                    Frequency-driven amplification of ultraweak light emissions using mechanical and electromagnetic resonance. System includes multi-stage resonance stacking, dual-driver excitation, and TRIA-CORE photonic collection.
-                  </p>
-                  <span class="card-cta">View Patent →</span>
-                </div>
-              </a>
-            </article>
-           <!-- Card 4 -->
-              <article class="card card-soft coming-soon">
-            <a href="./blog/pyramid.html" class="card-link" aria-disabled="false">
-              <div class="card-image-wrap">
-                <img src="images/Pyramid_image.png" alt="Pyramids and hidden architecture visual" class="card-image" loading="lazy" />
-              </div>
-              <div class="card-body">
-                <p class="card-meta">Inner Wisdom</p>
-                <h2 class="card-title">Pyramids &amp; Hidden Architecture</h2>
-                <p class="card-text">
-                  A series exploring ancient structures, geometric intelligence, and what the mainstream story leaves out —
-                  with grounded analysis and clear visuals.
-                </p>
-                <span class="card-cta">Read →</span>
-              </div>
-            </a>
-          </article>
-             <!-- Card 5 -->
-           <article class="card card-soft coming-soon">
-                <a href="blog/BioGen.html" class="card-link" aria-disabled="false">
-                  <div class="card-image-wrap">
-                    <img src="blog/Images/BioGen/OceanGenv2_CondensationModule.png" alt="BioGen luminescent surface layers visual" class="card-image" loading="lazy" />
-                  </div>
-                  <div class="card-body">
-                    <p class="card-meta">Patent /; Intellectual Property</p>
-                    <h2 class="card-title">BioGen™ Luminescent Architectural Surface</h2>
-                    <p class="card-text">
-                      A modular photonic material system designed for passive luminescence, human-safe glow surfaces, and integration into architecture,
-                      vehicles, or urban installations.
-                    </p>
-                    <span class="card-cta">Explore Patent →</span>
-                  </div>
-                </a>
-              </article>
-           <!-- Card 6 -->
-            <article class="card card-soft coming-soon">
-                <a href="blog/BioLumen.html" class="card-link" aria-disabled="false">
-                  <div class="card-image-wrap">
-                    <img src="./blog/Images/blog_images/BioLumen_img/Bio_Lumen_index_image.png" alt="#" loading="lazy" />
-                  </div>
-                  <div class="card-body">
-                    <p class="card-meta">Patent /; Intellectual Property</p>
-                    <h2 class="card-title">BioLumen™ #</h2>
-                    <p class="card-text">
-                     #
-                    </p>
-                    <span class="card-cta">Explore Patent →</span>
-                  </div>
-                </a>
-              </article>
+      <a href="blog/BioLoop.html" class="card">
+        <div class="card-img-wrap">
+          <img src="blog/Images/blog_images/BioLoop_img/Toilet_Seat.png" alt="BioLoop System" loading="lazy" />
         </div>
-        <div class="section-actions">
-          <a href="index.html#newsletter" class="btn ghost-btn">Join the Signal</a>
-          <p class="section-note blog-bottom-note">
-            New posts land here as they’re published. No spam — just signal.
-          </p>
+        <div class="card-body">
+          <p class="card-meta">System Integration</p>
+          <h2 class="card-title">BioLoop & Cyclic Biological Systems</h2>
+          <p class="card-text">Exploring closed-loop biological intelligence and the hidden geometric architecture of metabolic waste-to-energy pathways.</p>
+          <span class="card-cta">Read Transmission →</span>
         </div>
-      </div>
-    </section>
+      </a>
+
+      <a href="blog/RESONANT PHOTONIC AMPLIFICATION SYSTEM (RPAS).html" class="card">
+        <div class="card-img-wrap">
+          <img src="blog/Images/blog_images/Resonance_Amplification/RPAS_Core_Amplification_Stack_Render.png" alt="RPAS System" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <p class="card-meta">Photonics / Patent</p>
+          <h2 class="card-title">Resonant Photonic Amplification (RPAS)</h2>
+          <p class="card-text">Technical breakdown of frequency-driven amplification of ultraweak light using mechanical resonance stacking.</p>
+          <span class="card-cta">View Patent Data →</span>
+        </div>
+      </a>
+
+      <a href="./blog/pyramid.html" class="card">
+        <div class="card-img-wrap">
+          <img src="images/Pyramid_image.png" alt="Hidden Architecture" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <p class="card-meta">Inner Wisdom</p>
+          <h2 class="card-title">Pyramids & Hidden Architecture</h2>
+          <p class="card-text">Analyzing ancient structures not as tombs, but as geometric resonators designed for environmental frequency tuning.</p>
+          <span class="card-cta">Read Transmission →</span>
+        </div>
+      </a>
+
+      <a href="blog/BioGen.html" class="card">
+        <div class="card-img-wrap">
+          <img src="blog/Images/BioGen/OceanGenv2_CondensationModule.png" alt="BioGen Surfaces" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <p class="card-meta">Architectural Tech</p>
+          <h2 class="card-title">BioGen™ Luminescent Surfaces</h2>
+          <p class="card-text">A modular photonic material system designed for human-safe, passive glow integration into modern urban architecture.</p>
+          <span class="card-cta">Explore Patent →</span>
+        </div>
+      </a>
+
+      <a href="blog/BioLumen.html" class="card">
+        <div class="card-img-wrap">
+          <img src="./blog/Images/blog_images/BioLumen_img/Bio_Lumen_index_image.png" alt="TRIA-CORE System" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <p class="card-meta">Biophotonic Extraction</p>
+          <h2 class="card-title">TRIA-CORE™ Lumen Extraction</h2>
+          <p class="card-text">Harvesting ultraweak biophotons through inward-directed geometry and multi-stage sonic resonance funneling.</p>
+          <span class="card-cta">Explore Patent →</span>
+        </div>
+      </a>
+    </div>
   </main>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-column">
-        <div class="footer-brand">
-          <img src="images/negative_white_halocyberlife_logo.png" alt="Halocyberlife logo small" class="footer-logo" />
-          <span class="footer-brand-text">Halocyberlife</span>
-        </div>
-        <p class="footer-text">Esoteric insights, experimental tech concepts, and future-conscious craftsmanship.</p>
-        <p class="footer-meta">© <span id="year"></span> Halocyberlife.com</p>
+  <footer>
+    <div class="container">
+      <div class="footer-brand">
+        <img src="images/negative_white_halocyberlife_logo.png" alt="Logo" />
+        <p style="color: #fff; font-weight: 700; letter-spacing: 1px;">HALOCYBERLIFE</p>
       </div>
-
-      <div class="footer-column">
-        <h3 class="footer-heading">Navigate</h3>
-        <ul class="footer-links">
-          <li><a href="index.html#insights">Latest Insights</a></li>
-          <li><a href="blog.html">All Articles</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact_us.html">Contact</a></li>
-          <li><a href="policypage.html">Privacy &amp; Terms</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-column">
-        <h3 class="footer-heading">Contact &amp; Social</h3>
-        <ul class="footer-links">
-          <li><span>Email:</span> <a href="mailto:luisamaya@halocyberlife.com">luisamaya@halocyberlife.com</a></li>
-        </ul>
-        <div class="footer-social">
-          <a href="https://www.linkedin.com/in/halocyberlife/" aria-label="linkedin">LinkedIn: halocyberlife/</a>
-        </div>
-      </div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact_us.html">Contact</a></li>
+        <li><a href="policypage.html">Privacy</a></li>
+      </ul>
+      <p style="color: var(--muted); font-size: .8rem;">© <span id="year"></span> Halocyberlife · Luis Amaya</p>
     </div>
-
-    <button class="back-to-top" aria-label="Back to top">↑</button>
   </footer>
 
-  <script src="main_v2_0_0.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    // Simple filter interaction
+    document.querySelectorAll('.chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        document.querySelector('.chip.active').classList.remove('active');
+        chip.classList.add('active');
+      });
+    });
+  </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
