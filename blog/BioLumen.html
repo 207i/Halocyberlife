@@ -301,169 +301,45 @@
       </nav>
     </footer>
   </main>
+
   
-  <main class="container">
-    <section class="article-head">
-      <p class="meta">#</p>
-      <h1>BioLumen: #t</h1>
-      <p class="subtitle">
-      #  
-      </p>
-      
-      <div class="cta">
-        <a class="btn primary" href="./Patent_Bio_Glow.html" target="_blank">View Official Patent Link ↗</a>
-        <button class="btn secondary" id="jumpToPossibilities">Explore World-Changing Uses</button>
-      </div>
-
-      <div class="tag-row">
-        <span class="pill"><strong>Core:</strong> Frequency-driven excitation</span>
-        <span class="pill"><strong>Goal:</strong> Light amplification</span>
-        <span class="pill"><strong>Style:</strong> Engineered photonic layers</span>
-      </div>
-    </section>
-
-    <section class="vision-slider">
-      <div class="vision-viewport">
-        <div class="vision-track">
-          <figure class="vision-slide">
-            <img src="./Images/blog_images/resonance-activated-wall-panels.png" alt="Wall panels">
-            <figcaption><strong>Embedded photonic surfaces:</strong> Materials that emit light when activated by resonant stimulation.</figcaption>
-          </figure>
-          <figure class="vision-slide">
-            <img src="./Images/blog_images/Layers_Bio_Glow.png" alt="Control Architecture">
-            <figcaption><strong>Control architecture:</strong> Converts signal input into targeted resonance for activation.</figcaption>
-          </figure>
-          <figure class="vision-slide">
-            <img src="./Images/blog_images/Adaptive_lighting_control_interface_in_motion.png" alt="Layered System">
-            <figcaption><strong>Layered system:</strong> Engineered materials arranged for dielectric resonance.</figcaption>
-          </figure>
-          <figure class="vision-slide">
-            <img src="./Images/blog_images/Resonance_Amplification/RPAS_Exploded_Architecture_Labeled.png" alt="Coupling Zones">
-            <figcaption><strong>Coupling zones:</strong> Optimized for light amplification under resonance input.</figcaption>
-          </figure>
-        </div>
-        <button class="vision-btn vision-prev">‹</button>
-        <button class="vision-btn vision-next">›</button>
-      </div>
-    </section>
-
-    
-    <figure style="margin: 4rem auto; text-align: center;">
-      <img src="./Images/blog_images/BioLumen_img/Bio_Lumen_index_image.png" alt="Urban Integration Concept" style="width:60%; border-radius:24px; border: 1px solid var(--border); box-shadow: var(--shadow);" />
-      <figcaption style="margin-top:1.5rem; color:var(--muted); font-size: 1rem;">
-        <strong>Figure: RPAS Urban Integration Concept</strong> — A conceptual vision of environments illuminated by RPAS surfaces without visible fixtures.
-      </figcaption>
-    </figure>
-
-    <article style="text-align: center; max-width: 800px; margin: 0 auto 5rem;">
-      <p style="font-size: 1.2rem; color: var(--soft); margin-bottom: 1.5rem;">Picture a space with no visible lights — no bulbs, no panels, no fixtures. Just surface.</p>
-      <p style="font-size: 1.2rem; color: var(--soft);">Then, with a signal — vibration, frequency, or pressure — those surfaces begin to emit light through direct resonance.</p>
-    </article>
-
-    <section id="possibilities">
-      <h2 style="text-align: center; font-size: 2.2rem; margin-bottom: 3rem; letter-spacing: 0.1em; text-transform: uppercase; background: linear-gradient(to right, #fff, var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Possibilities That Change the Game</h2>
-
-     
-
-        
-
-
-       
-
-        
-
-        <article class="feature-card video-card">
-          <div style="position:relative; width:100%; padding-bottom:56.25%;">
-            <iframe src="https://www.youtube.com/embed/enHb_FBTWtU" style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;" allowfullscreen></iframe>
-          </div>
-        </article>
-
-        <article class="feature-card">
-          <img class="card-media" src="./Images/blog_images/living-architecture-light-without-fixtures.png" alt="New display paradigms">
-          <div class="card-body">
-            <h3>New display paradigms</h3>
-            <p>Not just screens—materials that become emissive where and when stimulated for information display.</p>
-            <span class="tag">Material display</span>
-          </div>
-        </article>
-
-        <article class="feature-card">
-          <img class="card-media" src="./Images/blog_images/futuristic_city_rpas.png" alt="Navigation markers">
-          <div class="card-body">
-            <h3>Signals, markers, navigation</h3>
-            <p>Wayfinding strips and hazard indicators activated by tuned excitation patterns for enhanced safety.</p>
-            <span class="tag">Guidance + safety</span>
-          </div>
-        </article>
-
-        <article class="feature-card">
-          <img class="card-media" src="./Images/blog_images/Sleek_glowing_accents_in_modern_spaces.png" alt="Layered emission stacks">
-          <div class="card-body">
-            <h3>Layered emission stacks</h3>
-            <p>Stack engineering: coupling, dopants, and resonance-friendly interfaces for controlled emission zones.</p>
-            <span class="tag">Layer stack</span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <footer>
-      <img src="../images/negative_white_halocyberlife_logo.png" alt="Halocyberlife">
-      <p>© <span id="year"></span> Halocyberlife · All rights reserved. Built by Luis Amaya.</p>
-      <nav>
-        <a href="../index.html">Home</a>
-        <a href="../blog.html">Articles</a>
-        <a href="../about.html">About</a>
-        <a href="../contact.html">Contact</a>
-      </nav>
-    </footer>
-  </main>
-
   <div class="lightbox" id="lightbox">
-    <div class="lightbox-content">
-      <span class="lb-close" id="lbClose">×</span>
-      <img id="lbImg" class="lightbox-img" src="" alt="Zoomed view">
+    <button class="lightbox__close" onclick="closeLightbox()">✕</button>
+    <div class="lightbox__panel">
+      <img src="" id="lightboxImg" class="lightbox__img">
     </div>
   </div>
 
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    // Smooth scroll
-    document.getElementById("jumpToPossibilities").onclick = () => {
-      document.getElementById("possibilities").scrollIntoView({ behavior: "smooth" });
-    };
-
-    // Slider
-    const track = document.querySelector(".vision-track");
-    const slides = document.querySelectorAll(".vision-slide");
-    const nextBtn = document.querySelector(".vision-next");
-    const prevBtn = document.querySelector(".vision-prev");
-    let currentIdx = 0;
-
-    function moveSlider(i) {
-      currentIdx = (i + slides.length) % slides.length;
-      track.style.transform = `translateX(-${currentIdx * 100}%)`;
+    /* SLIDER SYSTEM */
+    let index = 0;
+    const track = document.getElementById('visionTrack');
+    const slides = document.querySelectorAll('.vision-slide');
+    
+    function moveSlide(n) {
+      index = (index + n + slides.length) % slides.length;
+      track.style.transform = `translateX(-${index * 100}%)`;
     }
+    setInterval(() => moveSlide(1), 6000);
 
-    nextBtn.onclick = () => moveSlider(currentIdx + 1);
-    prevBtn.onclick = () => moveSlider(currentIdx - 1);
-    setInterval(() => moveSlider(currentIdx + 1), 6000);
+    /* LIGHTBOX SYSTEM */
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightboxImg');
 
-    // Lightbox
-    const lb = document.getElementById("lightbox");
-    const lbImg = document.getElementById("lbImg");
-    const lbClose = document.getElementById("lbClose");
-
-    document.querySelectorAll(".card-media").forEach(img => {
-      img.onclick = () => {
+    document.querySelectorAll('.lightbox-trigger').forEach(img => {
+      img.addEventListener('click', () => {
+        lb.classList.add('open');
         lbImg.src = img.src;
-        lb.classList.add("open");
-      };
+        document.body.style.overflow = 'hidden';
+      });
     });
 
-    lbClose.onclick = () => lb.classList.remove("open");
-    lb.onclick = (e) => { if(e.target === lb) lb.classList.remove("open"); };
+    function closeLightbox() {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    lb.addEventListener('click', (e) => { if(e.target === lb) closeLightbox(); });
   </script>
 </body>
 </html>
