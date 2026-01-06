@@ -1,10 +1,18 @@
 User-agent: *
 Allow: /
 
-# Prevent indexing of system or draft folders (optional – adjust if needed)
-Disallow: /private/
-Disallow: /drafts/
-Disallow: /tmp/
+# Allow important asset rendering (critical for SEO)
+Allow: /css/
+Allow: /js/
+Allow: /images/
 
-# Sitemap location
+# Block non-public or backend-related paths
+Disallow: /functions/
+Disallow: /functions/api/
+
+# Optional: block repo/meta files (not needed in search)
+Disallow: /README.md
+Disallow: /LICENSE
+
+# Sitemap
 Sitemap: https://halocyberlife.com/sitemap.xml
