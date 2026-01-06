@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Prevent indexing of system or draft folders (optional – adjust if needed)
+Disallow: /private/
+Disallow: /drafts/
+Disallow: /tmp/
+
+# Sitemap location
+Sitemap: https://halocyberlife.com/sitemap.xml
