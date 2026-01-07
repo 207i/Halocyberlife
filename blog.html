@@ -271,24 +271,38 @@
       <p style="color: var(--muted); font-size: .8rem;">© <span id="year"></span> Halocyberlife · Luis Amaya</p>
     </div>
   </footer>
+<script>
+  // Update footer year
+  const yearEl = document.getElementById("year");
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+  }
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-    // Simple filter interaction
-    document.querySelectorAll('.chip').forEach(chip => {
-      chip.addEventListener('click', () => {
-        document.querySelector('.chip.active').classList.remove('active');
-        chip.classList.add('active');
-      });
+  // Filter chips (visual state only)
+  document.querySelectorAll('.chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      const active = document.querySelector('.chip.active');
+      if (active) active.classList.remove('active');
+      chip.classList.add('active');
     });
-  </script>
-  <script>
+  });
+
+  // Mobile menu toggle
   const toggle = document.querySelector('.menu-toggle');
   const nav = document.querySelector('nav');
 
-  toggle.addEventListener('click', () => {
-    nav.classList.toggle('open');
-  });
+  if (toggle && nav) {
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('open');
+    });
+
+    // Close menu when a nav link is clicked (mobile UX polish)
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('open');
+      });
+    });
+  }
 </script>
 </body>
 </html>
