@@ -102,6 +102,18 @@
         padding: 1rem; border-width: 2px;
       }
     }
+
+      .neon-nav {
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.35s ease;
+      }
+      
+      .neon-nav.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
     /* ───────────────────────────────────────────────────────────────────────── */
     /* ARTICLE HEAD */
     .container { width: 100%; max-width: 980px; margin: 0 auto; padding: 0 1.25rem; }
