@@ -48,57 +48,88 @@
 
     /* ───────────────────────────────────────────────────────────────────────── */
     /* HEADER + NAV */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(2, 6, 23, 0.8);
-      border-bottom: 1px solid rgba(139, 92, 246, 0.3); /* Purple border */
-      backdrop-filter: blur(12px);
-    }
+   /* ───────────────────────────────────────────────────────────────────────── */
+/* HEADER + NAV */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100; /* Increased to stay above everything */
+  background: rgba(2, 6, 23, 0.8);
+  border-bottom: 1px solid rgba(139, 92, 246, 0.3);
+  backdrop-filter: blur(12px);
+}
 
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      padding: .9rem 0;
-    }
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .9rem 0;
+}
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: .65rem;
-      font-weight: 700;
-      letter-spacing: .05em;
-      text-transform: uppercase;
-      font-size: .9rem;
-      color: var(--text);
-      white-space: nowrap;
-    }
-    .brand img { 
-      width: 40px; height: 40px; 
-      filter: drop-shadow(0 0 5px var(--accent)); /* Subtle Cyan glow */
-    }
+/* Hide hamburger by default (Desktop) */
+.menu-btn {
+  display: none;
+  background: none;
+  border: 1px solid var(--border);
+  color: #fff;
+  font-size: 1.5rem;
+  padding: 5px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
 
-    .nav-wrap { display: flex; align-items: center; gap: .6rem; }
-    nav { display: flex; align-items: center; gap: .4rem; }
-    nav a {
-      padding: .5rem .9rem;
-      border-radius: 999px;
-      border: 1px solid rgba(139, 92, 246, 0.4);
-      font-size: .85rem;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      background: rgba(139, 92, 246, 0.1);
-      color: var(--text);
-    }
-    nav a:hover {
-      border-color: var(--accent);
-      box-shadow: 0 0 18px rgba(34, 211, 238, 0.3);
-      color: var(--accent);
-    }
+.nav-wrap { display: flex; align-items: center; }
 
+nav { 
+  display: flex; 
+  align-items: center; 
+  gap: .4rem; 
+}
+
+nav a {
+  padding: .5rem .9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(139, 92, 246, 0.4);
+  font-size: .85rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  background: rgba(139, 92, 246, 0.1);
+  color: var(--text);
+  white-space: nowrap;
+}
+
+/* ───────────────────────────────────────────────────────────────────────── */
+/* MOBILE NAVIGATION LOGIC */
+@media (max-width: 768px) {
+  .menu-btn {
+    display: block; /* Show hamburger on mobile */
+  }
+
+  nav {
+    display: none; /* Hide links by default on mobile */
+    flex-direction: column;
+    position: absolute;
+    top: 100%; /* Sits right under the header */
+    left: 0;
+    right: 0;
+    background: rgba(2, 6, 23, 0.95);
+    backdrop-filter: blur(20px);
+    padding: 2rem;
+    gap: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* When JS adds the .open class */
+  nav.open {
+    display: flex;
+  }
+
+  nav a {
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+  }
+}
     /* ───────────────────────────────────────────────────────────────────────── */
     /* ARTICLE HEADER */
     .article-head { text-align: center; margin: 3rem auto 2.5rem; }
@@ -418,8 +449,6 @@
   </script>
 </body>
 </html>
-
-
 
 
 
