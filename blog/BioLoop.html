@@ -35,26 +35,73 @@
 
     /* ───────────────────────────────────────────────────────────────────────── */
     /* HEADER SYNC */
-    header {
-      position: sticky; top: 0; z-index: 50;
-      background: rgba(2, 6, 23, 0.8);
+   /* --- NEW NEON HEADER & MOBILE NAV --- */
+    .neon-header {
+      position: sticky; top: 0; z-index: 1000;
+      background: rgba(2, 6, 23, 0.9);
       border-bottom: 1px solid rgba(139, 92, 246, 0.3);
       backdrop-filter: blur(12px);
     }
-    .header-inner { display: flex; align-items: center; justify-content: space-between; padding: .9rem 0; }
-    .brand { display: flex; align-items: center; gap: .65rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; font-size: .9rem; color: var(--text); }
-    .brand img { 
-      width: 40px; height: 40px; 
-      filter: drop-shadow(0 0 5px var(--accent));
-    }
-    nav { display: flex; gap: .4rem; }
-    nav a {
-      padding: .5rem .9rem; border-radius: 999px; border: 1px solid rgba(139, 92, 246, 0.4);
-      font-size: .85rem; letter-spacing: .08em; text-transform: uppercase; text-decoration: none;
-      background: rgba(139, 92, 246, 0.1); color: var(--text); transition: 0.3s;
-    }
-    nav a:hover { border-color: var(--accent); box-shadow: 0 0 18px rgba(34,211,238,0.3); color: var(--accent); }
 
+    .neon-header-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      max-width: 980px; margin: 0 auto; padding: 0.75rem 1.25rem;
+    }
+
+    .neon-brand { 
+      display: flex; align-items: center; gap: 10px; 
+      text-decoration: none; color: #fff; font-weight: 700; 
+      text-transform: uppercase; font-size: 0.9rem;
+    }
+
+    .neon-logo { width: 40px; filter: drop-shadow(0 0 5px var(--accent2)); }
+
+    /* Desktop Navigation */
+    .neon-nav { display: flex; gap: 0.5rem; }
+
+    .neon-link {
+      padding: 0.5rem 1rem; border-radius: 99px; text-decoration: none; 
+      font-size: 0.85rem; border: 1px solid rgba(255,255,255,0.1); 
+      transition: 0.3s; color: #fff; text-transform: uppercase;
+    }
+
+    /* Your Signature Neon Colors */
+    .color-blue { color: #22d3ee; border-color: rgba(34, 211, 238, 0.3); }
+    .color-cyan { color: #06b6d4; border-color: rgba(6, 182, 212, 0.3); }
+    .color-gold { color: #fbbf24; border-color: rgba(251, 191, 36, 0.3); }
+
+    .neon-link:hover {
+       background: rgba(255,255,255,0.05);
+       box-shadow: 0 0 15px currentColor; /* Glows with the link's color */
+    }
+
+    /* Hamburger Toggle Button */
+    .neon-nav-toggle {
+      display: none; background: none; border: none; cursor: pointer; padding: 10px;
+    }
+    .neon-nav-toggle span {
+      display: block; width: 22px; height: 2px; background: #fff; margin: 4px 0; transition: 0.3s;
+    }
+
+    /* --- MOBILE OVERLAY LOGIC --- */
+    @media (max-width: 768px) {
+      .neon-nav-toggle { display: block; z-index: 1001; }
+      
+      .neon-nav {
+        display: none; /* JS toggles this */
+        position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+        background: radial-gradient(circle at center, #1e1b4b 0%, #020617 100%); 
+        flex-direction: column; justify-content: center; align-items: center; 
+        gap: 2rem; z-index: 1000;
+      }
+
+      .neon-nav.active { display: flex; } /* Logic triggered by main_v2_0_0.js */
+
+      .neon-link { 
+        font-size: 1.6rem; width: 80%; text-align: center; 
+        padding: 1rem; border-width: 2px;
+      }
+    }
     /* ───────────────────────────────────────────────────────────────────────── */
     /* ARTICLE HEAD */
     .container { width: 100%; max-width: 980px; margin: 0 auto; padding: 0 1.25rem; }
@@ -159,18 +206,24 @@
 </head>
 
 <body>
-  <header>
-    <div class="container header-inner">
-      <div class="brand">
-        <img src="../images/negative_white_halocyberlife_logo.png" alt="Logo" />
-        <span>Halocyberlife</span>
-      </div>
-      <nav>
-        <a href="../index.html">Home</a>
-        <a href="../blog.html">Articles</a>
-      </nav>
-    </div>
-  </header>
+  <header class="neon-header">
+  <div class="container neon-header-inner">
+    <a href="../index.html" class="neon-brand">
+      <img src="../images/negative_white_halocyberlife_logo.png" alt="Halocyberlife logo" class="neon-logo" />
+      <span class="neon-brand-text">Halocyberlife</span>
+    </a>
+
+    <button class="neon-nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav id="primary-nav" class="neon-nav">
+      <a href="../index.html" class="neon-link color-blue">Home</a>
+      <a href="../blog.html" class="neon-link color-cyan">Articles</a>
+      <a href="../contact_us.html" class="neon-link color-gold">Contact</a>
+    </nav>
+  </div>
+</header>
 
   <main class="container">
     <section class="article-head">
