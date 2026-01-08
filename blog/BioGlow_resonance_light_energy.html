@@ -172,6 +172,14 @@ header{
   display: block;
 }
 
+.vision-slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 60%, rgba(2,6,23,.9));
+  pointer-events: none;
+}
+  
 /* ───────────────── MAIN CONTAINER ───────────────── */
 .container{
   max-width:1000px;
