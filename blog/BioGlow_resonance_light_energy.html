@@ -421,6 +421,28 @@ footer{
   font-size: 0.75rem;
   color: var(--accent);
 }
+
+/* Clickable images */
+.card-media, .vision-slide img {
+  cursor: zoom-in;
+  transition: opacity 0.3s;
+}
+
+.card-media:hover {
+  opacity: 0.8;
+}
+
+/* Modal centering */
+.modal {
+  display: none; /* Hidden by default */
+  flex-direction: column;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}  
 </style>
 </head>
 
@@ -648,6 +670,29 @@ prevBtn.addEventListener("click", () => {
   index = (index - 1 + slides.length) % slides.length;
   updateSlider();
 });
+
+const modal = document.getElementById("imageModal");
+const modalImg = document.getElementById("modalImg");
+
+// 1. Find all images in cards and sliders
+const images = document.querySelectorAll('.card-media, .vision-slide img');
+
+images.forEach(img => {
+  img.addEventListener('click', () => {
+    modal.style.display = "flex";
+    modalImg.src = img.src;
+  });
+});
+
+// 2. Close modal when clicking anywhere on it
+modal.addEventListener('click', () => {
+  modal.style.display = "none";
+});
+
+// 3. Close on 'Esc' key
+document.addEventListener('keydown', (e) => {
+  if (e.key === "Escape") modal.style.display = "none";
+});  
 </script>
 </body>
 </html>
