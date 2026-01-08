@@ -154,14 +154,18 @@ header{
 }
 
 /* ───────── MOBILE IMAGE FIX ───────── */
+/* ───────── MOBILE CARD IMAGES ───────── */
 @media (max-width: 768px) {
   .card-media {
+    width: 100%;
     height: auto;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
+    aspect-ratio: 4 / 3;
+    object-fit: contain;
+    background: #000;
   }
 }
-  
+
+
 /* ───────── FIX MOBILE SLIDER IMAGES ───────── */
 .vision-viewport {
   width: 100%;
