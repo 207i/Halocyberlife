@@ -113,6 +113,16 @@
         opacity: 1;
         pointer-events: auto;
       }
+     /*Nav to show X */
+    .neon-nav-toggle[aria-expanded="true"] span:nth-child(1) {
+        transform: translateY(6px) rotate(45deg);
+      }
+      .neon-nav-toggle[aria-expanded="true"] span:nth-child(2) {
+        opacity: 0;
+      }
+      .neon-nav-toggle[aria-expanded="true"] span:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg);
+      }
 
     /* ───────────────────────────────────────────────────────────────────────── */
     /* ARTICLE HEAD */
