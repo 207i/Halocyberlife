@@ -641,35 +641,6 @@ footer{
   <img id="modalImg" style="max-width:90%; max-height:85%; border-radius:12px; border:1px solid var(--border); box-shadow:var(--shadow);">
 </div>
 <script>
-/* YEAR */
-document.getElementById("year").textContent = new Date().getFullYear();
-
-/* NAV TOGGLE */
-const toggle = document.querySelector(".nav-toggle");
-const nav = document.getElementById("mainNav");
-
-toggle.addEventListener("click", () => {
-  const open = nav.classList.toggle("active");
-  toggle.setAttribute("aria-expanded", open);
-});
-
-/* CLOSE ON LINK */
-nav.querySelectorAll("a").forEach(link=>{
-  link.addEventListener("click",()=>{
-    nav.classList.remove("active");
-    toggle.setAttribute("aria-expanded","false");
-  });
-});
-
-/* ESC CLOSE */
-document.addEventListener("keydown",e=>{
-  if(e.key==="Escape"){
-    nav.classList.remove("active");
-    toggle.setAttribute("aria-expanded","false");
-  }
-});
-</script>
-<script>
 /* ───────── SLIDER LOGIC ───────── */
 const track = document.querySelector(".vision-track");
 const slides = document.querySelectorAll(".vision-slide");
@@ -692,28 +663,68 @@ prevBtn.addEventListener("click", () => {
   updateSlider();
 });
 
+/* ───────── MODAL LOGIC ───────── */
 const modal = document.getElementById("imageModal");
 const modalImg = document.getElementById("modalImg");
 
-// 1. Find all images in cards and sliders
-const images = document.querySelectorAll('.card-media, .vision-slide img');
+// Open modal + lock scroll
+const images = document.querySelectorAll(".card-media, .vision-slide img");
 
 images.forEach(img => {
-  img.addEventListener('click', () => {
+  img.addEventListener("click", () => {
     modal.style.display = "flex";
     modalImg.src = img.src;
+    document.body.style.overflow = "hidden"; // LOCK
   });
 });
 
-// 2. Close modal when clicking anywhere on it
-modal.addEventListener('click', () => {
+// Close modal + restore scroll
+function closeModal() {
   modal.style.display = "none";
-});
+  document.body.style.overflow = ""; // RESTORE
+}
 
-// 3. Close on 'Esc' key
-document.addEventListener('keydown', (e) => {
-  if (e.key === "Escape") modal.style.display = "none";
-});  
+// Click anywhere on modal
+modal.addEventListener("click", closeModal);
+
+// ESC key
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") {
+    closeModal();
+  }
+});
 </script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+    
+      const toggle = document.querySelector(".nav-toggle");
+      const nav = document.getElementById("mainNav");
+    
+      if (!toggle || !nav) return;
+    
+      toggle.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const open = nav.classList.toggle("active");
+        toggle.setAttribute("aria-expanded", open);
+      });
+    
+      // Close menu when clicking a link
+      nav.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+          nav.classList.remove("active");
+          toggle.setAttribute("aria-expanded", "false");
+        });
+      });
+    
+      // Close on ESC
+      document.addEventListener("keydown", e => {
+        if (e.key === "Escape") {
+          nav.classList.remove("active");
+          toggle.setAttribute("aria-expanded", "false");
+        }
+      });
+    
+    });
+    </script>
 </body>
 </html>
