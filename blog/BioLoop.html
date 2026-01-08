@@ -430,6 +430,14 @@
       document.body.style.overflow = '';
     });
   });
+    /* ESC Key to close */
+    document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && nav.classList.contains('active')) {
+    nav.classList.remove('active');
+    navToggle.setAttribute('aria-expanded', false);
+    document.body.style.overflow = '';
+  }
+});
 </script>
 </body>
 </html>
