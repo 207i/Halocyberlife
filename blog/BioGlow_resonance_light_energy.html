@@ -498,6 +498,28 @@ document.addEventListener("keydown",e=>{
   }
 });
 </script>
+<script>
+/* ───────── SLIDER LOGIC ───────── */
+const track = document.querySelector(".vision-track");
+const slides = document.querySelectorAll(".vision-slide");
+const nextBtn = document.querySelector(".vision-next");
+const prevBtn = document.querySelector(".vision-prev");
 
+let index = 0;
+
+function updateSlider() {
+  track.style.transform = `translateX(-${index * 100}%)`;
+}
+
+nextBtn.addEventListener("click", () => {
+  index = (index + 1) % slides.length;
+  updateSlider();
+});
+
+prevBtn.addEventListener("click", () => {
+  index = (index - 1 + slides.length) % slides.length;
+  updateSlider();
+});
+</script>
 </body>
 </html>
