@@ -1,557 +1,311 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>BioGlow — Resonant Photonic Light | Halocyberlife</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BioGlow — Resonant Photonic Light | Halocyberlife</title>
+  <meta name="description" content="Resonant photonic excitation — light emerging from engineered materials through frequency, not bulbs." />
+  <meta name="author" content="Luis Amaya" />
 
-<meta name="description" content="Resonant photonic excitation — light emerging from engineered materials through frequency, not bulbs." />
-<meta name="author" content="Luis Amaya" />
+  <style>
+    /* ───────────────────────────────────────────────────────────────────────── */
+    /* UPDATED STYLING ATTRIBUTES (ELECTRIC PURPLE & CYAN NEON) */
+    :root {
+      --bg: #020617;
+      --text: #f9fafb;
+      --muted: #9ca3af;
+      --soft: #d1d5db;
+      --border: rgba(139, 92, 246, 0.3); /* Purple tinted border */
+      --accent: #22d3ee; /* Cyan */
+      --accent2: #8b5cf6; /* Electric Purple */
+      --accent-magenta: #d946ef; /* High-energy Magenta */
+      --radius: 18px;
+      --shadow: 0 18px 60px rgba(139, 92, 246, 0.25);
+    }
 
-<style>
-/* ───────── FINAL MOBILE CARD FIX ───────── */
-@media (max-width: 768px) {
-  .feature-card {
-    overflow: visible;
-  }
-}
-  
-/* ───────────────── ROOT THEME ───────────────── */
-:root{
-  --bg:#020617;
-  --text:#f9fafb;
-  --muted:#9ca3af;
-  --soft:#d1d5db;
-  --border:rgba(139,92,246,.35);
-  --accent:#22d3ee;
-  --accent2:#8b5cf6;
-  --magenta:#d946ef;
-  --radius:18px;
-  --shadow:0 18px 60px rgba(139,92,246,.25);
-}
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-*{margin:0;padding:0;box-sizing:border-box}
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+      /* Updated gradient to include deeper indigo/purple tones */
+      background: radial-gradient(circle at top right, #1e1b4b 0%, #020617 55%, #000000 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
 
-body{
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
-  background:radial-gradient(circle at top right,#1e1b4b 0%,#020617 55%,#000);
-  color:var(--text);
-  line-height:1.6;
-  overflow-x:hidden;
-}
+    /* ───────────────────────────────────────────────────────────────────────── */
+    /* HEADER SYNC */
+   /* --- NEW NEON HEADER & MOBILE NAV --- */
+    .neon-header {
+      position: sticky; top: 0; z-index: 1000;
+      background: rgba(2, 6, 23, 0.9);
+      border-bottom: 1px solid rgba(139, 92, 246, 0.3);
+      backdrop-filter: blur(12px);
+    }
 
-/* ───────────────── HEADER ───────────────── */
-header{
-  position:sticky;
-  top:0;
-  z-index:100;
-  background:rgba(2,6,23,.85);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--border);
-}
+    .neon-header-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      max-width: 980px; margin: 0 auto; padding: 0.75rem 1.25rem;
+    }
 
-.header-inner{
-  max-width:1100px;
-  margin:auto;
-  padding:1rem 1.5rem;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
+    .neon-brand { 
+      display: flex; align-items: center; gap: 10px; 
+      text-decoration: none; color: #fff; font-weight: 700; 
+      text-transform: uppercase; font-size: 0.9rem;
+    }
 
-.brand{
-  display:flex;
-  align-items:center;
-  gap:.8rem;
-  font-weight:800;
-  letter-spacing:.1em;
-  text-transform:uppercase;
-  font-size:.9rem;
-}
+    .neon-logo { width: 40px; filter: drop-shadow(0 0 5px var(--accent2)); }
 
-.brand img{
-  width:42px;
-  filter:drop-shadow(0 0 8px var(--accent2));
-}
+    /* Desktop Navigation */
+    .neon-nav { display: flex; gap: 0.5rem; }
 
-/* ───────────────── NAV TOGGLE ───────────────── */
-.nav-toggle{
-  display:none;
-  width:44px;
-  height:44px;
-  border:none;
-  background:none;
-  cursor:pointer;
-  z-index:1101;
-}
+    .neon-link {
+      padding: 0.5rem 1rem; border-radius: 99px; text-decoration: none; 
+      font-size: 0.85rem; border: 1px solid rgba(255,255,255,0.1); 
+      transition: 0.3s; color: #fff; text-transform: uppercase;
+    }
 
-.nav-toggle span{
-  display:block;
-  width:26px;
-  height:2px;
-  background:#fff;
-  margin:6px auto;
-  transition:.3s ease;
-}
+    /* Your Signature Neon Colors */
+    .color-blue { color: #22d3ee; border-color: rgba(34, 211, 238, 0.3); }
+    .color-cyan { color: #06b6d4; border-color: rgba(6, 182, 212, 0.3); }
+    .color-gold { color: #fbbf24; border-color: rgba(251, 191, 36, 0.3); }
 
-/* ───────────────── DESKTOP NAV ───────────────── */
-.main-nav{
-  display:flex;
-  gap:.6rem;
-}
+    .neon-link:hover {
+       background: rgba(255,255,255,0.05);
+       box-shadow: 0 0 15px currentColor; /* Glows with the link's color */
+    }
 
-.main-nav a{
-  padding:.45rem 1.1rem;
-  border-radius:99px;
-  border:1px solid var(--border);
-  background:rgba(139,92,246,.08);
-  text-decoration:none;
-  color:#fff;
-  font-size:.75rem;
-  font-weight:700;
-  text-transform:uppercase;
-  transition:.3s;
-}
+    /* Hamburger Toggle Button */
+    .neon-nav-toggle {
+      display: none; background: none; border: none; cursor: pointer; padding: 10px;
+    }
+    .neon-nav-toggle span {
+      display: block; width: 22px; height: 2px; background: #fff; margin: 4px 0; transition: 0.3s;
+    }
 
-.main-nav a:hover{
-  border-color:var(--accent);
-  color:var(--accent);
-}
+    /* --- MOBILE OVERLAY LOGIC --- */
+    @media (max-width: 768px) {
+      .neon-nav-toggle { display: block; z-index: 1001; }
+      
+      .neon-nav {
+        display: none; /* JS toggles this */
+        position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+        background: radial-gradient(circle at center, #1e1b4b 0%, #020617 100%); 
+        flex-direction: column; justify-content: center; align-items: center; 
+        gap: 2rem; z-index: 1000;
+      }
 
-/* ───────────────── MOBILE NAV PANEL ───────────────── */
-@media(max-width:768px){
-  .nav-toggle{display:block}
+      .neon-nav.active { display: flex; } /* Logic triggered by main_v2_0_0.js */
 
-  .main-nav{
-    position:fixed;
-    top:0;
-    right:0;
-    width:min(85vw,360px);
-    height:100vh;
-    background:radial-gradient(circle at top,#1e1b4b,#020617);
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    gap:2rem;
-    transform:translateX(100%);
-    transition:transform .35s ease;
-    box-shadow:-20px 0 60px rgba(0,0,0,.5);
-    z-index:1100;
-  }
+      .neon-link { 
+        font-size: 1.6rem; width: 80%; text-align: center; 
+        padding: 1rem; border-width: 2px;
+      }
+    }
 
-  .main-nav.active{
-    transform:translateX(0);
-  }
+      .neon-nav {
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.35s ease;
+      }
+      
+      .neon-nav.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+     /*Nav to show X */
+    .neon-nav-toggle[aria-expanded="true"] span:nth-child(1) {
+        transform: translateY(6px) rotate(45deg);
+      }
+      .neon-nav-toggle[aria-expanded="true"] span:nth-child(2) {
+        opacity: 0;
+      }
+      .neon-nav-toggle[aria-expanded="true"] span:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg);
+      }
 
-  .main-nav a{
-    font-size:1.4rem;
-    padding:1rem 2rem;
-  }
+    /* ───────────────────────────────────────────────────────────────────────── */
+    /* ARTICLE HEAD */
+    .container { width: 100%; max-width: 980px; margin: 0 auto; padding: 0 1.25rem; }
+    .article-head { text-align: center; margin: 3rem auto 2.5rem; }
+    .meta { color: var(--accent); font-size: .85rem; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 1rem; font-weight: 600; }
+    
+    h1 { 
+      font-size: clamp(2.2rem, 5vw, 3.2rem); 
+      line-height: 1.1;
+      letter-spacing: -0.02em; 
+      margin-bottom: 1.5rem;
+      background: linear-gradient(to right, #fff, var(--accent2), var(--accent-magenta));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .subtitle { color: var(--soft); max-width: 820px; margin: 0 auto; font-size: 1.1rem; font-weight: 300; }
 
-  /* Hamburger → X */
-  .nav-toggle[aria-expanded="true"] span:nth-child(1){
-    transform:translateY(8px) rotate(45deg);
-  }
-  .nav-toggle[aria-expanded="true"] span:nth-child(2){
-    opacity:0;
-  }
-  .nav-toggle[aria-expanded="true"] span:nth-child(3){
-    transform:translateY(-8px) rotate(-45deg);
-  }
-}
+    /* CTA BUTTONS */
+    .cta { display: flex; gap: 12px; justify-content: center; margin: 2rem 0; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; padding: 12px 24px;
+      border-radius: 999px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.06);
+      font-size: .9rem; font-weight: 700; text-transform: uppercase; color: #fff; text-decoration: none; cursor: pointer; transition: 0.3s;
+    }
+    .btn.primary { 
+      border: none;
+      background: linear-gradient(135deg, var(--accent2) 0%, var(--accent-magenta) 100%);
+      box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(217, 70, 239, 0.4); border-color: #fff; }
 
-/* ───────── MOBILE IMAGE FIX ───────── */
-/* ───────── MOBILE CARD IMAGES ───────── */
-@media (max-width: 768px) {
-  .card-media {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 4 / 3;
-    object-fit: contain;
-    background: #000;
-  }
-}
+    /* PILL TAGS */
+    .tag-row { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 10px; }
+    .pill { 
+      padding: 6px 14px; border-radius: 999px; 
+      background: rgba(139, 92, 246, 0.1); 
+      border: 1px solid rgba(139, 92, 246, 0.3); 
+      font-size: .85rem; color: #e9d5ff;
+    }
 
+    /* ───────────────────────────────────────────────────────────────────────── */
+    /* VISION SLIDER */
+    .vision-slider { margin: 3rem auto; position: relative; }
+    .vision-viewport { 
+      overflow: hidden; border-radius: var(--radius); 
+      border: 1px solid rgba(139, 92, 246, 0.4); 
+      background: #000; box-shadow: var(--shadow); position: relative; 
+    }
+    .vision-track { display: flex; transition: transform .6s cubic-bezier(0.16, 1, 0.3, 1); }
+    .vision-slide { flex: 0 0 100%; }
+    .vision-slide img { width: 100%; height: clamp(300px, 50vw, 600px); object-fit: cover; display: block; }
+    .vision-slide figcaption { 
+      padding: 1.5rem; font-size: 1rem; 
+      background: rgba(2,6,23,0.85); color: var(--soft); 
+      border-top: 1px solid rgba(139, 92, 246, 0.2); 
+    }
+    .vision-btn { 
+      position: absolute; top: 50%; transform: translateY(-50%); 
+      width: 48px; height: 48px; border-radius: 999px; 
+      border: 1px solid rgba(255,255,255,0.2); 
+      background: rgba(139, 92, 246, 0.2); color: #fff; 
+      font-size: 1.5rem; cursor: pointer; z-index: 5; 
+      display: grid; place-items: center; backdrop-filter: blur(4px);
+    }
+    .vision-prev { left: 20px; } .vision-next { right: 20px; }
 
-/* ───────── FIX MOBILE SLIDER IMAGES ───────── */
-.vision-viewport {
-  width: 100%;
-  max-width: 100%;
-  overflow: hidden;
-}
+    /* ───────────────────────────────────────────────────────────────────────── */
+    /* GRID CARDS */
+    .cards-grid { display: grid; gap: 24px; grid-template-columns: repeat(2, 1fr); margin-top: 3rem; }
+    @media (max-width: 760px) { .cards-grid { grid-template-columns: 1fr; } }
 
-.vision-slide {
-  width: 100%;
-  height: clamp(320px, 60vw, 520px);
-  position: relative;
-}
+    .feature-card { 
+      border: 1px solid var(--border); border-radius: var(--radius); 
+      background: rgba(139, 92, 246, 0.03); overflow: hidden; 
+      transition: 0.3s ease; display: flex; flex-direction: column; 
+    }
+    .feature-card:hover { transform: translateY(-5px); border-color: var(--accent2); background: rgba(139, 92, 246, 0.08); }
+    .card-media { width: 100%; height: 220px; object-fit: cover; display: block; cursor: zoom-in; border-bottom: 1px solid rgba(139, 92, 246, 0.2); }
+    .card-body { padding: 1.5rem; }
+    .feature-card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; color: #fff; }
+    .feature-card p { color: var(--muted); font-size: 0.95rem; }
+    .tag { 
+      display: inline-block; margin-top: 1rem; padding: 4px 12px; border-radius: 999px; 
+      border: 1px solid var(--accent2); background: rgba(139, 92, 246, 0.15); 
+      color: #e9d5ff; font-size: .75rem; font-weight: 700; text-transform: uppercase; 
+    }
 
-.vision-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
+    /* ───────────────────────────────────────────────────────────────────────── */
+    /* LIGHTBOX */
+    .lightbox { position: fixed; inset: 0; display: none; place-items: center; background: rgba(0,0,0,0.95); backdrop-filter: blur(15px); z-index: 10000; padding: 20px; }
+    .lightbox.open { display: grid; }
+    .lightbox__panel { 
+      width: min(1100px, 100%); background: #000; border-radius: 20px; 
+      border: 2px solid var(--accent2); box-shadow: 0 0 40px rgba(139, 92, 246, 0.3);
+      overflow: hidden; position: relative; 
+    }
+    .lightbox__img { width: 100%; max-height: 80vh; object-fit: contain; }
+    .lightbox__close { position: absolute; top: 15px; right: 15px; background: rgba(139, 92, 246, 0.3); border: 1px solid rgba(255,255,255,0.2); color: white; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.2rem; z-index: 10; display: grid; place-items: center; }
 
-.vision-slide::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, transparent 60%, rgba(2,6,23,.9));
-  pointer-events: none;
-}
-
-/* ───────── SLIDER ENGINE ───────── */
-.vision-slider {
-  margin: 3rem 0;
-  position: relative;
-}
-
-.vision-viewport {
-  overflow: hidden;
-  border-radius: 24px;
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
-}
-
-.vision-track {
-  display: flex;
-  width: 100%;
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.vision-slide {
-  min-width: 100%;
-  height: clamp(320px, 60vw, 520px);
-  position: relative;
-}
-
-.vision-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* Caption overlay */
-.vision-slide figcaption {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 1.8rem;
-  background: linear-gradient(to top, rgba(2,6,23,.9), transparent);
-  color: #fff;
-  font-size: 1rem;
-}
-
-/* Navigation buttons */
-.vision-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  border: 1px solid var(--border);
-  background: rgba(2,6,23,.6);
-  color: #fff;
-  font-size: 1.6rem;
-  cursor: pointer;
-  z-index: 10;
-  backdrop-filter: blur(8px);
-}
-
-.vision-prev { left: 12px; }
-.vision-next { right: 12px; }
-
-.vision-btn:hover {
-  background: var(--accent2);
-}
-  
-/* ───────────────── MAIN CONTAINER ───────────────── */
-.container{
-  max-width:1000px;
-  margin:auto;
-  padding:0 1.5rem;
-}
-
-/* ───────────────── HERO ───────────────── */
-.article-head{
-  text-align:center;
-  padding:4rem 0 3rem;
-}
-
-.meta{
-  color:var(--accent);
-  font-weight:700;
-  text-transform:uppercase;
-  letter-spacing:.15em;
-  font-size:.8rem;
-  margin-bottom:1.4rem;
-}
-
-h1{
-  font-size:clamp(2.5rem,6vw,3.8rem);
-  line-height:1.1;
-  margin-bottom:1.5rem;
-  background:linear-gradient(to right,#fff,var(--accent2),var(--magenta));
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-
-.subtitle{
-  font-size:1.15rem;
-  color:var(--soft);
-  max-width:760px;
-  margin:auto;
-  font-weight:300;
-}
-
-/* ───────────────── FOOTER ───────────────── */
-footer{
-  margin-top:6rem;
-  padding:3rem 1.5rem;
-  text-align:center;
-  border-top:1px solid var(--border);
-  color:var(--muted);
-  font-size:.85rem;
-}
-
-  /* ───────────────── POSSIBILITIES GRID ───────────────── */
-.cards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-bottom: 5rem;
-}
-
-.feature-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
-  transition: transform 0.3s ease, border-color 0.3s ease;
-  display: flex;
-  flex-direction: column;
-}
-
-.feature-card:hover {
-  transform: translateY(-10px);
-  border-color: var(--accent);
-  box-shadow: var(--shadow);
-}
-
-.card-media {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-bottom: 1px solid var(--border);
-}
-
-.card-body {
-  padding: 1.5rem;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.card-body h3 {
-  margin-bottom: 0.8rem;
-  color: var(--accent);
-  font-size: 1.25rem;
-}
-
-.card-body p {
-  font-size: 0.95rem;
-  color: var(--soft);
-  margin-bottom: 1.5rem;
-  line-height: 1.5;
-}
-
-.tag {
-  display: inline-block;
-  margin-top: auto;
-  font-size: 0.7rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  color: var(--magenta);
-  letter-spacing: 0.1em;
-}
-
-/* Video Card adjustment */
-.video-card {
-  grid-column: span 1;
-  background: #000;
-  justify-content: center;
-}
-
-@media (min-width: 1024px) {
-  .video-card {
-    grid-column: span 2; /* Makes the video wider on desktop */
-  }
-}
-
-/* ───────────────── BUTTONS & PILLS ───────────────── */
-.cta {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  margin-bottom: 3rem;
-}
-
-.btn {
-  padding: 0.8rem 1.5rem;
-  border-radius: 99px;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 0.9rem;
-  transition: 0.3s;
-  cursor: pointer;
-  border: none;
-}
-
-.btn.primary {
-  background: var(--accent2);
-  color: #fff;
-}
-
-.btn.secondary {
-  background: transparent;
-  border: 1px solid var(--border);
-  color: #fff;
-}
-
-.btn:hover {
-  filter: brightness(1.2);
-  transform: scale(1.05);
-}
-
-.tag-row {
-  display: flex;
-  gap: 0.8rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.pill {
-  background: rgba(34, 211, 238, 0.1);
-  border: 1px solid rgba(34, 211, 238, 0.3);
-  padding: 0.4rem 1rem;
-  border-radius: 99px;
-  font-size: 0.75rem;
-  color: var(--accent);
-}
-
-/* Clickable images */
-.card-media, .vision-slide img {
-  cursor: zoom-in;
-  transition: opacity 0.3s;
-}
-
-.card-media:hover {
-  opacity: 0.8;
-}
-
-/* Modal centering */
-.modal {
-  display: none; /* Hidden by default */
-  flex-direction: column;
-  animation: fadeIn 0.3s ease;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}  
-</style>
+    footer { border-top: 1px solid rgba(139, 92, 246, 0.2); padding: 4rem 0; text-align: center; color: var(--muted); margin-top: 5rem; }
+  </style>
 </head>
 
 <body>
+  <header class="neon-header">
+  <div class="container neon-header-inner">
+    <a href="../index.html" class="neon-brand">
+      <img src="../images/negative_white_halocyberlife_logo.png" alt="Halocyberlife logo" class="neon-logo" />
+      <span class="neon-brand-text">Halocyberlife</span>
+    </a>
 
-<header>
-  <div class="header-inner">
-    <div class="brand">
-      <img src="../images/negative_white_halocyberlife_logo.png" alt="Halocyberlife logo">
-      <span>Halocyberlife</span>
-    </div>
-
-    <button class="nav-toggle" aria-expanded="false" aria-label="Toggle menu">
+    <button class="neon-nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
       <span></span><span></span><span></span>
     </button>
 
-    <nav class="main-nav" id="mainNav">
-      <a href="../index.html">Home</a>
-      <a href="../blog.html">Articles</a>
-      <a href="../about.html">About</a>
+    <nav id="primary-nav" class="neon-nav">
+      <a href="../index.html" class="neon-link color-blue">Home</a>
+      <a href="../blog.html" class="neon-link color-cyan">Articles</a>
+      <a href="../contact_us.html" class="neon-link color-gold">Contact</a>
     </nav>
   </div>
 </header>
 
   <main class="container">
     <section class="article-head">
-      <p class="meta">Experiments & Tech · Resonance / Lighting Photonics</p>
-      <h1>BioGlow: Resonant Photonic Light</h1>
-      <p class="subtitle">
-        What if illumination didn’t need a bulb, a filament, or a visible emitter—and instead emerged from engineered materials when you “tune” them the right way?
-      </p>
-      
+        <p class="meta">Experiments & Tech · Resonance / Lighting Photonics</p>
+        <h1>BioGlow: Resonant Photonic Light</h1>
+        <p class="subtitle">
+          What if illumination didn’t need a bulb, a filament, or a visible emitter—and instead emerged from engineered materials when you “tune” them the right way?
+        </p>
       <div class="cta">
-        <a class="btn primary" href="./Patent_Bio_Glow.html" target="_blank">View Official Patent Link ↗</a>
-        <button class="btn secondary" id="jumpToPossibilities">Explore World-Changing Uses</button>
+        <a class="btn primary" href="./Patent_Bio_Glow.html">View Official Patent ↗</a>
+        <a class="btn" href="#possibilities">View Architecture</a>
       </div>
 
       <div class="tag-row">
-        <span class="pill"><strong>Core:</strong> Frequency-driven excitation</span>
-        <span class="pill"><strong>Goal:</strong> Light amplification</span>
-        <span class="pill"><strong>Style:</strong> Engineered photonic layers</span>
+        <span class="pill"><strong>Interface:</strong> Toilet Seat Coupling</span>
+        <span class="pill"><strong>Cycle:</strong> Gas Recovery</span>
+        <span class="pill"><strong>Module:</strong> Extraction Manifold</span>
       </div>
     </section>
 
     <section class="vision-slider">
       <div class="vision-viewport">
-        <div class="vision-track">
+        <div class="vision-track" id="visionTrack">
           <figure class="vision-slide">
-            <img src="./Images/blog_images/resonance-activated-wall-panels.png" alt="Wall panels">
+            <img src="./Images/blog_images/BioLoop_img/BioLoop_Architecture.png">
             <figcaption><strong>Embedded photonic surfaces:</strong> Materials that emit light when activated by resonant stimulation.</figcaption>
           </figure>
           <figure class="vision-slide">
-            <img src="./Images/blog_images/Layers_Bio_Glow.png" alt="Control Architecture">
+            <img src="./Images/blog_images/resonance-activated-wall-panels.png">
             <figcaption><strong>Control architecture:</strong> Converts signal input into targeted resonance for activation.</figcaption>
           </figure>
           <figure class="vision-slide">
-            <img src="./Images/blog_images/Adaptive_lighting_control_interface_in_motion.png" alt="Layered System">
-            <figcaption><strong>Layered system:</strong> Engineered materials arranged for dielectric resonance.</figcaption>
-          </figure>
-          <figure class="vision-slide">
-            <img src="./Images/blog_images/Resonance_Amplification/RPAS_Exploded_Architecture_Labeled.png" alt="Coupling Zones">
-            <figcaption><strong>Coupling zones:</strong> Optimized for light amplification under resonance input.</figcaption>
+             <img src="./Images/blog_images/Layers_Bio_Glow.png">
+             <figcaption><strong>Layered system:</strong> Engineered materials arranged for dielectric resonance.</figcaption>
           </figure>
         </div>
-        <button class="vision-btn vision-prev">‹</button>
-        <button class="vision-btn vision-next">›</button>
+        <button class="vision-btn vision-prev" onclick="moveSlide(-1)">‹</button>
+        <button class="vision-btn vision-next" onclick="moveSlide(1)">›</button>
       </div>
     </section>
 
-    
-    <figure style="margin: 4rem auto; text-align: center;">
-      <img src="./Images/BioGlow_images/Park_Illuminatino.png" alt="Urban Integration Concept" style="width:80%; border-radius:24px; border: 1px solid var(--border); box-shadow: var(--shadow);" />
-      <figcaption style="margin-top:1.5rem; color:var(--muted); font-size: 1rem;">
-        <strong>Figure: RPAS Urban Integration Concept</strong> — A conceptual vision of environments illuminated by RPAS surfaces without visible fixtures.
-      </figcaption>
-    </figure>
-
-    <article style="text-align: center; max-width: 800px; margin: 0 auto 5rem;">
-      <p style="font-size: 1.2rem; color: var(--soft); margin-bottom: 1.5rem;">Picture a space with no visible lights — no bulbs, no panels, no fixtures. Just surface.</p>
-      <p style="font-size: 1.2rem; color: var(--soft);">Then, with a signal — vibration, frequency, or pressure — those surfaces begin to emit light through direct resonance.</p>
+    <article style="max-width:820px; margin: 4rem auto; text-align:center;">
+       <p style="font-size:1.2rem; color:var(--soft);">Picture a space with no visible lights — no bulbs, no panels, no fixtures. Just surface.</p>
+       <p style="font-size:1.2rem; color:var(--soft);">Then, with a signal — vibration, frequency, or pressure — those surfaces begin to emit light through direct resonance.</p> 
     </article>
 
-    <section id="possibilities">
-      <h2 style="text-align: center; font-size: 2.2rem; margin-bottom: 3rem; letter-spacing: 0.1em; text-transform: uppercase; background: linear-gradient(to right, #fff, var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Possibilities That Change the Game</h2>
+    <figure style="margin: 4rem auto; text-align: center;">
+      <img src="./Images/blog_images/Adaptive_lighting_control_interface_in_motion.png" style="width: 80%; border-radius:16px; border:1px solid var(--border);" />
+      <figcaption style="margin-top:1.5rem; color:var(--muted); font-size:0.9rem; max-width:700px; margin-inline:auto;">
+        <strong>Figure: RPAS Urban Integration Concept</strong> — A conceptual vision of environments illuminated by RPAS surfaces without visible fixtures.
+     </figcaption>
+    </figure>
 
+    <section id="possibilities">
+      <h2 style="text-align:center; margin-bottom:3rem; text-transform: uppercase; letter-spacing: 0.2em; font-size:1.8rem;">Architecture & Subsystems</h2>
       <div class="cards-grid">
+        
         <article class="feature-card">
-          <img class="card-media" src="./Images/blog_images/resonant-photonic-layer-stack.png" alt="Living architecture">
+          <img class="card-media lightbox-trigger" src="./Images/BioGlow_images/Park_Illuminatino.png">
           <div class="card-body">
             <h3>Living architecture</h3>
             <p>Walls, ceilings, and corridors with embedded illumination response—fewer fixtures, fewer failure points.</p>
@@ -560,7 +314,16 @@ footer{
         </article>
 
         <article class="feature-card">
-          <img class="card-media" src="./Images/blog_images/resonant-photonic-energy-orb.png" alt="Ultra-low profile">
+            <img class="card-media" src="./Images/blog_images/Sleek_glowing_accents_in_modern_spaces.png" alt="Layered emission stacks">
+            <div class="card-body">
+              <h3>Layered emission stacks</h3>
+              <p>Stack engineering: coupling, dopants, and resonance-friendly interfaces for controlled emission zones.</p>
+              <span class="tag">Layer stack</span>
+            </div>
+          </article>
+
+        <article class="feature-card">
+          <img class="card-media lightbox-trigger" src="./Images/blog_images/resonant-photonic-energy-orb.png">
           <div class="card-body">
             <h3>Ultra-low profile lighting</h3>
             <p>Thin surfaces glow without bulky assemblies—ideal in tight spaces, vehicles, and wearables.</p>
@@ -569,7 +332,22 @@ footer{
         </article>
 
         <article class="feature-card">
-          <img class="card-media" src="./Images/blog_images/resonant-frequency-wave-instruction.png" alt="Adaptive environments">
+            <img class="card-media" src="./Images/blog_images/futuristic_city_rpas.png" alt="Navigation markers">
+            <div class="card-body">
+              <h3>Signals, markers, navigation</h3>
+              <p>Wayfinding strips and hazard indicators activated by tuned excitation patterns for enhanced safety.</p>
+              <span class="tag">Guidance + safety</span>
+            </div>
+          </article>
+          
+        <article class="feature-card" style="grid-column: 1 / -1; border-color: var(--accent2);">
+           <div style="position:relative; width:100%; padding-bottom:56.25%;">
+            <iframe src="https://www.youtube.com/embed/enHb_FBTWtU" style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;" allowfullscreen></iframe>
+           </div>
+        </article>
+
+        <article class="feature-card">
+          <img class="card-media lightbox-trigger" src="./Images/blog_images/resonant-frequency-wave-instruction.png">
           <div class="card-body">
             <h3>Adaptive environments</h3>
             <p>Light intensity and tone shaped by frequency patterns—like waveform lighting presets.</p>
@@ -578,7 +356,7 @@ footer{
         </article>
 
         <article class="feature-card">
-          <img class="card-media" src="./Images/blog_images/resonance-activated-wall-panels.png" alt="Emergency redundancy">
+          <img class="card-media lightbox-trigger" src="./Images/blog_images/resonance-activated-wall-panels.png">
           <div class="card-body">
             <h3>Emergency + redundancy</h3>
             <p>Surfaces with multiple excitation methods—if one fails, another still triggers visibility.</p>
@@ -586,145 +364,91 @@ footer{
           </div>
         </article>
 
-        <article class="feature-card video-card">
-          <div style="position:relative; width:100%; padding-bottom:56.25%;">
-            <iframe src="https://www.youtube.com/embed/enHb_FBTWtU" style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;" allowfullscreen></iframe>
-          </div>
-        </article>
-
         <article class="feature-card">
-          <img class="card-media" src="./Images/blog_images/living-architecture-light-without-fixtures.png" alt="New display paradigms">
-          <div class="card-body">
-            <h3>New display paradigms</h3>
-            <p>Not just screens—materials that become emissive where and when stimulated for information display.</p>
-            <span class="tag">Material display</span>
-          </div>
-        </article>
-
-        <article class="feature-card">
-          <img class="card-media" src="./Images/blog_images/futuristic_city_rpas.png" alt="Navigation markers">
-          <div class="card-body">
-            <h3>Signals, markers, navigation</h3>
-            <p>Wayfinding strips and hazard indicators activated by tuned excitation patterns for enhanced safety.</p>
-            <span class="tag">Guidance + safety</span>
-          </div>
-        </article>
-
-        <article class="feature-card">
-          <img class="card-media" src="./Images/blog_images/Sleek_glowing_accents_in_modern_spaces.png" alt="Layered emission stacks">
-          <div class="card-body">
-            <h3>Layered emission stacks</h3>
-            <p>Stack engineering: coupling, dopants, and resonance-friendly interfaces for controlled emission zones.</p>
-            <span class="tag">Layer stack</span>
-          </div>
-        </article>
+            <img class="card-media lightbox-trigger" src="./Images/blog_images/living-architecture-light-without-fixtures.png">
+            <div class="card-body">
+                <h3>New display paradigms</h3>
+                <p>Not just screens—materials that become emissive where and when stimulated for information display.</p>
+                <span class="tag">Material display</span>
+            </div>
+          </article>
       </div>
     </section>
 
-    <!-- <footer>
-      <img src="../images/negative_white_halocyberlife_logo.png" alt="Halocyberlife">
-      <p>© <span id="year"></span> Halocyberlife · All rights reserved. Built by Luis Amaya.</p>
-      <nav>
-        <a href="../index.html">Home</a>
-        <a href="../blog.html">Articles</a>
-        <a href="../about.html">About</a>
-        <a href="../contact.html">Contact</a>
+    <footer>
+      <img src="../images/negative_white_halocyberlife_logo.png" style="height:40px; margin-bottom:1rem;" />
+      <p>© 2026 Halocyberlife · Inventor: Luis Amaya</p>
+      <nav style="margin-top: 1rem;">
+        <a href="../index.html">Home</a> · <a href="../blog.html">Articles</a> · <a href="../contact.html">Contact</a>
       </nav>
-    </footer> -->
+    </footer>
   </main>
 
-<footer>
-  © <span id="year"></span> Halocyberlife · Built by Luis Amaya
-</footer>
-<div id="imageModal" class="modal" style="display:none; position:fixed; z-index:2000; left:0; top:0; width:100%; height:100%; background:rgba(2,6,23,0.95); backdrop-filter:blur(10px); align-items:center; justify-content:center; cursor:zoom-out;">
-  <span style="position:absolute; top:20px; right:30px; color:#fff; font-size:40px; font-weight:bold; cursor:pointer;">&times;</span>
-  <img id="modalImg" style="max-width:90%; max-height:85%; border-radius:12px; border:1px solid var(--border); box-shadow:var(--shadow);">
-</div>
-<script>
-/* ───────── SLIDER LOGIC ───────── */
-const track = document.querySelector(".vision-track");
-const slides = document.querySelectorAll(".vision-slide");
-const nextBtn = document.querySelector(".vision-next");
-const prevBtn = document.querySelector(".vision-prev");
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox__close" onclick="closeLightbox()">✕</button>
+    <div class="lightbox__panel">
+      <img src="" id="lightboxImg" class="lightbox__img">
+    </div>
+  </div>
 
-let index = 0;
+  <script>
+    /* SLIDER SYSTEM */
+    let index = 0;
+    const track = document.getElementById('visionTrack');
+    const slides = document.querySelectorAll('.vision-slide');
+    
+    function moveSlide(n) {
+      index = (index + n + slides.length) % slides.length;
+      track.style.transform = `translateX(-${index * 100}%)`;
+    }
+    setInterval(() => moveSlide(1), 6000);
 
-function updateSlider() {
-  track.style.transform = `translateX(-${index * 100}%)`;
-}
+    /* LIGHTBOX SYSTEM */
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightboxImg');
 
-nextBtn.addEventListener("click", () => {
-  index = (index + 1) % slides.length;
-  updateSlider();
-});
+    document.querySelectorAll('.lightbox-trigger').forEach(img => {
+      img.addEventListener('click', () => {
+        lb.classList.add('open');
+        lbImg.src = img.src;
+        document.body.style.overflow = 'hidden';
+      });
+    });
 
-prevBtn.addEventListener("click", () => {
-  index = (index - 1 + slides.length) % slides.length;
-  updateSlider();
-});
+    function closeLightbox() {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+    }
 
-/* ───────── MODAL LOGIC ───────── */
-const modal = document.getElementById("imageModal");
-const modalImg = document.getElementById("modalImg");
+    lb.addEventListener('click', (e) => { if(e.target === lb) closeLightbox(); });
+  </script>
+  <script>
+  /* ───────────────── MOBILE NAV TOGGLE ───────────────── */
+  const navToggle = document.querySelector('.neon-nav-toggle');
+  const nav = document.getElementById('primary-nav');
 
-// Open modal + lock scroll
-const images = document.querySelectorAll(".card-media, .vision-slide img");
-
-images.forEach(img => {
-  img.addEventListener("click", () => {
-    modal.style.display = "flex";
-    modalImg.src = img.src;
-    document.body.style.overflow = "hidden"; // LOCK
+  navToggle.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('active');
+    navToggle.setAttribute('aria-expanded', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
   });
-});
 
-// Close modal + restore scroll
-function closeModal() {
-  modal.style.display = "none";
-  document.body.style.overflow = ""; // RESTORE
-}
-
-// Click anywhere on modal
-modal.addEventListener("click", closeModal);
-
-// ESC key
-document.addEventListener("keydown", e => {
-  if (e.key === "Escape") {
-    closeModal();
+  /* Close menu when a link is clicked (mobile UX polish) */
+  document.querySelectorAll('.neon-nav a').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('active');
+      navToggle.setAttribute('aria-expanded', false);
+      document.body.style.overflow = '';
+    });
+  });
+    /* ESC Key to close */
+    document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && nav.classList.contains('active')) {
+    nav.classList.remove('active');
+    navToggle.setAttribute('aria-expanded', false);
+    document.body.style.overflow = '';
   }
 });
 </script>
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-    
-      const toggle = document.querySelector(".nav-toggle");
-      const nav = document.getElementById("mainNav");
-    
-      if (!toggle || !nav) return;
-    
-      toggle.addEventListener("click", (e) => {
-        e.stopPropagation();
-        const open = nav.classList.toggle("active");
-        toggle.setAttribute("aria-expanded", open);
-      });
-    
-      // Close menu when clicking a link
-      nav.querySelectorAll("a").forEach(link => {
-        link.addEventListener("click", () => {
-          nav.classList.remove("active");
-          toggle.setAttribute("aria-expanded", "false");
-        });
-      });
-    
-      // Close on ESC
-      document.addEventListener("keydown", e => {
-        if (e.key === "Escape") {
-          nav.classList.remove("active");
-          toggle.setAttribute("aria-expanded", "false");
-        }
-      });
-    
-    });
-    </script>
 </body>
 </html>
