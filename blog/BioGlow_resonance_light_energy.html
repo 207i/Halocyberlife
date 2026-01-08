@@ -428,6 +428,34 @@
 
     lbClose.onclick = () => lb.classList.remove("open");
     lb.onclick = (e) => { if(e.target === lb) lb.classList.remove("open"); };
+
+    // ───────── MOBILE NAV TOGGLE ─────────
+const navToggle = document.querySelector(".nav-toggle");
+const mainNav = document.getElementById("mainNav");
+
+navToggle.onclick = () => {
+  const isOpen = mainNav.classList.toggle("active");
+  navToggle.setAttribute("aria-expanded", isOpen);
+  document.body.style.overflow = isOpen ? "hidden" : "";
+};
+
+// Close when link clicked
+mainNav.querySelectorAll("a").forEach(link => {
+  link.onclick = () => {
+    mainNav.classList.remove("active");
+    navToggle.setAttribute("aria-expanded", false);
+    document.body.style.overflow = "";
+  };
+});
+
+// ESC to close
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape" && mainNav.classList.contains("active")) {
+    mainNav.classList.remove("active");
+    navToggle.setAttribute("aria-expanded", false);
+    document.body.style.overflow = "";
+  }
+});
   </script>
 </body>
 </html>
