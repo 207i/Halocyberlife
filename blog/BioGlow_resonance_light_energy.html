@@ -9,14 +9,16 @@
 <meta name="author" content="Luis Amaya" />
 
 <style>
-/* ───────── ROOT THEME ───────── */
+/* ───────────────── ROOT THEME ───────────────── */
 :root{
   --bg:#020617;
   --text:#f9fafb;
   --muted:#9ca3af;
+  --soft:#d1d5db;
   --border:rgba(139,92,246,.35);
   --accent:#22d3ee;
   --accent2:#8b5cf6;
+  --magenta:#d946ef;
   --radius:18px;
   --shadow:0 18px 60px rgba(139,92,246,.25);
 }
@@ -31,7 +33,7 @@ body{
   overflow-x:hidden;
 }
 
-/* ───────── HEADER ───────── */
+/* ───────────────── HEADER ───────────────── */
 header{
   position:sticky;
   top:0;
@@ -57,7 +59,7 @@ header{
   font-weight:800;
   letter-spacing:.1em;
   text-transform:uppercase;
-  font-size:.85rem;
+  font-size:.9rem;
 }
 
 .brand img{
@@ -65,7 +67,7 @@ header{
   filter:drop-shadow(0 0 8px var(--accent2));
 }
 
-/* ───────── NAV BUTTON ───────── */
+/* ───────────────── NAV TOGGLE ───────────────── */
 .nav-toggle{
   display:none;
   width:44px;
@@ -85,7 +87,7 @@ header{
   transition:.3s ease;
 }
 
-/* ───────── SLIDE PANEL NAV ───────── */
+/* ───────────────── DESKTOP NAV ───────────────── */
 .main-nav{
   display:flex;
   gap:.6rem;
@@ -95,14 +97,21 @@ header{
   padding:.45rem 1.1rem;
   border-radius:99px;
   border:1px solid var(--border);
+  background:rgba(139,92,246,.08);
   text-decoration:none;
   color:#fff;
   font-size:.75rem;
   font-weight:700;
   text-transform:uppercase;
+  transition:.3s;
 }
 
-/* ───────── MOBILE NAV PANEL ───────── */
+.main-nav a:hover{
+  border-color:var(--accent);
+  color:var(--accent);
+}
+
+/* ───────────────── MOBILE NAV PANEL ───────────────── */
 @media(max-width:768px){
   .nav-toggle{display:block}
 
@@ -129,6 +138,7 @@ header{
 
   .main-nav a{
     font-size:1.4rem;
+    padding:1rem 2rem;
   }
 
   /* Hamburger → X */
@@ -143,29 +153,46 @@ header{
   }
 }
 
-/* ───────── HERO ───────── */
-.hero{
-  max-width:900px;
-  margin:4rem auto 3rem;
+/* ───────────────── MAIN CONTAINER ───────────────── */
+.container{
+  max-width:1000px;
+  margin:auto;
   padding:0 1.5rem;
-  text-align:center;
 }
 
-.hero h1{
-  font-size:clamp(2.4rem,6vw,3.6rem);
-  line-height:1.1;
+/* ───────────────── HERO ───────────────── */
+.article-head{
+  text-align:center;
+  padding:4rem 0 3rem;
+}
+
+.meta{
+  color:var(--accent);
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.15em;
+  font-size:.8rem;
   margin-bottom:1.4rem;
-  background:linear-gradient(to right,#fff,var(--accent2),#d946ef);
+}
+
+h1{
+  font-size:clamp(2.5rem,6vw,3.8rem);
+  line-height:1.1;
+  margin-bottom:1.5rem;
+  background:linear-gradient(to right,#fff,var(--accent2),var(--magenta));
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
 
-.hero p{
-  color:var(--muted);
+.subtitle{
   font-size:1.15rem;
+  color:var(--soft);
+  max-width:760px;
+  margin:auto;
+  font-weight:300;
 }
 
-/* ───────── FOOTER ───────── */
+/* ───────────────── FOOTER ───────────────── */
 footer{
   margin-top:6rem;
   padding:3rem 1.5rem;
@@ -182,7 +209,7 @@ footer{
 <header>
   <div class="header-inner">
     <div class="brand">
-      <img src="../images/negative_white_halocyberlife_logo.png" alt="">
+      <img src="../images/negative_white_halocyberlife_logo.png" alt="Halocyberlife logo">
       <span>Halocyberlife</span>
     </div>
 
@@ -198,10 +225,11 @@ footer{
   </div>
 </header>
 
-<main>
-  <section class="hero">
+<main class="container">
+  <section class="article-head">
+    <p class="meta">Experiments & Tech · Resonance / Lighting</p>
     <h1>BioGlow: Resonant Photonic Light</h1>
-    <p>
+    <p class="subtitle">
       What if illumination didn’t require bulbs or filaments — but emerged from engineered materials through resonance?
     </p>
   </section>
@@ -212,10 +240,10 @@ footer{
 </footer>
 
 <script>
-/* ───────── YEAR ───────── */
+/* YEAR */
 document.getElementById("year").textContent = new Date().getFullYear();
 
-/* ───────── NAV TOGGLE ───────── */
+/* NAV TOGGLE */
 const toggle = document.querySelector(".nav-toggle");
 const nav = document.getElementById("mainNav");
 
@@ -224,7 +252,7 @@ toggle.addEventListener("click", () => {
   toggle.setAttribute("aria-expanded", open);
 });
 
-/* Close nav on link click */
+/* CLOSE ON LINK */
 nav.querySelectorAll("a").forEach(link=>{
   link.addEventListener("click",()=>{
     nav.classList.remove("active");
@@ -232,7 +260,7 @@ nav.querySelectorAll("a").forEach(link=>{
   });
 });
 
-/* ESC close */
+/* ESC CLOSE */
 document.addEventListener("keydown",e=>{
   if(e.key==="Escape"){
     nav.classList.remove("active");
@@ -243,16 +271,3 @@ document.addEventListener("keydown",e=>{
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
