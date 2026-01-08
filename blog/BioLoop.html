@@ -389,6 +389,26 @@
 
     lb.addEventListener('click', (e) => { if(e.target === lb) closeLightbox(); });
   </script>
+  <script>
+  /* ───────────────── MOBILE NAV TOGGLE ───────────────── */
+  const navToggle = document.querySelector('.neon-nav-toggle');
+  const nav = document.getElementById('primary-nav');
+
+  navToggle.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('active');
+    navToggle.setAttribute('aria-expanded', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+
+  /* Close menu when a link is clicked (mobile UX polish) */
+  document.querySelectorAll('.neon-nav a').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('active');
+      navToggle.setAttribute('aria-expanded', false);
+      document.body.style.overflow = '';
+    });
+  });
+</script>
 </body>
 </html>
 
