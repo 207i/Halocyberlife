@@ -377,5 +377,22 @@
 
     lb.addEventListener('click', (e) => { if(e.target === lb) closeLightbox(); });
   </script>
+  <script>
+  const toggle = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('nav');
+
+  if (toggle && nav) {
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('open');
+    });
+
+    // Close menu after tapping a link (mobile UX)
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('open');
+      });
+    });
+  }
+</script>
 </body>
 </html>
