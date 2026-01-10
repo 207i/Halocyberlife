@@ -69,7 +69,7 @@
       margin-bottom: .9rem;
     }
 
-    /* ✅ Small blended disclaimer */
+    /* Small blended disclaimer */
     .disclosure {
       max-width: 1320px;
       margin: 0 auto 1.1rem;
@@ -100,7 +100,7 @@
       will-change: transform;
     }
 
-    /* ✅ less padding so the image can be larger */
+    /* less padding so the image can be larger */
     .slide {
       min-width: 100%;
       padding: .45rem;
@@ -109,7 +109,7 @@
       align-items: center;
     }
 
-    /* ✅ Bigger patent pages */
+    /* Bigger patent pages */
     .slide img {
       max-width: 99.5%;
       max-height: 92vh;
@@ -121,6 +121,29 @@
       margin: auto;
       cursor: zoom-in;
     }
+
+    .back-wrap{
+  display: flex;
+  justify-content: center;
+  margin: .75rem 0 1.1rem;
+}
+
+.back-btn{
+  background: rgba(0,0,0,0.55);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: .45rem 1.1rem;
+  font-size: .75rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+}
+
+.back-btn:hover{
+  border-color: var(--accent);
+}
 
     /* ✅ Slider arrows (ALWAYS visible, including mobile) */
     .nav-btn {
@@ -233,8 +256,13 @@
     This version may be modified for readability (layout, spacing, and presentation) while keeping the underlying content intent.
   </div>
 
+  <div class="back-wrap">
+  <button class="back-btn" type="button" onclick="history.back()">
+    ← Back
+      </button>
+    </div>
   <div class="slider" aria-label="Resonant Photonic Amplification System">
-    <div class="slider-track" id="sliderTrack">
+  <div class="slider-track" id="sliderTrack">
 
       <!-- SLIDES -->
       <div class="slide"><img src="./Images/blog_images/Resonance_Amplification/Patent/RESONANT PHOTONIC AMPLIFICATION SYSTEM (RPAS)v5_5-01.png" alt=""></div>
