@@ -84,30 +84,41 @@
     }
 
     /* --- MOBILE OVERLAY LOGIC --- */
-    @media (max-width: 768px) {
-      .neon-nav-toggle { display: block; z-index: 1001; }
-      
-      .neon-nav {
-        display: none; /* JS toggles this */
-        position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
-        background: radial-gradient(circle at center, #1e1b4b 0%, #020617 100%); 
-        flex-direction: column; justify-content: center; align-items: center; 
-        gap: 2rem; z-index: 1000;
-      }
+    /* --- MOBILE OVERLAY LOGIC --- */
+@media (max-width: 768px) {
+  .neon-nav-toggle { display: block; z-index: 1001; }
+  
+  .neon-nav {
+    display: none; 
+    /* MOVE THE HIDING LOGIC HERE */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
 
-      .neon-nav.active { display: flex; } /* Logic triggered by main_v2_0_0.js */
+    position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+    background: radial-gradient(circle at center, #1e1b4b 0%, #020617 100%); 
+    flex-direction: column; justify-content: center; align-items: center; 
+    gap: 2rem; z-index: 1000;
+  }
 
-      .neon-link { 
-        font-size: 1.6rem; width: 80%; text-align: center; 
-        padding: 1rem; border-width: 2px;
-      }
-    }
+  /* ENSURE VISIBILITY WHEN ACTIVE */
+  .neon-nav.active { 
+    display: flex; 
+    opacity: 1; 
+    pointer-events: auto; 
+  }
 
-      .neon-nav {
+  .neon-link { 
+    font-size: 1.6rem; width: 80%; text-align: center; 
+    padding: 1rem; border-width: 2px;
+  }
+}
+
+      /* .neon-nav {
         opacity: 0;
         pointer-events: none;
         transition: opacity 0.35s ease;
-      }
+      } */
       
       .neon-nav.active {
         opacity: 1;
@@ -441,6 +452,54 @@
 </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
