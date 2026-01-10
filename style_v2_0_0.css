@@ -256,6 +256,12 @@ body {
   background: rgba(15, 23, 42, 0.6);
 }
 
+.section-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.5rem;
+}
+
 .ghost-btn:hover { border-color: var(--accent-secondary); }
 
 /* Hero visual */
