@@ -11,7 +11,7 @@
 
   <style>
     /* ───────────────────────────────────────────────────────────────────────── */
-    /* UPDATED STYLING ATTRIBUTES (ELECTRIC PURPLE & CYAN NEON) */
+    /* CORE VARIABLES */
     :root {
       --bg: #020617;
       --text: #f9fafb;
@@ -35,7 +35,7 @@
     }
 
     /* ───────────────────────────────────────────────────────────────────────── */
-    /* NEON HEADER SYSTEM */
+    /* NEON HEADER & DESKTOP NAV */
     .neon-header {
       position: sticky; top: 0; z-index: 1000;
       background: rgba(2, 6, 23, 0.9);
@@ -80,52 +80,101 @@
       display: block; width: 22px; height: 2px; background: #fff; margin: 4px 0; transition: 0.3s;
     }
 
-    /* --- MOBILE OVERLAY LOGIC --- */
+    /* ───────────────────────────────────────────────────────────────────────── */
+    /* --- MOBILE NAV (80% WIDTH & TRANSPARENT) --- */
+    /* ───────────────────────────────────────────────────────────────────────── */
+    /* --- MOBILE NAV (80% WIDTH, GLASS, & GLOWING BUTTONS) --- */
     @media (max-width: 768px) {
-      .neon-nav-toggle { display: block; z-index: 1001; }
+      .neon-nav-toggle { 
+        display: block; /* Shows the hamburger menu button */
+        z-index: 1001; 
+      }
       
       .neon-nav {
-        display: none;
+        display: none; 
         opacity: 0;
         pointer-events: none;
-        transition: opacity 0.35s ease;
-        position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
-        background: radial-gradient(circle at center, #1e1b4b 0%, #020617 100%); 
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        
+        position: fixed; top: 0; right: 0; 
+        width: 80%; height: 100vh;
+        
+        /* Glassmorphism Settings */
+        background: rgba(2, 6, 23, 0.75); 
+        backdrop-filter: blur(20px);      
+        -webkit-backdrop-filter: blur(20px);
+        
+        /* Purple Neon Edge */
+        border-left: 1px solid var(--accent2);
+        box-shadow: -15px 0 40px rgba(139, 92, 246, 0.3);
+        
         flex-direction: column; justify-content: center; align-items: center; 
         gap: 2rem; z-index: 1000;
+        transform: translateX(30px); /* Start slightly off-screen */
       }
 
+      /* State when menu is toggled open via JS */
       .neon-nav.active { 
         display: flex; 
         opacity: 1; 
         pointer-events: auto; 
+        transform: translateX(0);
       }
 
+      /* Glowing Buttons in Menu */
       .neon-link { 
-        font-size: 1.6rem; width: 80%; text-align: center; 
-        padding: 1rem; border-width: 2px;
+        font-size: 1.1rem; 
+        width: 80%; 
+        text-align: center; 
+        padding: 1.2rem 0.5rem; /* Proportions like your 2x1 tags */
+        background: rgba(255, 255, 255, 0.03);
+        border-width: 2px;
+        transition: all 0.3s ease;
+        letter-spacing: 0.1em;
+      }
+
+      /* Active/Hover "Ignite" States */
+      .neon-link.color-blue { border-color: rgba(34, 211, 238, 0.4); }
+      .neon-link.color-blue:hover, .neon-link.color-blue:active {
+        background: rgba(34, 211, 238, 0.15);
+        box-shadow: 0 0 25px rgba(34, 211, 238, 0.6);
+        border-color: #22d3ee;
+        transform: scale(1.05);
+      }
+
+      .neon-link.color-cyan { border-color: rgba(6, 182, 212, 0.4); }
+      .neon-link.color-cyan:hover, .neon-link.color-cyan:active {
+        background: rgba(6, 182, 212, 0.15);
+        box-shadow: 0 0 25px rgba(6, 182, 212, 0.6);
+        border-color: #06b6d4;
+        transform: scale(1.05);
+      }
+
+      .neon-link.color-gold { border-color: rgba(251, 191, 36, 0.4); }
+      .neon-link.color-gold:hover, .neon-link.color-gold:active {
+        background: rgba(251, 191, 36, 0.15);
+        box-shadow: 0 0 25px rgba(251, 191, 36, 0.6);
+        border-color: #fbbf24;
+        transform: scale(1.05);
       }
     }
 
-    /* Nav animation to X */
+    /* Nav animation for the Hamburger (X) */
     .neon-nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
     .neon-nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
     .neon-nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
     /* ───────────────────────────────────────────────────────────────────────── */
-    /* ARTICLE CONTENT STYLES */
+    /* CONTENT & ARTICLE STYLES */
     .container { width: 100%; max-width: 980px; margin: 0 auto; padding: 0 1.25rem; }
     .article-head { text-align: center; margin: 3rem auto 2.5rem; }
     .meta { color: var(--accent); font-size: .85rem; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 1rem; font-weight: 600; }
     
     h1 { 
       font-size: clamp(2.2rem, 5vw, 3.2rem); 
-      line-height: 1.1;
-      letter-spacing: -0.02em; 
-      margin-bottom: 1.5rem;
+      line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1.5rem;
       background: linear-gradient(to right, #fff, var(--accent2), var(--accent-magenta));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
     .subtitle { color: var(--soft); max-width: 820px; margin: 0 auto; font-size: 1.1rem; font-weight: 300; }
 
@@ -150,7 +199,7 @@
       font-size: .85rem; color: #e9d5ff;
     }
 
-    /* SLIDER */
+    /* SLIDER SYSTEM */
     .vision-slider { margin: 3rem auto; position: relative; }
     .vision-viewport { 
       overflow: hidden; border-radius: var(--radius); 
@@ -235,12 +284,10 @@
       <p class="meta">BioLumen · Tria</p>
       <h1>BioLumen™</h1>
       <p class="subtitle">TRIA-CORE™ Inward-Directed Biophotonic Extraction System</p>
-
       <div class="cta">
         <a class="btn primary" href="./Patent_BioLumen.html">VIEW OFFICIAL PATENT LINK ↗</a>
         <a class="btn" href="#possibilities">View Architecture</a>
       </div>
-      
       <div class="tag-row">
         <span class="pill"><strong>Interface:</strong> TRIA-CORE™</span>
         <span class="pill"><strong>Cycle:</strong> Continuous</span>
@@ -255,113 +302,29 @@
             <img src="./Images/blog_images/BioLumen_img/Bio_Lumen_index_image.png">
             <figcaption><strong>BioLoop Integration:</strong> The bridge between sanitary hardware and resource harvesting core.</figcaption>
           </figure>
-          <figure class="vision-slide">
-            <img src="./Images/blog_images/BioLumen_img/Biophotonic_chamber_glass.png">
-            <figcaption><strong>Seat Interface Coupling:</strong> Establishing a seal for localized gas and moisture capture.</figcaption>
-          </figure>
-          <figure class="vision-slide">
-             <img src="./Images/blog_images/BioLumen_img/Futuristic_biophotonic_extraction_system.png">
-             <figcaption><strong>Extraction Manifold:</strong> Internal ducting system routing harvested gases to processing.</figcaption>
-          </figure>
-        </div>
+          </div>
         <button class="vision-btn vision-prev" onclick="moveSlide(-1)">‹</button>
         <button class="vision-btn vision-next" onclick="moveSlide(1)">›</button>
       </div>
     </section>
 
     <section id="possibilities">
-      <h2 style="text-align:center; margin-bottom:3rem; text-transform: uppercase; letter-spacing: 0.2em; font-size:1.5rem; line-height:1.4;">
-        BioLumen™ is a biophotonic extraction architecture designed to capture ultra-weak photon emissions from biological material using inward-directed optical geometry.
-      </h2>
+      <h2 style="text-align:center; margin-bottom:3rem; text-transform: uppercase; letter-spacing: 0.2em; font-size:1.5rem;">Architecture</h2>
       <div class="cards-grid">
-        
         <article class="feature-card">
           <img class="card-media lightbox-trigger" src="./Images/blog_images/BioLumen_img/Biophotonic_Harvesting_System.png">
           <div class="card-body">
             <h3>Biophotonic Harvesting Core</h3>
-            <p>
-            Inward-directed TRIA-CORE™ collector geometry captures ultraweak photon emissions from biological material,
-            redirecting lateral and scattered light into a centralized optical pathway for amplification, sensing,
-            or downstream conversion.
-            </p>
+            <p>Inward-directed TRIA-CORE™ collector geometry captures ultraweak photon emissions.</p>
             <span class="tag">Photon extraction</span>
           </div>
         </article>
-
-        <article class="feature-card">
-          <img class="card-media lightbox-trigger" src="./Images/blog_images/BioLumen_img/Photon_convergence_Tria_Core_panels.png" alt="Ultra-low profile">
-          <div class="card-body">
-            <h3>Ultra-low profile capture surfaces</h3>
-            <p>
-              Thin, planar collection surfaces integrate TRIA-CORE™ geometries and reflective layers,
-              enabling biophoton interception and redirection without bulky housings or protruding hardware.
-            </p>
-            <span class="tag">Low-profile collectors</span>
-          </div>
-        </article>
-
-        <article class="feature-card">
-          <img class="card-media lightbox-trigger" src="./Images/blog_images/BioLumen_img/Biophotonics_action_dual_stimulation.png">
-          <div class="card-body">
-            <h3>Emergency + redundancy</h3>
-            <p>Surfaces with multiple excitation methods—if one fails, another still triggers visibility.</p>
-            <span class="tag">Failsafe modes</span>
-          </div>
-        </article>
-
-        <article class="feature-card">
-          <img class="card-media lightbox-trigger" src="./Images/blog_images/BioLumen_img/Biophoton_routing_futuristic_tech.png" alt="Dual-mode biophotonic stimulation">
-          <div class="card-body">
-            <h3>Dual-mode biophotonic stimulation</h3>
-            <p>
-              Electromagnetic and acoustic excitation operate independently or in combination
-              to stimulate biological material, enabling controlled enhancement of biophoton
-              emission across varying conditions and system states.
-            </p>
-            <span class="tag">Multi-modal excitation</span>
-          </div>
-        </article>
-
-        <article class="feature-card" style="grid-column: 1 / -1; border-color: var(--accent2);">
-           <div style="position:relative; width:100%; padding-bottom:56.25%;">
-            <iframe src="#" style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;" allowfullscreen></iframe>
-           </div>
-        </article>
-
-        <article class="feature-card">
-          <img class="card-media lightbox-trigger" src="./Images/blog_images/BioLumen_img/Biophoton_sensing_feedback_system.png">
-          <div class="card-body">
-            <h3>Photon sensing & feedback</h3>
-            <p>
-              Integrated photonic sensors measure intensity, temporal variation, and spectral
-              characteristics of harvested biophotons, enabling real-time feedback, system tuning,
-              and correlation with biological metabolic states.
-            </p>
-            <span class="tag">Photon sensing</span>
-          </div>
-        </article>
-
-      <article class="feature-card">
-        <img class="card-media lightbox-trigger" src="./Images/blog_images/BioLumen_img/Futuristic_BioLumen_Module_Network_System.png">
-        <div class="card-body">
-          <h3>Modular system integration</h3>
-          <p>
-            BioLumen™ components are designed as modular units that may operate independently
-            or as part of larger arrays, enabling scalable deployment, parallel photon harvesting,
-            and integration with external analytical, control, or energy systems.
-          </p>
-          <span class="tag">Modular architecture</span>
         </div>
-      </article>
-      </div>
     </section>
 
     <footer>
       <img src="../images/negative_white_halocyberlife_logo.png" style="height:40px; margin-bottom:1rem;" />
       <p>© 2026 Halocyberlife · Inventor: Luis Amaya</p>
-      <nav style="margin-top: 1rem;">
-        <a href="../index.html">Home</a> · <a href="../blog.html">Articles</a> · <a href="../contact.html">Contact</a>
-      </nav>
     </footer>
   </main>
 
@@ -373,15 +336,38 @@
   </div>
 
   <script>
+    /* MOBILE NAV TOGGLE LOGIC */
+    const navToggle = document.querySelector('.neon-nav-toggle');
+    const nav = document.getElementById('primary-nav');
+
+    navToggle.addEventListener('click', () => {
+      // Toggle the 'active' class on the menu
+      const isOpen = nav.classList.toggle('active');
+      // Update the button animation state
+      navToggle.setAttribute('aria-expanded', isOpen);
+      // Prevent scrolling when menu is open
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    // Close menu when a link is clicked
+    document.querySelectorAll('.neon-nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', false);
+        document.body.style.overflow = '';
+      });
+    });
+
     /* SLIDER SYSTEM */
     let index = 0;
     const track = document.getElementById('visionTrack');
     const slides = document.querySelectorAll('.vision-slide');
     function moveSlide(n) {
+      if(!track) return;
       index = (index + n + slides.length) % slides.length;
       track.style.transform = `translateX(-${index * 100}%)`;
     }
-    setInterval(() => moveSlide(1), 6000);
+    if(slides.length > 0) setInterval(() => moveSlide(1), 6000);
 
     /* LIGHTBOX SYSTEM */
     const lb = document.getElementById('lightbox');
@@ -397,30 +383,11 @@
       lb.classList.remove('open');
       document.body.style.overflow = '';
     }
-    lb.addEventListener('click', (e) => { if(e.target === lb) closeLightbox(); });
-
-    /* MOBILE NAV TOGGLE */
-    const navToggle = document.querySelector('.neon-nav-toggle');
-    const nav = document.getElementById('primary-nav');
-    navToggle.addEventListener('click', () => {
-      const isOpen = nav.classList.toggle('active');
-      navToggle.setAttribute('aria-expanded', isOpen);
-      document.body.style.overflow = isOpen ? 'hidden' : '';
-    });
-    document.querySelectorAll('.neon-nav a').forEach(link => {
-      link.addEventListener('click', () => {
-        nav.classList.remove('active');
-        navToggle.setAttribute('aria-expanded', false);
-        document.body.style.overflow = '';
-      });
-    });
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape' && nav.classList.contains('active')) {
-        nav.classList.remove('active');
-        navToggle.setAttribute('aria-expanded', false);
-        document.body.style.overflow = '';
-      }
-    });
   </script>
 </body>
 </html>
+
+
+
+
+
