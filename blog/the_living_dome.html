@@ -1,0 +1,1635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>The Living Dome | Halocyberlife</title>
+
+  <meta
+    name="description"
+    content="The Living Dome — a speculative architectural concept exploring programmable transparency, light, water, projection, solar control, and future material environments."
+  />
+
+  <meta name="author" content="Luis Amaya" />
+
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-deep: #02040a;
+      --text: #f9fafb;
+      --muted: #9ca3af;
+      --muted-2: #64748b;
+      --accent: #22d3ee;
+      --accent2: #8b5cf6;
+      --border: rgba(148, 163, 184, 0.25);
+      --panel: rgba(15, 23, 42, 0.58);
+      --panel-dark: rgba(0, 0, 0, 0.34);
+      --radius: 20px;
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
+      --max-width: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Inter,
+        Arial,
+        sans-serif;
+
+      background:
+        radial-gradient(circle at top, #111827 0, #020617 52%, #02040a 100%);
+
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    /* =========================
+       HEADER
+       ========================= */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+
+      background: rgba(0, 0, 0, 0.68);
+      backdrop-filter: blur(14px);
+
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+      padding: 0.9rem 1rem;
+    }
+
+    .header-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.88rem;
+      letter-spacing: 0.08em;
+    }
+
+    .brand img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+    }
+
+    .back-btn {
+      background: rgba(15, 23, 42, 0.6);
+      color: var(--text);
+
+      border: 1px solid var(--border);
+      border-radius: 999px;
+
+      padding: 0.5rem 1.2rem;
+
+      font-size: 0.75rem;
+      font-weight: 600;
+
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+
+      cursor: pointer;
+
+      backdrop-filter: blur(8px);
+
+      transition: all 0.3s ease;
+    }
+
+    .back-btn:hover {
+      border-color: var(--accent);
+
+      background: rgba(34, 211, 238, 0.08);
+
+      color: var(--accent);
+
+      box-shadow: 0 0 22px rgba(34, 211, 238, 0.2);
+
+      transform: translateY(-1px);
+    }
+
+    /* =========================
+       HERO
+       ========================= */
+
+    .hero {
+      position: relative;
+      min-height: 76vh;
+
+      display: flex;
+      align-items: flex-end;
+
+      overflow: hidden;
+
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+
+      background:
+        linear-gradient(
+          to top,
+          rgba(2, 6, 23, 1) 0%,
+          rgba(2, 6, 23, 0.48) 42%,
+          rgba(2, 6, 23, 0.15) 75%
+        ),
+        url("../blog/Images/Living_Dome/hero.jpg")
+        center center / cover no-repeat;
+
+      transform: scale(1.02);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+
+      width: 100%;
+
+      max-width: var(--max-width);
+
+      margin: 0 auto;
+
+      padding: 8rem 1.25rem 4.8rem;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+
+      text-transform: uppercase;
+
+      font-size: 0.78rem;
+      font-weight: 700;
+
+      letter-spacing: 0.18em;
+
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: clamp(2.8rem, 7vw, 6.4rem);
+
+      line-height: 0.95;
+
+      max-width: 980px;
+
+      letter-spacing: -0.045em;
+
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-subtitle {
+      max-width: 760px;
+
+      color: rgba(241, 245, 249, 0.88);
+
+      font-size: clamp(1.05rem, 2vw, 1.4rem);
+
+      line-height: 1.6;
+    }
+
+    .hero-meta {
+      margin-top: 1.8rem;
+
+      display: flex;
+      flex-wrap: wrap;
+
+      gap: 0.75rem;
+
+      color: var(--muted);
+
+      font-size: 0.85rem;
+    }
+
+    .hero-meta span {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+
+      padding: 0.35rem 0.8rem;
+
+      background: rgba(0, 0, 0, 0.25);
+    }
+
+    /* =========================
+       MAIN
+       ========================= */
+
+    main {
+      max-width: var(--max-width);
+
+      margin: 0 auto;
+
+      padding: 4rem 1.25rem 2rem;
+    }
+
+    .intro {
+      max-width: 880px;
+
+      margin: 0 auto 5rem;
+
+      font-size: clamp(1.15rem, 2vw, 1.4rem);
+
+      line-height: 1.9;
+
+      color: rgba(226, 232, 240, 0.94);
+    }
+
+    .intro strong {
+      color: #fff;
+    }
+
+    /* =========================
+       AUTHORSHIP NOTE
+       ========================= */
+
+    .authorship {
+      margin: 0 auto 5rem;
+
+      max-width: 900px;
+
+      padding: 1.1rem 1.3rem;
+
+      border: 1px solid rgba(34, 211, 238, 0.2);
+
+      border-radius: 16px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(34, 211, 238, 0.055),
+          rgba(139, 92, 246, 0.04)
+        );
+
+      color: var(--muted);
+
+      font-size: 0.9rem;
+    }
+
+    .authorship strong {
+      color: var(--text);
+    }
+
+    /* =========================
+       ARTICLE SECTIONS
+       ========================= */
+
+    .article-section {
+      margin: 5.5rem auto;
+
+      max-width: 920px;
+    }
+
+    .article-section h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+
+      line-height: 1.1;
+
+      letter-spacing: -0.03em;
+
+      margin-bottom: 1.3rem;
+    }
+
+    .article-section p {
+      color: #cbd5e1;
+
+      font-size: 1.08rem;
+
+      line-height: 1.85;
+    }
+
+    .article-section p + p {
+      margin-top: 1.25rem;
+    }
+
+    .section-kicker {
+      color: var(--accent);
+
+      font-size: 0.78rem;
+
+      font-weight: 700;
+
+      letter-spacing: 0.16em;
+
+      text-transform: uppercase;
+
+      margin-bottom: 0.8rem;
+    }
+
+    /* =========================
+       FEATURE IMAGE
+       ========================= */
+
+    .visual {
+      margin: 4rem auto 5.5rem;
+    }
+
+    .visual-frame {
+      overflow: hidden;
+
+      border-radius: var(--radius);
+
+      border: 1px solid var(--border);
+
+      box-shadow: var(--shadow);
+
+      background: rgba(0, 0, 0, 0.28);
+    }
+
+    .visual-frame img {
+      width: 100%;
+
+      height: auto;
+
+      transition: transform 0.7s ease;
+    }
+
+    .visual-frame:hover img {
+      transform: scale(1.015);
+    }
+
+    .visual-caption {
+      margin-top: 0.85rem;
+
+      color: var(--muted-2);
+
+      font-size: 0.8rem;
+
+      letter-spacing: 0.02em;
+    }
+
+    /* =========================
+       QUOTE
+       ========================= */
+
+    .concept-quote {
+      max-width: 1000px;
+
+      margin: 6rem auto;
+
+      padding: 3.5rem 2rem;
+
+      text-align: center;
+
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .concept-quote p {
+      font-size: clamp(1.8rem, 4vw, 3.5rem);
+
+      line-height: 1.25;
+
+      letter-spacing: -0.035em;
+
+      color: #f8fafc;
+    }
+
+    .concept-quote span {
+      color: var(--accent);
+    }
+
+    /* =========================
+       MODES GRID
+       ========================= */
+
+    .modes {
+      margin: 6rem auto;
+
+      max-width: 1080px;
+    }
+
+    .modes-header {
+      text-align: center;
+
+      max-width: 760px;
+
+      margin: 0 auto 2.5rem;
+    }
+
+    .modes-header h2 {
+      font-size: clamp(2rem, 4vw, 3.3rem);
+
+      margin-bottom: 1rem;
+    }
+
+    .modes-header p {
+      color: var(--muted);
+    }
+
+    .mode-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
+      gap: 1rem;
+    }
+
+    .mode-card {
+      border: 1px solid var(--border);
+
+      border-radius: 18px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(15, 23, 42, 0.7),
+          rgba(0, 0, 0, 0.36)
+        );
+
+      padding: 1.5rem;
+
+      min-height: 190px;
+
+      transition: all 0.3s ease;
+    }
+
+    .mode-card:hover {
+      border-color: rgba(34, 211, 238, 0.55);
+
+      transform: translateY(-4px);
+
+      box-shadow: 0 0 30px rgba(34, 211, 238, 0.08);
+    }
+
+    .mode-number {
+      color: var(--accent);
+
+      font-size: 0.74rem;
+
+      letter-spacing: 0.12em;
+
+      margin-bottom: 1rem;
+    }
+
+    .mode-card h3 {
+      margin-bottom: 0.7rem;
+
+      font-size: 1.15rem;
+    }
+
+    .mode-card p {
+      color: var(--muted);
+
+      font-size: 0.92rem;
+
+      line-height: 1.65;
+    }
+
+    /* =========================
+       FINAL
+       ========================= */
+
+    .final-section {
+      max-width: 920px;
+
+      margin: 7rem auto 4rem;
+
+      text-align: center;
+    }
+
+    .final-section h2 {
+      font-size: clamp(2.4rem, 5vw, 4.5rem);
+
+      letter-spacing: -0.04em;
+
+      line-height: 1.05;
+
+      margin-bottom: 1.5rem;
+    }
+
+    .final-section p {
+      color: #cbd5e1;
+
+      font-size: 1.1rem;
+
+      max-width: 760px;
+
+      margin: 0 auto;
+    }
+
+    .signature {
+      margin-top: 3rem;
+
+      color: var(--muted);
+
+      font-size: 0.82rem;
+
+      letter-spacing: 0.08em;
+
+      text-transform: uppercase;
+    }
+
+    /* =========================
+       FOOTER
+       ========================= */
+
+    .site-footer {
+      background: #020617;
+
+      border-top: 1px solid rgba(139, 92, 246, 0.25);
+
+      padding: 3rem 0 2.5rem;
+
+      margin-top: 6rem;
+
+      color: rgba(209, 213, 219, 0.9);
+    }
+
+    .footer-inner {
+      display: grid;
+
+      gap: 2.5rem;
+
+      max-width: 980px;
+
+      margin: 0 auto;
+
+      padding: 0 1.25rem;
+    }
+
+    @media (min-width: 768px) {
+      .footer-inner {
+        grid-template-columns: 2fr 1fr 1.2fr;
+        align-items: start;
+      }
+    }
+
+    .footer-column {
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 0.6rem;
+    }
+
+    .footer-brand {
+      display: flex;
+
+      align-items: center;
+
+      gap: 0.7rem;
+
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-logo {
+      width: 34px;
+
+      height: auto;
+
+      filter: drop-shadow(
+        0 0 6px rgba(139, 92, 246, 0.5)
+      );
+    }
+
+    .footer-brand-text {
+      font-weight: 600;
+
+      letter-spacing: 0.12em;
+
+      text-transform: uppercase;
+
+      font-size: 0.8rem;
+
+      color: #fff;
+    }
+
+    .footer-text {
+      font-size: 0.9rem;
+
+      line-height: 1.5;
+
+      color: rgba(209, 213, 219, 0.85);
+    }
+
+    .footer-meta {
+      font-size: 0.78rem;
+
+      color: rgba(148, 163, 184, 0.7);
+
+      margin-top: 0.5rem;
+    }
+
+    .footer-heading {
+      font-size: 0.95rem;
+
+      margin-bottom: 0.4rem;
+
+      color: #fff;
+    }
+
+    .footer-links {
+      list-style: none;
+
+      padding: 0;
+
+      margin: 0;
+
+      font-size: 0.88rem;
+    }
+
+    .footer-links li + li {
+      margin-top: 0.35rem;
+    }
+
+    .footer-links a {
+      color: rgba(209, 213, 219, 0.85);
+
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+
+      text-decoration: underline;
+    }
+
+    .footer-social a {
+      font-size: 0.88rem;
+
+      color: var(--accent);
+
+      text-decoration: none;
+    }
+
+    /* =========================
+       BACK TO TOP
+       ========================= */
+
+    .back-to-top {
+      position: fixed;
+
+      bottom: 30px;
+      right: 30px;
+
+      width: 46px;
+      height: 46px;
+
+      border-radius: 50%;
+
+      background: rgba(15, 23, 42, 0.82);
+
+      color: var(--accent);
+
+      border: 1px solid var(--border);
+
+      font-size: 20px;
+
+      cursor: pointer;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      z-index: 90;
+
+      backdrop-filter: blur(8px);
+
+      transition: all 0.3s ease;
+
+      opacity: 0;
+      visibility: hidden;
+
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      border-color: var(--accent);
+
+      transform: translateY(-4px);
+
+      box-shadow: 0 0 15px rgba(34, 211, 238, 0.4);
+    }
+
+    /* =========================
+       MOBILE
+       ========================= */
+
+    @media (max-width: 700px) {
+
+      .header-inner {
+        align-items: center;
+      }
+
+      .brand span {
+        font-size: 0.75rem;
+      }
+
+      .back-btn {
+        padding: 0.45rem 0.85rem;
+        font-size: 0.66rem;
+      }
+
+      .hero {
+        min-height: 70vh;
+      }
+
+      .hero-content {
+        padding-bottom: 3.2rem;
+      }
+
+      main {
+        padding-top: 3rem;
+      }
+
+      .article-section {
+        margin: 4rem auto;
+      }
+
+      .concept-quote {
+        padding: 2.5rem 1rem;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+     ========================= -->
+
+<header>
+
+  <div class="header-inner">
+
+    <div class="brand">
+
+      <img
+        src="../images/negative_white_halocyberlife_logo.png"
+        alt="Halocyberlife logo"
+      />
+
+      <span>Halocyberlife</span>
+
+    </div>
+
+    <button
+      class="back-btn"
+      type="button"
+      onclick="history.back()"
+    >
+      ← Back
+    </button>
+
+  </div>
+
+</header>
+
+
+
+<!-- =========================
+     HERO
+     ========================= -->
+
+<section class="hero">
+
+  <div class="hero-bg"></div>
+
+  <div class="hero-content">
+
+    <div class="eyebrow">
+      Speculative Architecture · Concept Study
+    </div>
+
+    <h1>
+      The Living Dome
+    </h1>
+
+    <p class="hero-subtitle">
+      What if the space above a swimming pool stopped being
+      simply shelter and became a programmable environment?
+    </p>
+
+    <div class="hero-meta">
+
+      <span>Concept by Luis Amaya</span>
+
+      <span>Halocyberlife</span>
+
+      <span>Future Environments</span>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     ARTICLE
+     ========================= -->
+
+<main>
+
+
+  <section class="intro">
+
+    <p>
+      There is a point where architecture stops being only
+      shelter and begins becoming an <strong>interface</strong>.
+    </p>
+
+    <p style="margin-top:1.5rem;">
+      Imagine a swimming pool beneath an enormous transparent
+      half-dome — not a perfect hemisphere, but an intentionally
+      offset structure that stretches, rises, and changes its
+      geometry around the landscape.
+    </p>
+
+    <p style="margin-top:1.5rem;">
+      During the day, it nearly disappears.
+      At night, it comes alive.
+    </p>
+
+  </section>
+
+
+
+  <!-- AUTHORSHIP -->
+
+  <aside class="authorship">
+
+    <strong>Creative Note:</strong>
+
+    This is an original speculative concept and creative
+    direction by Luis Amaya / Halocyberlife.
+
+    AI tools may be used during the visualization, editorial,
+    and exploration process as part of the creative workflow.
+
+    The concept is presented as artistic and architectural
+    speculation rather than a claim that all illustrated
+    technologies currently exist as one manufactured system.
+
+  </aside>
+
+
+
+  <!-- SECTION 1 -->
+
+  <section class="article-section">
+
+    <div class="section-kicker">
+      01 · The Environment
+    </div>
+
+    <h2>
+      A Transparent Architecture
+    </h2>
+
+    <p>
+      The idea begins with a simple architectural gesture:
+      place a swimming environment beneath a massive
+      transparent shell.
+    </p>
+
+    <p>
+      The material might be glass, polymer, composite,
+      membrane, or something that has not been invented yet.
+    </p>
+
+    <p>
+      For this exploration, the exact material is not the
+      important part.
+    </p>
+
+    <p>
+      The question is what becomes possible when a transparent
+      architectural surface is no longer passive.
+    </p>
+
+  </section>
+
+
+
+  <!-- IMAGE 1 -->
+
+  <figure class="visual">
+
+    <div class="visual-frame">
+
+      <img
+        src="../blog/Images/Living_Dome/01-living-dome.jpg"
+        alt="Speculative transparent living dome above a swimming pool"
+      />
+
+    </div>
+
+    <figcaption class="visual-caption">
+      Concept visualization — speculative architectural study.
+    </figcaption>
+
+  </figure>
+
+
+
+  <!-- SECTION 2 -->
+
+  <section class="article-section">
+
+    <div class="section-kicker">
+      02 · Solar Control
+    </div>
+
+    <h2>
+      Controlling the Sun Without Losing the Sky
+    </h2>
+
+    <p>
+      Imagine looking upward and still seeing an open blue sky,
+      while different areas of the dome respond independently
+      to sunlight.
+    </p>
+
+    <p>
+      Sections facing intense solar exposure could become
+      darker or softer while the rest of the structure remains
+      completely transparent.
+    </p>
+
+    <p>
+      As the sun moves across the sky, the response could move
+      with it.
+    </p>
+
+    <p>
+      Instead of lowering a blind or closing the environment,
+      the architecture itself changes its relationship with
+      light.
+    </p>
+
+  </section>
+
+
+
+  <!-- IMAGE 2 -->
+
+  <figure class="visual">
+
+    <div class="visual-frame">
+
+      <img
+        src="../blog/Images/Living_Dome/02-solar-mode.jpg"
+        alt="Living dome concept showing selective solar control"
+      />
+
+    </div>
+
+    <figcaption class="visual-caption">
+      Solar Mode — conceptual visualization of adaptive transparency.
+    </figcaption>
+
+  </figure>
+
+
+
+  <!-- QUOTE -->
+
+  <section class="concept-quote">
+
+    <p>
+      What if the architecture above the pool became
+      <span>an artificial atmosphere?</span>
+    </p>
+
+  </section>
+
+
+
+  <!-- SECTION 3 -->
+
+  <section class="article-section">
+
+    <div class="section-kicker">
+      03 · BIOGLOW™
+    </div>
+
+    <h2>
+      Light Moving Through the Structure
+    </h2>
+
+    <p>
+      At night, the architecture could become something
+      completely different.
+    </p>
+
+    <p>
+      Imagine BIOGLOW™-inspired illumination traveling through
+      structural ribs, edges, transparent surfaces, or
+      embedded pathways throughout the dome.
+    </p>
+
+    <p>
+      Cyan light begins close to the water and gradually moves
+      upward.
+    </p>
+
+    <p>
+      From outside, the dome might resemble a faint glowing
+      organism resting over the landscape.
+    </p>
+
+    <p>
+      From inside, the water, architecture, illumination,
+      reflections, and sky begin to merge.
+    </p>
+
+  </section>
+
+
+
+  <!-- IMAGE 3 -->
+
+  <figure class="visual">
+
+    <div class="visual-frame">
+
+      <img
+        src="../blog/Images/Living_Dome/03-bioglow-night.jpg"
+        alt="Transparent pool dome illuminated with cyan light at night"
+      />
+
+    </div>
+
+    <figcaption class="visual-caption">
+      BIOGLOW Mode — conceptual nighttime environment.
+    </figcaption>
+
+  </figure>
+
+
+
+  <!-- SECTION 4 -->
+
+  <section class="article-section">
+
+    <div class="section-kicker">
+      04 · Digital Atmosphere
+    </div>
+
+    <h2>
+      What If the Dome Became a Display?
+    </h2>
+
+    <p>
+      Then comes another possibility: imagery.
+    </p>
+
+    <p>
+      Imagine floating in the pool while stars drift across
+      the transparent enclosure overhead.
+    </p>
+
+    <p>
+      A nebula.
+      An artificial sunset.
+      Clouds.
+      Aurora.
+      Abstract light.
+      Digital art.
+    </p>
+
+    <p>
+      At another moment, all of it disappears and the
+      structure becomes transparent again, revealing the real
+      night sky.
+    </p>
+
+    <p>
+      The dome shifts between architecture and canvas.
+    </p>
+
+  </section>
+
+
+
+  <!-- IMAGE 4 -->
+
+  <figure class="visual">
+
+    <div class="visual-frame">
+
+      <img
+        src="../blog/Images/Living_Dome/04-dream-mode.jpg"
+        alt="Pool dome displaying aurora and digital sky imagery"
+      />
+
+    </div>
+
+    <figcaption class="visual-caption">
+      Dream Mode — speculative immersive projection environment.
+    </figcaption>
+
+  </figure>
+
+
+
+  <!-- MODES -->
+
+  <section class="modes">
+
+    <div class="modes-header">
+
+      <div class="section-kicker">
+        Environmental States
+      </div>
+
+      <h2>
+        Architecture With Modes
+      </h2>
+
+      <p>
+        Instead of remaining visually static, the enclosure
+        could take on different identities throughout the day.
+      </p>
+
+    </div>
+
+
+    <div class="mode-grid">
+
+
+      <article class="mode-card">
+
+        <div class="mode-number">
+          MODE 01
+        </div>
+
+        <h3>
+          Clear
+        </h3>
+
+        <p>
+          The shell becomes visually quiet, prioritizing the
+          sky, landscape, and open-air feeling.
+        </p>
+
+      </article>
+
+
+      <article class="mode-card">
+
+        <div class="mode-number">
+          MODE 02
+        </div>
+
+        <h3>
+          Solar
+        </h3>
+
+        <p>
+          Selected regions respond to intense sunlight while
+          surrounding areas remain transparent.
+        </p>
+
+      </article>
+
+
+      <article class="mode-card">
+
+        <div class="mode-number">
+          MODE 03
+        </div>
+
+        <h3>
+          BIOGLOW
+        </h3>
+
+        <p>
+          Structural elements and surfaces become softly
+          luminous after sunset.
+        </p>
+
+      </article>
+
+
+      <article class="mode-card">
+
+        <div class="mode-number">
+          MODE 04
+        </div>
+
+        <h3>
+          Dream
+        </h3>
+
+        <p>
+          Imagery, projection, color, and movement transform
+          the enclosure into an immersive visual environment.
+        </p>
+
+      </article>
+
+
+      <article class="mode-card">
+
+        <div class="mode-number">
+          MODE 05
+        </div>
+
+        <h3>
+          Night Sky
+        </h3>
+
+        <p>
+          Artificial effects disappear and the dome returns to
+          transparency, framing the real stars overhead.
+        </p>
+
+      </article>
+
+
+    </div>
+
+  </section>
+
+
+
+  <!-- SECTION 5 -->
+
+  <section class="article-section">
+
+    <div class="section-kicker">
+      05 · Scale
+    </div>
+
+    <h2>
+      Beyond the Backyard Pool
+    </h2>
+
+    <p>
+      The same architectural idea could exist at very
+      different scales.
+    </p>
+
+    <p>
+      A private residence might use a smaller asymmetric dome
+      extending from the house over an indoor-outdoor pool.
+    </p>
+
+    <p>
+      A hotel could cover an entire courtyard.
+    </p>
+
+    <p>
+      A resort could place water, vegetation, restaurants,
+      gathering spaces, and pathways beneath a huge
+      transparent environment.
+    </p>
+
+    <p>
+      At sufficient scale, the dome stops feeling like a roof.
+    </p>
+
+    <p>
+      It becomes a controlled micro-environment beneath an
+      artificial sky.
+    </p>
+
+  </section>
+
+
+
+  <!-- IMAGE 5 -->
+
+  <figure class="visual">
+
+    <div class="visual-frame">
+
+      <img
+        src="../blog/Images/Living_Dome/05-resort-scale.jpg"
+        alt="Large scale transparent dome covering a futuristic pool resort"
+      />
+
+    </div>
+
+    <figcaption class="visual-caption">
+      Resort-scale interpretation — speculative architectural visualization.
+    </figcaption>
+
+  </figure>
+
+
+
+  <!-- SECTION 6 -->
+
+  <section class="article-section">
+
+    <div class="section-kicker">
+      06 · Speculation
+    </div>
+
+    <h2>
+      The Material Doesn't Have to Exist Yet
+    </h2>
+
+    <p>
+      This concept is not dependent on one specific material.
+    </p>
+
+    <p>
+      It is not presented as a claim that every capability
+      shown here can currently be manufactured as one system.
+    </p>
+
+    <p>
+      It is an architectural thought experiment.
+    </p>
+
+    <p>
+      Architecture normally begins by asking what can be built
+      using the materials available today.
+    </p>
+
+    <p>
+      But the process can also be reversed.
+    </p>
+
+  </section>
+
+
+
+  <!-- QUOTE -->
+
+  <section class="concept-quote">
+
+    <p>
+      Instead of asking,
+      <br><br>
+      “What can we build with the materials we have?”
+      <br><br>
+      ask:
+      <br><br>
+      <span>
+        “What would we build if the material behaved the way
+        we wanted?”
+      </span>
+    </p>
+
+  </section>
+
+
+
+  <!-- FINAL -->
+
+  <section class="final-section">
+
+    <div class="section-kicker">
+      Halocyberlife Concept Study
+    </div>
+
+    <h2>
+      A Pool Beneath an Artificial Sky
+    </h2>
+
+    <p>
+      Maybe the future swimming pool isn't simply a rectangle
+      of water behind a house.
+      Maybe it becomes an environment:
+      water below, a programmable transparent atmosphere
+      above, sunlight during the day, BIOGLOW™ after sunset,
+      digital worlds when desired, and complete transparency
+      when nothing should stand between you and the sky.
+    </p>
+
+    <div class="signature">
+      Concept & Creative Direction · Luis Amaya · Halocyberlife
+    </div>
+
+  </section>
+
+
+</main>
+
+
+
+<!-- =========================
+     FOOTER
+     ========================= -->
+
+<footer class="site-footer">
+
+  <div class="footer-inner">
+
+
+    <div class="footer-column">
+
+      <div class="footer-brand">
+
+        <img
+          src="../images/negative_white_halocyberlife_logo.png"
+          alt="Halocyberlife logo small"
+          class="footer-logo"
+        />
+
+        <span class="footer-brand-text">
+          Halocyberlife
+        </span>
+
+      </div>
+
+      <p class="footer-text">
+        Esoteric insights, experimental tech concepts,
+        speculative architecture, and future-conscious
+        craftsmanship.
+      </p>
+
+      <p class="footer-meta">
+        v2.0.0 · ©
+        <span id="year"></span>
+        Halocyberlife.com
+      </p>
+
+    </div>
+
+
+
+    <div class="footer-column">
+
+      <h3 class="footer-heading">
+        Navigate
+      </h3>
+
+      <ul class="footer-links">
+
+        <li>
+          <a href="../index.html#insights">
+            Latest Insights
+          </a>
+        </li>
+
+        <li>
+          <a href="../blog.html">
+            All Articles
+          </a>
+        </li>
+
+        <li>
+          <a href="../about.html">
+            About
+          </a>
+        </li>
+
+        <li>
+          <a href="../contact_us.html">
+            Contact
+          </a>
+        </li>
+
+        <li>
+          <a href="../policypage.html">
+            Privacy &amp; Terms
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+
+
+
+    <div class="footer-column">
+
+      <h3 class="footer-heading">
+        Contact &amp; Social
+      </h3>
+
+      <ul class="footer-links">
+
+        <li>
+          <span>Email:</span>
+
+          <a href="mailto:luisamaya@halocyberlife.com">
+            luisamaya@halocyberlife.com
+          </a>
+        </li>
+
+      </ul>
+
+      <div class="footer-social">
+
+        <a
+          href="https://www.linkedin.com/in/halocyberlife/"
+          aria-label="LinkedIn"
+        >
+          LinkedIn: halocyberlife/
+        </a>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+  <button
+    class="back-to-top"
+    aria-label="Back to top"
+  >
+    ↑
+  </button>
+
+</footer>
+
+
+
+<!-- =========================
+     JAVASCRIPT
+     ========================= -->
+
+<script>
+
+  /* Dynamic footer year */
+
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+
+
+  /* Back to top */
+
+  const backToTopBtn =
+    document.querySelector(".back-to-top");
+
+
+  window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 400) {
+
+      backToTopBtn.classList.add("show");
+
+    } else {
+
+      backToTopBtn.classList.remove("show");
+
+    }
+
+  });
+
+
+  backToTopBtn.addEventListener("click", () => {
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+  });
+
+</script>
+
+
+</body>
+</html>
