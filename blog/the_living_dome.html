@@ -8,7 +8,7 @@
 
   <meta
     name="description"
-    content="The Living Dome — a speculative architectural concept exploring programmable transparency, light, water, projection, solar control, and future material environments."
+    content="The Living Dome — a speculative Halocyberlife concept exploring programmable architecture, adaptive transparency, BIOGLOW, projection, water, climate response, and artificial skies."
   />
 
   <meta name="author" content="Luis Amaya" />
@@ -16,24 +16,32 @@
   <style>
     :root {
       --bg: #020617;
-      --bg-deep: #02040a;
-      --text: #f9fafb;
-      --muted: #9ca3af;
-      --muted-2: #64748b;
-      --accent: #22d3ee;
-      --accent2: #8b5cf6;
-      --border: rgba(148, 163, 184, 0.25);
-      --panel: rgba(15, 23, 42, 0.58);
-      --panel-dark: rgba(0, 0, 0, 0.34);
-      --radius: 20px;
-      --shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
-      --max-width: 1180px;
+      --bg-deep: #01030a;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+
+      --cyan: #22d3ee;
+      --cyan-soft: rgba(34, 211, 238, 0.12);
+
+      --violet: #8b5cf6;
+      --violet-soft: rgba(139, 92, 246, 0.12);
+
+      --panel: rgba(15, 23, 42, 0.62);
+      --panel-dark: rgba(2, 6, 23, 0.82);
+
+      --border: rgba(148, 163, 184, 0.22);
+
+      --radius: 22px;
+      --shadow: 0 28px 90px rgba(0,0,0,.55);
+
+      --max-width: 1220px;
+      --article-width: 900px;
     }
 
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     html {
@@ -51,42 +59,47 @@
         Arial,
         sans-serif;
 
-      background:
-        radial-gradient(circle at top, #111827 0, #020617 52%, #02040a 100%);
-
       color: var(--text);
+
+      background:
+        radial-gradient(circle at 50% 0%, #111827 0%, #020617 45%, #01030a 100%);
+
       line-height: 1.7;
     }
 
-    img {
-      max-width: 100%;
+    img,
+    video {
       display: block;
+      max-width: 100%;
     }
 
     a {
       color: inherit;
     }
 
-    /* =========================
+
+    /* =========================================================
        HEADER
-       ========================= */
+       ========================================================= */
 
     header {
       position: sticky;
       top: 0;
+
       z-index: 100;
 
-      background: rgba(0, 0, 0, 0.68);
-      backdrop-filter: blur(14px);
+      background: rgba(0,0,0,.68);
+      backdrop-filter: blur(16px);
 
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-
-      padding: 0.9rem 1rem;
+      border-bottom: 1px solid rgba(255,255,255,.07);
     }
 
     .header-inner {
-      max-width: 1400px;
-      margin: 0 auto;
+      width: min(1400px, 100%);
+
+      margin: auto;
+
+      padding: .85rem 1.25rem;
 
       display: flex;
       align-items: center;
@@ -98,453 +111,643 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 0.65rem;
 
+      gap: .7rem;
+
+      font-size: .82rem;
       font-weight: 700;
+
       text-transform: uppercase;
-      font-size: 0.88rem;
-      letter-spacing: 0.08em;
+      letter-spacing: .12em;
     }
 
     .brand img {
       width: 40px;
       height: 40px;
+
       object-fit: contain;
     }
 
     .back-btn {
-      background: rgba(15, 23, 42, 0.6);
-      color: var(--text);
-
       border: 1px solid var(--border);
+
       border-radius: 999px;
 
-      padding: 0.5rem 1.2rem;
+      padding: .5rem 1.1rem;
 
-      font-size: 0.75rem;
-      font-weight: 600;
+      background: rgba(15,23,42,.7);
 
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
+      color: var(--text);
 
       cursor: pointer;
 
-      backdrop-filter: blur(8px);
+      font-size: .72rem;
+      font-weight: 700;
 
-      transition: all 0.3s ease;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+
+      transition: .3s ease;
     }
 
     .back-btn:hover {
-      border-color: var(--accent);
+      color: var(--cyan);
 
-      background: rgba(34, 211, 238, 0.08);
+      border-color: var(--cyan);
 
-      color: var(--accent);
+      background: rgba(34,211,238,.08);
 
-      box-shadow: 0 0 22px rgba(34, 211, 238, 0.2);
+      box-shadow:
+        0 0 22px rgba(34,211,238,.18);
 
       transform: translateY(-1px);
     }
 
-    /* =========================
+
+    /* =========================================================
        HERO
-       ========================= */
+       ========================================================= */
 
     .hero {
       position: relative;
-      min-height: 76vh;
+
+      min-height: 92vh;
 
       display: flex;
       align-items: flex-end;
 
       overflow: hidden;
-
-      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
-    .hero-bg {
+    .hero-media {
+      position: absolute;
+      inset: 0;
+
+      z-index: 0;
+    }
+
+    /*
+      HERO IMAGE PLACEHOLDER
+
+      Replace:
+      ../blog/Images/Living_Dome/hero-living-dome.jpg
+    */
+
+    .hero-media::before {
+      content: "";
+
       position: absolute;
       inset: 0;
 
       background:
         linear-gradient(
           to top,
-          rgba(2, 6, 23, 1) 0%,
-          rgba(2, 6, 23, 0.48) 42%,
-          rgba(2, 6, 23, 0.15) 75%
+          rgba(2,6,23,1) 0%,
+          rgba(2,6,23,.72) 28%,
+          rgba(2,6,23,.24) 68%,
+          rgba(2,6,23,.05) 100%
         ),
-        url("../blog/Images/Living_Dome/hero.jpg")
-        center center / cover no-repeat;
+
+        url("../blog/Images/Living_Dome/hero-living-dome.jpg")
+        center / cover no-repeat;
 
       transform: scale(1.02);
     }
 
     .hero-content {
       position: relative;
+
       z-index: 2;
 
-      width: 100%;
+      width: min(var(--max-width), 100%);
 
-      max-width: var(--max-width);
+      margin: auto;
 
-      margin: 0 auto;
-
-      padding: 8rem 1.25rem 4.8rem;
+      padding:
+        10rem
+        1.25rem
+        5rem;
     }
 
     .eyebrow {
-      color: var(--accent);
+      color: var(--cyan);
 
-      text-transform: uppercase;
-
-      font-size: 0.78rem;
+      font-size: .76rem;
       font-weight: 700;
 
-      letter-spacing: 0.18em;
+      letter-spacing: .19em;
+
+      text-transform: uppercase;
 
       margin-bottom: 1rem;
     }
 
     h1 {
-      font-size: clamp(2.8rem, 7vw, 6.4rem);
+      font-size:
+        clamp(3.2rem, 8vw, 7.2rem);
 
-      line-height: 0.95;
+      max-width: 1000px;
 
-      max-width: 980px;
+      line-height: .92;
 
-      letter-spacing: -0.045em;
+      letter-spacing: -.055em;
 
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.6rem;
     }
 
-    .hero-subtitle {
-      max-width: 760px;
+    .hero-description {
+      max-width: 780px;
 
-      color: rgba(241, 245, 249, 0.88);
+      font-size:
+        clamp(1.08rem, 2vw, 1.45rem);
 
-      font-size: clamp(1.05rem, 2vw, 1.4rem);
-
-      line-height: 1.6;
+      color: rgba(241,245,249,.9);
     }
 
-    .hero-meta {
-      margin-top: 1.8rem;
+    .hero-tags {
+      margin-top: 2rem;
 
       display: flex;
       flex-wrap: wrap;
 
-      gap: 0.75rem;
+      gap: .65rem;
+    }
+
+    .hero-tags span {
+      border: 1px solid var(--border);
+
+      border-radius: 999px;
+
+      padding: .35rem .75rem;
+
+      background: rgba(0,0,0,.26);
 
       color: var(--muted);
 
-      font-size: 0.85rem;
+      font-size: .77rem;
     }
 
-    .hero-meta span {
-      border: 1px solid var(--border);
-      border-radius: 999px;
 
-      padding: 0.35rem 0.8rem;
-
-      background: rgba(0, 0, 0, 0.25);
-    }
-
-    /* =========================
-       MAIN
-       ========================= */
+    /* =========================================================
+       GLOBAL CONTENT
+       ========================================================= */
 
     main {
-      max-width: var(--max-width);
+      width: min(var(--max-width), 100%);
 
-      margin: 0 auto;
+      margin: auto;
 
-      padding: 4rem 1.25rem 2rem;
+      padding: 4rem 1.25rem;
+    }
+
+    .article {
+      max-width: var(--article-width);
+
+      margin: auto;
     }
 
     .intro {
-      max-width: 880px;
-
-      margin: 0 auto 5rem;
-
-      font-size: clamp(1.15rem, 2vw, 1.4rem);
+      font-size:
+        clamp(1.18rem, 2vw, 1.5rem);
 
       line-height: 1.9;
 
-      color: rgba(226, 232, 240, 0.94);
+      color: #dbeafe;
+
+      margin-bottom: 4rem;
     }
 
     .intro strong {
-      color: #fff;
+      color: white;
     }
 
-    /* =========================
-       AUTHORSHIP NOTE
-       ========================= */
 
-    .authorship {
-      margin: 0 auto 5rem;
+    /* =========================================================
+       AUTHORSHIP
+       ========================================================= */
 
-      max-width: 900px;
+    .creative-note {
+      max-width: 920px;
 
-      padding: 1.1rem 1.3rem;
+      margin: 0 auto 5.5rem;
 
-      border: 1px solid rgba(34, 211, 238, 0.2);
+      padding: 1.25rem 1.45rem;
 
-      border-radius: 16px;
+      border-radius: 18px;
+
+      border:
+        1px solid rgba(34,211,238,.22);
 
       background:
         linear-gradient(
           135deg,
-          rgba(34, 211, 238, 0.055),
-          rgba(139, 92, 246, 0.04)
+          rgba(34,211,238,.055),
+          rgba(139,92,246,.05)
         );
 
       color: var(--muted);
 
-      font-size: 0.9rem;
+      font-size: .9rem;
     }
 
-    .authorship strong {
+    .creative-note strong {
       color: var(--text);
     }
 
-    /* =========================
-       ARTICLE SECTIONS
-       ========================= */
 
-    .article-section {
-      margin: 5.5rem auto;
+    /* =========================================================
+       SECTIONS
+       ========================================================= */
 
-      max-width: 920px;
+    .section {
+      max-width: var(--article-width);
+
+      margin: 6rem auto;
     }
 
-    .article-section h2 {
-      font-size: clamp(2rem, 4vw, 3.2rem);
-
-      line-height: 1.1;
-
-      letter-spacing: -0.03em;
-
-      margin-bottom: 1.3rem;
-    }
-
-    .article-section p {
-      color: #cbd5e1;
-
-      font-size: 1.08rem;
-
-      line-height: 1.85;
-    }
-
-    .article-section p + p {
-      margin-top: 1.25rem;
-    }
-
-    .section-kicker {
-      color: var(--accent);
-
-      font-size: 0.78rem;
-
-      font-weight: 700;
-
-      letter-spacing: 0.16em;
+    .section-number {
+      color: var(--cyan);
 
       text-transform: uppercase;
 
-      margin-bottom: 0.8rem;
+      letter-spacing: .18em;
+
+      font-size: .74rem;
+
+      font-weight: 700;
+
+      margin-bottom: .9rem;
     }
 
-    /* =========================
-       FEATURE IMAGE
-       ========================= */
+    .section h2 {
+      font-size:
+        clamp(2.2rem, 5vw, 4rem);
+
+      line-height: 1.07;
+
+      letter-spacing: -.04em;
+
+      margin-bottom: 1.4rem;
+    }
+
+    .section p {
+      color: #cbd5e1;
+
+      font-size: 1.07rem;
+
+      line-height: 1.9;
+    }
+
+    .section p + p {
+      margin-top: 1.35rem;
+    }
+
+
+    /* =========================================================
+       VISUAL PLACEHOLDERS
+       ========================================================= */
 
     .visual {
-      margin: 4rem auto 5.5rem;
+      margin: 5rem auto 6rem;
+
+      width: 100%;
     }
 
     .visual-frame {
+      position: relative;
+
       overflow: hidden;
 
       border-radius: var(--radius);
 
       border: 1px solid var(--border);
 
-      box-shadow: var(--shadow);
+      background: #020617;
 
-      background: rgba(0, 0, 0, 0.28);
+      box-shadow: var(--shadow);
     }
 
     .visual-frame img {
       width: 100%;
-
       height: auto;
 
-      transition: transform 0.7s ease;
+      transition: transform .7s ease;
     }
 
     .visual-frame:hover img {
-      transform: scale(1.015);
+      transform: scale(1.012);
     }
 
     .visual-caption {
-      margin-top: 0.85rem;
+      margin-top: .85rem;
 
-      color: var(--muted-2);
+      color: #64748b;
 
-      font-size: 0.8rem;
-
-      letter-spacing: 0.02em;
+      font-size: .79rem;
     }
 
-    /* =========================
-       QUOTE
-       ========================= */
 
-    .concept-quote {
-      max-width: 1000px;
+    /* =========================================================
+       QUOTES
+       ========================================================= */
 
-      margin: 6rem auto;
+    .quote {
+      max-width: 1050px;
 
-      padding: 3.5rem 2rem;
+      margin: 7rem auto;
+
+      padding: 4rem 1.5rem;
 
       text-align: center;
 
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
+      border-top:
+        1px solid var(--border);
+
+      border-bottom:
+        1px solid var(--border);
     }
 
-    .concept-quote p {
-      font-size: clamp(1.8rem, 4vw, 3.5rem);
+    .quote p {
+      font-size:
+        clamp(2rem, 5vw, 4.2rem);
 
-      line-height: 1.25;
+      line-height: 1.18;
 
-      letter-spacing: -0.035em;
-
-      color: #f8fafc;
+      letter-spacing: -.045em;
     }
 
-    .concept-quote span {
-      color: var(--accent);
+    .quote span {
+      color: var(--cyan);
     }
 
-    /* =========================
-       MODES GRID
-       ========================= */
 
-    .modes {
-      margin: 6rem auto;
+    /* =========================================================
+       SYSTEM MAP
+       ========================================================= */
 
-      max-width: 1080px;
+    .system-map {
+      margin: 7rem auto;
     }
 
-    .modes-header {
+    .system-header {
       text-align: center;
 
-      max-width: 760px;
+      max-width: 780px;
 
-      margin: 0 auto 2.5rem;
+      margin: auto auto 3rem;
     }
 
-    .modes-header h2 {
-      font-size: clamp(2rem, 4vw, 3.3rem);
+    .system-header h2 {
+      font-size:
+        clamp(2.4rem, 5vw, 4rem);
 
       margin-bottom: 1rem;
     }
 
-    .modes-header p {
+    .system-header p {
       color: var(--muted);
+    }
+
+    .system-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(auto-fit, minmax(230px, 1fr));
+
+      gap: 1rem;
+    }
+
+    .system-card {
+      min-height: 210px;
+
+      padding: 1.5rem;
+
+      border-radius: 18px;
+
+      border: 1px solid var(--border);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(15,23,42,.75),
+          rgba(2,6,23,.6)
+        );
+
+      transition: .3s ease;
+    }
+
+    .system-card:hover {
+      transform: translateY(-5px);
+
+      border-color:
+        rgba(34,211,238,.45);
+
+      box-shadow:
+        0 0 35px rgba(34,211,238,.07);
+    }
+
+    .system-icon {
+      color: var(--cyan);
+
+      font-size: .73rem;
+
+      letter-spacing: .14em;
+
+      margin-bottom: 1rem;
+    }
+
+    .system-card h3 {
+      margin-bottom: .65rem;
+
+      font-size: 1.12rem;
+    }
+
+    .system-card p {
+      color: var(--muted);
+
+      font-size: .9rem;
+
+      line-height: 1.7;
+    }
+
+
+    /* =========================================================
+       MODE STRIP
+       ========================================================= */
+
+    .mode-strip {
+      margin: 7rem auto;
     }
 
     .mode-grid {
       display: grid;
 
       grid-template-columns:
-        repeat(auto-fit, minmax(220px, 1fr));
+        repeat(auto-fit, minmax(210px, 1fr));
 
-      gap: 1rem;
+      gap: .8rem;
     }
 
-    .mode-card {
-      border: 1px solid var(--border);
+    .mode {
+      position: relative;
+
+      min-height: 260px;
+
+      overflow: hidden;
 
       border-radius: 18px;
 
+      border: 1px solid var(--border);
+
       background:
         linear-gradient(
-          145deg,
-          rgba(15, 23, 42, 0.7),
-          rgba(0, 0, 0, 0.36)
+          180deg,
+          rgba(255,255,255,.03),
+          rgba(0,0,0,.35)
         );
-
-      padding: 1.5rem;
-
-      min-height: 190px;
-
-      transition: all 0.3s ease;
     }
 
-    .mode-card:hover {
-      border-color: rgba(34, 211, 238, 0.55);
+    .mode img {
+      width: 100%;
 
-      transform: translateY(-4px);
+      aspect-ratio: 4 / 3;
 
-      box-shadow: 0 0 30px rgba(34, 211, 238, 0.08);
+      object-fit: cover;
     }
 
-    .mode-number {
-      color: var(--accent);
-
-      font-size: 0.74rem;
-
-      letter-spacing: 0.12em;
-
-      margin-bottom: 1rem;
+    .mode-content {
+      padding: 1rem;
     }
 
-    .mode-card h3 {
-      margin-bottom: 0.7rem;
-
-      font-size: 1.15rem;
+    .mode-content h3 {
+      margin-bottom: .4rem;
     }
 
-    .mode-card p {
+    .mode-content p {
       color: var(--muted);
 
-      font-size: 0.92rem;
-
-      line-height: 1.65;
+      font-size: .85rem;
     }
 
-    /* =========================
-       FINAL
-       ========================= */
 
-    .final-section {
-      max-width: 920px;
+    /* =========================================================
+       VIDEO SECTION
+       ========================================================= */
 
-      margin: 7rem auto 4rem;
+    .video-section {
+      margin: 8rem auto;
 
       text-align: center;
     }
 
-    .final-section h2 {
-      font-size: clamp(2.4rem, 5vw, 4.5rem);
+    .video-section h2 {
+      font-size:
+        clamp(2.5rem, 6vw, 5rem);
 
-      letter-spacing: -0.04em;
+      letter-spacing: -.045em;
 
-      line-height: 1.05;
+      line-height: 1.04;
+
+      margin-bottom: 1.2rem;
+    }
+
+    .video-section > p {
+      max-width: 720px;
+
+      margin:
+        0 auto 2.5rem;
+
+      color: var(--muted);
+    }
+
+    .video-wrapper {
+      position: relative;
+
+      aspect-ratio: 16 / 9;
+
+      border-radius: 22px;
+
+      overflow: hidden;
+
+      border: 1px solid var(--border);
+
+      background:
+        radial-gradient(
+          circle at center,
+          rgba(34,211,238,.08),
+          rgba(2,6,23,.96)
+        );
+
+      box-shadow: var(--shadow);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /*
+      VIDEO PLACEHOLDER
+
+      Later replace this placeholder DIV with:
+
+      <video controls poster="../blog/Images/Living_Dome/video-poster.jpg">
+        <source
+          src="../blog/Videos/Living_Dome/living-dome-concept.mp4"
+          type="video/mp4"
+        >
+      </video>
+    */
+
+    .video-placeholder {
+      text-align: center;
+
+      padding: 2rem;
+
+      color: var(--muted);
+    }
+
+    .video-placeholder strong {
+      display: block;
+
+      color: var(--cyan);
+
+      font-size: 1.3rem;
+
+      margin-bottom: .5rem;
+    }
+
+
+    /* =========================================================
+       FINAL
+       ========================================================= */
+
+    .final {
+      margin: 8rem auto 4rem;
+
+      max-width: 960px;
+
+      text-align: center;
+    }
+
+    .final h2 {
+      font-size:
+        clamp(3rem, 7vw, 6rem);
+
+      line-height: .98;
+
+      letter-spacing: -.055em;
 
       margin-bottom: 1.5rem;
     }
 
-    .final-section p {
+    .final p {
+      max-width: 800px;
+
+      margin: auto;
+
       color: #cbd5e1;
 
       font-size: 1.1rem;
-
-      max-width: 760px;
-
-      margin: 0 auto;
     }
 
     .signature {
@@ -552,27 +755,28 @@
 
       color: var(--muted);
 
-      font-size: 0.82rem;
+      font-size: .78rem;
 
-      letter-spacing: 0.08em;
+      letter-spacing: .12em;
 
       text-transform: uppercase;
     }
 
-    /* =========================
+
+    /* =========================================================
        FOOTER
-       ========================= */
+       ========================================================= */
 
     .site-footer {
       background: #020617;
 
-      border-top: 1px solid rgba(139, 92, 246, 0.25);
+      border-top:
+        1px solid rgba(139,92,246,.25);
 
-      padding: 3rem 0 2.5rem;
+      padding:
+        3rem 0 2.5rem;
 
       margin-top: 6rem;
-
-      color: rgba(209, 213, 219, 0.9);
     }
 
     .footer-inner {
@@ -582,156 +786,129 @@
 
       max-width: 980px;
 
-      margin: 0 auto;
+      margin: auto;
 
       padding: 0 1.25rem;
     }
 
     @media (min-width: 768px) {
       .footer-inner {
-        grid-template-columns: 2fr 1fr 1.2fr;
-        align-items: start;
+        grid-template-columns:
+          2fr 1fr 1.2fr;
       }
     }
 
     .footer-column {
       display: flex;
-
       flex-direction: column;
 
-      gap: 0.6rem;
+      gap: .6rem;
     }
 
     .footer-brand {
       display: flex;
-
       align-items: center;
 
-      gap: 0.7rem;
-
-      margin-bottom: 0.5rem;
+      gap: .7rem;
     }
 
     .footer-logo {
       width: 34px;
 
-      height: auto;
-
-      filter: drop-shadow(
-        0 0 6px rgba(139, 92, 246, 0.5)
-      );
+      filter:
+        drop-shadow(
+          0 0 6px rgba(139,92,246,.5)
+        );
     }
 
     .footer-brand-text {
+      color: white;
+
+      font-size: .8rem;
       font-weight: 600;
 
-      letter-spacing: 0.12em;
+      letter-spacing: .12em;
 
       text-transform: uppercase;
-
-      font-size: 0.8rem;
-
-      color: #fff;
     }
 
     .footer-text {
-      font-size: 0.9rem;
+      color:
+        rgba(209,213,219,.85);
 
-      line-height: 1.5;
-
-      color: rgba(209, 213, 219, 0.85);
+      font-size: .9rem;
     }
 
     .footer-meta {
-      font-size: 0.78rem;
+      color:
+        rgba(148,163,184,.7);
 
-      color: rgba(148, 163, 184, 0.7);
-
-      margin-top: 0.5rem;
+      font-size: .78rem;
     }
 
     .footer-heading {
-      font-size: 0.95rem;
+      color: white;
 
-      margin-bottom: 0.4rem;
+      font-size: .95rem;
 
-      color: #fff;
+      margin-bottom: .4rem;
     }
 
     .footer-links {
       list-style: none;
 
-      padding: 0;
-
-      margin: 0;
-
-      font-size: 0.88rem;
+      font-size: .88rem;
     }
 
     .footer-links li + li {
-      margin-top: 0.35rem;
+      margin-top: .35rem;
     }
 
     .footer-links a {
-      color: rgba(209, 213, 219, 0.85);
+      color:
+        rgba(209,213,219,.85);
 
       text-decoration: none;
     }
 
     .footer-links a:hover {
-      color: var(--accent);
-
-      text-decoration: underline;
+      color: var(--cyan);
     }
 
-    .footer-social a {
-      font-size: 0.88rem;
 
-      color: var(--accent);
-
-      text-decoration: none;
-    }
-
-    /* =========================
+    /* =========================================================
        BACK TO TOP
-       ========================= */
+       ========================================================= */
 
     .back-to-top {
       position: fixed;
 
-      bottom: 30px;
       right: 30px;
+      bottom: 30px;
 
       width: 46px;
       height: 46px;
 
       border-radius: 50%;
 
-      background: rgba(15, 23, 42, 0.82);
-
-      color: var(--accent);
-
       border: 1px solid var(--border);
 
-      font-size: 20px;
+      background:
+        rgba(15,23,42,.82);
+
+      color: var(--cyan);
 
       cursor: pointer;
 
-      display: flex;
-
-      align-items: center;
-      justify-content: center;
-
       z-index: 90;
-
-      backdrop-filter: blur(8px);
-
-      transition: all 0.3s ease;
 
       opacity: 0;
       visibility: hidden;
 
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      transition: .3s ease;
+
+      box-shadow:
+        0 4px 20px rgba(0,0,0,.4);
     }
 
     .back-to-top.show {
@@ -740,50 +917,51 @@
     }
 
     .back-to-top:hover {
-      border-color: var(--accent);
+      transform:
+        translateY(-4px);
 
-      transform: translateY(-4px);
+      border-color:
+        var(--cyan);
 
-      box-shadow: 0 0 15px rgba(34, 211, 238, 0.4);
+      box-shadow:
+        0 0 18px rgba(34,211,238,.3);
     }
 
-    /* =========================
+
+    /* =========================================================
        MOBILE
-       ========================= */
+       ========================================================= */
 
     @media (max-width: 700px) {
 
-      .header-inner {
-        align-items: center;
-      }
-
-      .brand span {
-        font-size: 0.75rem;
-      }
-
-      .back-btn {
-        padding: 0.45rem 0.85rem;
-        font-size: 0.66rem;
-      }
-
       .hero {
-        min-height: 70vh;
+        min-height: 78vh;
       }
 
       .hero-content {
-        padding-bottom: 3.2rem;
+        padding-bottom: 3.5rem;
       }
 
       main {
         padding-top: 3rem;
       }
 
-      .article-section {
-        margin: 4rem auto;
+      .section {
+        margin: 4.5rem auto;
       }
 
-      .concept-quote {
-        padding: 2.5rem 1rem;
+      .quote {
+        margin: 5rem auto;
+
+        padding: 3rem 1rem;
+      }
+
+      .brand span {
+        font-size: .7rem;
+      }
+
+      .back-btn {
+        font-size: .65rem;
       }
     }
 
@@ -794,9 +972,9 @@
 <body>
 
 
-<!-- =========================
+<!-- =========================================================
      HEADER
-     ========================= -->
+     ========================================================= -->
 
 <header>
 
@@ -807,16 +985,19 @@
       <img
         src="../images/negative_white_halocyberlife_logo.png"
         alt="Halocyberlife logo"
-      />
+      >
 
-      <span>Halocyberlife</span>
+      <span>
+        Halocyberlife
+      </span>
 
     </div>
 
+
     <button
       class="back-btn"
-      type="button"
       onclick="history.back()"
+      type="button"
     >
       ← Back
     </button>
@@ -827,36 +1008,52 @@
 
 
 
-<!-- =========================
+<!-- =========================================================
      HERO
-     ========================= -->
+     ========================================================= -->
 
 <section class="hero">
 
-  <div class="hero-bg"></div>
+  <div class="hero-media"></div>
+
 
   <div class="hero-content">
 
     <div class="eyebrow">
-      Speculative Architecture · Concept Study
+      Speculative Architecture · Future Environments
     </div>
+
 
     <h1>
       The Living Dome
     </h1>
 
-    <p class="hero-subtitle">
-      What if the space above a swimming pool stopped being
-      simply shelter and became a programmable environment?
+
+    <p class="hero-description">
+
+      What if architecture did not simply separate us from the
+      environment — but learned how to negotiate with it?
+
     </p>
 
-    <div class="hero-meta">
 
-      <span>Concept by Luis Amaya</span>
+    <div class="hero-tags">
 
-      <span>Halocyberlife</span>
+      <span>
+        Concept by Luis Amaya
+      </span>
 
-      <span>Future Environments</span>
+      <span>
+        Halocyberlife
+      </span>
+
+      <span>
+        Programmable Atmosphere
+      </span>
+
+      <span>
+        Concept Study
+      </span>
 
     </div>
 
@@ -866,333 +1063,851 @@
 
 
 
-<!-- =========================
-     ARTICLE
-     ========================= -->
+<!-- =========================================================
+     MAIN
+     ========================================================= -->
 
 <main>
 
 
-  <section class="intro">
+  <!-- INTRO -->
+
+  <section class="article intro">
 
     <p>
-      There is a point where architecture stops being only
-      shelter and begins becoming an <strong>interface</strong>.
+
+      Imagine a swimming environment beneath an enormous
+      transparent shell.
+
+      Not a traditional greenhouse.
+
+      Not simply a pool enclosure.
+
+      A structure capable of responding to sunlight, air,
+      water, light, imagery, weather, and human presence.
+
     </p>
 
-    <p style="margin-top:1.5rem;">
-      Imagine a swimming pool beneath an enormous transparent
-      half-dome — not a perfect hemisphere, but an intentionally
-      offset structure that stretches, rises, and changes its
-      geometry around the landscape.
-    </p>
 
     <p style="margin-top:1.5rem;">
-      During the day, it nearly disappears.
-      At night, it comes alive.
+
+      The Living Dome begins with one architectural question:
+
+      <strong>
+        what happens when the surface surrounding us becomes
+        programmable?
+      </strong>
+
     </p>
 
   </section>
 
 
 
-  <!-- AUTHORSHIP -->
+  <!-- CREATIVE NOTE -->
 
-  <aside class="authorship">
+  <aside class="creative-note">
 
-    <strong>Creative Note:</strong>
+    <strong>
+      Creative Note:
+    </strong>
 
-    This is an original speculative concept and creative
-    direction by Luis Amaya / Halocyberlife.
+    The Living Dome is an original speculative architectural
+    concept and creative direction by Luis Amaya /
+    Halocyberlife.
 
-    AI tools may be used during the visualization, editorial,
-    and exploration process as part of the creative workflow.
+    AI-assisted visualization and editorial tools may be used
+    as part of the creative workflow.
 
-    The concept is presented as artistic and architectural
-    speculation rather than a claim that all illustrated
-    technologies currently exist as one manufactured system.
+    This project is presented as conceptual exploration rather
+    than a claim that every illustrated capability currently
+    exists as one manufactured architectural system.
 
   </aside>
 
 
 
-  <!-- SECTION 1 -->
+  <!-- =======================================================
+       01
+       ======================================================= -->
 
-  <section class="article-section">
+  <section class="section">
 
-    <div class="section-kicker">
-      01 · The Environment
+    <div class="section-number">
+      01 · The Shell
     </div>
 
+
     <h2>
-      A Transparent Architecture
+      Architecture That Almost Disappears
     </h2>
 
-    <p>
-      The idea begins with a simple architectural gesture:
-      place a swimming environment beneath a massive
-      transparent shell.
-    </p>
 
     <p>
-      The material might be glass, polymer, composite,
-      membrane, or something that has not been invented yet.
+
+      The dome would not need to follow a perfect hemisphere.
+
+      Its geometry could stretch, tilt, rise, and descend around
+      the landscape.
+
     </p>
 
-    <p>
-      For this exploration, the exact material is not the
-      important part.
-    </p>
 
     <p>
-      The question is what becomes possible when a transparent
-      architectural surface is no longer passive.
+
+      One side might disappear into vegetation while another
+      rises dramatically above the pool.
+
+      The structure becomes a transparent landscape rather
+      than an object placed on top of one.
+
     </p>
 
   </section>
 
 
 
-  <!-- IMAGE 1 -->
+  <!-- IMAGE PLACEHOLDER 01 -->
 
   <figure class="visual">
 
     <div class="visual-frame">
 
       <img
-        src="../blog/Images/Living_Dome/01-living-dome.jpg"
-        alt="Speculative transparent living dome above a swimming pool"
-      />
+        src="../blog/Images/Living_Dome/01-clear-architecture.jpg"
+        alt="Living Dome clear architecture concept"
+      >
 
     </div>
 
     <figcaption class="visual-caption">
-      Concept visualization — speculative architectural study.
+      IMAGE 01 · Clear Mode — transparent architecture integrated into the landscape.
     </figcaption>
 
   </figure>
 
 
 
-  <!-- SECTION 2 -->
+  <!-- =======================================================
+       02
+       ======================================================= -->
 
-  <section class="article-section">
+  <section class="section">
 
-    <div class="section-kicker">
-      02 · Solar Control
+    <div class="section-number">
+      02 · Adaptive Light
     </div>
 
+
     <h2>
-      Controlling the Sun Without Losing the Sky
+      Shade Without Losing the Sky
     </h2>
 
-    <p>
-      Imagine looking upward and still seeing an open blue sky,
-      while different areas of the dome respond independently
-      to sunlight.
-    </p>
 
     <p>
-      Sections facing intense solar exposure could become
-      darker or softer while the rest of the structure remains
-      completely transparent.
+
+      Instead of closing blinds or covering the environment,
+      portions of the shell could conceptually react to solar
+      intensity.
+
     </p>
 
-    <p>
-      As the sun moves across the sky, the response could move
-      with it.
-    </p>
 
     <p>
-      Instead of lowering a blind or closing the environment,
-      the architecture itself changes its relationship with
-      light.
+
+      Imagine a region of reduced transmission moving slowly
+      across the dome as the sun travels overhead.
+
+      The rest of the enclosure remains clear.
+
+    </p>
+
+
+    <p>
+
+      From inside, the experience could feel almost impossible:
+
+      shade without visually losing the sky.
+
     </p>
 
   </section>
 
 
 
-  <!-- IMAGE 2 -->
+  <!-- IMAGE PLACEHOLDER 02 -->
 
   <figure class="visual">
 
     <div class="visual-frame">
 
       <img
-        src="../blog/Images/Living_Dome/02-solar-mode.jpg"
-        alt="Living dome concept showing selective solar control"
-      />
+        src="../blog/Images/Living_Dome/02-solar-tracking.jpg"
+        alt="Living Dome adaptive solar tracking concept"
+      >
 
     </div>
 
     <figcaption class="visual-caption">
-      Solar Mode — conceptual visualization of adaptive transparency.
+      IMAGE 02 · Solar Mode — localized adaptive shading following the sun.
     </figcaption>
 
   </figure>
 
 
 
-  <!-- QUOTE -->
+  <!-- BIG IDEA -->
 
-  <section class="concept-quote">
+  <section class="quote">
 
     <p>
-      What if the architecture above the pool became
-      <span>an artificial atmosphere?</span>
+
+      Most architecture controls nature by
+      <span>separating us from it.</span>
+
+      <br><br>
+
+      What if architecture could
+      <span>negotiate with it instead?</span>
+
     </p>
 
   </section>
 
 
 
-  <!-- SECTION 3 -->
+  <!-- =======================================================
+       03
+       ======================================================= -->
 
-  <section class="article-section">
+  <section class="section">
 
-    <div class="section-kicker">
-      03 · BIOGLOW™
+    <div class="section-number">
+      03 · Breath
     </div>
 
+
     <h2>
-      Light Moving Through the Structure
+      A Dome That Can Breathe
     </h2>
 
-    <p>
-      At night, the architecture could become something
-      completely different.
-    </p>
 
     <p>
-      Imagine BIOGLOW™-inspired illumination traveling through
-      structural ribs, edges, transparent surfaces, or
-      embedded pathways throughout the dome.
+
+      The enclosure does not necessarily need to remain sealed.
+
+      Openings near the lower perimeter and high points of the
+      shell could create controlled natural airflow.
+
     </p>
 
-    <p>
-      Cyan light begins close to the water and gradually moves
-      upward.
-    </p>
 
     <p>
-      From outside, the dome might resemble a faint glowing
-      organism resting over the landscape.
+
+      Warm air rises.
+
+      Cooler air enters below.
+
+      Under the right conditions, the enclosure behaves more
+      like an open pavilion.
+
+      During difficult weather, it becomes protective again.
+
     </p>
 
+
     <p>
-      From inside, the water, architecture, illumination,
-      reflections, and sky begin to merge.
+
+      The architecture shifts between open air and controlled
+      environment depending on what the moment requires.
+
     </p>
 
   </section>
 
 
 
-  <!-- IMAGE 3 -->
+  <!-- IMAGE PLACEHOLDER 03 -->
 
   <figure class="visual">
 
     <div class="visual-frame">
 
       <img
-        src="../blog/Images/Living_Dome/03-bioglow-night.jpg"
-        alt="Transparent pool dome illuminated with cyan light at night"
-      />
+        src="../blog/Images/Living_Dome/03-breathing-dome.jpg"
+        alt="Living Dome natural ventilation concept"
+      >
 
     </div>
 
     <figcaption class="visual-caption">
-      BIOGLOW Mode — conceptual nighttime environment.
+      IMAGE 03 · Breath Mode — controlled openings and natural airflow.
     </figcaption>
 
   </figure>
 
 
 
-  <!-- SECTION 4 -->
+  <!-- =======================================================
+       04
+       ======================================================= -->
 
-  <section class="article-section">
+  <section class="section">
 
-    <div class="section-kicker">
-      04 · Digital Atmosphere
+    <div class="section-number">
+      04 · BIOGLOW™
     </div>
 
+
     <h2>
-      What If the Dome Became a Display?
+      When the Structure Becomes Light
     </h2>
 
-    <p>
-      Then comes another possibility: imagery.
-    </p>
 
     <p>
-      Imagine floating in the pool while stars drift across
-      the transparent enclosure overhead.
+
+      At sunset, the architecture changes character.
+
     </p>
 
+
     <p>
-      A nebula.
-      An artificial sunset.
+
+      BIOGLOW™-inspired illumination could conceptually move
+      through structural ribs, transparent surfaces, water
+      edges, pathways, and architectural transitions.
+
+    </p>
+
+
+    <p>
+
+      Instead of simply illuminating the building, the light
+      becomes part of its geometry.
+
+    </p>
+
+
+    <p>
+
+      Reflections duplicate those patterns across the water.
+
+      The structure begins to resemble a luminous organism.
+
+    </p>
+
+  </section>
+
+
+
+  <!-- IMAGE PLACEHOLDER 04 -->
+
+  <figure class="visual">
+
+    <div class="visual-frame">
+
+      <img
+        src="../blog/Images/Living_Dome/04-bioglow.jpg"
+        alt="Living Dome BIOGLOW illumination concept"
+      >
+
+    </div>
+
+    <figcaption class="visual-caption">
+      IMAGE 04 · BIOGLOW Mode — illumination moving through structural geometry.
+    </figcaption>
+
+  </figure>
+
+
+
+  <!-- =======================================================
+       05
+       ======================================================= -->
+
+  <section class="section">
+
+    <div class="section-number">
+      05 · Dream Mode
+    </div>
+
+
+    <h2>
+      An Artificial Sky
+    </h2>
+
+
+    <p>
+
+      The transparent shell becomes a new kind of canvas.
+
+    </p>
+
+
+    <p>
+
+      Stars.
+
       Clouds.
+
       Aurora.
-      Abstract light.
-      Digital art.
+
+      Artificial sunsets.
+
+      Generative art.
+
+      Scientific visualization.
+
+      Abstract worlds.
+
     </p>
 
-    <p>
-      At another moment, all of it disappears and the
-      structure becomes transparent again, revealing the real
-      night sky.
-    </p>
 
     <p>
-      The dome shifts between architecture and canvas.
+
+      You could float in real water beneath a digital
+      atmosphere.
+
+    </p>
+
+
+    <p>
+
+      And when the projection disappears, the real sky returns.
+
     </p>
 
   </section>
 
 
 
-  <!-- IMAGE 4 -->
+  <!-- IMAGE PLACEHOLDER 05 -->
 
   <figure class="visual">
 
     <div class="visual-frame">
 
       <img
-        src="../blog/Images/Living_Dome/04-dream-mode.jpg"
-        alt="Pool dome displaying aurora and digital sky imagery"
-      />
+        src="../blog/Images/Living_Dome/05-dream-sky.jpg"
+        alt="Living Dome artificial sky projection concept"
+      >
 
     </div>
 
     <figcaption class="visual-caption">
-      Dream Mode — speculative immersive projection environment.
+      IMAGE 05 · Dream Mode — immersive artificial sky and environmental projection.
     </figcaption>
 
   </figure>
 
 
 
-  <!-- MODES -->
+  <!-- =======================================================
+       06
+       ======================================================= -->
 
-  <section class="modes">
+  <section class="section">
 
-    <div class="modes-header">
+    <div class="section-number">
+      06 · Volumetric Light
+    </div>
 
-      <div class="section-kicker">
+
+    <h2>
+      Projection Does Not Have to Stay on the Surface
+    </h2>
+
+
+    <p>
+
+      Waterfalls and controlled mist introduce another layer.
+
+    </p>
+
+
+    <p>
+
+      Fine mist can become part of the visual environment.
+
+      Light can appear suspended between the water and the
+      dome.
+
+    </p>
+
+
+    <p>
+
+      The experience begins to develop three visual layers:
+
+      the water below,
+
+      luminous atmosphere around the body,
+
+      and a digital sky overhead.
+
+    </p>
+
+  </section>
+
+
+
+  <!-- IMAGE PLACEHOLDER 06 -->
+
+  <figure class="visual">
+
+    <div class="visual-frame">
+
+      <img
+        src="../blog/Images/Living_Dome/06-volumetric-light.jpg"
+        alt="Living Dome mist and volumetric light concept"
+      >
+
+    </div>
+
+    <figcaption class="visual-caption">
+      IMAGE 06 · Volumetric Mode — projection, mist, water, and atmosphere layered together.
+    </figcaption>
+
+  </figure>
+
+
+
+  <!-- =======================================================
+       07
+       ======================================================= -->
+
+  <section class="section">
+
+    <div class="section-number">
+      07 · Water Architecture
+    </div>
+
+
+    <h2>
+      The Pool Becomes a Small World
+    </h2>
+
+
+    <p>
+
+      The dome does not have to contain a single rectangular
+      pool.
+
+    </p>
+
+
+    <p>
+
+      Waterfalls, shallow platforms, submerged lounges,
+      swimming zones, thermal areas, gardens, fire features,
+      and architecture can all occupy the same environment.
+
+    </p>
+
+
+    <p>
+
+      The dome becomes the atmospheric boundary around an
+      entire landscape.
+
+    </p>
+
+  </section>
+
+
+
+  <!-- IMAGE PLACEHOLDER 07 -->
+
+  <figure class="visual">
+
+    <div class="visual-frame">
+
+      <img
+        src="../blog/Images/Living_Dome/07-water-world.jpg"
+        alt="Living Dome water architecture concept"
+      >
+
+    </div>
+
+    <figcaption class="visual-caption">
+      IMAGE 07 · Water World — pools, waterfalls, gardens, seating, and architecture inside one environment.
+    </figcaption>
+
+  </figure>
+
+
+
+  <!-- =======================================================
+       08
+       ======================================================= -->
+
+  <section class="section">
+
+    <div class="section-number">
+      08 · Environmental Intelligence
+    </div>
+
+
+    <h2>
+      Architecture With Behavior
+    </h2>
+
+
+    <p>
+
+      Now imagine the environment sensing itself.
+
+    </p>
+
+
+    <p>
+
+      Sunlight.
+
+      Temperature.
+
+      Humidity.
+
+      UV.
+
+      Wind.
+
+      Air quality.
+
+      Water temperature.
+
+      Occupancy.
+
+    </p>
+
+
+    <p>
+
+      Instead of requiring someone to operate every feature
+      manually, an environmental intelligence layer could
+      coordinate the experience.
+
+    </p>
+
+  </section>
+
+
+
+  <!-- =======================================================
+       SYSTEM MAP
+       ======================================================= -->
+
+  <section class="system-map">
+
+    <div class="system-header">
+
+      <div class="section-number">
+        Living System
+      </div>
+
+
+      <h2>
+        One Environment. Many Layers.
+      </h2>
+
+
+      <p>
+        The concept becomes interesting when the individual
+        technologies stop behaving like separate gadgets and
+        begin acting as one environment.
+      </p>
+
+    </div>
+
+
+    <div class="system-grid">
+
+
+      <article class="system-card">
+
+        <div class="system-icon">
+          SYSTEM 01
+        </div>
+
+        <h3>
+          Adaptive Transparency
+        </h3>
+
+        <p>
+          Localized control of sunlight and visual openness.
+        </p>
+
+      </article>
+
+
+      <article class="system-card">
+
+        <div class="system-icon">
+          SYSTEM 02
+        </div>
+
+        <h3>
+          Natural Ventilation
+        </h3>
+
+        <p>
+          Controlled low and high openings allow the dome to
+          breathe.
+        </p>
+
+      </article>
+
+
+      <article class="system-card">
+
+        <div class="system-icon">
+          SYSTEM 03
+        </div>
+
+        <h3>
+          BIOGLOW™
+        </h3>
+
+        <p>
+          Architectural illumination integrated into the
+          structural language.
+        </p>
+
+      </article>
+
+
+      <article class="system-card">
+
+        <div class="system-icon">
+          SYSTEM 04
+        </div>
+
+        <h3>
+          Dream Projection
+        </h3>
+
+        <p>
+          The enclosure becomes an immersive digital
+          atmosphere.
+        </p>
+
+      </article>
+
+
+      <article class="system-card">
+
+        <div class="system-icon">
+          SYSTEM 05
+        </div>
+
+        <h3>
+          Volumetric Light
+        </h3>
+
+        <p>
+          Mist and water introduce luminous layers within the
+          occupied space.
+        </p>
+
+      </article>
+
+
+      <article class="system-card">
+
+        <div class="system-icon">
+          SYSTEM 06
+        </div>
+
+        <h3>
+          Water Intelligence
+        </h3>
+
+        <p>
+          Temperature, movement, filtration, waterfalls, and
+          lighting become coordinated.
+        </p>
+
+      </article>
+
+
+      <article class="system-card">
+
+        <div class="system-icon">
+          SYSTEM 07
+        </div>
+
+        <h3>
+          Rain Harvesting
+        </h3>
+
+        <p>
+          Water traveling over the shell could conceptually be
+          collected and reused within the surrounding
+          landscape.
+        </p>
+
+      </article>
+
+
+      <article class="system-card">
+
+        <div class="system-icon">
+          SYSTEM 08
+        </div>
+
+        <h3>
+          Energy Layer
+        </h3>
+
+        <p>
+          Selected solar-facing surfaces could potentially
+          participate in energy collection without sacrificing
+          transparency everywhere.
+        </p>
+
+      </article>
+
+
+      <article class="system-card">
+
+        <div class="system-icon">
+          SYSTEM 09
+        </div>
+
+        <h3>
+          Environmental AI
+        </h3>
+
+        <p>
+          Sensors and automation coordinate environmental
+          states instead of controlling every component
+          separately.
+        </p>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =======================================================
+       MODES
+       ======================================================= -->
+
+  <section class="mode-strip">
+
+
+    <div class="system-header">
+
+      <div class="section-number">
         Environmental States
       </div>
 
       <h2>
-        Architecture With Modes
+        The Dome Has Modes
       </h2>
-
-      <p>
-        Instead of remaining visually static, the enclosure
-        could take on different identities throughout the day.
-      </p>
 
     </div>
 
@@ -1200,95 +1915,114 @@
     <div class="mode-grid">
 
 
-      <article class="mode-card">
+      <article class="mode">
 
-        <div class="mode-number">
-          MODE 01
+        <img
+          src="../blog/Images/Living_Dome/mode-clear.jpg"
+          alt="Clear Mode"
+        >
+
+        <div class="mode-content">
+
+          <h3>
+            Clear
+          </h3>
+
+          <p>
+            Maximum transparency.
+          </p>
+
         </div>
-
-        <h3>
-          Clear
-        </h3>
-
-        <p>
-          The shell becomes visually quiet, prioritizing the
-          sky, landscape, and open-air feeling.
-        </p>
 
       </article>
 
 
-      <article class="mode-card">
+      <article class="mode">
 
-        <div class="mode-number">
-          MODE 02
+        <img
+          src="../blog/Images/Living_Dome/mode-solar.jpg"
+          alt="Solar Mode"
+        >
+
+        <div class="mode-content">
+
+          <h3>
+            Solar
+          </h3>
+
+          <p>
+            Adaptive response to sunlight.
+          </p>
+
         </div>
-
-        <h3>
-          Solar
-        </h3>
-
-        <p>
-          Selected regions respond to intense sunlight while
-          surrounding areas remain transparent.
-        </p>
 
       </article>
 
 
-      <article class="mode-card">
+      <article class="mode">
 
-        <div class="mode-number">
-          MODE 03
+        <img
+          src="../blog/Images/Living_Dome/mode-bioglow.jpg"
+          alt="BIOGLOW Mode"
+        >
+
+        <div class="mode-content">
+
+          <h3>
+            BIOGLOW
+          </h3>
+
+          <p>
+            Structural illumination.
+          </p>
+
         </div>
-
-        <h3>
-          BIOGLOW
-        </h3>
-
-        <p>
-          Structural elements and surfaces become softly
-          luminous after sunset.
-        </p>
 
       </article>
 
 
-      <article class="mode-card">
+      <article class="mode">
 
-        <div class="mode-number">
-          MODE 04
+        <img
+          src="../blog/Images/Living_Dome/mode-dream.jpg"
+          alt="Dream Mode"
+        >
+
+        <div class="mode-content">
+
+          <h3>
+            Dream
+          </h3>
+
+          <p>
+            Artificial sky and immersive imagery.
+          </p>
+
         </div>
-
-        <h3>
-          Dream
-        </h3>
-
-        <p>
-          Imagery, projection, color, and movement transform
-          the enclosure into an immersive visual environment.
-        </p>
 
       </article>
 
 
-      <article class="mode-card">
+      <article class="mode">
 
-        <div class="mode-number">
-          MODE 05
+        <img
+          src="../blog/Images/Living_Dome/mode-stars.jpg"
+          alt="Night Sky Mode"
+        >
+
+        <div class="mode-content">
+
+          <h3>
+            Night Sky
+          </h3>
+
+          <p>
+            Technology disappears. The real universe returns.
+          </p>
+
         </div>
 
-        <h3>
-          Night Sky
-        </h3>
-
-        <p>
-          Artificial effects disappear and the dome returns to
-          transparency, framing the real stars overhead.
-        </p>
-
       </article>
-
 
     </div>
 
@@ -1296,155 +2030,208 @@
 
 
 
-  <!-- SECTION 5 -->
+  <!-- =======================================================
+       RAIN / ENERGY
+       ======================================================= -->
 
-  <section class="article-section">
+  <section class="section">
 
-    <div class="section-kicker">
-      05 · Scale
+    <div class="section-number">
+      09 · Resource Cycle
     </div>
+
 
     <h2>
-      Beyond the Backyard Pool
+      Rain Becomes Part of the Architecture
     </h2>
 
-    <p>
-      The same architectural idea could exist at very
-      different scales.
-    </p>
 
     <p>
-      A private residence might use a smaller asymmetric dome
-      extending from the house over an indoor-outdoor pool.
+
+      Rain striking the shell does not necessarily need to
+      become runoff.
+
     </p>
 
-    <p>
-      A hotel could cover an entire courtyard.
-    </p>
 
     <p>
-      A resort could place water, vegetation, restaurants,
-      gathering spaces, and pathways beneath a huge
-      transparent environment.
+
+      Water could follow integrated channels along structural
+      ribs toward collection zones.
+
+      It could then conceptually participate in irrigation,
+      landscape systems, decorative water features, or other
+      reuse strategies.
+
     </p>
 
-    <p>
-      At sufficient scale, the dome stops feeling like a roof.
-    </p>
 
     <p>
-      It becomes a controlled micro-environment beneath an
-      artificial sky.
+
+      The enclosure stops thinking of weather as something to
+      block.
+
+      Weather becomes input.
+
     </p>
 
   </section>
 
 
 
-  <!-- IMAGE 5 -->
+  <!-- IMAGE PLACEHOLDER 08 -->
 
   <figure class="visual">
 
     <div class="visual-frame">
 
       <img
-        src="../blog/Images/Living_Dome/05-resort-scale.jpg"
-        alt="Large scale transparent dome covering a futuristic pool resort"
-      />
+        src="../blog/Images/Living_Dome/08-rain-system.jpg"
+        alt="Living Dome rain harvesting concept"
+      >
 
     </div>
 
     <figcaption class="visual-caption">
-      Resort-scale interpretation — speculative architectural visualization.
+      IMAGE 08 · Rain Cycle — water moving through the shell and landscape.
     </figcaption>
 
   </figure>
 
 
 
-  <!-- SECTION 6 -->
+  <!-- =======================================================
+       AI BEHAVIOR
+       ======================================================= -->
 
-  <section class="article-section">
+  <section class="quote">
 
-    <div class="section-kicker">
-      06 · Speculation
+    <p>
+
+      Sunlight becomes intense.
+
+      <br>
+
+      <span>The architecture responds.</span>
+
+      <br><br>
+
+      Wind changes.
+
+      <br>
+
+      <span>The architecture responds.</span>
+
+      <br><br>
+
+      Night arrives.
+
+      <br>
+
+      <span>The architecture becomes something else.</span>
+
+    </p>
+
+  </section>
+
+
+
+  <!-- =======================================================
+       VIDEO FUTURE PLACEHOLDER
+       ======================================================= -->
+
+  <section class="video-section">
+
+    <div class="section-number">
+      Future Film
     </div>
 
+
     <h2>
-      The Material Doesn't Have to Exist Yet
+      Watch the Sky Transform
     </h2>
 
-    <p>
-      This concept is not dependent on one specific material.
-    </p>
 
     <p>
-      It is not presented as a claim that every capability
-      shown here can currently be manufactured as one system.
+
+      This future concept film will show the dome transitioning
+      from daylight transparency into solar response,
+      BIOGLOW™, mist projection, artificial skies, and finally
+      complete transparency beneath the real stars.
+
     </p>
 
-    <p>
-      It is an architectural thought experiment.
-    </p>
 
-    <p>
-      Architecture normally begins by asking what can be built
-      using the materials available today.
-    </p>
+    <div class="video-wrapper">
 
-    <p>
-      But the process can also be reversed.
-    </p>
+      <div class="video-placeholder">
+
+        <strong>
+          VIDEO PLACEHOLDER
+        </strong>
+
+        Future Living Dome concept film
+
+        <br>
+
+        16:9 cinematic sequence
+
+      </div>
+
+    </div>
 
   </section>
 
 
 
-  <!-- QUOTE -->
+  <!-- =======================================================
+       FINAL
+       ======================================================= -->
 
-  <section class="concept-quote">
+  <section class="final">
 
-    <p>
-      Instead of asking,
-      <br><br>
-      “What can we build with the materials we have?”
-      <br><br>
-      ask:
-      <br><br>
-      <span>
-        “What would we build if the material behaved the way
-        we wanted?”
-      </span>
-    </p>
-
-  </section>
-
-
-
-  <!-- FINAL -->
-
-  <section class="final-section">
-
-    <div class="section-kicker">
+    <div class="section-number">
       Halocyberlife Concept Study
     </div>
 
+
     <h2>
-      A Pool Beneath an Artificial Sky
+      More Than a Pool.
+      <br>
+      A Living Environment.
     </h2>
 
+
     <p>
-      Maybe the future swimming pool isn't simply a rectangle
-      of water behind a house.
-      Maybe it becomes an environment:
-      water below, a programmable transparent atmosphere
-      above, sunlight during the day, BIOGLOW™ after sunset,
-      digital worlds when desired, and complete transparency
-      when nothing should stand between you and the sky.
+
+      Water below.
+
+      Light around you.
+
+      A programmable atmosphere overhead.
+
+      Sunlight when desired.
+
+      Shade when needed.
+
+      Air moving through the architecture.
+
+      Rain becoming a resource.
+
+      BIOGLOW™ after sunset.
+
+      Digital worlds appearing across the sky.
+
+      And when the technology disappears, the real stars
+      remain.
+
     </p>
 
+
     <div class="signature">
+
       Concept & Creative Direction · Luis Amaya · Halocyberlife
+
     </div>
 
   </section>
@@ -1454,9 +2241,9 @@
 
 
 
-<!-- =========================
+<!-- =========================================================
      FOOTER
-     ========================= -->
+     ========================================================= -->
 
 <footer class="site-footer">
 
@@ -1469,9 +2256,9 @@
 
         <img
           src="../images/negative_white_halocyberlife_logo.png"
-          alt="Halocyberlife logo small"
+          alt="Halocyberlife logo"
           class="footer-logo"
-        />
+        >
 
         <span class="footer-brand-text">
           Halocyberlife
@@ -1479,16 +2266,22 @@
 
       </div>
 
+
       <p class="footer-text">
-        Esoteric insights, experimental tech concepts,
-        speculative architecture, and future-conscious
+
+        Esoteric insights, experimental technologies,
+        speculative environments, and future-conscious
         craftsmanship.
+
       </p>
 
+
       <p class="footer-meta">
+
         v2.0.0 · ©
         <span id="year"></span>
         Halocyberlife.com
+
       </p>
 
     </div>
@@ -1500,6 +2293,7 @@
       <h3 class="footer-heading">
         Navigate
       </h3>
+
 
       <ul class="footer-links">
 
@@ -1545,17 +2339,19 @@
         Contact &amp; Social
       </h3>
 
+
       <ul class="footer-links">
 
         <li>
-          <span>Email:</span>
 
           <a href="mailto:luisamaya@halocyberlife.com">
             luisamaya@halocyberlife.com
           </a>
+
         </li>
 
       </ul>
+
 
       <div class="footer-social">
 
@@ -1585,13 +2381,13 @@
 
 
 
-<!-- =========================
+<!-- =========================================================
      JAVASCRIPT
-     ========================= -->
+     ========================================================= -->
 
 <script>
 
-  /* Dynamic footer year */
+  /* Dynamic year */
 
   document.getElementById("year").textContent =
     new Date().getFullYear();
