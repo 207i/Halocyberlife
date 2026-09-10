@@ -2480,6 +2480,42 @@ modePreview.addEventListener("mouseleave", () => {
   }, 250);
 
 });
+  
+  /* Mode hover preview */
+
+const modePreview =
+  document.getElementById("modePreview");
+
+const modePreviewImage =
+  document.getElementById("modePreviewImage");
+
+const modeImages =
+  document.querySelectorAll(".mode img");
+
+
+modeImages.forEach((image) => {
+
+  image.addEventListener("mouseenter", () => {
+
+    modePreviewImage.src = image.src;
+    modePreviewImage.alt = image.alt;
+
+    modePreview.classList.add("show");
+
+  });
+
+});
+
+
+modePreview.addEventListener("mouseleave", () => {
+
+  modePreview.classList.remove("show");
+
+  setTimeout(() => {
+    modePreviewImage.src = "";
+  }, 250);
+
+});
   /* Dynamic year */
 
   document.getElementById("year").textContent =
@@ -2518,5 +2554,8 @@ modePreview.addEventListener("mouseleave", () => {
   });
 
 </script>
+  <div class="mode-preview" id="modePreview">
+  <img id="modePreviewImage" src="" alt="Expanded mode preview">
+</div>
 </body>
 </html>
