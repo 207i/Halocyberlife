@@ -2716,6 +2716,30 @@
     }
   );
 
+  <script>
+
+  const mobileMenu =
+    document.getElementById("mobile-menu");
+
+  const navList =
+    document.getElementById("nav-list");
+
+
+  mobileMenu.addEventListener("click", () => {
+
+    navList.classList.toggle("active");
+
+    const isOpen =
+      navList.classList.contains("active");
+
+    mobileMenu.setAttribute(
+      "aria-expanded",
+      isOpen
+    );
+
+  });
+
+</script>
 </script>
 
 
