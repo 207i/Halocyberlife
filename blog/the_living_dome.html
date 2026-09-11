@@ -168,7 +168,30 @@
       transform: translateY(-1px);
     }
 
+    @media (max-width: 768px) {
 
+  .neon-nav {
+    display: none;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: .8rem;
+  }
+
+  .neon-nav.active {
+    display: flex;
+  }
+
+  .back-btn {
+    margin-left: 0;
+
+    width: 100%;
+  }
+
+}
+    
     /* =========================================================
        HERO
        ========================================================= */
