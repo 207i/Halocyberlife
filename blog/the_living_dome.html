@@ -1096,31 +1096,78 @@
      HEADER
      ========================================================= -->
 
-<header>
+<header class="neon-header">
 
-  <div class="header-inner">
+  <div class="container neon-header-inner">
 
-    <div class="brand">
+    <!-- BRAND -->
+    <a href="../index.html" class="neon-brand">
 
       <img
         src="../images/negative_white_halocyberlife_logo.png"
         alt="Halocyberlife logo"
+        class="neon-logo"
       >
 
       <span>
         Halocyberlife
       </span>
 
-    </div>
+    </a>
 
 
+    <!-- MOBILE MENU -->
     <button
-      class="back-btn"
-      onclick="history.back()"
+      class="menu-toggle"
+      id="mobile-menu"
       type="button"
+      aria-label="Toggle navigation"
+      aria-expanded="false"
     >
-      ← Back
+      <span></span>
+      <span></span>
+      <span></span>
     </button>
+
+
+    <!-- NAVIGATION -->
+    <nav
+      class="neon-nav"
+      id="nav-list"
+    >
+
+      <a
+        href="../index.html"
+        class="neon-link color-blue"
+      >
+        Home
+      </a>
+
+      <a
+        href="../blog.html"
+        class="neon-link color-cyan"
+      >
+        Articles
+      </a>
+
+      <a
+        href="../contact_us.html"
+        class="neon-link color-gold"
+      >
+        Contact
+      </a>
+
+
+      <!-- BACK BUTTON -->
+      <button
+        class="back-btn"
+        onclick="history.back()"
+        type="button"
+      >
+        ← Back
+      </button>
+
+    </nav>
 
   </div>
 
