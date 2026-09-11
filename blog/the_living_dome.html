@@ -87,64 +87,79 @@
        HEADER
        ========================================================= */
 
-    header {
+    .neon-header {
       position: sticky;
       top: 0;
-
       z-index: 100;
 
-      background: rgba(0,0,0,.68);
+      background: rgba(0, 0, 0, .72);
       backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
 
-      border-bottom: 1px solid rgba(255,255,255,.07);
+      border-bottom:
+        1px solid rgba(255,255,255,.07);
     }
 
-    .header-inner {
-      width: min(1400px, 100%);
+    .container {
+      width: min(1400px, calc(100% - 2.5rem));
+      margin-inline: auto;
+    }
 
-      margin: auto;
-
-      padding: .85rem 1.25rem;
+    .neon-header-inner {
+      min-height: 68px;
 
       display: flex;
       align-items: center;
       justify-content: space-between;
 
-      gap: 1rem;
+      gap: 1.5rem;
     }
 
-    .brand {
+    .neon-brand {
       display: flex;
       align-items: center;
 
       gap: .7rem;
 
+      color: var(--text);
+      text-decoration: none;
+
       font-size: .82rem;
       font-weight: 700;
 
-      text-transform: uppercase;
       letter-spacing: .12em;
+      text-transform: uppercase;
+
+      flex-shrink: 0;
     }
 
-    .brand img {
+    .neon-logo {
       width: 40px;
       height: 40px;
 
       object-fit: contain;
+
+      filter:
+        drop-shadow(
+          0 0 8px rgba(139,92,246,.35)
+        );
     }
 
-    .back-btn {
-      border: 1px solid var(--border);
+    .neon-nav {
+      display: flex;
+      align-items: center;
 
-      border-radius: 999px;
+      gap: .35rem;
+    }
 
-      padding: .5rem 1.1rem;
+    .neon-link {
+      position: relative;
 
-      background: rgba(15,23,42,.7);
+      padding: .5rem .75rem;
 
-      color: var(--text);
+      color: rgba(226,232,240,.85);
 
-      cursor: pointer;
+      text-decoration: none;
 
       font-size: .72rem;
       font-weight: 700;
@@ -152,46 +167,168 @@
       letter-spacing: .1em;
       text-transform: uppercase;
 
-      transition: .3s ease;
+      transition:
+        color .25s ease,
+        text-shadow .25s ease;
+    }
+
+    .neon-link::after {
+      content: "";
+
+      position: absolute;
+
+      left: .75rem;
+      right: .75rem;
+      bottom: .2rem;
+
+      height: 1px;
+
+      background: currentColor;
+
+      transform: scaleX(0);
+      transform-origin: center;
+
+      transition:
+        transform .25s ease;
+    }
+
+    .neon-link:hover::after {
+      transform: scaleX(1);
+    }
+
+    .color-blue:hover {
+      color: #60a5fa;
+
+      text-shadow:
+        0 0 14px rgba(96,165,250,.45);
+    }
+
+    .color-cyan:hover {
+      color: var(--cyan);
+
+      text-shadow:
+        0 0 14px rgba(34,211,238,.45);
+    }
+
+    .color-gold:hover {
+      color: #fbbf24;
+
+      text-shadow:
+        0 0 14px rgba(251,191,36,.4);
+    }
+
+    .back-btn {
+      margin-left: .6rem;
+
+      border:
+        1px solid rgba(34,211,238,.28);
+
+      border-radius: 999px;
+
+      padding: .48rem 1rem;
+
+      background:
+        rgba(15,23,42,.65);
+
+      color: var(--text);
+
+      cursor: pointer;
+
+      font-size: .7rem;
+      font-weight: 700;
+
+      letter-spacing: .1em;
+      text-transform: uppercase;
+
+      transition:
+        color .25s ease,
+        border-color .25s ease,
+        background .25s ease,
+        box-shadow .25s ease,
+        transform .25s ease;
     }
 
     .back-btn:hover {
       color: var(--cyan);
 
-      border-color: var(--cyan);
+      border-color:
+        rgba(34,211,238,.8);
 
-      background: rgba(34,211,238,.08);
+      background:
+        rgba(34,211,238,.08);
 
       box-shadow:
         0 0 22px rgba(34,211,238,.18);
 
-      transform: translateY(-1px);
+      transform:
+        translateY(-1px);
     }
 
-    @media (max-width: 768px) {
+    .menu-toggle {
+      display: none;
 
-  .neon-nav {
-    display: none;
+      width: 44px;
+      height: 40px;
 
-    flex-direction: column;
+      border:
+        1px solid rgba(148,163,184,.22);
 
-    align-items: stretch;
+      border-radius: 12px;
 
-    gap: .8rem;
-  }
+      background:
+        rgba(15,23,42,.72);
 
-  .neon-nav.active {
-    display: flex;
-  }
+      cursor: pointer;
 
-  .back-btn {
-    margin-left: 0;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
 
-    width: 100%;
-  }
+      gap: 5px;
 
-}
-    
+      transition:
+        border-color .25s ease,
+        background .25s ease;
+    }
+
+    .menu-toggle:hover {
+      border-color:
+        rgba(34,211,238,.55);
+
+      background:
+        rgba(34,211,238,.06);
+    }
+
+    .menu-toggle span {
+      width: 19px;
+      height: 2px;
+
+      border-radius: 999px;
+
+      background: var(--text);
+
+      transition:
+        transform .25s ease,
+        opacity .25s ease;
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+      transform:
+        translateY(7px)
+        rotate(45deg);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+      transform:
+        translateY(-7px)
+        rotate(-45deg);
+    }
+
+
     /* =========================================================
        HERO
        ========================================================= */
@@ -228,7 +365,6 @@
           rgba(2,6,23,.24) 68%,
           rgba(2,6,23,.05) 100%
         ),
-
         url("../blog/Images/Living_Dome/hero-living-dome.jpg")
         center / cover no-repeat;
 
@@ -257,7 +393,6 @@
       font-weight: 700;
 
       letter-spacing: .19em;
-
       text-transform: uppercase;
 
       margin-bottom: 1rem;
@@ -282,7 +417,8 @@
       font-size:
         clamp(1.08rem, 2vw, 1.45rem);
 
-      color: rgba(241,245,249,.9);
+      color:
+        rgba(241,245,249,.9);
     }
 
     .hero-tags {
@@ -295,13 +431,15 @@
     }
 
     .hero-tags span {
-      border: 1px solid var(--border);
+      border:
+        1px solid var(--border);
 
       border-radius: 999px;
 
       padding: .35rem .75rem;
 
-      background: rgba(0,0,0,.26);
+      background:
+        rgba(0,0,0,.26);
 
       color: var(--muted);
 
@@ -322,7 +460,8 @@
     }
 
     .article {
-      max-width: var(--article-width);
+      max-width:
+        var(--article-width);
 
       margin: auto;
     }
@@ -350,9 +489,11 @@
     .creative-note {
       max-width: 920px;
 
-      margin: 0 auto 5.5rem;
+      margin:
+        0 auto 5.5rem;
 
-      padding: 1.25rem 1.45rem;
+      padding:
+        1.25rem 1.45rem;
 
       border-radius: 18px;
 
@@ -381,9 +522,11 @@
        ========================================================= */
 
     .section {
-      max-width: var(--article-width);
+      max-width:
+        var(--article-width);
 
-      margin: 6rem auto;
+      margin:
+        6rem auto;
     }
 
     .section-number {
@@ -394,7 +537,6 @@
       letter-spacing: .18em;
 
       font-size: .74rem;
-
       font-weight: 700;
 
       margin-bottom: .9rem;
@@ -429,7 +571,8 @@
        ========================================================= */
 
     .visual {
-      margin: 5rem auto 6rem;
+      margin:
+        5rem auto 6rem;
 
       width: 100%;
     }
@@ -439,24 +582,29 @@
 
       overflow: hidden;
 
-      border-radius: var(--radius);
+      border-radius:
+        var(--radius);
 
-      border: 1px solid var(--border);
+      border:
+        1px solid var(--border);
 
       background: #020617;
 
-      box-shadow: var(--shadow);
+      box-shadow:
+        var(--shadow);
     }
 
     .visual-frame img {
       width: 100%;
       height: auto;
 
-      transition: transform .7s ease;
+      transition:
+        transform .7s ease;
     }
 
     .visual-frame:hover img {
-      transform: scale(1.012);
+      transform:
+        scale(1.012);
     }
 
     .visual-caption {
@@ -475,9 +623,11 @@
     .quote {
       max-width: 1050px;
 
-      margin: 7rem auto;
+      margin:
+        7rem auto;
 
-      padding: 4rem 1.5rem;
+      padding:
+        4rem 1.5rem;
 
       text-align: center;
 
@@ -507,7 +657,8 @@
        ========================================================= */
 
     .system-map {
-      margin: 7rem auto;
+      margin:
+        7rem auto;
     }
 
     .system-header {
@@ -515,7 +666,8 @@
 
       max-width: 780px;
 
-      margin: auto auto 3rem;
+      margin:
+        auto auto 3rem;
     }
 
     .system-header h2 {
@@ -533,7 +685,10 @@
       display: grid;
 
       grid-template-columns:
-        repeat(auto-fit, minmax(230px, 1fr));
+        repeat(
+          auto-fit,
+          minmax(230px, 1fr)
+        );
 
       gap: 1rem;
     }
@@ -545,7 +700,8 @@
 
       border-radius: 18px;
 
-      border: 1px solid var(--border);
+      border:
+        1px solid var(--border);
 
       background:
         linear-gradient(
@@ -554,17 +710,20 @@
           rgba(2,6,23,.6)
         );
 
-      transition: .3s ease;
+      transition:
+        .3s ease;
     }
 
     .system-card:hover {
-      transform: translateY(-5px);
+      transform:
+        translateY(-5px);
 
       border-color:
         rgba(34,211,238,.45);
 
       box-shadow:
-        0 0 35px rgba(34,211,238,.07);
+        0 0 35px
+        rgba(34,211,238,.07);
     }
 
     .system-icon {
@@ -597,14 +756,18 @@
        ========================================================= */
 
     .mode-strip {
-      margin: 7rem auto;
+      margin:
+        7rem auto;
     }
 
     .mode-grid {
       display: grid;
 
       grid-template-columns:
-        repeat(auto-fit, minmax(210px, 1fr));
+        repeat(
+          auto-fit,
+          minmax(210px, 1fr)
+        );
 
       gap: .8rem;
     }
@@ -618,7 +781,8 @@
 
       border-radius: 18px;
 
-      border: 1px solid var(--border);
+      border:
+        1px solid var(--border);
 
       background:
         linear-gradient(
@@ -634,19 +798,22 @@
     }
 
     .mode:hover {
-      transform: translateY(-4px);
+      transform:
+        translateY(-4px);
 
       border-color:
         rgba(34,211,238,.42);
 
       box-shadow:
-        0 20px 45px rgba(0,0,0,.28);
+        0 20px 45px
+        rgba(0,0,0,.28);
     }
 
     .mode img {
       width: 100%;
 
-      aspect-ratio: 4 / 3;
+      aspect-ratio:
+        4 / 3;
 
       object-fit: cover;
 
@@ -658,7 +825,8 @@
     }
 
     .mode:hover img {
-      transform: scale(1.025);
+      transform:
+        scale(1.025);
 
       filter:
         brightness(1.04)
@@ -695,9 +863,13 @@
       padding: 2rem;
 
       background:
-        rgba(2, 6, 23, 0.76);
+        rgba(2,6,23,.76);
 
-      backdrop-filter: blur(12px);
+      backdrop-filter:
+        blur(12px);
+
+      -webkit-backdrop-filter:
+        blur(12px);
 
       opacity: 0;
       visibility: hidden;
@@ -717,7 +889,9 @@
     }
 
     .mode-preview img {
-      width: min(760px, 82vw);
+      width:
+        min(760px, 82vw);
+
       max-width: 760px;
       max-height: 72vh;
 
@@ -726,7 +900,8 @@
       border-radius: 20px;
 
       border:
-        1px solid rgba(148,163,184,.28);
+        1px solid
+        rgba(148,163,184,.28);
 
       background: #020617;
 
@@ -757,11 +932,12 @@
 
 
     /* =========================================================
-       VIDEO SECTION
+       VIDEO
        ========================================================= */
 
     .video-section {
-      margin: 8rem auto;
+      margin:
+        8rem auto;
 
       text-align: center;
     }
@@ -789,13 +965,15 @@
     .video-wrapper {
       position: relative;
 
-      aspect-ratio: 16 / 9;
+      aspect-ratio:
+        16 / 9;
 
       border-radius: 22px;
 
       overflow: hidden;
 
-      border: 1px solid var(--border);
+      border:
+        1px solid var(--border);
 
       background:
         radial-gradient(
@@ -804,7 +982,8 @@
           rgba(2,6,23,.96)
         );
 
-      box-shadow: var(--shadow);
+      box-shadow:
+        var(--shadow);
 
       display: flex;
       align-items: center;
@@ -835,7 +1014,8 @@
        ========================================================= */
 
     .final {
-      margin: 8rem auto 4rem;
+      margin:
+        8rem auto 4rem;
 
       max-width: 960px;
 
@@ -901,7 +1081,8 @@
 
       margin: auto;
 
-      padding: 0 1.25rem;
+      padding:
+        0 1.25rem;
     }
 
     @media (min-width: 768px) {
@@ -930,7 +1111,8 @@
 
       filter:
         drop-shadow(
-          0 0 6px rgba(139,92,246,.5)
+          0 0 6px
+          rgba(139,92,246,.5)
         );
     }
 
@@ -977,26 +1159,15 @@
       margin-top: .35rem;
     }
 
-    .footer-links a {
-      color:
-        rgba(209,213,219,.85);
-
-      text-decoration: none;
-    }
-
-    .footer-links a:hover {
-      color: var(--cyan);
-    }
-
+    .footer-links a,
     .footer-social a {
       color:
         rgba(209,213,219,.85);
 
       text-decoration: none;
-
-      font-size: .88rem;
     }
 
+    .footer-links a:hover,
     .footer-social a:hover {
       color: var(--cyan);
     }
@@ -1017,7 +1188,8 @@
 
       border-radius: 50%;
 
-      border: 1px solid var(--border);
+      border:
+        1px solid var(--border);
 
       background:
         rgba(15,23,42,.82);
@@ -1034,7 +1206,8 @@
       transition: .3s ease;
 
       box-shadow:
-        0 4px 20px rgba(0,0,0,.4);
+        0 4px 20px
+        rgba(0,0,0,.4);
     }
 
     .back-to-top.show {
@@ -1050,12 +1223,118 @@
         var(--cyan);
 
       box-shadow:
-        0 0 18px rgba(34,211,238,.3);
+        0 0 18px
+        rgba(34,211,238,.3);
     }
 
 
     /* =========================================================
-       MOBILE
+       MOBILE HEADER
+       ========================================================= */
+
+    @media (max-width: 768px) {
+
+      .container {
+        width:
+          min(100% - 2rem, 1400px);
+      }
+
+      .neon-header-inner {
+        position: relative;
+
+        min-height: 64px;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .neon-nav {
+        position: absolute;
+
+        top:
+          calc(100% + 1px);
+
+        left: 0;
+        right: 0;
+
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: .4rem;
+
+        padding: 1rem;
+
+        background:
+          rgba(2,6,23,.97);
+
+        border:
+          1px solid rgba(148,163,184,.15);
+
+        border-top: none;
+
+        border-radius:
+          0 0 18px 18px;
+
+        box-shadow:
+          0 25px 60px
+          rgba(0,0,0,.55);
+
+        opacity: 0;
+        visibility: hidden;
+
+        pointer-events: none;
+
+        transform:
+          translateY(-8px);
+
+        transition:
+          opacity .22s ease,
+          transform .22s ease,
+          visibility .22s ease;
+      }
+
+      .neon-nav.active {
+        opacity: 1;
+        visibility: visible;
+
+        pointer-events: auto;
+
+        transform:
+          translateY(0);
+      }
+
+      .neon-link {
+        padding:
+          .8rem .9rem;
+
+        border-radius: 10px;
+      }
+
+      .neon-link:hover {
+        background:
+          rgba(255,255,255,.035);
+      }
+
+      .neon-link::after {
+        display: none;
+      }
+
+      .back-btn {
+        margin-left: 0;
+        margin-top: .35rem;
+
+        width: 100%;
+
+        padding:
+          .75rem 1rem;
+      }
+    }
+
+
+    /* =========================================================
+       MOBILE CONTENT
        ========================================================= */
 
     @media (max-width: 700px) {
@@ -1073,21 +1352,20 @@
       }
 
       .section {
-        margin: 4.5rem auto;
+        margin:
+          4.5rem auto;
       }
 
       .quote {
-        margin: 5rem auto;
+        margin:
+          5rem auto;
 
-        padding: 3rem 1rem;
+        padding:
+          3rem 1rem;
       }
 
-      .brand span {
-        font-size: .7rem;
-      }
-
-      .back-btn {
-        font-size: .65rem;
+      .neon-brand span {
+        font-size: .68rem;
       }
 
       .mode-preview {
@@ -1098,16 +1376,19 @@
         width: 92vw;
         max-height: 68vh;
       }
+
+      .back-to-top {
+        right: 18px;
+        bottom: 18px;
+      }
     }
 
 
-    /* Hover preview disabled on touch-only devices */
     @media (hover: none) {
       .mode img {
         cursor: default;
       }
     }
-
   </style>
 </head>
 
@@ -1123,7 +1404,6 @@
 
   <div class="container neon-header-inner">
 
-    <!-- BRAND -->
     <a href="../index.html" class="neon-brand">
 
       <img
@@ -1139,7 +1419,6 @@
     </a>
 
 
-    <!-- MOBILE MENU -->
     <button
       class="menu-toggle"
       id="mobile-menu"
@@ -1153,7 +1432,6 @@
     </button>
 
 
-    <!-- NAVIGATION -->
     <nav
       class="neon-nav"
       id="nav-list"
@@ -1180,8 +1458,6 @@
         Contact
       </a>
 
-
-      <!-- BACK BUTTON -->
       <button
         class="back-btn"
         onclick="history.back()"
@@ -1197,7 +1473,6 @@
 </header>
 
 
-
 <!-- =========================================================
      HERO
      ========================================================= -->
@@ -1206,51 +1481,33 @@
 
   <div class="hero-media"></div>
 
-
   <div class="hero-content">
 
     <div class="eyebrow">
       Speculative Architecture · Future Environments
     </div>
 
-
     <h1>
       The Living Dome
     </h1>
 
-
     <p class="hero-description">
-
       What if architecture did not simply separate us from the
       environment — but learned how to negotiate with it?
-
     </p>
-
 
     <div class="hero-tags">
 
-      <span>
-        Concept by Luis Amaya
-      </span>
-
-      <span>
-        Halocyberlife
-      </span>
-
-      <span>
-        Programmable Atmosphere
-      </span>
-
-      <span>
-        Concept Study
-      </span>
+      <span>Concept by Luis Amaya</span>
+      <span>Halocyberlife</span>
+      <span>Programmable Atmosphere</span>
+      <span>Concept Study</span>
 
     </div>
 
   </div>
 
 </section>
-
 
 
 <!-- =========================================================
@@ -1260,55 +1517,35 @@
 <main>
 
 
-  <!-- INTRO -->
-
   <section class="article intro">
 
     <p>
-
       Imagine a swimming environment beneath an enormous
-      transparent shell.
-
-      Not a traditional greenhouse.
-
-      Not simply a pool enclosure.
-
-      A structure capable of responding to sunlight, air,
-      water, light, imagery, weather, and human presence.
-
+      transparent shell. Not a traditional greenhouse.
+      Not simply a pool enclosure. A structure capable of
+      responding to sunlight, air, water, light, imagery,
+      weather, and human presence.
     </p>
 
-
     <p style="margin-top:1.5rem;">
-
       The Living Dome begins with one architectural question:
-
       <strong>
         what happens when the surface surrounding us becomes
         programmable?
       </strong>
-
     </p>
 
   </section>
 
 
-
-  <!-- CREATIVE NOTE -->
-
   <aside class="creative-note">
 
-    <strong>
-      Creative Note:
-    </strong>
+    <strong>Creative Note:</strong>
 
     The Living Dome is an original speculative architectural
     concept and creative direction by Luis Amaya /
-    Halocyberlife.
-
-    AI-assisted visualization and editorial tools may be used
-    as part of the creative workflow.
-
+    Halocyberlife. AI-assisted visualization and editorial
+    tools may be used as part of the creative workflow.
     This project is presented as conceptual exploration rather
     than a claim that every illustrated capability currently
     exists as one manufactured architectural system.
@@ -1316,10 +1553,7 @@
   </aside>
 
 
-
-  <!-- =======================================================
-       01 · THE SHELL
-       ======================================================= -->
+  <!-- 01 -->
 
   <section class="section">
 
@@ -1327,30 +1561,21 @@
       01 · The Shell
     </div>
 
-
     <h2>
       Architecture That Almost Disappears
     </h2>
 
-
     <p>
-
       The dome would not need to follow a perfect hemisphere.
-
       Its geometry could stretch, tilt, rise, and descend around
       the landscape.
-
     </p>
 
-
     <p>
-
       One side might disappear into vegetation while another
-      rises dramatically above the pool.
-
-      The structure becomes a transparent landscape rather
-      than an object placed on top of one.
-
+      rises dramatically above the pool. The structure becomes
+      a transparent landscape rather than an object placed on
+      top of one.
     </p>
 
   </section>
@@ -1374,10 +1599,7 @@
   </figure>
 
 
-
-  <!-- =======================================================
-       02 · ADAPTIVE LIGHT
-       ======================================================= -->
+  <!-- 02 -->
 
   <section class="section">
 
@@ -1385,37 +1607,25 @@
       02 · Adaptive Light
     </div>
 
-
     <h2>
       Shade Without Losing the Sky
     </h2>
 
-
     <p>
-
       Instead of closing blinds or covering the environment,
       portions of the shell could conceptually react to solar
       intensity.
-
     </p>
 
-
     <p>
-
       Imagine a region of reduced transmission moving slowly
-      across the dome as the sun travels overhead.
-
-      The rest of the enclosure remains clear.
-
+      across the dome as the sun travels overhead. The rest of
+      the enclosure remains clear.
     </p>
 
-
     <p>
-
       From inside, the experience could feel almost impossible:
-
       shade without visually losing the sky.
-
     </p>
 
   </section>
@@ -1439,13 +1649,9 @@
   </figure>
 
 
-
-  <!-- BIG IDEA -->
-
   <section class="quote">
 
     <p>
-
       Most architecture controls nature by
       <span>separating us from it.</span>
 
@@ -1453,16 +1659,12 @@
 
       What if architecture could
       <span>negotiate with it instead?</span>
-
     </p>
 
   </section>
 
 
-
-  <!-- =======================================================
-       03 · BREATH
-       ======================================================= -->
+  <!-- 03 -->
 
   <section class="section">
 
@@ -1470,41 +1672,26 @@
       03 · Breath
     </div>
 
-
     <h2>
       A Dome That Can Breathe
     </h2>
 
-
     <p>
-
       The enclosure does not necessarily need to remain sealed.
-
       Openings near the lower perimeter and high points of the
       shell could create controlled natural airflow.
-
     </p>
 
-
     <p>
-
-      Warm air rises.
-
-      Cooler air enters below.
-
-      Under the right conditions, the enclosure behaves more
-      like an open pavilion.
-
-      During difficult weather, it becomes protective again.
-
+      Warm air rises. Cooler air enters below. Under the right
+      conditions, the enclosure behaves more like an open
+      pavilion. During difficult weather, it becomes protective
+      again.
     </p>
 
-
     <p>
-
       The architecture shifts between open air and controlled
       environment depending on what the moment requires.
-
     </p>
 
   </section>
@@ -1528,10 +1715,7 @@
   </figure>
 
 
-
-  <!-- =======================================================
-       04 · BIOGLOW
-       ======================================================= -->
+  <!-- 04 -->
 
   <section class="section">
 
@@ -1539,40 +1723,28 @@
       04 · BIOGLOW™
     </div>
 
-
     <h2>
       When the Structure Becomes Light
     </h2>
-
 
     <p>
       At sunset, the architecture changes character.
     </p>
 
-
     <p>
-
       BIOGLOW™-inspired illumination could conceptually move
       through structural ribs, transparent surfaces, water
       edges, pathways, and architectural transitions.
-
     </p>
 
-
     <p>
-
       Instead of simply illuminating the building, the light
       becomes part of its geometry.
-
     </p>
 
-
     <p>
-
       Reflections duplicate those patterns across the water.
-
       The structure begins to resemble a luminous organism.
-
     </p>
 
   </section>
@@ -1596,10 +1768,7 @@
   </figure>
 
 
-
-  <!-- =======================================================
-       05 · DREAM MODE
-       ======================================================= -->
+  <!-- 05 -->
 
   <section class="section">
 
@@ -1607,40 +1776,22 @@
       05 · Dream Mode
     </div>
 
-
     <h2>
       An Artificial Sky
     </h2>
-
 
     <p>
       The transparent shell becomes a new kind of canvas.
     </p>
 
-
     <p>
-
-      Stars.
-
-      Clouds.
-
-      Aurora.
-
-      Artificial sunsets.
-
-      Generative art.
-
-      Scientific visualization.
-
-      Abstract worlds.
-
+      Stars. Clouds. Aurora. Artificial sunsets. Generative art.
+      Scientific visualization. Abstract worlds.
     </p>
-
 
     <p>
       You could float in real water beneath a digital atmosphere.
     </p>
-
 
     <p>
       And when the projection disappears, the real sky returns.
@@ -1667,10 +1818,7 @@
   </figure>
 
 
-
-  <!-- =======================================================
-       06 · VOLUMETRIC LIGHT
-       ======================================================= -->
+  <!-- 06 -->
 
   <section class="section">
 
@@ -1678,37 +1826,23 @@
       06 · Volumetric Light
     </div>
 
-
     <h2>
       Projection Does Not Have to Stay on the Surface
     </h2>
-
 
     <p>
       Waterfalls and controlled mist introduce another layer.
     </p>
 
-
     <p>
-
       Fine mist can become part of the visual environment.
-
-      Light can appear suspended between the water and the
-      dome.
-
+      Light can appear suspended between the water and the dome.
     </p>
 
-
     <p>
-
       The experience begins to develop three visual layers:
-
-      the water below,
-
-      luminous atmosphere around the body,
-
+      the water below, luminous atmosphere around the body,
       and a digital sky overhead.
-
     </p>
 
   </section>
@@ -1732,10 +1866,7 @@
   </figure>
 
 
-
-  <!-- =======================================================
-       07 · WATER ARCHITECTURE
-       ======================================================= -->
+  <!-- 07 -->
 
   <section class="section">
 
@@ -1743,25 +1874,19 @@
       07 · Water Architecture
     </div>
 
-
     <h2>
       The Pool Becomes a Small World
     </h2>
-
 
     <p>
       The dome does not have to contain a single rectangular pool.
     </p>
 
-
     <p>
-
       Waterfalls, shallow platforms, submerged lounges,
       swimming zones, thermal areas, gardens, fire features,
       and architecture can all occupy the same environment.
-
     </p>
-
 
     <p>
       The dome becomes the atmospheric boundary around an
@@ -1789,10 +1914,7 @@
   </figure>
 
 
-
-  <!-- =======================================================
-       08 · ENVIRONMENTAL INTELLIGENCE
-       ======================================================= -->
+  <!-- 08 -->
 
   <section class="section">
 
@@ -1800,53 +1922,29 @@
       08 · Environmental Intelligence
     </div>
 
-
     <h2>
       Architecture With Behavior
     </h2>
-
 
     <p>
       Now imagine the environment sensing itself.
     </p>
 
-
     <p>
-
-      Sunlight.
-
-      Temperature.
-
-      Humidity.
-
-      UV.
-
-      Wind.
-
-      Air quality.
-
-      Water temperature.
-
-      Occupancy.
-
+      Sunlight. Temperature. Humidity. UV. Wind. Air quality.
+      Water temperature. Occupancy.
     </p>
 
-
     <p>
-
       Instead of requiring someone to operate every feature
       manually, an environmental intelligence layer could
       coordinate the experience.
-
     </p>
 
   </section>
 
 
-
-  <!-- =======================================================
-       SYSTEM MAP
-       ======================================================= -->
+  <!-- SYSTEM MAP -->
 
   <section class="system-map">
 
@@ -1856,11 +1954,9 @@
         Living System
       </div>
 
-
       <h2>
         One Environment. Many Layers.
       </h2>
-
 
       <p>
         The concept becomes interesting when the individual
@@ -1873,172 +1969,78 @@
 
     <div class="system-grid">
 
-
       <article class="system-card">
-
-        <div class="system-icon">
-          SYSTEM 01
-        </div>
-
-        <h3>
-          Adaptive Transparency
-        </h3>
-
-        <p>
-          Localized control of sunlight and visual openness.
-        </p>
-
+        <div class="system-icon">SYSTEM 01</div>
+        <h3>Adaptive Transparency</h3>
+        <p>Localized control of sunlight and visual openness.</p>
       </article>
 
-
       <article class="system-card">
-
-        <div class="system-icon">
-          SYSTEM 02
-        </div>
-
-        <h3>
-          Natural Ventilation
-        </h3>
-
-        <p>
-          Controlled low and high openings allow the dome to breathe.
-        </p>
-
+        <div class="system-icon">SYSTEM 02</div>
+        <h3>Natural Ventilation</h3>
+        <p>Controlled low and high openings allow the dome to breathe.</p>
       </article>
 
-
       <article class="system-card">
-
-        <div class="system-icon">
-          SYSTEM 03
-        </div>
-
-        <h3>
-          BIOGLOW™
-        </h3>
-
-        <p>
-          Architectural illumination integrated into the structural language.
-        </p>
-
+        <div class="system-icon">SYSTEM 03</div>
+        <h3>BIOGLOW™</h3>
+        <p>Architectural illumination integrated into the structural language.</p>
       </article>
 
-
       <article class="system-card">
-
-        <div class="system-icon">
-          SYSTEM 04
-        </div>
-
-        <h3>
-          Dream Projection
-        </h3>
-
-        <p>
-          The enclosure becomes an immersive digital atmosphere.
-        </p>
-
+        <div class="system-icon">SYSTEM 04</div>
+        <h3>Dream Projection</h3>
+        <p>The enclosure becomes an immersive digital atmosphere.</p>
       </article>
 
-
       <article class="system-card">
-
-        <div class="system-icon">
-          SYSTEM 05
-        </div>
-
-        <h3>
-          Volumetric Light
-        </h3>
-
-        <p>
-          Mist and water introduce luminous layers within the occupied space.
-        </p>
-
+        <div class="system-icon">SYSTEM 05</div>
+        <h3>Volumetric Light</h3>
+        <p>Mist and water introduce luminous layers within the occupied space.</p>
       </article>
 
-
       <article class="system-card">
-
-        <div class="system-icon">
-          SYSTEM 06
-        </div>
-
-        <h3>
-          Water Intelligence
-        </h3>
-
-        <p>
-          Temperature, movement, filtration, waterfalls, and lighting become coordinated.
-        </p>
-
+        <div class="system-icon">SYSTEM 06</div>
+        <h3>Water Intelligence</h3>
+        <p>Temperature, movement, filtration, waterfalls, and lighting become coordinated.</p>
       </article>
 
-
       <article class="system-card">
-
-        <div class="system-icon">
-          SYSTEM 07
-        </div>
-
-        <h3>
-          Rain Harvesting
-        </h3>
-
+        <div class="system-icon">SYSTEM 07</div>
+        <h3>Rain Harvesting</h3>
         <p>
-          Water traveling over the shell could conceptually be collected and reused within the surrounding landscape.
+          Water traveling over the shell could conceptually be
+          collected and reused within the surrounding landscape.
         </p>
-
       </article>
 
-
       <article class="system-card">
-
-        <div class="system-icon">
-          SYSTEM 08
-        </div>
-
-        <h3>
-          Energy Layer
-        </h3>
-
+        <div class="system-icon">SYSTEM 08</div>
+        <h3>Energy Layer</h3>
         <p>
-          Selected solar-facing surfaces could potentially participate in energy collection without sacrificing transparency everywhere.
+          Selected solar-facing surfaces could potentially
+          participate in energy collection without sacrificing
+          transparency everywhere.
         </p>
-
       </article>
 
-
       <article class="system-card">
-
-        <div class="system-icon">
-          SYSTEM 09
-        </div>
-
-        <h3>
-          Environmental AI
-        </h3>
-
+        <div class="system-icon">SYSTEM 09</div>
+        <h3>Environmental AI</h3>
         <p>
-          Sensors and automation coordinate environmental states instead of controlling every component separately.
+          Sensors and automation coordinate environmental states
+          instead of controlling every component separately.
         </p>
-
       </article>
-
 
     </div>
 
   </section>
 
 
-
-  <!-- =======================================================
-       MODES
-       ======================================================= -->
+  <!-- MODES -->
 
   <section class="mode-strip">
-
 
     <div class="system-header">
 
@@ -2055,7 +2057,6 @@
 
     <div class="mode-grid">
 
-
       <article class="mode">
 
         <img
@@ -2064,15 +2065,8 @@
         >
 
         <div class="mode-content">
-
-          <h3>
-            Clear
-          </h3>
-
-          <p>
-            Maximum transparency.
-          </p>
-
+          <h3>Clear</h3>
+          <p>Maximum transparency.</p>
         </div>
 
       </article>
@@ -2086,15 +2080,8 @@
         >
 
         <div class="mode-content">
-
-          <h3>
-            Solar
-          </h3>
-
-          <p>
-            Adaptive response to sunlight.
-          </p>
-
+          <h3>Solar</h3>
+          <p>Adaptive response to sunlight.</p>
         </div>
 
       </article>
@@ -2108,15 +2095,8 @@
         >
 
         <div class="mode-content">
-
-          <h3>
-            BIOGLOW
-          </h3>
-
-          <p>
-            Structural illumination.
-          </p>
-
+          <h3>BIOGLOW</h3>
+          <p>Structural illumination.</p>
         </div>
 
       </article>
@@ -2130,15 +2110,8 @@
         >
 
         <div class="mode-content">
-
-          <h3>
-            Dream
-          </h3>
-
-          <p>
-            Artificial sky and immersive imagery.
-          </p>
-
+          <h3>Dream</h3>
+          <p>Artificial sky and immersive imagery.</p>
         </div>
 
       </article>
@@ -2152,29 +2125,18 @@
         >
 
         <div class="mode-content">
-
-          <h3>
-            Night Sky
-          </h3>
-
-          <p>
-            Technology disappears. The real universe returns.
-          </p>
-
+          <h3>Night Sky</h3>
+          <p>Technology disappears. The real universe returns.</p>
         </div>
 
       </article>
-
 
     </div>
 
   </section>
 
 
-
-  <!-- =======================================================
-       09 · RESOURCE CYCLE
-       ======================================================= -->
+  <!-- 09 -->
 
   <section class="section">
 
@@ -2182,37 +2144,25 @@
       09 · Resource Cycle
     </div>
 
-
     <h2>
       Rain Becomes Part of the Architecture
     </h2>
-
 
     <p>
       Rain striking the shell does not necessarily need to
       become runoff.
     </p>
 
-
     <p>
-
       Water could follow integrated channels along structural
-      ribs toward collection zones.
-
-      It could then conceptually participate in irrigation,
-      landscape systems, decorative water features, or other
-      reuse strategies.
-
+      ribs toward collection zones. It could then conceptually
+      participate in irrigation, landscape systems, decorative
+      water features, or other reuse strategies.
     </p>
 
-
     <p>
-
       The enclosure stops thinking of weather as something to
-      block.
-
-      Weather becomes input.
-
+      block. Weather becomes input.
     </p>
 
   </section>
@@ -2235,11 +2185,6 @@
 
   </figure>
 
-
-
-  <!-- =======================================================
-       AI BEHAVIOR
-       ======================================================= -->
 
   <section class="quote">
 
@@ -2272,10 +2217,7 @@
   </section>
 
 
-
-  <!-- =======================================================
-       FUTURE VIDEO
-       ======================================================= -->
+  <!-- VIDEO -->
 
   <section class="video-section">
 
@@ -2283,21 +2225,16 @@
       Future Film
     </div>
 
-
     <h2>
       Watch the Sky Transform
     </h2>
 
-
     <p>
-
       This future concept film will show the dome transitioning
       from daylight transparency into solar response,
       BIOGLOW™, mist projection, artificial skies, and finally
       complete transparency beneath the real stars.
-
     </p>
-
 
     <div class="video-wrapper">
 
@@ -2320,10 +2257,7 @@
   </section>
 
 
-
-  <!-- =======================================================
-       FINAL
-       ======================================================= -->
+  <!-- FINAL -->
 
   <section class="final">
 
@@ -2331,51 +2265,29 @@
       Halocyberlife Concept Study
     </div>
 
-
     <h2>
       More Than a Pool.
       <br>
       A Living Environment.
     </h2>
 
-
     <p>
-
-      Water below.
-
-      Light around you.
-
-      A programmable atmosphere overhead.
-
-      Sunlight when desired.
-
-      Shade when needed.
-
-      Air moving through the architecture.
-
-      Rain becoming a resource.
-
-      BIOGLOW™ after sunset.
-
-      Digital worlds appearing across the sky.
-
-      And when the technology disappears, the real stars
-      remain.
-
+      Water below. Light around you. A programmable atmosphere
+      overhead. Sunlight when desired. Shade when needed.
+      Air moving through the architecture. Rain becoming a
+      resource. BIOGLOW™ after sunset. Digital worlds appearing
+      across the sky. And when the technology disappears,
+      the real stars remain.
     </p>
 
-
     <div class="signature">
-
       Concept &amp; Creative Direction · Luis Amaya · Halocyberlife
-
     </div>
 
   </section>
 
 
 </main>
-
 
 
 <!-- =========================================================
@@ -2403,26 +2315,19 @@
 
       </div>
 
-
       <p class="footer-text">
-
         Esoteric insights, experimental technologies,
         speculative environments, and future-conscious
         craftsmanship.
-
       </p>
 
-
       <p class="footer-meta">
-
         v2.0.0 · ©
         <span id="year"></span>
         Halocyberlife.com
-
       </p>
 
     </div>
-
 
 
     <div class="footer-column">
@@ -2430,7 +2335,6 @@
       <h3 class="footer-heading">
         Navigate
       </h3>
-
 
       <ul class="footer-links">
 
@@ -2469,26 +2373,21 @@
     </div>
 
 
-
     <div class="footer-column">
 
       <h3 class="footer-heading">
         Contact &amp; Social
       </h3>
 
-
       <ul class="footer-links">
 
         <li>
-
           <a href="mailto:luisamaya@halocyberlife.com">
             luisamaya@halocyberlife.com
           </a>
-
         </li>
 
       </ul>
-
 
       <div class="footer-social">
 
@@ -2520,7 +2419,6 @@
 </footer>
 
 
-
 <!-- =========================================================
      MODE HOVER PREVIEW
      ========================================================= -->
@@ -2538,7 +2436,6 @@
   >
 
 </div>
-
 
 
 <!-- =========================================================
@@ -2560,43 +2457,122 @@
   }
 
 
+  /* =========================================================
+     MOBILE MENU
+     ========================================================= */
+
+  const mobileMenu =
+    document.getElementById("mobile-menu");
+
+  const navList =
+    document.getElementById("nav-list");
+
+  if (mobileMenu && navList) {
+
+    mobileMenu.addEventListener("click", () => {
+
+      const isOpen =
+        navList.classList.toggle("active");
+
+      mobileMenu.classList.toggle(
+        "active",
+        isOpen
+      );
+
+      mobileMenu.setAttribute(
+        "aria-expanded",
+        isOpen
+      );
+
+    });
+
+
+    navList
+      .querySelectorAll("a")
+      .forEach((link) => {
+
+        link.addEventListener("click", () => {
+
+          navList.classList.remove("active");
+
+          mobileMenu.classList.remove("active");
+
+          mobileMenu.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
+        });
+
+      });
+
+
+    document.addEventListener(
+      "click",
+      (event) => {
+
+        const clickedInsideHeader =
+          event.target.closest(
+            ".neon-header"
+          );
+
+        if (!clickedInsideHeader) {
+
+          navList.classList.remove("active");
+
+          mobileMenu.classList.remove("active");
+
+          mobileMenu.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
+        }
+
+      }
+    );
+
+  }
+
 
   /* =========================================================
      BACK TO TOP
      ========================================================= */
 
   const backToTopBtn =
-    document.querySelector(".back-to-top");
-
+    document.querySelector(
+      ".back-to-top"
+    );
 
   if (backToTopBtn) {
 
-    window.addEventListener("scroll", () => {
+    window.addEventListener(
+      "scroll",
+      () => {
 
-      if (window.scrollY > 400) {
-
-        backToTopBtn.classList.add("show");
-
-      } else {
-
-        backToTopBtn.classList.remove("show");
+        if (window.scrollY > 400) {
+          backToTopBtn.classList.add("show");
+        } else {
+          backToTopBtn.classList.remove("show");
+        }
 
       }
+    );
 
-    });
 
+    backToTopBtn.addEventListener(
+      "click",
+      () => {
 
-    backToTopBtn.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
 
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-
-    });
+      }
+    );
 
   }
-
 
 
   /* =========================================================
@@ -2604,14 +2580,19 @@
      ========================================================= */
 
   const modePreview =
-    document.getElementById("modePreview");
+    document.getElementById(
+      "modePreview"
+    );
 
   const modePreviewImage =
-    document.getElementById("modePreviewImage");
+    document.getElementById(
+      "modePreviewImage"
+    );
 
   const modeImages =
-    document.querySelectorAll(".mode img");
-
+    document.querySelectorAll(
+      ".mode img"
+    );
 
   let previewOpen = false;
 
@@ -2619,18 +2600,31 @@
   function openModePreview(image) {
 
     if (
-      window.matchMedia("(hover: none)").matches
+      window.matchMedia(
+        "(hover: none)"
+      ).matches
+    ) {
+      return;
+    }
+
+    if (
+      !modePreview ||
+      !modePreviewImage
     ) {
       return;
     }
 
     modePreviewImage.src =
-      image.currentSrc || image.src;
+      image.currentSrc ||
+      image.src;
 
     modePreviewImage.alt =
-      image.alt || "Living Dome mode preview";
+      image.alt ||
+      "Living Dome mode preview";
 
-    modePreview.classList.add("show");
+    modePreview.classList.add(
+      "show"
+    );
 
     modePreview.setAttribute(
       "aria-hidden",
@@ -2644,11 +2638,17 @@
 
   function closeModePreview() {
 
-    if (!previewOpen) {
+    if (
+      !previewOpen ||
+      !modePreview ||
+      !modePreviewImage
+    ) {
       return;
     }
 
-    modePreview.classList.remove("show");
+    modePreview.classList.remove(
+      "show"
+    );
 
     modePreview.setAttribute(
       "aria-hidden",
@@ -2658,48 +2658,63 @@
     previewOpen = false;
 
 
-    setTimeout(() => {
+    setTimeout(
+      () => {
 
-      if (!previewOpen) {
+        if (!previewOpen) {
 
-        modePreviewImage.src = "";
-        modePreviewImage.alt = "";
+          modePreviewImage.src = "";
+          modePreviewImage.alt = "";
 
-      }
+        }
 
-    }, 220);
+      },
+      220
+    );
 
   }
 
 
-  modeImages.forEach((image) => {
+  modeImages.forEach(
+    (image) => {
 
-    image.addEventListener(
-      "mouseenter",
-      () => openModePreview(image)
-    );
-
-  });
-
-
-  modePreviewImage.addEventListener(
-    "mouseleave",
-    closeModePreview
-  );
-
-
-  modePreview.addEventListener(
-    "mousemove",
-    (event) => {
-
-      if (
-        event.target === modePreview
-      ) {
-        closeModePreview();
-      }
+      image.addEventListener(
+        "mouseenter",
+        () =>
+          openModePreview(image)
+      );
 
     }
   );
+
+
+  if (modePreviewImage) {
+
+    modePreviewImage.addEventListener(
+      "mouseleave",
+      closeModePreview
+    );
+
+  }
+
+
+  if (modePreview) {
+
+    modePreview.addEventListener(
+      "mousemove",
+      (event) => {
+
+        if (
+          event.target ===
+          modePreview
+        ) {
+          closeModePreview();
+        }
+
+      }
+    );
+
+  }
 
 
   window.addEventListener(
@@ -2707,39 +2722,39 @@
     (event) => {
 
       if (
-        event.key === "Escape" &&
-        previewOpen
+        event.key ===
+        "Escape"
       ) {
-        closeModePreview();
+
+        if (previewOpen) {
+          closeModePreview();
+        }
+
+        if (
+          navList &&
+          mobileMenu
+        ) {
+
+          navList.classList.remove(
+            "active"
+          );
+
+          mobileMenu.classList.remove(
+            "active"
+          );
+
+          mobileMenu.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
+        }
+
       }
 
     }
   );
 
-  <script>
-
-  const mobileMenu =
-    document.getElementById("mobile-menu");
-
-  const navList =
-    document.getElementById("nav-list");
-
-
-  mobileMenu.addEventListener("click", () => {
-
-    navList.classList.toggle("active");
-
-    const isOpen =
-      navList.classList.contains("active");
-
-    mobileMenu.setAttribute(
-      "aria-expanded",
-      isOpen
-    );
-
-  });
-
-</script>
 </script>
 
 
