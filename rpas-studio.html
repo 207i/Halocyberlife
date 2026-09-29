@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>RPAS Studio | HaloCyberLife</title>
+
+  <meta
+    name="description"
+    content="RPAS Studio is an evidence-first experimental platform connecting reference data, equations, hypotheses, predictions, experiments, measurements, and provenance."
+  >
+
+  <style>
+    :root {
+      --bg: #05070a;
+      --panel: #0c1118;
+      --panel2: #101822;
+      --text: #eef5ff;
+      --muted: #98a8ba;
+      --line: #1b2c3d;
+      --cyan: #59e4ff;
+      --blue: #6e8cff;
+      --green: #71f7ba;
+      --warning: #ffc86b;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 15% 5%, rgba(89,228,255,.08), transparent 25%),
+        radial-gradient(circle at 90% 10%, rgba(110,140,255,.07), transparent 25%),
+        var(--bg);
+      color: var(--text);
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--cyan);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 36px));
+      margin: auto;
+    }
+
+    header {
+      border-bottom: 1px solid var(--line);
+      background: rgba(5,7,10,.84);
+      backdrop-filter: blur(14px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      color: var(--text);
+      font-weight: 800;
+      letter-spacing: .08em;
+    }
+
+    .navlinks {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      font-size: .93rem;
+    }
+
+    .hero {
+      padding: 110px 0 80px;
+    }
+
+    .eyebrow {
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: .17em;
+      font-size: .78rem;
+      font-weight: 800;
+    }
+
+    h1 {
+      margin: 12px 0 18px;
+      max-width: 900px;
+      font-size: clamp(2.8rem, 7vw, 6.5rem);
+      line-height: .98;
+      letter-spacing: -.055em;
+    }
+
+    h2 {
+      margin-top: 0;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      letter-spacing: -.035em;
+    }
+
+    h3 {
+      margin-top: 0;
+    }
+
+    .lead {
+      max-width: 840px;
+      color: #c5d1de;
+      font-size: clamp(1.08rem, 2vw, 1.35rem);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 13px 19px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: var(--panel2);
+      color: var(--text);
+      font-weight: 750;
+    }
+
+    .button:hover {
+      text-decoration: none;
+      border-color: var(--cyan);
+    }
+
+    .button.primary {
+      color: #001016;
+      background: var(--cyan);
+      border-color: var(--cyan);
+    }
+
+    section {
+      padding: 72px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .grid.two {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card {
+      background: linear-gradient(
+        180deg,
+        rgba(16,24,34,.94),
+        rgba(10,15,22,.94)
+      );
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      padding: 25px;
+    }
+
+    .card p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .flow {
+      margin: 30px 0 0;
+      padding: 28px;
+      background: #070c12;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow-x: auto;
+      color: #d8faff;
+      font-family:
+        ui-monospace,
+        SFMono-Regular,
+        Menlo,
+        Monaco,
+        Consolas,
+        monospace;
+      white-space: pre;
+    }
+
+    .quote {
+      font-size: clamp(1.25rem, 3vw, 2rem);
+      line-height: 1.45;
+      color: #e8fbff;
+      border-left: 3px solid var(--cyan);
+      padding-left: 24px;
+      max-width: 950px;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: 20px;
+      padding: 9px 13px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--warning);
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: .93rem;
+    }
+
+    footer {
+      padding: 42px 0 60px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    @media (max-width: 800px) {
+      .grid,
+      .grid.two {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 75px;
+      }
+
+      nav {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 18px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="/">HALOCYBERLIFE</a>
+
+      <div class="navlinks">
+        <a href="#platform">Platform</a>
+        <a href="#research">Research</a>
+        <a href="#integrity">Scientific Integrity</a>
+        <a href="#support">Support</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+
+<main>
+
+  <section class="hero" style="border-top:0;">
+    <div class="wrap">
+
+      <div class="eyebrow">
+        Evidence-first experimental research platform
+      </div>
+
+      <h1>
+        RPAS Studio
+      </h1>
+
+      <p class="lead">
+        RPAS Studio is being developed to reduce the distance between
+        a scientific question and a defensible physical experiment.
+        It connects reference data, equations, hypotheses, predictions,
+        experimental configurations, measurements, evidence, and
+        iteration without treating them as the same thing.
+      </p>
+
+      <div class="actions">
+        <a class="button primary" href="#platform">
+          Explore RPAS
+        </a>
+
+        <a class="button" href="#research">
+          Research Programs
+        </a>
+      </div>
+
+      <div class="status">
+        <span class="dot"></span>
+        Independent research platform under active development
+      </div>
+
+    </div>
+  </section>
+
+
+  <section id="platform">
+    <div class="wrap">
+
+      <div class="eyebrow">The platform</div>
+
+      <h2>
+        Keep the scientific chain connected.
+      </h2>
+
+      <p class="lead">
+        Research often becomes fragmented across literature,
+        calculations, spreadsheets, simulation tools, instrument
+        software, notebooks, plots, and interpretation.
+        RPAS Studio is designed to keep those relationships traceable.
+      </p>
+
+      <div class="flow">REFERENCE DATA
+      ↓
+ESTABLISHED EQUATIONS
+      ↓
+DECLARED HYPOTHESIS / MODEL
+      ↓
+CANDIDATE PHYSICAL CONFIGURATION
+      ↓
+COMPUTATIONAL PREDICTION
+      ↓
+PHYSICAL EXPERIMENT
+      ↓
+INSTRUMENT MEASUREMENT
+      ↓
+EVIDENCE + PROVENANCE
+      ↓
+COMPARISON
+      ↓
+NEXT QUESTION / CONFIGURATION</div>
+
+      <div class="grid">
+
+        <article class="card">
+          <h3>Model</h3>
+          <p>
+            Keep sourced physics, assumptions, hypotheses,
+            simulations and predictions distinguishable.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Measure</h3>
+          <p>
+            Physical confirmation belongs to instruments operating
+            under a defined experimental protocol — not to a simulation.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Preserve</h3>
+          <p>
+            Retain experiment history, telemetry, provenance and
+            evidence so the path to a conclusion can be inspected.
+          </p>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <section id="mirror">
+    <div class="wrap">
+
+      <div class="eyebrow">The experimental mirror</div>
+
+      <p class="quote">
+        RPAS does not tell the researcher what to believe.
+        It reflects the experiment back with enough provenance
+        to show where an idea became an assumption, where an
+        assumption became a prediction, where prediction met
+        measurement, and why the next decision was made.
+      </p>
+
+    </div>
+  </section>
+
+
+  <section id="research">
+    <div class="wrap">
+
+      <div class="eyebrow">Research programs</div>
+
+      <h2>
+        Use difficult physical questions to test the platform.
+      </h2>
+
+      <div class="grid two">
+
+        <article class="card">
+
+          <h3>BioGlow / Vibro-Photonics</h3>
+
+          <p>
+            BioGlow began as an independent investigation into
+            interactions among incident light, material state,
+            resonant mechanical or acoustic excitation, geometry,
+            orientation, frequency, phase and measurable optical
+            response.
+          </p>
+
+          <p>
+            Subsequent research identified substantial established
+            work in acousto-optics, optomechanics, photon-phonon
+            interaction, mechanoluminescence and autonomous photonics.
+            RPAS therefore does not claim those foundations as new.
+          </p>
+
+          <p>
+            BioGlow remains useful as a research program for studying
+            specific physical relationships, controls and response
+            maps while clearly separating known physics, proposed
+            models, predictions and actual measurements.
+          </p>
+
+          <p>
+            <a href="/blog/BioGlow_resonance_light_energy.html">
+              Read the BioGlow project page →
+            </a>
+          </p>
+
+        </article>
+
+
+        <article class="card">
+
+          <h3>Biolumen</h3>
+
+          <p>
+            Biolumen is a developing research direction that will use
+            the same evidence-first workflow: define the physical
+            question, map established science and prior work, identify
+            unresolved relationships, construct explicit models, design
+            controls, and let measurement determine what survives.
+          </p>
+
+          <p>
+            RPAS Studio is intended to make that process reusable across
+            different fields rather than being permanently tied to one
+            physical hypothesis.
+          </p>
+
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <section id="integrity">
+    <div class="wrap">
+
+      <div class="eyebrow">Scientific integrity</div>
+
+      <h2>
+        Prediction is not measurement.
+      </h2>
+
+      <div class="grid">
+
+        <article class="card">
+          <h3>Theory</h3>
+          <p>
+            A proposed explanation or research model.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Prediction</h3>
+          <p>
+            A computational output produced under explicit equations
+            and assumptions.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Measurement</h3>
+          <p>
+            A physical quantity observed through an instrument under
+            a documented experimental protocol.
+          </p>
+        </article>
+
+      </div>
+
+      <p class="lead" style="margin-top:32px;">
+        RPAS produces computational outputs, predictions,
+        classifications and evidence records. These require human
+        review and do not constitute physical confirmation unless
+        supported by actual measurements under a defined experimental
+        protocol.
+      </p>
+
+      <p class="lead">
+        Negative and partial results remain valid evidence.
+        If an experiment does not show enhancement, the correct result
+        is simply: <strong>NO ENHANCEMENT OBSERVED.</strong>
+      </p>
+
+    </div>
+  </section>
+
+
+  <section id="independent-development">
+    <div class="wrap">
+
+      <div class="eyebrow">Independent development</div>
+
+      <h2>
+        Build openly. Attribute what came before.
+      </h2>
+
+      <p class="lead">
+        RPAS developed from independent experimental questions and
+        software work. As research expanded, related technologies and
+        prior work were identified across established scientific fields.
+      </p>
+
+      <p class="lead">
+        Those discoveries are treated as foundations to understand and
+        reference — not as inventions to claim. RPAS focuses on the
+        particular experimental workflow, evidence architecture and
+        research questions developed through the project.
+      </p>
+
+    </div>
+  </section>
+
+
+  <section id="support">
+    <div class="wrap">
+
+      <div class="eyebrow">Support development</div>
+
+      <h2>
+        Help keep independent research moving.
+      </h2>
+
+      <p class="lead">
+        RPAS Studio is an independently developed research project.
+        Contributions help support software development, hosting,
+        experiments, equipment and continued technical research.
+      </p>
+
+      <!--
+        REPLACE THE VALUE BELOW WITH YOUR EXISTING
+        STRIPE PAYMENT LINK.
+      -->
+
+      <div class="actions">
+        <a
+          class="button primary"
+          href="YOUR_STRIPE_PAYMENT_LINK_HERE"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Support RPAS Studio
+        </a>
+      </div>
+
+      <p class="small">
+        Contributions support development and research.
+        Do not describe them as tax-deductible unless that is actually
+        applicable to your organization.
+      </p>
+
+    </div>
+  </section>
+
+
+</main>
+
+
+<footer>
+  <div class="wrap">
+
+    <strong>RPAS Studio · HaloCyberLife</strong>
+
+    <p>
+      AI may assist with candidate generation, organization and analysis.
+      Models predict. Instruments measure. Humans judge.
+    </p>
+
+    <p>
+      RPAS does not own your memory, your experiments or your conclusions.
+      It gives you tools to work with them responsibly.
+    </p>
+
+  </div>
+</footer>
+
+
+<script>
+  /*
+    FUTURE RPAS BACKEND CONNECTION
+
+    GitHub Pages hosts this frontend only.
+
+    Later we can change this to something like:
+
+    const RPAS_API = "https://api.halocyberlife.com";
+
+    fetch(`${RPAS_API}/health`)
+      .then(response => response.json())
+      .then(data => console.log("RPAS backend:", data))
+      .catch(error => console.error("Backend unavailable:", error));
+
+    DO NOT put secret API keys, Stripe secret keys,
+    private model code or credentials in this file.
+  */
+</script>
+
+</body>
+</html>
