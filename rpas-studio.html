@@ -36,8 +36,16 @@
     body {
       margin: 0;
       background:
-        radial-gradient(circle at 15% 5%, rgba(89,228,255,.08), transparent 25%),
-        radial-gradient(circle at 90% 10%, rgba(110,140,255,.07), transparent 25%),
+        radial-gradient(
+          circle at 15% 5%,
+          rgba(89,228,255,.08),
+          transparent 25%
+        ),
+        radial-gradient(
+          circle at 90% 10%,
+          rgba(110,140,255,.07),
+          transparent 25%
+        ),
         var(--bg);
       color: var(--text);
       font-family:
@@ -191,8 +199,28 @@
       margin-bottom: 0;
     }
 
+    /*
+      PLATFORM SHOWCASE
+
+      Left:
+      evidence-first research chain
+
+      Right:
+      genuine RPAS Studio product screenshot
+    */
+
+    .platform-showcase {
+      display: grid;
+      grid-template-columns:
+        minmax(0, .82fr)
+        minmax(0, 1.18fr);
+      gap: 20px;
+      align-items: stretch;
+      margin-top: 30px;
+    }
+
     .flow {
-      margin: 30px 0 0;
+      margin: 0;
       padding: 28px;
       background: #070c12;
       border: 1px solid var(--line);
@@ -207,6 +235,59 @@
         Consolas,
         monospace;
       white-space: pre;
+    }
+
+    .studio-preview {
+      position: relative;
+      min-width: 0;
+      padding: 10px;
+      background:
+        radial-gradient(
+          circle at 35% 20%,
+          rgba(89,228,255,.10),
+          transparent 45%
+        ),
+        linear-gradient(
+          180deg,
+          rgba(16,24,34,.96),
+          rgba(7,12,18,.98)
+        );
+      border: 1px solid rgba(89,228,255,.38);
+      border-radius: 16px;
+      box-shadow:
+        0 0 0 1px rgba(110,140,255,.08),
+        0 0 24px rgba(89,228,255,.08),
+        0 22px 55px rgba(0,0,0,.30);
+      overflow: hidden;
+    }
+
+    .studio-preview::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      border-radius: inherit;
+      box-shadow:
+        inset 0 0 26px rgba(89,228,255,.04);
+    }
+
+    .studio-preview img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 10px;
+      border: 1px solid rgba(89,228,255,.20);
+    }
+
+    .studio-caption {
+      margin: 10px 2px 0;
+      color: var(--muted);
+      font-size: .78rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
     }
 
     .quote {
@@ -251,7 +332,8 @@
 
     @media (max-width: 800px) {
       .grid,
-      .grid.two {
+      .grid.two,
+      .platform-showcase {
         grid-template-columns: 1fr;
       }
 
@@ -264,6 +346,16 @@
         flex-direction: column;
         padding: 18px 0;
       }
+
+      .studio-preview {
+        min-height: 0;
+      }
+
+      .studio-preview img {
+        height: auto;
+        min-height: 0;
+        object-fit: contain;
+      }
     }
   </style>
 </head>
@@ -273,7 +365,10 @@
 <header>
   <div class="wrap">
     <nav>
-      <a class="brand" href="/">HALOCYBERLIFE</a>
+
+      <a class="brand" href="/">
+        HALOCYBERLIFE
+      </a>
 
       <div class="navlinks">
         <a href="#platform">Platform</a>
@@ -281,6 +376,7 @@
         <a href="#integrity">Scientific Integrity</a>
         <a href="#support">Support</a>
       </div>
+
     </nav>
   </div>
 </header>
@@ -288,7 +384,10 @@
 
 <main>
 
-  <section class="hero" style="border-top:0;">
+  <section
+    class="hero"
+    style="border-top:0;"
+  >
     <div class="wrap">
 
       <div class="eyebrow">
@@ -308,13 +407,21 @@
       </p>
 
       <div class="actions">
-        <a class="button primary" href="#platform">
+
+        <a
+          class="button primary"
+          href="#platform"
+        >
           Explore RPAS
         </a>
 
-        <a class="button" href="#research">
+        <a
+          class="button"
+          href="#research"
+        >
           Research Programs
         </a>
+
       </div>
 
       <div class="status">
@@ -329,7 +436,9 @@
   <section id="platform">
     <div class="wrap">
 
-      <div class="eyebrow">The platform</div>
+      <div class="eyebrow">
+        The platform
+      </div>
 
       <h2>
         Keep the scientific chain connected.
@@ -342,7 +451,10 @@
         RPAS Studio is designed to keep those relationships traceable.
       </p>
 
-      <div class="flow">REFERENCE DATA
+
+      <div class="platform-showcase">
+
+        <div class="flow">REFERENCE DATA
       ↓
 ESTABLISHED EQUATIONS
       ↓
@@ -362,30 +474,71 @@ COMPARISON
       ↓
 NEXT QUESTION / CONFIGURATION</div>
 
+
+        <div>
+
+          <div class="studio-preview">
+
+            <img
+              src="rpas-studio-physics-dashboard.webp"
+              alt="RPAS Studio physics and provenance interface"
+              loading="lazy"
+              decoding="async"
+            >
+
+          </div>
+
+          <div class="studio-caption">
+            RPAS Studio · Model relationships,
+            assumptions and provenance
+          </div>
+
+        </div>
+
+      </div>
+
+
       <div class="grid">
 
         <article class="card">
-          <h3>Model</h3>
+
+          <h3>
+            Model
+          </h3>
+
           <p>
             Keep sourced physics, assumptions, hypotheses,
             simulations and predictions distinguishable.
           </p>
+
         </article>
 
+
         <article class="card">
-          <h3>Measure</h3>
+
+          <h3>
+            Measure
+          </h3>
+
           <p>
             Physical confirmation belongs to instruments operating
             under a defined experimental protocol — not to a simulation.
           </p>
+
         </article>
 
+
         <article class="card">
-          <h3>Preserve</h3>
+
+          <h3>
+            Preserve
+          </h3>
+
           <p>
             Retain experiment history, telemetry, provenance and
             evidence so the path to a conclusion can be inspected.
           </p>
+
         </article>
 
       </div>
@@ -397,7 +550,9 @@ NEXT QUESTION / CONFIGURATION</div>
   <section id="mirror">
     <div class="wrap">
 
-      <div class="eyebrow">The experimental mirror</div>
+      <div class="eyebrow">
+        The experimental mirror
+      </div>
 
       <p class="quote">
         RPAS does not tell the researcher what to believe.
@@ -414,17 +569,22 @@ NEXT QUESTION / CONFIGURATION</div>
   <section id="research">
     <div class="wrap">
 
-      <div class="eyebrow">Research programs</div>
+      <div class="eyebrow">
+        Research programs
+      </div>
 
       <h2>
         Use difficult physical questions to test the platform.
       </h2>
 
+
       <div class="grid two">
 
         <article class="card">
 
-          <h3>BioGlow / Vibro-Photonics</h3>
+          <h3>
+            BioGlow / Vibro-Photonics
+          </h3>
 
           <p>
             BioGlow began as an independent investigation into
@@ -449,7 +609,9 @@ NEXT QUESTION / CONFIGURATION</div>
           </p>
 
           <p>
-            <a href="/blog/BioGlow_resonance_light_energy.html">
+            <a
+              href="/blog/BioGlow_resonance_light_energy.html"
+            >
               Read the BioGlow project page →
             </a>
           </p>
@@ -459,7 +621,9 @@ NEXT QUESTION / CONFIGURATION</div>
 
         <article class="card">
 
-          <h3>Biolumen</h3>
+          <h3>
+            Biolumen
+          </h3>
 
           <p>
             Biolumen is a developing research direction that will use
@@ -486,40 +650,64 @@ NEXT QUESTION / CONFIGURATION</div>
   <section id="integrity">
     <div class="wrap">
 
-      <div class="eyebrow">Scientific integrity</div>
+      <div class="eyebrow">
+        Scientific integrity
+      </div>
 
       <h2>
         Prediction is not measurement.
       </h2>
 
+
       <div class="grid">
 
         <article class="card">
-          <h3>Theory</h3>
+
+          <h3>
+            Theory
+          </h3>
+
           <p>
             A proposed explanation or research model.
           </p>
+
         </article>
 
+
         <article class="card">
-          <h3>Prediction</h3>
+
+          <h3>
+            Prediction
+          </h3>
+
           <p>
             A computational output produced under explicit equations
             and assumptions.
           </p>
+
         </article>
 
+
         <article class="card">
-          <h3>Measurement</h3>
+
+          <h3>
+            Measurement
+          </h3>
+
           <p>
             A physical quantity observed through an instrument under
             a documented experimental protocol.
           </p>
+
         </article>
 
       </div>
 
-      <p class="lead" style="margin-top:32px;">
+
+      <p
+        class="lead"
+        style="margin-top:32px;"
+      >
         RPAS produces computational outputs, predictions,
         classifications and evidence records. These require human
         review and do not constitute physical confirmation unless
@@ -527,10 +715,12 @@ NEXT QUESTION / CONFIGURATION</div>
         protocol.
       </p>
 
+
       <p class="lead">
         Negative and partial results remain valid evidence.
         If an experiment does not show enhancement, the correct result
-        is simply: <strong>NO ENHANCEMENT OBSERVED.</strong>
+        is simply:
+        <strong>NO ENHANCEMENT OBSERVED.</strong>
       </p>
 
     </div>
@@ -540,7 +730,9 @@ NEXT QUESTION / CONFIGURATION</div>
   <section id="independent-development">
     <div class="wrap">
 
-      <div class="eyebrow">Independent development</div>
+      <div class="eyebrow">
+        Independent development
+      </div>
 
       <h2>
         Build openly. Attribute what came before.
@@ -566,7 +758,9 @@ NEXT QUESTION / CONFIGURATION</div>
   <section id="support">
     <div class="wrap">
 
-      <div class="eyebrow">Support development</div>
+      <div class="eyebrow">
+        Support development
+      </div>
 
       <h2>
         Help keep independent research moving.
@@ -579,11 +773,12 @@ NEXT QUESTION / CONFIGURATION</div>
       </p>
 
       <!--
-        REPLACE THE VALUE BELOW WITH YOUR EXISTING
-        STRIPE PAYMENT LINK.
+        Replace the value below with your existing
+        Stripe payment link.
       -->
 
       <div class="actions">
+
         <a
           class="button primary"
           href="YOUR_STRIPE_PAYMENT_LINK_HERE"
@@ -592,6 +787,7 @@ NEXT QUESTION / CONFIGURATION</div>
         >
           Support RPAS Studio
         </a>
+
       </div>
 
       <p class="small">
@@ -603,14 +799,15 @@ NEXT QUESTION / CONFIGURATION</div>
     </div>
   </section>
 
-
 </main>
 
 
 <footer>
   <div class="wrap">
 
-    <strong>RPAS Studio · HaloCyberLife</strong>
+    <strong>
+      RPAS Studio · HaloCyberLife
+    </strong>
 
     <p>
       AI may assist with candidate generation, organization and analysis.
@@ -620,6 +817,13 @@ NEXT QUESTION / CONFIGURATION</div>
     <p>
       RPAS does not own your memory, your experiments or your conclusions.
       It gives you tools to work with them responsibly.
+    </p>
+
+    <p class="small">
+      © 2026 HaloCyberLife. All rights reserved.
+      RPAS Studio and associated software, interface design,
+      documentation, graphics and written materials are proprietary
+      works unless otherwise stated.
     </p>
 
   </div>
@@ -648,3 +852,12 @@ NEXT QUESTION / CONFIGURATION</div>
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
