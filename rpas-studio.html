@@ -1350,7 +1350,19 @@ NEXT QUESTION / CONFIGURATION</div>
     private model code or credentials in this file.
   */
 </script>
+<script>
+const navToggle = document.querySelector('.neon-nav-toggle');
+const primaryNav = document.querySelector('#primary-nav');
 
+navToggle.addEventListener('click', () => {
+  const open = primaryNav.classList.toggle('open');
+
+  navToggle.setAttribute(
+    'aria-expanded',
+    open ? 'true' : 'false'
+  );
+});
+</script>
 </body>
 </html>
 
