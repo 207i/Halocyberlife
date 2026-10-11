@@ -18,6 +18,30 @@
   <meta property="og:url" content="https://halocyberlife.com/rpas-studio.html">
   <meta name="twitter:card" content="summary">
 
+  <!-- HaloCyberLife official analytics and advertising configuration -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8214545730626805" crossorigin="anonymous"></script>
+  <script defer src="https://www.googletagmanager.com/gtag/js?id=G-0HZN617CB1"></script>
+  <script>
+    window.addEventListener('load', () => {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ window.dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-0HZN617CB1');
+    });
+  </script>
+  <meta name="author" content="Luis Amaya">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://halocyberlife.com/rpas-studio.html">
+  <link rel="icon" href="/images/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/images/favicons/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta property="og:image" content="https://halocyberlife.com/images/negative_white_halocyberlife_logo.webp">
+  <meta name="twitter:title" content="RPAS Studio | Scientific Intelligence Platform | HaloCyberLife">
+  <meta name="twitter:description" content="Connecting experiments, evidence and researchers through reproducible scientific analysis. Research-stage platform.">
+  <meta name="twitter:image" content="https://halocyberlife.com/images/negative_white_halocyberlife_logo.webp">
+
   <style>
     :root {
       --bg: #05070a;
@@ -862,6 +886,23 @@
   .flow { white-space: pre-wrap; overflow-wrap: anywhere; }
   @media (max-width: 800px) { .status-grid, .roadmap-steps { grid-template-columns: 1fr; } .hero-tagline { max-width: 100%; } }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .hero-visual::before, .hero-visual::after { animation: none; } }
+    .rpas-footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 10px 19px;
+      min-height: 0;
+      margin: 23px 0 17px;
+      font-size: .9rem;
+    }
+    .rpas-footer-links a { color: var(--cyan); }
+    .rpas-footer-links a:focus-visible,
+    a.button:focus-visible,
+    .neon-nav a:focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; }
+    @media (max-width: 800px) {
+      .rpas-footer-links { flex-direction: row; align-items: center; }
+    }
   </style>
 </head>
 
@@ -895,7 +936,7 @@
       <a href="/index.html#insights" class="neon-link color-blue">Insights</a>
       <a href="/blog.html" class="neon-link color-cyan">Articles</a>
       <a href="/about.html" class="neon-link color-magenta">About</a>
-      <a href="/contact_us.html" class="neon-link color-gold">Contact</a>
+      <a href="./contact_us.html" class="neon-link color-gold">Contact</a>
       <a href="/rpas-studio.html" class="neon-link rpas-active">RPAS Studio</a>
     </nav>
 
@@ -984,7 +1025,7 @@ NEXT RESEARCH QUESTION</div>
           <h3>BioGlow / Vibro-Photonics</h3>
           <p>BioGlow investigates questions about incident light interacting with materials or optical structures under controlled mechanical or acoustic excitation. Established fields including acousto-optics, optomechanics and photon–phonon interactions form essential scientific context.</p>
           <p>The current purpose is to document hypotheses, compare related literature, define controls, and distinguish simulated predictions from instrument measurements. No physical optical amplification is claimed as established.</p>
-          <p><a href="/blog/BioGlow_resonance_light_energy.html">Read the BioGlow project page →</a></p>
+          <p><a href="./blog/BioGlow_resonance_light_energy.html">Read the BioGlow project page →</a></p>
         </article>
         <article class="card">
           <h3>Biolumen / Future Research Applications</h3>
@@ -1061,7 +1102,7 @@ NEXT RESEARCH QUESTION</div>
       <div class="eyebrow">Follow the research</div>
       <h2 id="support-title">Explore the current studio. Follow the scientific direction.</h2>
       <p class="lead">RPAS Studio is a research-stage project. The live studio and this public overview serve different purposes: the studio contains the current software experience; this page explains the scientific mission and planned research direction. Features described as planned may not be available in the live interface.</p>
-      <div class="actions"><a class="button primary" href="https://rpas.halocyberlife.com/" target="_blank" rel="noopener noreferrer">Open RPAS Studio ↗</a><a class="button" href="/contact_us.html">Contact HaloCyberLife</a></div>
+      <div class="actions"><a class="button primary" href="https://rpas.halocyberlife.com/" target="_blank" rel="noopener noreferrer">Open RPAS Studio ↗</a><a class="button" href="./contact_us.html">Contact HaloCyberLife</a></div>
     </div>
   </section>
 
@@ -1075,6 +1116,18 @@ NEXT RESEARCH QUESTION</div>
   <p>Models predict. Instruments measure. Researchers evaluate evidence. RPAS Studio is research-stage software, not a substitute for independent scientific verification.</p>
   <p>Private research stays separate from explicitly published material. Future voluntary contributions should preserve source attribution, ownership and provenance, subject to the actual controls available when those capabilities are released.</p>
   <p class="small">Connect scientific evidence. Preserve discovery. Advance collective research.</p>
+
+  <nav class="rpas-footer-links" aria-label="Footer navigation">
+    <a href="./index.html">HaloCyberLife Home</a>
+    <a href="./blog.html">Articles</a>
+    <a href="./about.html">About</a>
+    <a href="./contact_us.html">Contact</a>
+    <a href="./Privacy%20%26%20Terms.html">Privacy &amp; Terms</a>
+    <a href="./sitemap.html">Site Map</a>
+    <a href="https://rpas.halocyberlife.com/" target="_blank" rel="noopener noreferrer">RPAS Studio ↗</a>
+  </nav>
+  <p class="small">Contact: <a href="mailto:luisamaya@halocyberlife.com">luisamaya@halocyberlife.com</a>
+    &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/halocyberlife/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
 
   <p class="small">
     © 2026 HaloCyberLife. All rights reserved.
@@ -1137,4 +1190,27 @@ backToTop.addEventListener('click', () => {
 </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
