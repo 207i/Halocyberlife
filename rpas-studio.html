@@ -4,12 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>RPAS Studio | HaloCyberLife</title>
+  <title>RPAS Studio | Scientific Intelligence Platform | HaloCyberLife</title>
 
   <meta
     name="description"
-    content="RPAS Studio is an evidence-first experimental platform connecting reference data, equations, hypotheses, predictions, experiments, measurements, and provenance."
+    content="RPAS Studio is an emerging scientific intelligence platform connecting experiments, measurements, physical models and source-traceable evidence for reproducible research."
   >
+
+  <meta name="theme-color" content="#05070a">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="RPAS Studio | From Isolated Experiments to Connected Scientific Knowledge">
+  <meta property="og:description" content="An emerging research-stage scientific platform built around experimental evidence, provenance and reproducible analysis.">
+  <meta property="og:url" content="https://halocyberlife.com/rpas-studio.html">
+  <meta name="twitter:card" content="summary">
 
   <style>
     :root {
@@ -835,6 +842,26 @@
 
   transform: translateY(-3px);
 }  
+
+  /* Scientific intelligence website additions — scoped to this page. */
+  .hero-tagline { max-width: 780px; margin: 0 0 20px; font-size: clamp(1.55rem, 3.4vw, 2.6rem); line-height: 1.2; letter-spacing: -.035em; font-weight: 700; color: #bfefff; }
+  .section-intro { max-width: 870px; }
+  .card .micro-label { display: block; margin-bottom: 10px; color: var(--cyan); font-size: .76rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+  .card h3 { line-height: 1.3; }
+  .card p + p { margin-top: 12px; }
+  .status-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 28px; }
+  .status-card { border: 1px solid var(--line); background: var(--panel); border-radius: 15px; padding: 24px; }
+  .status-card h3 { margin-bottom: 10px; }
+  .status-card p { color: var(--muted); margin: 0; }
+  .status-card .micro-label { color: var(--cyan); font-size: .76rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+  .status-note { border-left: 3px solid var(--warning); padding-left: 16px; margin-top: 26px; max-width: 900px; color: #c5d1de; }
+  .roadmap-steps { counter-reset: milestone; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 28px; }
+  .roadmap-step { counter-increment: milestone; padding: 24px; border: 1px solid var(--line); border-radius: 15px; background: var(--panel); }
+  .roadmap-step::before { content: 'PHASE 0' counter(milestone); display: block; color: var(--cyan); font-weight: 800; font-size: .76rem; letter-spacing: .12em; margin-bottom: 12px; }
+  .roadmap-step p { color: var(--muted); }
+  .flow { white-space: pre-wrap; overflow-wrap: anywhere; }
+  @media (max-width: 800px) { .status-grid, .roadmap-steps { grid-template-columns: 1fr; } .hero-tagline { max-width: 100%; } }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .hero-visual::before, .hero-visual::after { animation: none; } }
   </style>
 </head>
 
@@ -877,477 +904,164 @@
 
 
 <main>
- <section
-  class="hero"
-  style="border-top:0;"
->
-  <div class="wrap">
 
-    <div class="hero-stage">
-
+  <section class="hero" style="border-top:0;" aria-labelledby="hero-title">
+    <div class="wrap"><div class="hero-stage">
       <div class="hero-copy">
-
-        <div class="eyebrow">
-          Evidence-first experimental research platform
-        </div>
-
-        <h1>
-          RPAS Studio
-        </h1>
-
-        <p class="lead">
-          RPAS Studio is being developed to reduce the distance between
-          a scientific question and a defensible physical experiment.
-          It connects reference data, equations, hypotheses, predictions,
-          experimental configurations, measurements, evidence, and
-          iteration without treating them as the same thing.
-        </p>
-
+        <div class="eyebrow">HaloCyberLife / Scientific Intelligence Platform</div>
+        <h1 id="hero-title">RPAS Studio</h1>
+        <p class="hero-tagline">From Isolated Experiments to Connected Scientific Knowledge.</p>
+        <p class="lead">RPAS Studio is an emerging scientific engineering platform exploring how experimental measurements, physical models, and source-traceable evidence can be connected to support reproducible research and better-informed experimentation.</p>
+        <p class="small"><strong>Research-stage platform.</strong> Built around evidence. Designed for collective progress.</p>
         <div class="actions">
-
-          <a
-            class="button primary"
-            href="#platform"
-          >
-            Explore RPAS
-          </a>
-
-          <a
-            class="button"
-            href="#research"
-          >
-            Research Programs
-          </a>
-
+          <a class="button primary" href="#platform">Explore the Scientific Mission</a>
+          <a class="button" href="https://rpas.halocyberlife.com/" target="_blank" rel="noopener noreferrer">Visit RPAS Studio <span aria-hidden="true">↗</span></a>
+          <a class="button" href="#development-status">Development Status</a>
         </div>
-
-        <div class="status">
-          <span class="dot"></span>
-          Independent research platform under active development
-        </div>
-
+        <div class="status"><span class="dot" aria-hidden="true"></span>Independent research-stage software under active development</div>
       </div>
-
-
       <div class="hero-visual">
-
-        <figure class="hero-shot">
-
-          <img
-            src="images/RPAS-Studio/rpas_studio_compress..webp"
-            alt="RPAS Studio physics and provenance interface"
-          >
-
-        </figure>
-
-        <div class="hero-caption">
-          RPAS Studio · Physics, provenance and model relationships
-        </div>
-
+        <figure class="hero-shot"><img src="images/RPAS-Studio/rpas_studio_compress..webp" alt="RPAS Studio interface showing experimental models and evidence relationships" fetchpriority="high"></figure>
+        <div class="hero-caption">RPAS Studio · Scientific models, evidence and provenance</div>
       </div>
+    </div></div>
+  </section>
 
-    </div>
-
-  </div>
-</section>
-  
-  <section id="platform">
+  <section id="platform" aria-labelledby="platform-title">
     <div class="wrap">
-
-      <div class="eyebrow">
-        The platform
-      </div>
-
-      <h2>
-        Keep the scientific chain connected.
-      </h2>
-
-      <p class="lead">
-        Research often becomes fragmented across literature,
-        calculations, spreadsheets, simulation tools, instrument
-        software, notebooks, plots, and interpretation.
-        RPAS Studio is designed to keep those relationships traceable.
-      </p>
-
-
+      <div class="eyebrow">Collective Scientific Intelligence</div>
+      <h2 id="platform-title">Connect scientific evidence. Preserve discovery. Advance collective research.</h2>
+      <p class="lead section-intro">Scientific findings are often dispersed across papers, notebooks, instruments, models and independent research projects. Our long-term vision is to make the relationships among them easier to examine without erasing the context that gives each measurement meaning.</p>
+      <p class="small">The workflow below illustrates the intended research process. It is not a claim that every stage is currently automated or publicly available.</p>
       <div class="platform-showcase">
-
-        <div class="flow">REFERENCE DATA
-      ↓
-ESTABLISHED EQUATIONS
-      ↓
-DECLARED HYPOTHESIS / MODEL
-      ↓
-CANDIDATE PHYSICAL CONFIGURATION
-      ↓
-COMPUTATIONAL PREDICTION
-      ↓
-PHYSICAL EXPERIMENT
-      ↓
-INSTRUMENT MEASUREMENT
-      ↓
-EVIDENCE + PROVENANCE
-      ↓
-COMPARISON
-      ↓
-NEXT QUESTION / CONFIGURATION</div>
-
-
+        <div class="flow" role="img" aria-label="Research workflow: published evidence, study context, compatibility assessment, reconstruction, missing information, planned experiment, independent measurement, evidence review and the next research question">PUBLISHED EVIDENCE / SOURCE
+             ↓
+MATERIAL + APPARATUS CONTEXT
+             ↓
+MEASUREMENT COMPATIBILITY
+             ↓
+TRACEABLE CALCULATION
+             ↓
+UNCERTAINTY + MISSING DATA
+             ↓
+NEXT EXPERIMENT PLAN
+             ↓
+INDEPENDENT MEASUREMENT
+             ↓
+EVIDENCE + ATTRIBUTION
+             ↓
+NEXT RESEARCH QUESTION</div>
         <div>
-
-          <div class="studio-preview">
-
-            <img
-              src="images/RPAS-Studio/rpas_studio_index_img1.png"
-              alt="RPAS Studio physics and provenance interface"
-              loading="lazy"
-              decoding="async"
-            >
-
-          </div>
-
-          <div class="studio-caption">
-            RPAS Studio · Model relationships,
-            assumptions and provenance
-          </div>
-
+          <div class="studio-preview"><img src="images/RPAS-Studio/rpas_studio_index_img1.png" alt="RPAS Studio interface displaying physics models, assumptions and provenance" loading="lazy" decoding="async"></div>
+          <div class="studio-caption">RPAS Studio · Experimental model and provenance interface</div>
         </div>
-
       </div>
-
-
       <div class="grid">
-
-        <article class="card">
-
-          <h3>
-            Model
-          </h3>
-
-          <p>
-            Keep sourced physics, assumptions, hypotheses,
-            simulations and predictions distinguishable.
-          </p>
-
-        </article>
-
-
-        <article class="card">
-
-          <h3>
-            Measure
-          </h3>
-
-          <p>
-            Physical confirmation belongs to instruments operating
-            under a defined experimental protocol — not to a simulation.
-          </p>
-
-        </article>
-
-
-        <article class="card">
-
-          <h3>
-            Preserve
-          </h3>
-
-          <p>
-            Retain experiment history, telemetry, provenance and
-            evidence so the path to a conclusion can be inspected.
-          </p>
-
-        </article>
-
+        <article class="card"><span class="micro-label">Pillar 01</span><h3>Scientific Relationship Analysis</h3><p>Explore where experiments connect, differ or cannot be directly compared. A shared topic does not automatically mean shared physical mechanisms or equivalent measurements.</p></article>
+        <article class="card"><span class="micro-label">Pillar 02</span><h3>Evidence and Provenance</h3><p>Keep source references, experimental conditions, contributors, assumptions and derived calculations distinguishable from observed results.</p></article>
+        <article class="card"><span class="micro-label">Pillar 03</span><h3>Measurement Compatibility</h3><p>Examine units, definitions, calibration, material properties, apparatus differences and uncertainty before treating numerical values as comparable.</p></article>
+        <article class="card"><span class="micro-label">Pillar 04</span><h3>Reconstruction and Planning</h3><p>Develop traceable calculation workflows, identify gaps in reported evidence, and prepare potential follow-up measurements for human review.</p></article>
+        <article class="card"><span class="micro-label">Pillar 05</span><h3>Collective Scientific Progress</h3><p>Work toward reproducible, properly attributed research connections while protecting private work and enabling intentional sharing.</p></article>
       </div>
-
     </div>
   </section>
 
-
-  <section id="mirror">
+  <section id="mirror" aria-labelledby="mirror-title">
     <div class="wrap">
-
-      <div class="eyebrow">
-        The experimental mirror
-      </div>
-
-      <p class="quote">
-        RPAS does not tell the researcher what to believe.
-        It reflects the experiment back with enough provenance
-        to show where an idea became an assumption, where an
-        assumption became a prediction, where prediction met
-        measurement, and why the next decision was made.
-      </p>
-
+      <div class="eyebrow">The scientific principle</div>
+      <h2 id="mirror-title">The relationship is only as strong as the evidence.</h2>
+      <p class="quote">Two experiments may report similar numbers and still measure different things. RPAS is being developed to help researchers see the conditions, calculations, uncertainty and provenance behind each result before drawing a connection.</p>
     </div>
   </section>
 
-
-  <section id="research">
+  <section id="research" aria-labelledby="research-title">
     <div class="wrap">
-
-      <div class="eyebrow">
-        Research programs
-      </div>
-
-      <h2>
-        Use difficult physical questions to test the platform.
-      </h2>
-
-
+      <div class="eyebrow">Initial scientific specialization</div>
+      <h2 id="research-title">Begin with optical–acoustic and photonic research.</h2>
+      <p class="lead section-intro">Our initial research focus provides demanding test cases for experimental comparison: optical wavelength, acoustic frequency, excitation amplitude, geometry, material properties, orientation, controls, uncertainty and instrument response can all influence interpretation.</p>
       <div class="grid two">
-
         <article class="card">
-
-          <h3>
-            BioGlow / Vibro-Photonics
-          </h3>
-
-          <p>
-            BioGlow began as an independent investigation into
-            interactions among incident light, material state,
-            resonant mechanical or acoustic excitation, geometry,
-            orientation, frequency, phase and measurable optical
-            response.
-          </p>
-
-          <p>
-            Subsequent research identified substantial established
-            work in acousto-optics, optomechanics, photon-phonon
-            interaction, mechanoluminescence and autonomous photonics.
-            RPAS therefore does not claim those foundations as new.
-          </p>
-
-          <p>
-            BioGlow remains useful as a research program for studying
-            specific physical relationships, controls and response
-            maps while clearly separating known physics, proposed
-            models, predictions and actual measurements.
-          </p>
-
-          <p>
-            <a
-              href="/blog/BioGlow_resonance_light_energy.html"
-            >
-              Read the BioGlow project page →
-            </a>
-          </p>
-
+          <h3>BioGlow / Vibro-Photonics</h3>
+          <p>BioGlow investigates questions about incident light interacting with materials or optical structures under controlled mechanical or acoustic excitation. Established fields including acousto-optics, optomechanics and photon–phonon interactions form essential scientific context.</p>
+          <p>The current purpose is to document hypotheses, compare related literature, define controls, and distinguish simulated predictions from instrument measurements. No physical optical amplification is claimed as established.</p>
+          <p><a href="/blog/BioGlow_resonance_light_energy.html">Read the BioGlow project page →</a></p>
         </article>
-
-
         <article class="card">
-
-          <h3>
-            Biolumen
-          </h3>
-
-          <p>
-            Biolumen is a developing research direction that will use
-            the same evidence-first workflow: define the physical
-            question, map established science and prior work, identify
-            unresolved relationships, construct explicit models, design
-            controls, and let measurement determine what survives.
-          </p>
-
-          <p>
-            RPAS Studio is intended to make that process reusable across
-            different fields rather than being permanently tied to one
-            physical hypothesis.
-          </p>
-
+          <h3>Biolumen / Future Research Applications</h3>
+          <p>Biolumen represents a developing research direction that can inform future evidence workflows. It is not advertised as a validated experimental service.</p>
+          <p>Expansion beyond optical–acoustic and photonic research is a longer-term objective, contingent on demonstrated reliability, domain-appropriate methods and scientific review.</p>
         </article>
-
       </div>
-
     </div>
   </section>
 
- <section id="visualization">
-  <div class="wrap">
-
-    <div class="eyebrow">
-      Experimental visualization
-    </div>
-
-    <h2>
-      Model the system before you build it.
-    </h2>
-
-    <p class="lead">
-      RPAS Studio includes a visual modeling environment for examining
-      experimental configurations, system geometry and candidate physical
-      relationships before physical testing.
-    </p>
-
-    <div class="model-showcase">
-
-      <img
-        src="images/RPAS-Studio/rpas_model.webp"
-        alt="RPAS Studio experimental visualization model"
-        loading="lazy"
-        decoding="async"
-      >
-
-      <div class="model-caption">
-        RPAS Studio · Experimental Visualization Environment
-      </div>
-
-    </div>
-
-  </div>
-</section>
-  
-  <section id="integrity">
+  <section id="visualization" aria-labelledby="visualization-title">
     <div class="wrap">
+      <div class="eyebrow">Experimental visualization</div>
+      <h2 id="visualization-title">Explore models without confusing them for measurements.</h2>
+      <p class="lead">RPAS Studio has simulation and experiment-management foundations, including interfaces for examining candidate configurations and physical relationships. Visualizations support reasoning and preparation; they do not demonstrate physical performance or replace laboratory validation.</p>
+      <div class="model-showcase"><img src="images/RPAS-Studio/rpas_model.webp" alt="RPAS Studio research-stage experimental model visualization" loading="lazy" decoding="async"><div class="model-caption">RPAS Studio · Research-stage experimental visualization</div></div>
+    </div>
+  </section>
 
-      <div class="eyebrow">
-        Scientific integrity
+
+  <section id="development-status" aria-labelledby="status-title">
+    <div class="wrap">
+      <div class="eyebrow">Development status · October 2026</div>
+      <h2 id="status-title">An active foundation. Research components still under development.</h2>
+      <p class="lead section-intro">RPAS Studio V1.1 includes experiment management, evidence-oriented workflows, simulation infrastructure, authentication and distinct private OWNER and USER experiences. The scientific analysis components below have preliminary development test results; they have not been verified as an integrated, publicly available end-to-end research service.</p>
+      <div class="status-grid">
+        <article class="status-card"><div class="micro-label">Mission 067B · Preliminary tests: 8/8 passed</div><h3>Measurement Compatibility Engine</h3><p>Developed to assess whether reported measurements can reasonably be compared, with attention to scientific context and constraints.</p></article>
+        <article class="status-card"><div class="micro-label">Mission 067C · Preliminary tests: 7/7 passed</div><h3>Published Experimental Reconstruction</h3><p>Developed to reconstruct supported published calculations from traceable source data and declared assumptions.</p></article>
+        <article class="status-card"><div class="micro-label">Mission 067D · Preliminary tests: 8/8 passed</div><h3>Experimental Gap Analysis</h3><p>Developed to surface missing measurements, calibration details, uncertainties and other information needed for interpretation.</p></article>
+        <article class="status-card"><div class="micro-label">Mission 067E · Final verification pending</div><h3>Physics-Aware Experiment Planner</h3><p>Research-stage planning component intended to outline evidence-informed experiment preparation and candidate follow-up measurements.</p></article>
       </div>
+      <p class="status-note"><strong>Verification boundary:</strong> These internal component tests do not establish production readiness, public dashboard integration, independent scientific validation, demonstrated optical amplification, a validated physical apparatus, patent status or superiority over other research platforms.</p>
+    </div>
+  </section>
 
-      <h2>
-        Prediction is not measurement.
-      </h2>
+  <section id="roadmap" aria-labelledby="roadmap-title">
+    <div class="wrap">
+      <div class="eyebrow">Long-term research roadmap</div>
+      <h2 id="roadmap-title">From a working foundation toward connected scientific evidence.</h2>
+      <p class="lead section-intro">These phases describe development intentions, not delivery commitments or features available today.</p>
+      <div class="roadmap-steps">
+        <article class="roadmap-step"><h3>Strengthen the foundation</h3><p>Continue verifying existing experiments, evidence records, secure user boundaries and the preliminary scientific components.</p></article>
+        <article class="roadmap-step"><h3>Connect research workflows</h3><p>Work toward reviewed, traceable comparison, reconstruction, gap-analysis and planning workflows, integrated with appropriate controls.</p></article>
+        <article class="roadmap-step"><h3>Enable collective progress</h3><p>Explore opt-in contributions, attribution-aware evidence connections and collaboration; evaluate expansion to additional scientific domains only when justified.</p></article>
+      </div>
+    </div>
+  </section>
 
-
+  <section id="integrity" aria-labelledby="integrity-title">
+    <div class="wrap">
+      <div class="eyebrow">Scientific integrity and evidence policy</div>
+      <h2 id="integrity-title">Prediction is not measurement. Similarity is not equivalence.</h2>
       <div class="grid">
-
-        <article class="card">
-
-          <h3>
-            Theory
-          </h3>
-
-          <p>
-            A proposed explanation or research model.
-          </p>
-
-        </article>
-
-
-        <article class="card">
-
-          <h3>
-            Prediction
-          </h3>
-
-          <p>
-            A computational output produced under explicit equations
-            and assumptions.
-          </p>
-
-        </article>
-
-
-        <article class="card">
-
-          <h3>
-            Measurement
-          </h3>
-
-          <p>
-            A physical quantity observed through an instrument under
-            a documented experimental protocol.
-          </p>
-
-        </article>
-
+        <article class="card"><h3>Source and assumption</h3><p>Identify the published reference, context, model, parameters and limitations. Unknown calibration or missing methodology must remain visible.</p></article>
+        <article class="card"><h3>Calculation and prediction</h3><p>Derived values must be traceable to documented equations and inputs. Simulation results are not laboratory observations.</p></article>
+        <article class="card"><h3>Physical measurement</h3><p>Experimental claims require appropriately documented instrument observations, controls and uncertainty, with human review of the evidence.</p></article>
       </div>
-
-
-      <p
-        class="lead"
-        style="margin-top:32px;"
-      >
-        RPAS produces computational outputs, predictions,
-        classifications and evidence records. These require human
-        review and do not constitute physical confirmation unless
-        supported by actual measurements under a defined experimental
-        protocol.
-      </p>
-
-
-      <p class="lead">
-        Negative and partial results remain valid evidence.
-        If an experiment does not show enhancement, the correct result
-        is simply:
-        <strong>NO ENHANCEMENT OBSERVED.</strong>
-      </p>
-
+      <p class="lead" style="margin-top:32px;">Disagreement, uncertainty, negative results and non-comparable data are meaningful outcomes. RPAS does not convert a missing measurement into a positive finding, or a modeled result into proof of a physical apparatus.</p>
+      <p class="lead">Research ownership matters. Private engineering data should remain protected; any future contributed public evidence library must use intentional sharing, explicit attribution, provenance and clear publication boundaries. Collaborative services and their governance remain development goals, not blanket promises of current functionality.</p>
     </div>
   </section>
 
-
-  <section id="independent-development">
+  <section id="independent-development" aria-labelledby="independent-title">
     <div class="wrap">
-
-      <div class="eyebrow">
-        Independent development
-      </div>
-
-      <h2>
-        Build openly. Attribute what came before.
-      </h2>
-
-      <p class="lead">
-        RPAS developed from independent experimental questions and
-        software work. As research expanded, related technologies and
-        prior work were identified across established scientific fields.
-      </p>
-
-      <p class="lead">
-        Those discoveries are treated as foundations to understand and
-        reference — not as inventions to claim. RPAS focuses on the
-        particular experimental workflow, evidence architecture and
-        research questions developed through the project.
-      </p>
-
+      <div class="eyebrow">Independent research and attribution</div>
+      <h2 id="independent-title">Build on what science already knows.</h2>
+      <p class="lead">RPAS Studio is independently developed by HaloCyberLife. Its approach is to recognize published prior work, credit original researchers, distinguish established physics from new hypotheses and retain evidence behind scientific decisions.</p>
+      <p class="lead">Collective progress does not require making every project public. The intended direction is to let researchers preserve their private work and contribute selected, appropriately documented findings only when they choose.</p>
     </div>
   </section>
 
-
-  <section id="support">
+  <section id="support" aria-labelledby="support-title">
     <div class="wrap">
-
-      <div class="eyebrow">
-        Support development
-      </div>
-
-      <h2>
-        Help keep independent research moving.
-      </h2>
-
-      <p class="lead">
-        RPAS Studio is an independently developed research project.
-        Contributions help support software development, hosting,
-        experiments, equipment and continued technical research.
-      </p>
-
-      <!--
-        Replace the value below with your existing
-        Stripe payment link.
-      -->
-
-      <div class="actions">
-
-        <a
-          class="button primary"
-          href="YOUR_STRIPE_PAYMENT_LINK_HERE"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Support RPAS Studio
-        </a>
-
-      </div>
-
-      <p class="small">
-        Contributions support development and research.
-        Do not describe them as tax-deductible unless that is actually
-        applicable to your organization.
-      </p>
-
+      <div class="eyebrow">Follow the research</div>
+      <h2 id="support-title">Explore the current studio. Follow the scientific direction.</h2>
+      <p class="lead">RPAS Studio is a research-stage project. The live studio and this public overview serve different purposes: the studio contains the current software experience; this page explains the scientific mission and planned research direction. Features described as planned may not be available in the live interface.</p>
+      <div class="actions"><a class="button primary" href="https://rpas.halocyberlife.com/" target="_blank" rel="noopener noreferrer">Open RPAS Studio ↗</a><a class="button" href="/contact_us.html">Contact HaloCyberLife</a></div>
     </div>
   </section>
 
@@ -1358,27 +1072,9 @@ NEXT QUESTION / CONFIGURATION</div>
   <div class="wrap">
   <strong>RPAS Studio · HaloCyberLife</strong>
 
-  <p>
-    AI may assist with candidate generation, organization and analysis.
-    Models predict. Instruments measure. Humans judge.
-  </p>
-
-  <p>
-    Your research remains under your control. RPAS Studio is designed
-    to protect project data by default while supporting deliberate,
-    opt-in sharing of selected results when users choose to contribute
-    to a broader evidence base.
-  </p>
-
-  <p>
-    Sensitive, proprietary or potentially novel work may be kept private.
-    Shared contributions should preserve provenance, attribution and
-    contributor control.
-  </p>
-
-  <p class="small">
-    Protect first → share deliberately → expand collectively.
-  </p>
+  <p>Models predict. Instruments measure. Researchers evaluate evidence. RPAS Studio is research-stage software, not a substitute for independent scientific verification.</p>
+  <p>Private research stays separate from explicitly published material. Future voluntary contributions should preserve source attribution, ownership and provenance, subject to the actual controls available when those capabilities are released.</p>
+  <p class="small">Connect scientific evidence. Preserve discovery. Advance collective research.</p>
 
   <p class="small">
     © 2026 HaloCyberLife. All rights reserved.
@@ -1441,12 +1137,4 @@ backToTop.addEventListener('click', () => {
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
 
