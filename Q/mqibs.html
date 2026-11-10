@@ -1,0 +1,1284 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>QIBS | Mini Quantum Induction Battery System</title>
+
+  <meta name="description"
+    content="The QIBS engineering revival: a compact magnetic
+    induction rotor, actuator mechanism, and three-supercapacitor
+    energy-management system developed from an original
+    concept over 13 years ago.">
+
+  <style>
+    :root {
+      --bg: #07101d;
+      --panel: #101e30;
+      --panel2: #14263b;
+      --line: #294660;
+      --cyan: #45ddf7;
+      --orange: #ffad63;
+      --white: #f3f8fc;
+      --muted: #a7b9c9;
+      --green: #72e5b4;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--white);
+      font: 16px/1.75 system-ui, -apple-system,
+            BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    a {
+      color: var(--cyan);
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 36px));
+      margin: auto;
+    }
+
+    .topbar {
+      border-bottom: 1px solid var(--line);
+      background: #081421;
+      padding: 16px 0;
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: .05em;
+    }
+
+    .brand span {
+      color: var(--cyan);
+    }
+
+    .topbar nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .topbar nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    .topbar nav a:hover {
+      color: var(--cyan);
+    }
+
+    .hero {
+      padding: 85px 0 70px;
+      background:
+        radial-gradient(
+          ellipse at 80% 25%,
+          #124466 0%,
+          transparent 53%
+        ),
+        linear-gradient(155deg, #0b1b2e, #07101d);
+    }
+
+    .eyebrow {
+      color: var(--cyan);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(38px, 6vw, 72px);
+      line-height: 1.07;
+      letter-spacing: -.045em;
+      max-width: 850px;
+      margin: 18px 0 26px;
+    }
+
+    h1 em {
+      color: var(--cyan);
+      font-style: normal;
+    }
+
+    h2 {
+      color: var(--white);
+      font-size: clamp(27px, 4vw, 36px);
+      line-height: 1.2;
+      margin: 0 0 22px;
+    }
+
+    h3 {
+      color: var(--cyan);
+      font-size: 18px;
+      margin-top: 24px;
+    }
+
+    .lead {
+      color: #d0dfeb;
+      font-size: 19px;
+      max-width: 780px;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 32px;
+    }
+
+    .pill {
+      display: inline-block;
+      border: 1px solid #287c9a;
+      border-radius: 99px;
+      color: var(--cyan);
+      padding: 5px 13px;
+      font-size: 12px;
+      font-weight: 750;
+      letter-spacing: .07em;
+      margin-bottom: 20px;
+    }
+
+    main section {
+      padding: 70px 0;
+      border-bottom: 1px solid #183047;
+    }
+
+    p {
+      color: var(--muted);
+    }
+
+    strong {
+      color: var(--white);
+    }
+
+    .intro {
+      max-width: 800px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .grid.two {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card {
+      background: linear-gradient(
+        145deg,
+        var(--panel2),
+        var(--panel)
+      );
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      padding: 26px;
+      min-width: 0;
+    }
+
+    .card-number {
+      font-size: 12px;
+      color: var(--orange);
+      font-weight: 800;
+      letter-spacing: .14em;
+    }
+
+    .card h3 {
+      margin: 11px 0;
+    }
+
+    .card p {
+      margin-bottom: 0;
+      font-size: 14px;
+    }
+
+    .figure {
+      border: 1px dashed #41728c;
+      border-radius: 18px;
+      min-height: 300px;
+      padding: 35px;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(31, 93, 126, .2),
+          rgba(8, 20, 33, .9)
+        );
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .figure .figure-title {
+      font-weight: 800;
+      font-size: 22px;
+      color: var(--cyan);
+    }
+
+    .figure p {
+      max-width: 550px;
+      margin: 0;
+    }
+
+    .caption {
+      color: #92aabd;
+      font-size: 12px;
+      margin-top: 12px;
+      font-style: italic;
+    }
+
+    .equation {
+      border-left: 3px solid var(--cyan);
+      background: #102338;
+      padding: 22px 25px;
+      margin: 25px 0;
+      font-size: 25px;
+      font-weight: 750;
+      letter-spacing: .02em;
+      overflow-wrap: anywhere;
+    }
+
+    .flow {
+      display: flex;
+      align-items: stretch;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 25px;
+    }
+
+    .flow-box {
+      flex: 1 1 140px;
+      text-align: center;
+      background: #122b41;
+      border: 1px solid #2d7191;
+      border-radius: 12px;
+      padding: 20px 14px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .flow-box small {
+      display: block;
+      color: var(--muted);
+      font-weight: 400;
+      margin-top: 7px;
+    }
+
+    .flow-arrow {
+      align-self: center;
+      color: var(--cyan);
+      font-size: 22px;
+    }
+
+    .note {
+      background: #142438;
+      border-left: 4px solid var(--orange);
+      border-radius: 0 12px 12px 0;
+      padding: 22px 26px;
+      margin: 30px 0;
+    }
+
+    .note strong {
+      color: var(--orange);
+    }
+
+    .note p {
+      margin-bottom: 0;
+    }
+
+    ul, ol {
+      color: var(--muted);
+      padding-left: 23px;
+    }
+
+    li {
+      margin: 9px 0;
+    }
+
+    .specs {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 25px 0;
+    }
+
+    .specs th,
+    .specs td {
+      padding: 15px;
+      text-align: left;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+
+    .specs th {
+      color: var(--cyan);
+      background: #10263a;
+    }
+
+    .specs td {
+      color: var(--muted);
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+    }
+
+    .timeline {
+      border-left: 2px solid var(--cyan);
+      padding-left: 26px;
+    }
+
+    .milestone {
+      position: relative;
+      margin: 0 0 28px;
+    }
+
+    .milestone::before {
+      content: "";
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--cyan);
+      position: absolute;
+      left: -33px;
+      top: 8px;
+    }
+
+    .milestone h3 {
+      margin-bottom: 5px;
+    }
+
+    .milestone p {
+      margin-top: 0;
+    }
+
+    .highlight {
+      background: linear-gradient(
+        130deg,
+        #112940,
+        #161c38
+      );
+      border: 1px solid #38678c;
+      border-radius: 18px;
+      padding: 38px;
+    }
+
+    footer {
+      padding: 45px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 780px) {
+      .hero {
+        padding: 55px 0;
+      }
+
+      main section {
+        padding: 48px 0;
+      }
+
+      .grid,
+      .grid.two {
+        grid-template-columns: 1fr;
+      }
+
+      .flow {
+        flex-direction: column;
+      }
+
+      .flow-arrow {
+        transform: rotate(90deg);
+      }
+
+      .highlight {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="topbar">
+  <div class="container topbar-inner">
+    <div class="brand">
+      <span>RPAS</span> STUDIO / INNOVATION
+    </div>
+
+    <nav aria-label="Blog sections">
+      <a href="#origin">Origin</a>
+      <a href="#engineering">Engineering</a>
+      <a href="#energy">Energy</a>
+      <a href="#rpas">RPAS Integration</a>
+      <a href="#roadmap">Roadmap</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+
+  <div class="hero">
+    <div class="container">
+      <div class="pill">Original Concept Revival</div>
+
+      <div class="eyebrow">
+        Independent Engineering Research
+      </div>
+
+      <h1>
+        The Mini <em>Quantum Induction</em>
+        Battery System
+      </h1>
+
+      <p class="lead">
+        Reviving my original 13-year-old concept:
+        a miniature magnetic induction mechanism,
+        a precision short-shaft rotor, automated
+        engagement control, and a three-supercapacitor
+        energy-management system.
+      </p>
+
+      <p class="lead">
+        From hand-drawn geometry to digital engineering,
+        prototype testing, and future optimization
+        through RPAS Studio.
+      </p>
+
+      <div class="meta">
+        QIBS Research Series · November 2026 ·
+        Concept Reconstruction and Validation
+      </div>
+    </div>
+  </div>
+
+  <!-- ORIGIN -->
+
+  <section id="origin">
+    <div class="container intro">
+      <div class="eyebrow">01 / The Beginning</div>
+
+      <h2>Before the simulations, there were drawings.</h2>
+
+      <p>
+        More than 13 years ago, I began exploring
+        a compact rotating magnetic device as a
+        personal engineering hobby.
+      </p>
+
+      <p>
+        I worked with geometry, a protractor,
+        mechanical layouts, and ideas about how
+        magnetic fields could interact with a
+        small rotating assembly.
+      </p>
+
+      <p>
+        I wasn't trying to build a large machine.
+        My ambition was miniaturization: a compact
+        device that might eventually fit inside
+        everyday electronics.
+      </p>
+
+      <p>
+        The original design included an unusually
+        short shaft, a skateboard-style bearing,
+        an actuator-controlled vertical movement
+        mechanism, and a proposed three-capacitor
+        electrical system.
+      </p>
+
+      <p>
+        I did not complete the experimental validation
+        at that time. Today, I'm reviving the project
+        to reconstruct the original design and
+        investigate its performance.
+      </p>
+
+      <div class="note">
+        <strong>Research history</strong>
+        <p>
+          The original concept predates this blog.
+          Historical drawings, notebooks, and dated
+          evidence will be added as they are recovered.
+          The publication date should not be mistaken
+          for the original design date.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORIGINAL DESIGN IMAGE -->
+
+  <section>
+    <div class="container">
+      <div class="eyebrow">02 / Design Visualization</div>
+
+      <h2>Reconstructing the miniature mechanism</h2>
+
+      <div class="figure" role="img"
+        aria-label="Reserved space for a technical exploded-view diagram">
+        <div class="figure-title">
+          ENGINEERING VISUAL 01
+        </div>
+        <strong>
+          Compact Magnetic Rotor — Exploded View
+        </strong>
+        <p>
+          Planned illustration: short shaft, rotor,
+          magnet arrangement, induction coils,
+          skateboard bearing, actuator,
+          and compact mounting frame.
+        </p>
+      </div>
+
+      <div class="caption">
+        Visual placeholder. Final diagram will follow
+        the reconstructed mechanical geometry.
+      </div>
+    </div>
+  </section>
+
+  <!-- ENGINEERING -->
+
+  <section id="engineering">
+    <div class="container">
+      <div class="eyebrow">03 / Mechanical Architecture</div>
+
+      <h2>Four systems, one compact platform</h2>
+
+      <div class="grid">
+        <article class="card">
+          <div class="card-number">MODULE 01</div>
+          <h3>Short-Shaft Rotor</h3>
+          <p>
+            A reduced-height rotary assembly built
+            around a compact bearing and carefully
+            controlled geometry.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-number">MODULE 02</div>
+          <h3>Magnetic Induction</h3>
+          <p>
+            A proposed arrangement of magnets and
+            coils designed to investigate voltage
+            generation from changing magnetic flux.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-number">MODULE 03</div>
+          <h3>Vertical Actuator</h3>
+          <p>
+            A mechanism that raises or lowers the
+            shaft to change the relative position
+            of the magnetic components.
+          </p>
+        </article>
+      </div>
+
+      <div class="grid two" style="margin-top:18px">
+        <article class="card">
+          <div class="card-number">MODULE 04</div>
+          <h3>Supercapacitor Control</h3>
+          <p>
+            Three storage elements with controlled
+            charging, regulated discharge, and
+            reserve-energy management.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-number">SYSTEM OBJECTIVE</div>
+          <h3>Measured Efficiency</h3>
+          <p>
+            Determine actual input energy, electrical
+            output, stored energy, friction losses,
+            switching losses, and operating duration.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAGNETIC PHYSICS -->
+
+  <section>
+    <div class="container">
+      <div class="eyebrow">04 / Electromagnetic Physics</div>
+
+      <h2>What actually produces electrical power?</h2>
+
+      <p>
+        Electromagnetic induction occurs when
+        magnetic flux through a conductor changes.
+      </p>
+
+      <p>
+        Faraday's law relates the induced voltage
+        to the change in magnetic flux:
+      </p>
+
+      <div class="equation">
+        V<sub>induced</sub> =
+        −N × dΦ/dt
+      </div>
+
+      <p>
+        Here, N is the coil-turn count and Φ is
+        magnetic flux.
+      </p>
+
+      <p>
+        Rotating magnets relative to induction coils
+        can generate voltage. The actual output depends
+        on speed, magnetic geometry, flux linkage,
+        coil resistance, and electrical loading.
+      </p>
+
+      <p>
+        Drawing electrical energy from the generator
+        produces opposing torque under Lenz's law.
+        Maintaining rotation under load requires a
+        corresponding source of mechanical energy.
+      </p>
+
+      <div class="note">
+        <strong>Engineering integrity</strong>
+        <p>
+          QIBS is a project name. The word "quantum"
+          is not a claim of a demonstrated quantum
+          effect. Permanent magnets alone are not
+          assumed to supply unlimited energy.
+          Continuous operation remains a testable
+          objective, not a verified result.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACTUATOR -->
+
+  <section>
+    <div class="container">
+      <div class="eyebrow">05 / Mechanical Control</div>
+
+      <h2>The lift-and-disengage concept</h2>
+
+      <div class="grid two">
+        <article class="card">
+          <div class="card-number">OPERATING MODE A</div>
+          <h3>Rotor Engaged</h3>
+          <p>
+            The actuator positions the rotor within
+            the intended magnetic and induction
+            geometry. When externally driven,
+            the rotor may induce electrical voltage
+            in the stationary coils.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-number">OPERATING MODE B</div>
+          <h3>Rotor Disengaged</h3>
+          <p>
+            The actuator moves the assembly vertically,
+            changing its magnetic coupling. A separate
+            braking mechanism may be required to stop
+            rotation fully and reliably.
+          </p>
+        </article>
+      </div>
+
+      <div class="figure" style="margin-top:25px"
+        role="img"
+        aria-label="Reserved space for actuator cross-section diagram">
+        <div class="figure-title">
+          ENGINEERING VISUAL 02
+        </div>
+        <strong>
+          Engaged vs. Disengaged Cross-Section
+        </strong>
+        <p>
+          Planned illustration: actuator travel,
+          shaft position, magnet clearance,
+          induction-coil alignment, and braking
+          mechanism.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUPERCAPACITORS -->
+
+  <section id="energy">
+    <div class="container">
+      <div class="eyebrow">06 / Electrical Architecture</div>
+
+      <h2>The three-supercapacitor system</h2>
+
+      <p>
+        My original electrical concept used three
+        capacitors with coordinated roles.
+      </p>
+
+      <div class="grid">
+        <article class="card">
+          <div class="card-number">C1 / PRIMARY</div>
+          <h3>Charging Bank</h3>
+          <p>
+            Receives energy from the generator
+            through rectification and an appropriate
+            charge-control circuit.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-number">C2 / BUFFER</div>
+          <h3>Load Supply</h3>
+          <p>
+            Supplies the regulated output stage
+            while sufficient energy remains stored.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-number">C3 / RESERVE</div>
+          <h3>Overflow Management</h3>
+          <p>
+            Provides reserve capacity or captures
+            available surplus energy within safe
+            voltage and current limits.
+          </p>
+        </article>
+      </div>
+
+      <h3>Proposed energy path</h3>
+
+      <div class="flow" aria-label="Proposed electrical energy path">
+        <div class="flow-box">
+          Mechanical Input
+          <small>Measured energy source</small>
+        </div>
+
+        <div class="flow-arrow" aria-hidden="true">→</div>
+
+        <div class="flow-box">
+          Rotor Generator
+          <small>Magnetic induction</small>
+        </div>
+
+        <div class="flow-arrow" aria-hidden="true">→</div>
+
+        <div class="flow-box">
+          Rectifier + Control
+          <small>Charge regulation</small>
+        </div>
+
+        <div class="flow-arrow" aria-hidden="true">→</div>
+
+        <div class="flow-box">
+          C1 / C2 / C3
+          <small>Managed energy storage</small>
+        </div>
+
+        <div class="flow-arrow" aria-hidden="true">→</div>
+
+        <div class="flow-box">
+          Regulated Load
+          <small>Measured DC output</small>
+        </div>
+      </div>
+
+      <h3>Capacitor energy calculation</h3>
+
+      <div class="equation">
+        E = ½ × C × V²
+      </div>
+
+      <p>
+        E is energy in joules, C is capacitance
+        in farads, and V is voltage.
+      </p>
+
+      <p>
+        A 100-farad supercapacitor charged to
+        2.7 volts stores approximately
+        <strong>364.5 joules</strong>.
+      </p>
+
+      <p>
+        Actual usable energy will be lower because
+        of minimum operating voltage, leakage,
+        converter losses, and other constraints.
+      </p>
+
+      <div class="note">
+        <strong>Critical design principle</strong>
+        <p>
+          Capacitors store and transfer energy;
+          switching between three capacitors does
+          not create additional energy. The system
+          must receive sufficient input energy
+          to support its load and losses.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TARGET SPECS -->
+
+  <section>
+    <div class="container">
+      <div class="eyebrow">07 / Preliminary Design Envelope</div>
+
+      <h2>Starting specifications for engineering study</h2>
+
+      <p>
+        These are investigation targets, not finalized
+        measurements or verified performance figures.
+      </p>
+
+      <div class="table-wrap">
+        <table class="specs">
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Initial Study Direction</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Rotor form</td>
+              <td>Compact disk or ring</td>
+            </tr>
+
+            <tr>
+              <td>Shaft</td>
+              <td>Short, low-mass central shaft</td>
+            </tr>
+
+            <tr>
+              <td>Bearing</td>
+              <td>
+                Skateboard-style bearing;
+                evaluate friction and load rating
+              </td>
+            </tr>
+
+            <tr>
+              <td>Magnetic arrangement</td>
+              <td>
+                To be reconstructed from
+                the original geometry
+              </td>
+            </tr>
+
+            <tr>
+              <td>Induction coils</td>
+              <td>
+                Optimize turns, wire gauge,
+                resistance, and flux coupling
+              </td>
+            </tr>
+
+            <tr>
+              <td>Actuator</td>
+              <td>
+                Controlled vertical travel;
+                measure force and energy use
+              </td>
+            </tr>
+
+            <tr>
+              <td>Energy storage</td>
+              <td>Three supercapacitors</td>
+            </tr>
+
+            <tr>
+              <td>Electrical output</td>
+              <td>
+                Regulated DC; voltage and
+                current targets pending load study
+              </td>
+            </tr>
+
+            <tr>
+              <td>Performance target</td>
+              <td>
+                Minimize losses and characterize
+                energy conversion efficiency
+              </td>
+            </tr>
+
+            <tr>
+              <td>Application size</td>
+              <td>
+                Bench prototype first;
+                miniaturization later
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- RPAS INTEGRATION -->
+
+  <section id="rpas">
+    <div class="container">
+      <div class="eyebrow">08 / Research Platform</div>
+
+      <h2>Bringing QIBS into RPAS Studio</h2>
+
+      <div class="highlight">
+        <h3>Our next development objective</h3>
+
+        <p>
+          We plan to integrate the Mini Quantum
+          Induction Battery System research into
+          RPAS Studio as a dedicated engineering
+          project for organizing, visualizing,
+          comparing, and optimizing design data.
+        </p>
+
+        <p>
+          The objective is to move from an original
+          mechanical concept to a measurable,
+          simulation-supported engineering workflow.
+        </p>
+      </div>
+
+      <div class="grid" style="margin-top:24px">
+        <article class="card">
+          <div class="card-number">RPAS / 01</div>
+          <h3>Geometry</h3>
+          <p>
+            Document rotor dimensions, magnet
+            arrangement, bearing geometry,
+            and actuator clearances.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-number">RPAS / 02</div>
+          <h3>Simulation</h3>
+          <p>
+            Import or analyze magnetic,
+            mechanical, and electrical results
+            using appropriate validated models
+            or external solvers.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-number">RPAS / 03</div>
+          <h3>Optimization</h3>
+          <p>
+            Compare candidate designs,
+            identify losses, and evaluate
+            parameter tradeoffs.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-number">RPAS / 04</div>
+          <h3>Capacitor Modeling</h3>
+          <p>
+            Study switching logic,
+            voltage regulation, charging
+            behavior, and load performance.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-number">RPAS / 05</div>
+          <h3>Experimental Data</h3>
+          <p>
+            Record measured rotational speed,
+            power input, power output,
+            capacitor voltage, and temperature.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-number">RPAS / 06</div>
+          <h3>Validation</h3>
+          <p>
+            Compare measurements against
+            predictions and document
+            both successful and unsuccessful
+            experimental results.
+          </p>
+        </article>
+      </div>
+
+      <div class="figure" style="margin-top:25px"
+        role="img"
+        aria-label="Reserved space for QIBS research dashboard design">
+        <div class="figure-title">
+          ENGINEERING VISUAL 03
+        </div>
+
+        <strong>
+          QIBS × RPAS Studio Research Dashboard
+        </strong>
+
+        <p>
+          Planned illustration: rotor model,
+          magnetic field map, voltage graphs,
+          supercapacitor charge states,
+          efficiency metrics, and
+          experimental comparisons.
+        </p>
+      </div>
+
+      <p class="caption">
+        Proposed future integration.
+        This section does not imply that RPAS Studio
+        already includes these specialized
+        simulation capabilities.
+      </p>
+    </div>
+  </section>
+
+  <!-- VALIDATION -->
+
+  <section>
+    <div class="container">
+      <div class="eyebrow">09 / Scientific Validation</div>
+
+      <h2>The test that matters most: energy balance</h2>
+
+      <p>
+        A spinning rotor is not sufficient proof
+        of electrical self-sufficiency.
+      </p>
+
+      <p>
+        We will measure every significant
+        source and destination of energy.
+      </p>
+
+      <div class="equation">
+        ΔE<sub>stored</sub> =
+        E<sub>input</sub> −
+        E<sub>output</sub> −
+        E<sub>losses</sub>
+      </div>
+
+      <p>
+        The experimental plan includes:
+      </p>
+
+      <ul>
+        <li>
+          Measuring rotor speed and coast-down time.
+        </li>
+
+        <li>
+          Measuring mechanical or electrical drive input.
+        </li>
+
+        <li>
+          Measuring coil voltage and current under load.
+        </li>
+
+        <li>
+          Measuring each capacitor's voltage over time.
+        </li>
+
+        <li>
+          Measuring regulated output power.
+        </li>
+
+        <li>
+          Recording actuator power consumption.
+        </li>
+
+        <li>
+          Calculating total energy delivered,
+          stored, and lost.
+        </li>
+      </ul>
+
+      <p>
+        The goal is to establish repeatable
+        measurements that independent
+        engineers can examine.
+      </p>
+    </div>
+  </section>
+
+  <!-- ROADMAP -->
+
+  <section id="roadmap">
+    <div class="container">
+      <div class="eyebrow">10 / Development Roadmap</div>
+
+      <h2>From a 13-year-old idea to a testable prototype</h2>
+
+      <div class="timeline">
+        <div class="milestone">
+          <h3>Phase 1 — Recover the original concept</h3>
+          <p>
+            Reconstruct the drawings, geometry,
+            mechanical dimensions, and early reasoning.
+          </p>
+        </div>
+
+        <div class="milestone">
+          <h3>Phase 2 — Complete engineering diagrams</h3>
+          <p>
+            Produce exploded mechanical views,
+            cross-sections, and an electrical schematic.
+          </p>
+        </div>
+
+        <div class="milestone">
+          <h3>Phase 3 — Model the magnetic system</h3>
+          <p>
+            Study field geometry, flux linkage,
+            induced voltage, torque, and losses.
+          </p>
+        </div>
+
+        <div class="milestone">
+          <h3>Phase 4 — Design capacitor control</h3>
+          <p>
+            Establish switching rules, regulator
+            architecture, safety limits,
+            and realistic operating duration.
+          </p>
+        </div>
+
+        <div class="milestone">
+          <h3>Phase 5 — RPAS research integration</h3>
+          <p>
+            Build the project dataset, visualization
+            workflow, and optimization experiments.
+          </p>
+        </div>
+
+        <div class="milestone">
+          <h3>Phase 6 — Construct the prototype</h3>
+          <p>
+            Assemble a safe laboratory device
+            with accessible instrumentation.
+          </p>
+        </div>
+
+        <div class="milestone">
+          <h3>Phase 7 — Publish results and video</h3>
+          <p>
+            Present measurements, performance,
+            limitations, revisions, and future
+            engineering opportunities.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING -->
+
+  <section>
+    <div class="container">
+      <div class="highlight">
+        <div class="eyebrow">
+          The QIBS Research Revival
+        </div>
+
+        <h2>
+          The original idea was mine.
+          The next step is proving what it can do.
+        </h2>
+
+        <p>
+          More than a decade ago, this was a
+          personal project built around curiosity,
+          drawings, geometry, and invention.
+        </p>
+
+        <p>
+          Today, I am giving that concept
+          a proper engineering investigation.
+        </p>
+
+        <p>
+          With new tools, careful measurement,
+          and the future involvement of RPAS Studio,
+          I want to explore every part of the design:
+          its possibilities, limitations,
+          and opportunities for improvement.
+        </p>
+
+        <p>
+          This project is about turning an
+          old idea into documented,
+          testable research.
+        </p>
+
+        <h3>
+          Welcome to the Mini Quantum Induction
+          Battery System.
+        </h3>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <strong>
+      RPAS Studio · QIBS Engineering Research
+    </strong>
+
+    <p>
+      Original concept: approximately 13 years ago<br>
+      Research revival: 2026<br>
+      Status: Concept development and experimental
+      validation planned
+    </p>
+
+    <p>
+      Concept illustrations are not proof
+      of measured performance.
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
