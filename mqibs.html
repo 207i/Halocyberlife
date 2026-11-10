@@ -8,10 +8,7 @@
   <title>QIBS | Mini Quantum Induction Battery System</title>
 
   <meta name="description"
-    content="The QIBS engineering revival: a compact magnetic
-    induction rotor, actuator mechanism, and three-supercapacitor
-    energy-management system developed from an original
-    concept over 13 years ago.">
+    content="The QIBS engineering revival: a compact magnetic induction rotor, actuator mechanism, and three-supercapacitor energy-management system developed from an original concept over 13 years ago.">
 
   <style>
     :root {
@@ -215,6 +212,8 @@
       font-size: 14px;
     }
 
+    /* IMAGE PLACEHOLDERS */
+
     .figure {
       border: 1px dashed #41728c;
       border-radius: 18px;
@@ -252,25 +251,27 @@
       font-style: italic;
     }
 
-    
-/* QIBS ENGINEERING IMAGES */
+    /* QIBS ENGINEERING IMAGES */
 
-.qibs-engineering-image {
-  margin: 28px 0;
-  width: 100%;
-}
+    .qibs-engineering-image {
+      margin: 28px 0;
+      width: 100%;
+    }
 
-.qibs-engineering-image img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
+    .qibs-engineering-image img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 18px;
+      border: 1px solid #294660;
+      box-shadow: 0 12px 40px rgba(0,0,0,.35);
+    }
 
-.qibs-engineering-image .caption {
-  display: block;
-  margin-top: 14px;
-  line-height: 1.7;
-}
+    .qibs-engineering-image .caption {
+      display: block;
+      margin-top: 14px;
+      line-height: 1.7;
+    }
 
     .equation {
       border-left: 3px solid var(--cyan);
@@ -555,56 +556,41 @@
     </div>
   </section>
 
- 
-<!-- ORIGINAL DESIGN IMAGE -->
+  <!-- ENGINEERING VISUAL 01 -->
 
-<section>
-  <div class="container">
+  <section>
+    <div class="container">
 
-    <div class="eyebrow">
-      02 / Design Visualization
+      <div class="eyebrow">
+        02 / Design Visualization
+      </div>
+
+      <h2>Reconstructing the miniature mechanism</h2>
+
+      <figure class="qibs-engineering-image">
+        <img
+          src="./blog/Images/blog/qibs-mechanical-assembly.webp"
+          alt="QIBS conceptual exploded mechanical assembly showing the magnetic rotor, short shaft, skateboard-style bearing, induction coils, and vertical actuator"
+          width="1600"
+          height="900"
+          loading="lazy"
+          decoding="async"
+        >
+
+        <figcaption class="caption">
+          FIGURE 01 — QIBS compact magnetic rotor assembly.
+          Conceptual engineering visualization showing
+          the short-shaft mechanism, magnetic rotor,
+          induction coils, skateboard-style bearing,
+          and actuator-controlled positioning system.
+          Final geometry pending engineering validation.
+        </figcaption>
+      </figure>
+
     </div>
+  </section>
 
-    <h2>
-      Reconstructing the miniature mechanism
-    </h2>
-
-    <!-- QIBS ENGINEERING VISUAL 01 -->
-
-    <figure class="qibs-engineering-image">
-
-      <img
-        src="./blog/Images/blog/qibs-mechanical-assembly.webp"
-        alt="QIBS conceptual exploded mechanical assembly showing the magnetic rotor, short shaft, skateboard-style bearing, induction coils, and vertical actuator"
-        width="1600"
-        height="900"
-        loading="lazy"
-        decoding="async"
-        style="
-          display:block;
-          width:100%;
-          height:auto;
-          border-radius:18px;
-          border:1px solid #294660;
-          box-shadow:0 12px 40px rgba(0,0,0,.35);
-        "
-      >
-
-      <figcaption class="caption">
-        FIGURE 01 — QIBS compact magnetic rotor assembly.
-        Conceptual engineering visualization showing
-        the short-shaft mechanism, magnetic rotor,
-        induction coils, skateboard-style bearing,
-        and actuator-controlled positioning system.
-        Final geometry pending engineering validation.
-      </figcaption>
-
-    </figure>
-
-  </div>
-</section>
-
-<!-- ENGINEERING -->
+  <!-- ENGINEERING -->
 
   <section id="engineering">
     <div class="container">
@@ -687,8 +673,7 @@
       </p>
 
       <div class="equation">
-        V<sub>induced</sub> =
-        −N × dΦ/dt
+        V<sub>induced</sub> = −N × dΦ/dt
       </div>
 
       <p>
@@ -724,7 +709,7 @@
     </div>
   </section>
 
-  <!-- ACTUATOR -->
+  <!-- ACTUATOR / ENGINEERING VISUAL 02 -->
 
   <section>
     <div class="container">
@@ -757,22 +742,24 @@
         </article>
       </div>
 
-      <div class="figure" style="margin-top:25px"
-        role="img"
-        aria-label="Reserved space for actuator cross-section diagram">
-        <div class="figure-title">
-          ENGINEERING VISUAL 02
-        </div>
-        <strong>
-          Engaged vs. Disengaged Cross-Section
-        </strong>
-        <p>
-          Planned illustration: actuator travel,
-          shaft position, magnet clearance,
-          induction-coil alignment, and braking
-          mechanism.
-        </p>
-      </div>
+      <figure class="qibs-engineering-image">
+        <img
+          src="./blog/Images/blog/qibs-actuator-control.webp"
+          alt="QIBS conceptual cross-section comparing the engaged magnetic rotor with its actuator-lifted disengaged position"
+          width="1600"
+          height="900"
+          loading="lazy"
+          decoding="async"
+        >
+
+        <figcaption class="caption">
+          FIGURE 02 — Conceptual actuator-controlled rotor
+          positioning system. The actuator raises and lowers
+          the rotor to change magnetic coupling. Complete
+          braking behavior requires engineering validation.
+        </figcaption>
+      </figure>
+
     </div>
   </section>
 
@@ -1082,9 +1069,13 @@
         </article>
       </div>
 
-      <div class="figure" style="margin-top:25px"
-        role="img"
-        aria-label="Reserved space for QIBS research dashboard design">
+      <!-- ENGINEERING VISUAL 03: FUTURE RPAS DASHBOARD -->
+
+      <div class="figure"
+           style="margin-top:25px"
+           role="img"
+           aria-label="Reserved space for QIBS research dashboard design">
+
         <div class="figure-title">
           ENGINEERING VISUAL 03
         </div>
