@@ -903,6 +903,27 @@
     @media (max-width: 800px) {
       .rpas-footer-links { flex-direction: row; align-items: center; }
     }
+
+  /* RPAS V1.1.1 manual link — landing-page-only enhancement */
+  .button.manual-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+    background: linear-gradient(120deg, rgba(89,228,255,.13), rgba(110,140,255,.14));
+    border: 1px solid rgba(89,228,255,.65);
+    color: #e5faff;
+    box-shadow: 0 0 18px rgba(89,228,255,.08);
+    transition: border-color .2s ease, background .2s ease, box-shadow .2s ease;
+  }
+  .button.manual-cta:hover {
+    border-color: var(--cyan);
+    background: linear-gradient(120deg, rgba(89,228,255,.22), rgba(110,140,255,.19));
+    box-shadow: 0 0 24px rgba(89,228,255,.18);
+  }
+  .button.manual-cta .manual-icon { width: 20px; height: 20px; flex: 0 0 auto; }
+  .manual-intro { margin: 13px 0 0; color: var(--muted); font-size: .9rem; }
+  .manual-intro strong { color: #e5faff; }
+  .button.manual-cta:focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; }
   </style>
 </head>
 
@@ -957,7 +978,12 @@
         <div class="actions">
           <a class="button primary" href="https://rpas-staging.halocyberlife.com/jedi-physics-test.html">Explore the Scientific Mission</a>
              <a class="button" href="#development-status">Development Status</a>
+          <a class="button manual-cta" href="./user-manual.html" target="_blank" rel="noopener noreferrer" aria-label="Read the RPAS Studio V1.1.1 User Manual in a new tab">
+            <svg class="manual-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14"/><path d="M3 18V5a2 2 0 0 1 2-2h3a4 4 0 0 1 4 4 4 4 0 0 1 4-4h3a2 2 0 0 1 2 2v13h-5a4 4 0 0 0-4 3 4 4 0 0 0-4-3H3Z"/></svg>
+            Read User Manual <span aria-hidden="true">↗</span>
+          </a>
         </div>
+        <p class="manual-intro"><strong>New to RPAS Studio?</strong> Start with the V1.1.1 guide to navigation, digital models, evidence, and limitations.</p>
         <div class="status"><span class="dot" aria-hidden="true"></span>Independent research-stage software under active development</div>
       </div>
       <div class="hero-visual">
@@ -1123,6 +1149,7 @@ NEXT RESEARCH QUESTION</div>
     <a href="./contact_us.html">Contact</a>
     <a href="./Privacy%20%26%20Terms.html">Privacy &amp; Terms</a>
     <a href="./sitemap.html">Site Map</a>
+    <a href="./user-manual.html" target="_blank" rel="noopener noreferrer">RPAS V1.1.1 User Manual ↗</a>
     <a href="https://rpas.halocyberlife.com/" target="_blank" rel="noopener noreferrer">RPAS Studio ↗ (Not Ready)</a>
   </nav>
   <p class="small">Contact: <a href="mailto:luisamaya@halocyberlife.com">luisamaya@halocyberlife.com</a>
@@ -1189,6 +1216,13 @@ backToTop.addEventListener('click', () => {
 </script>
 </body>
 </html>
+
+
+
+
+
+
+
 
 
 
