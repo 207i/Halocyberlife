@@ -1,34 +1,15 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex"><title>RPAS Studio V1.1.1 — User Manual</title><style>
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta content="noindex" name="robots"/><title>RPAS Studio V1.1.1 — User Manual</title><style>
 :root{color-scheme:dark;--bg:#07111c;--panel:#0e2335;--ink:#e4eff8;--sub:#b0c3d3;--line:#284760;--cyan:#70c9ea;--amber:#ffcd7a}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif}a{color:var(--cyan)}.layout{display:grid;grid-template-columns:280px minmax(0,1fr);min-height:100vh}aside{background:#091b2a;border-right:1px solid var(--line);padding:20px;position:sticky;top:0;height:100vh;overflow:auto}.brand{font-size:18px;font-weight:750;letter-spacing:.07em;color:#e5f7ff}.small{font-size:12px;color:var(--sub)}nav{display:grid;gap:3px;margin-top:20px}nav a{display:block;text-decoration:none;padding:6px 10px;border-radius:6px;font-size:13px;color:#c1d8e7}nav a:hover,nav a:focus{background:#143248;color:white}main{max-width:1100px;width:100%;padding:32px 6vw 110px}.topline{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:35px}.topline span{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--cyan)}.search{background:#0b2335;border:1px solid #45667c;border-radius:8px;padding:9px 12px;color:white;min-width:230px}h1,h2,h3{line-height:1.2;scroll-margin-top:22px}h1{font-size:2rem;margin-top:3.3rem;color:#f0f9ff}main>h1:first-of-type{font-size:2.6rem;margin-top:0}h2{font-size:1.4rem;margin-top:1.8rem;color:#9dd9f5}h3{font-size:1.08rem;margin-top:1.5rem;color:#d2ebfa}p,li{max-width:83ch}blockquote{margin:22px 0;border-left:4px solid var(--amber);background:#182636;padding:12px 22px;color:#f5e9d1}blockquote p{margin:0 0 8px}blockquote p:last-child{margin:0}table{border-collapse:collapse;width:100%;font-size:14px;margin:18px 0 28px;display:block;overflow-x:auto}th,td{text-align:left;vertical-align:top;padding:10px 12px;border:1px solid var(--line);min-width:145px}th{background:#153248;color:#d6f2ff}tr:nth-child(even) td{background:#0b1a28}code{color:#b5eaff;background:#10293b;padding:.13em .3em;border-radius:4px;overflow-wrap:anywhere}hr{border:0;border-top:1px solid var(--line);margin:2rem 0}.footnote{margin-top:65px;border-top:1px solid var(--line);padding-top:16px;color:var(--sub);font-size:13px}.hidden-by-search{display:none}.btn{display:inline-block;border:1px solid var(--line);padding:4px 10px;background:transparent;border-radius:6px;color:var(--ink);cursor:pointer}@media(max-width:850px){.layout{display:block}aside{position:relative;height:auto;max-height:270px;border-right:none;border-bottom:1px solid var(--line)}main{padding:24px 20px 70px}nav{grid-template-columns:repeat(2,minmax(0,1fr))}.topline{align-items:center}}@media print{body{background:white;color:black}.layout{display:block}aside,.search,.topline{display:none}main{max-width:none;padding:0}h1,h2,h3{color:#123d50;break-after:avoid}table{display:table}td,th{border-color:#999}th{background:#eee;color:black}tr:nth-child(even) td{background:white}blockquote{background:#f8f8f8;color:black;border-color:#555}a{color:#123d50}}
-</style></head><body><div class="layout"><aside><div class="brand">RPAS / DOCUMENTATION</div><div class="small">V1.1.1 · Manual edition 0.1 · Nov 9, 2026</div><nav aria-label="Manual chapters"><a href="#1-introduction-and-scope">1. Introduction and scope</a>
-<a href="#2-system-access-and-environments">2. Accessing RPAS Studio</a>
-<a href="#3-navigation-and-interface-map">3. Navigation and interface map</a>
-<a href="#4-dashboard-and-system-health">4. Dashboard and system health</a>
-<a href="#5-approved-digital-references">5. Approved digital references</a>
-<a href="#6-models-and-public-demonstrations">6. Models and public demonstrations</a>
-<a href="#7-experiment-designer-and-configuration">7. Experiment Designer and configuration</a>
-<a href="#8-run-experiment-execution-and-restrictions">8. Run Experiment — execution and restrictions</a>
-<a href="#9-research-workbench">9. Research Workbench</a>
-<a href="#10-telemetry-and-visualization">10. Telemetry and visualization</a>
-<a href="#11-evidence-verification-and-scientific-provenance">11. Evidence verification and scientific provenance</a>
-<a href="#12-history-my-experiments-and-compare">12. History, My Experiments and Compare</a>
-<a href="#13-physics-and-scientific-references">13. Physics and scientific references</a>
-<a href="#14-release-information-and-versioning">14. Release information and versioning</a>
-<a href="#15-troubleshooting">15. Troubleshooting</a>
-<a href="#16-security-privacy-and-integrity">16. Security, privacy and integrity</a>
-<a href="#17-known-limitations-and-open-verification-register">17. Known limitations and open verification register</a>
-<a href="#18-future-development-not-present-functionality">18. Future development — not present functionality</a>
-<a href="#19-glossary">19. Glossary</a>
-<a href="#appendix-a-technical-architecture-supported-boundaries">Appendix A. Technical architecture — supported boundaries</a>
-<a href="#appendix-b-screenshot-checklist-and-publication-rules">Appendix B. Screenshot checklist and publication rules</a></nav></aside><main><div class="topline"><span>HaloCyberLife · Technical documentation</span><div><input id="search" class="search" type="search" aria-label="Find text in manual" placeholder="Find text in manual…"><button class="btn" onclick="window.print()">Print</button></div></div><article id="manual"><h1 id="rpas-studio-v1-1-1">RPAS Studio V1.1.1</h1>
+</style></head><body><div class="layout"><aside><div class="brand">RPAS / DOCUMENTATION</div><div class="small">V1.1.1 · Public manual edition 0.2 · Nov 9, 2026</div><nav aria-label="Manual chapters"><a href="#rpas-studio-v111">RPAS Studio V1.1.1</a><a href="#1-introduction-and-scope">1. Introduction and scope</a><a href="#2-system-access-and-user-roles">2. System access and user roles</a><a href="#3-navigation-and-interface-map">3. Navigation and interface map</a><a href="#4-dashboard-and-system-health">4. Dashboard and system health</a><a href="#5-approved-digital-references">5. Approved digital references</a><a href="#6-models-and-public-demonstrations">6. Models and public demonstrations</a><a href="#7-experiment-designer-and-configuration">7. Experiment Designer and configuration</a><a href="#8-run-experiment-execution-and-restrictions">8. Run Experiment — execution and restrictions</a><a href="#9-research-workbench">9. Research Workbench</a><a href="#10-telemetry-and-visualization">10. Telemetry and visualization</a><a href="#11-evidence-verification-and-scientific-provenance">11. Evidence verification and scientific provenance</a><a href="#12-history-my-experiments-and-compare">12. History, My Experiments and Compare</a><a href="#13-physics-and-scientific-references">13. Physics and scientific references</a><a href="#14-release-information-and-versioning">14. Release information and versioning</a><a href="#15-troubleshooting">15. Troubleshooting</a><a href="#16-security-privacy-and-integrity">16. Security, privacy and integrity</a><a href="#17-known-limitations-and-open-verification-register">17. Known limitations and open verification register</a><a href="#18-future-development-not-present-functionality">18. Future development — not present functionality</a><a href="#19-glossary">19. Glossary</a><a href="#appendix-a-user-facing-software-architecture-and-scientific-boundaries">Appendix A. User-facing software architecture and scientific boundaries</a><a href="#appendix-b-screenshot-checklist-and-publication-rules">Appendix B. Screenshot checklist and publication rules</a></nav></aside><main><div class="topline"><span>HaloCyberLife · Technical documentation</span><div><input aria-label="Find text in manual" class="search" id="search" placeholder="Find text in manual…" type="search"/><button class="btn" onclick="window.print()">Print</button></div></div><article id="manual"><h1 id="rpas-studio-v111">RPAS Studio V1.1.1</h1>
 <h2 id="user-manual-digital-research-and-engineering-workspace">User Manual — Digital Research and Engineering Workspace</h2>
 <p><strong>Product:</strong> RPAS Studio — Resonant Photonic Acoustic System<br/>
 <strong>Release covered:</strong> V1.1.1<br/>
 <strong>Manual edition:</strong> 0.1 — evidence-constrained draft<br/>
 <strong>Document date:</strong> November 9, 2026<br/>
 <strong>Publisher:</strong> HaloCyberLife<br/>
-<strong>Audience:</strong> Authorized USER accounts, technical reviewers, and OWNER personnel<br/>
-<strong>Document state:</strong> Publication-ready layout; feature-level verification remains open</p>
+<strong>Audience:</strong> Authorized users and technical readers<br/>
+<strong>Document state:</strong> Public-facing draft; feature-level verification remains open</p>
 <blockquote>
 <p><strong>IMPORTANT — DEVELOPMENT STATUS.</strong> RPAS Studio V1.1.1 is an actively developed browser-based research and engineering software platform. A screen labeled OPERATIONAL does not mean a physical experiment was conducted, an instrument was calibrated, or a scientific result was independently validated. Treat digital reference demonstrations, simulated or illustrative plots, recorded executions, integrity-checked files, and physical measurement evidence as different categories.</p>
 </blockquote>
@@ -37,7 +18,7 @@
 </blockquote>
 <hr/>
 <h1 id="1-introduction-and-scope">1. Introduction and scope</h1>
-<p>RPAS Studio provides a browser interface for investigating digital models and organizing engineering workflows. The currently described interface includes dashboard information, approved digital reference examples, experiment configuration views, research workspaces, history, models, physics descriptions, comparisons, telemetry, visualization, evidence verification, and release information. Access and functionality can vary by environment and role.</p>
+<p>RPAS Studio provides a browser interface for investigating digital models and organizing engineering workflows. The currently described interface includes dashboard information, approved digital reference examples, experiment configuration views, research workspaces, history, models, physics descriptions, comparisons, telemetry, visualization, evidence verification, and release information. Access and functionality can vary by role and current release.</p>
 <p>This document explains what users can safely infer from each area, where the described workflow is confirmed, and where behavior has not been verified. It does <strong>not</strong> certify the accuracy of a particular digital model, the availability of experimental equipment, or the success of a physical experiment.</p>
 <h3 id="how-to-read-feature-labels">How to read feature labels</h3>
 <ul>
@@ -49,53 +30,32 @@
 <h3 id="recommended-first-use-path">Recommended first-use path</h3>
 <ol>
 <li>Open the authorized RPAS Studio URL.</li>
-<li>Review the environment and account context.</li>
+<li>Review the visible account context and any access restrictions.</li>
 <li>Read Dashboard status labels without equating them with scientific validation.</li>
 <li>Select an approved digital reference (for example, PrecisionPulse) if offered.</li>
 <li>Preview the reference; save only if the workspace control is available and authorized.</li>
 <li>Inspect Models, Physics, and any read-only visualizations.</li>
 <li>Avoid treating an illustration, sample result, or unavailable operation as a measured experiment.</li>
 </ol>
-<p><strong>Screenshot S01:</strong> Full Dashboard after successful authorized login. <em>Caption: RPAS Studio V1.1.1 Dashboard and available navigation; visibility varies by role and environment.</em></p>
-
-<h1 id="2-system-access-and-environments">2. Accessing RPAS Studio</h1>
-
-<h2 id="2-1-deployment-environments">2.1 Official RPAS Studio Website</h2>
-
-<p>Welcome to RPAS Studio, a browser-based digital research and engineering workspace developed by HaloCyberLife.</p>
-
-<p>Access RPAS Studio using the official HaloCyberLife website:</p>
-
-<p><strong>Official RPAS Studio:</strong>
-<a href="https://rpas.halocyberlife.com/jedi-physics-test.html">rpas.halocyberlife.com</a></p>
-
-<p>This link opens the RPAS Studio V1.1.1 USER interface, where visitors can explore published digital references, engineering demonstrations, and available research features.</p>
-
-<p>RPAS Studio is under active development. Certain tools may be restricted, unavailable, or subject to change depending on the software release and your permissions.</p>
-
-<h2 id="2-2-open-the-application">2.2 How to Open RPAS Studio</h2>
-
+<p><strong>Screenshot S01:</strong> Full Dashboard after authorized access. <em>Caption: RPAS Studio V1.1.1 Dashboard and available navigation; visibility varies by role.</em></p>
+<h1 id="2-system-access-and-user-roles">2. System access and user roles</h1>
+<h2 id="21-open-rpas-studio">2.1 Open RPAS Studio</h2>
 <ol>
-<li>Select the official RPAS Studio link above.</li>
-<li>If prompted, complete the secure sign-in process using an authorized account.</li>
-<li>Wait for the RPAS Studio dashboard to load.</li>
-<li>Confirm that the interface identifies your access context, such as <strong>USER / READ ONLY</strong>.</li>
-<li>Review the dashboard and select an available navigation option.</li>
+<li>Open the RPAS Studio web address provided on the official HaloCyberLife website or by an authorized administrator.</li>
+<li>Complete the authentication step if prompted. Do not bypass access controls.</li>
+<li>Review the current development-status notice and visible account role.</li>
+<li>Open <strong>Dashboard</strong> to see available controls and reported system status.</li>
+<li>If a page is unavailable, note the visible error and consult Chapter 15.</li>
 </ol>
-
-<p><strong>Understanding system status:</strong> A displayed <strong>SYSTEM OPERATIONAL</strong> indicator reports application status. It does not establish that physical equipment is connected or that a scientific experiment has been independently validated.</p>
-
-<p><strong>Need assistance?</strong> If the application does not load or access is denied, consult Chapter 15: Troubleshooting.</p>
-
-<p><strong>Screenshot S02:</strong> RPAS Studio USER dashboard after successful access. <em>Caption: Official RPAS Studio interface showing the available USER workspace.</em></p>
-
-<h2 id="2-3-user-and-owner">2.3 USER and OWNER Access</h2>
-
-<p><strong>USER</strong> is the restricted application context for approved digital references, published demonstrations, and specifically authorized workspace capabilities. USER access does not provide permission to view private research, administrative functions, or protected engineering data.</p>
-
-<p><strong>OWNER</strong> is a privileged access context reserved for authorized engineering, research, and administrative operations. OWNER-only information and controls are not part of the public USER experience unless specifically approved for publication.</p>
-
-<p>Available navigation items and functions may vary according to your access permissions. A visible control does not necessarily indicate that its underlying operation is enabled.</p>
+<p><strong>DOCUMENTED:</strong> RPAS Studio is browser-based and access can be restricted. <strong>NEEDS VERIFICATION:</strong> the current permanent public entry URL, exact authentication prompts, and role assignment flow.</p>
+<p><strong>Screenshot S02:</strong> Authorized sign-in or first accessible application screen. <em>Caption: Access to RPAS Studio depends on current permissions and availability.</em></p>
+<h2 id="22-user-access">2.2 USER access</h2>
+<p>The <strong>USER</strong> context offers approved digital reference examples and interfaces specifically made available to users. It does not automatically grant access to private research, administrative functions, underlying engineering data, or unrestricted experimental execution.</p>
+<h2 id="23-owner-access">2.3 OWNER access</h2>
+<p><strong>OWNER</strong> is the restricted engineering and administrative context. Private experiments, development workflows, and protected evidence remain separate from explicitly published USER resources.</p>
+<p><strong>NEEDS VERIFICATION:</strong> the current role-specific control matrix and each action's permissions must be checked before publication of detailed procedural claims.</p>
+<h2 id="24-development-stage-availability">2.4 Development-stage availability</h2>
+<p>Some visible controls can be incomplete, disabled, or temporarily unavailable. Report the actual message or state shown by the application; do not assume an unavailable feature completed an operation.</p>
 <h1 id="3-navigation-and-interface-map">3. Navigation and interface map</h1>
 <p>The following entries are documented as areas of the V1.1.1 interface. An entry in this table is <strong>not</strong> a claim that its entire workflow passes current testing.</p>
 <table>
@@ -125,7 +85,7 @@
 <tr>
 <td>Research Workbench</td>
 <td>Hypotheses and private research drafts</td>
-<td>RESTRICTED in staging; precise availability NEEDS VERIFICATION</td>
+<td>RESTRICTED in some builds; precise availability NEEDS VERIFICATION</td>
 </tr>
 <tr>
 <td>History</td>
@@ -169,11 +129,11 @@
 </tr>
 </tbody>
 </table>
-<p>Some areas may be hidden, disabled, moved, or differently labeled across production, staging, USER and OWNER views. Follow the actual authenticated interface, not a speculative menu path.</p>
+<p>Some areas may be hidden, disabled, moved, or differently labeled across releases and USER and OWNER views. Follow the actual authenticated interface, not a speculative menu path.</p>
 <p><strong>Screenshot S03:</strong> Full navigation with USER role identified. <em>Caption: Menu availability is permission- and build-dependent.</em></p>
 <h1 id="4-dashboard-and-system-health">4. Dashboard and system health</h1>
 <p>The Dashboard is the entry point for understanding the present application state and approved references. Described components include <strong>Active Research Reference</strong>, <strong>Digital Reference</strong>, and <strong>Engineering Inspector</strong>.</p>
-<h2 id="4-1-health-indicators">4.1 Health indicators</h2>
+<h2 id="41-health-indicators">4.1 Health indicators</h2>
 <table>
 <thead>
 <tr>
@@ -220,22 +180,22 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Important:</strong> A recent reported staging test found that the Ubuntu application service was running while the Dashboard displayed <strong>SYSTEM DEGRADED</strong>. The overall badge is driven by reported <code>dashboard.system.status</code>; the precise degraded-state cause is still under investigation. Do not claim a server crash or a determined root cause without diagnostics.</p>
-<h2 id="4-2-how-to-inspect-a-dashboard-status">4.2 How to inspect a Dashboard status</h2>
+<p><strong>Important:</strong> An observed application screen displayed <strong>SYSTEM DEGRADED</strong> while some subsystems reported ONLINE. The overall badge is driven by reported <code>dashboard.system.status</code>; the precise degraded-state cause is still under investigation. Do not claim a server crash or a determined root cause without diagnostics.</p>
+<h2 id="42-how-to-inspect-a-dashboard-status">4.2 How to inspect a Dashboard status</h2>
 <ol>
 <li>Read the overall SYSTEM badge.</li>
 <li>Read ENGINE, TELEMETRY, EVIDENCE and RELEASE independently.</li>
 <li>Identify which area is unavailable or unknown.</li>
-<li>Note the environment, current page, visible text, and local time.</li>
+<li>Note the current page, visible text, release label, and local time.</li>
 <li>If a subsystem shows OFFLINE, do not try to force operation or reinterpret the label as a successful run.</li>
 <li>Report inconsistencies to the administrator with a screenshot; do not paste authentication tokens into reports.</li>
 </ol>
 <p><strong>DOCUMENTED:</strong> the set of status labels and the distinction between server availability and application health. <strong>NEEDS VERIFICATION:</strong> exact logic behind all underlying statuses and how the user can refresh them.</p>
 <p><strong>Screenshot S04:</strong> Dashboard with degraded banner and service indicators. <em>Caption: DEGRADED is an application health classification, not automatically a stopped Linux service.</em></p>
 <h1 id="5-approved-digital-references">5. Approved digital references</h1>
-<h2 id="5-1-what-a-digital-reference-is">5.1 What a digital reference is</h2>
+<h2 id="51-what-a-digital-reference-is">5.1 What a digital reference is</h2>
 <p>A digital reference is an approved example designed for software exploration and engineering orientation. <strong>PrecisionPulse — Industrial Monitoring Demo</strong> is a named reference in the Dashboard's Active Research Reference section. Its appearance does not mean that industrial machinery, sensors or physical signals were measured during your session.</p>
-<h2 id="5-2-select-and-preview">5.2 Select and preview</h2>
+<h2 id="52-select-and-preview">5.2 Select and preview</h2>
 <ol>
 <li>Go to <strong>Dashboard</strong>.</li>
 <li>Find <strong>Active Research Reference</strong>.</li>
@@ -245,7 +205,7 @@
 <li>Identify whether presented data are labeled sample, simulated, illustrative, or recorded. If unspecified, treat origin as <strong>UNKNOWN</strong>.</li>
 </ol>
 <p><strong>DOCUMENTED:</strong> the named reference and existence of selection, preview and saving concepts. <strong>NEEDS VERIFICATION:</strong> exact button names, preview payload, visual transitions, and whether selections persist after reload.</p>
-<h2 id="5-3-preview-versus-save">5.3 Preview versus save</h2>
+<h2 id="53-preview-versus-save">5.3 Preview versus save</h2>
 <p><strong>Preview</strong> means inspecting or loading a reference for evaluation in the current interface. <strong>Save to workspace</strong> implies a request to retain a copy or configuration in a user-associated area. A preview alone must not be described as permanently saved. A click on Save alone does not prove persistence unless confirmation and later retrieval are verified.</p>
 <ol>
 <li>Preview the chosen reference first.</li>
@@ -254,7 +214,7 @@
 <li>Check the relevant workspace or <strong>My Experiments</strong> area for an entry, if implemented.</li>
 <li>Reopen the entry to verify persistence; otherwise classify the save as <strong>UNCONFIRMED</strong>.</li>
 </ol>
-<p><strong>NEEDS VERIFICATION:</strong> storage location, saved fields, duplicate handling, quotas, retention period, and whether the save control works in current staging.</p>
+<p><strong>NEEDS VERIFICATION:</strong> storage location, saved fields, duplicate handling, quotas, retention period, and whether the save control works in the current application.</p>
 <p><strong>Screenshot S05:</strong> Active Research Reference selector. <em>Caption: Selecting a reference is not the same as executing a physical experiment.</em></p>
 <p><strong>Screenshot S06:</strong> Preview and save controls, with resulting notification. <em>Caption: Verify whether save confirmation corresponds to a retrievable record.</em></p>
 <h1 id="6-models-and-public-demonstrations">6. Models and public demonstrations</h1>
@@ -270,7 +230,7 @@
 <p><strong>Screenshot S07:</strong> Models catalog. <em>Caption: Available public models, with assumptions and build-specific availability.</em></p>
 <h1 id="7-experiment-designer-and-configuration">7. Experiment Designer and configuration</h1>
 <p>The <strong>Experiment Designer</strong> is the interface for specifying engineering inputs. These may represent model parameters, excitation or geometry settings, constraints, and run conditions depending on the selected experiment. <strong>Do not assume any particular parameter or unit exists until the current screen and source confirm it.</strong></p>
-<h2 id="7-1-safe-configuration-procedure">7.1 Safe configuration procedure</h2>
+<h2 id="71-safe-configuration-procedure">7.1 Safe configuration procedure</h2>
 <ol>
 <li>Open <strong>Experiment Designer</strong> if your role permits access.</li>
 <li>Identify the selected model or experiment context.</li>
@@ -295,7 +255,7 @@
 <p><strong>NEEDS VERIFICATION:</strong> precise run-start controls, backend execution semantics, job states, identifiers, cancellation and results. <strong>Not established:</strong> any physical equipment integration or experimental demonstration in this deployment.</p>
 <p><strong>Screenshot S09:</strong> Run Experiment page in its actual enabled or restricted state. <em>Caption: Availability and role restrictions determine which operations can be performed.</em></p>
 <h1 id="9-research-workbench">9. Research Workbench</h1>
-<p>The <strong>Research Workbench</strong> is described as a place for private hypotheses, research drafts and related engineering notes. Some workspace capabilities are intentionally disabled in staging; an unavailable control should be identified as such.</p>
+<p>The <strong>Research Workbench</strong> is described as a place for private hypotheses, research drafts and related engineering notes. Some workspace capabilities may be intentionally disabled; an unavailable control should be identified as such.</p>
 <ol>
 <li>Navigate to <strong>Research Workbench</strong>, if visible.</li>
 <li>Check whether drafting, saving, editing or opening records is enabled for your role.</li>
@@ -304,10 +264,10 @@
 <li>Avoid placing confidential OWNER material into a USER-facing document or public example.</li>
 </ol>
 <p><strong>PARTIAL / RESTRICTED. NEEDS VERIFICATION:</strong> currently enabled editing, autosave, explicit save, isolation, quotas, export/import and retention. Older project plans have mentioned workspace quotas and retention policies; this manual does not state them as current V1.1.1 facts.</p>
-<p><strong>Screenshot S10:</strong> Workbench access state. <em>Caption: Staging may restrict private research functions by design.</em></p>
+<p><strong>Screenshot S10:</strong> Workbench access state. <em>Caption: Private research functions may be restricted by design.</em></p>
 <h1 id="10-telemetry-and-visualization">10. Telemetry and visualization</h1>
 <p><strong>Telemetry</strong> may show reported status, execution-related values or archived monitoring data. <strong>Visualization</strong> may display digital cockpit graphics, dynamic waveforms or model representations. Neither should be called a physical measurement without documented instrument origin and traceable acquisition metadata.</p>
-<h2 id="10-1-reading-telemetry">10.1 Reading telemetry</h2>
+<h2 id="101-reading-telemetry">10.1 Reading telemetry</h2>
 <ol>
 <li>Open <strong>Telemetry</strong> if available.</li>
 <li>Identify whether the panel shows live service state, historical record, simulation, or placeholder content.</li>
@@ -315,7 +275,7 @@
 <li>If any are absent, report that the provenance is incomplete or unknown.</li>
 <li>Do not infer a recorded physical value from animation or an illustrative trace.</li>
 </ol>
-<h2 id="10-2-reading-visualization">10.2 Reading visualization</h2>
+<h2 id="102-reading-visualization">10.2 Reading visualization</h2>
 <ol>
 <li>Open <strong>Visualization</strong>.</li>
 <li>Look for labels distinguishing illustrative graphics, generated numerical output, historical replay and recorded measurements.</li>
@@ -327,7 +287,7 @@
 <p><strong>Screenshot S12:</strong> Visualization cockpit. <em>Caption: A rendered waveform alone does not establish a measured physical signal.</em></p>
 <h1 id="11-evidence-verification-and-scientific-provenance">11. Evidence verification and scientific provenance</h1>
 <p>Evidence verification concerns the integrity and identity of a <strong>specific record</strong>. It is not interchangeable with independent evaluation of the physical claims made in that record.</p>
-<h2 id="11-1-evidence-categories">11.1 Evidence categories</h2>
+<h2 id="111-evidence-categories">11.1 Evidence categories</h2>
 <table>
 <thead>
 <tr>
@@ -365,14 +325,14 @@
 </tbody>
 </table>
 <p><strong>Integrity is not scientific validation.</strong> A digest match can help show that data have not changed relative to a trusted digest, but it does not prove an instrument was present, that a measurement is accurate, that the model is physically correct, or that a third party has reproduced the result. A SHA-256 digest by itself is not a digital signature or proof of who authored a record.</p>
-<h2 id="11-2-interpret-verification-labels">11.2 Interpret verification labels</h2>
+<h2 id="112-interpret-verification-labels">11.2 Interpret verification labels</h2>
 <ul>
 <li><strong>EVIDENCE VERIFIED:</strong> an identified record has passed the application's implemented verification condition. Identify the actual record and algorithm before reporting details.</li>
 <li><strong>VERIFICATION FAILED:</strong> an attempted verification did not meet the implemented condition. Preserve error context and avoid overwriting the source record.</li>
 <li><strong>EVIDENCE UNKNOWN:</strong> no verified result has been established for the displayed context; this is not automatically failure.</li>
 </ul>
 <p>Project code excerpts show that a verification UI can switch between VERIFIED and FAILED based on an <code>evidence.verified</code> value and display a SHA-256 matching message. <strong>NEEDS VERIFICATION:</strong> how records are generated, their canonicalization, what is embedded, how the comparison is performed, and whether the UI has a separate UNKNOWN state when no record is loaded.</p>
-<h2 id="11-3-checking-an-evidence-record">11.3 Checking an evidence record</h2>
+<h2 id="113-checking-an-evidence-record">11.3 Checking an evidence record</h2>
 <ol>
 <li>Find the evidence panel on the active page.</li>
 <li>Check whether a specific record is loaded.</li>
@@ -384,15 +344,15 @@
 <p><strong>Screenshot S14:</strong> Verification panel with a loaded record. <em>Caption: Integrity checks apply to identified data, not automatically to underlying physical claims.</em></p>
 <h1 id="12-history-my-experiments-and-compare">12. History, My Experiments and Compare</h1>
 <p><strong>History</strong> and <strong>My Experiments</strong> indicate areas for past or user-associated records. <strong>Compare</strong> suggests reviewing results or configurations together. Their complete current behaviors have not been verified.</p>
-<h2 id="12-1-reviewing-a-saved-item">12.1 Reviewing a saved item</h2>
+<h2 id="121-reviewing-a-saved-item">12.1 Reviewing a saved item</h2>
 <ol>
 <li>Open <strong>History</strong> or <strong>My Experiments</strong>, whichever is visible.</li>
 <li>Look for an identifiable record, time, model, creator/owner context and source classification.</li>
 <li>Open an entry only through authorized UI controls.</li>
 <li>Verify whether the entry contains a configuration, preview, recorded digital run or physical observation.</li>
-<li>Do not treat an empty history panel as evidence that all old records have been deleted; environment and permissions may affect visibility.</li>
+<li>Do not treat an empty history panel as evidence that all old records have been deleted; release and permissions may affect visibility.</li>
 </ol>
-<h2 id="12-2-comparing-items">12.2 Comparing items</h2>
+<h2 id="122-comparing-items">12.2 Comparing items</h2>
 <ol>
 <li>Open <strong>Compare</strong> if present.</li>
 <li>Select only items offered by the interface.</li>
@@ -414,16 +374,16 @@
 <p><strong>NEEDS VERIFICATION:</strong> actual V1.1.1 equation set, model provenance citations, any external-reference links, and the validated range of each model. This manual makes no claims of new physical discoveries or quantitative RPAS performance.</p>
 <p><strong>Screenshot S17:</strong> Physics panel with citations. <em>Caption: Model assumptions and citations should be inspected before reporting scientific conclusions.</em></p>
 <h1 id="14-release-information-and-versioning">14. Release information and versioning</h1>
-<p>The <strong>Release</strong> section communicates the application's version or readiness state. The documented target is <strong>V1.1.1</strong>, but an environment must be inspected to establish its <strong>actual deployed build</strong> at a particular moment.</p>
+<p>The <strong>Release</strong> section communicates the application's version or readiness state. The documented target is <strong>V1.1.1</strong>, but the application must be checked to establish its <strong>actual running build</strong> at a particular moment.</p>
 <ol>
 <li>Open <strong>Release</strong>.</li>
 <li>Record the visible version/build information.</li>
-<li>Record whether you are in Windows production or Hetzner staging.</li>
-<li>Do not conclude that production has migrated because the same version or a similar UI appears on staging.</li>
+<li>Record the visible release/version identifier if available.</li>
+<li>Do not assume the release label certifies scientific validation.</li>
 <li>Report inconsistent build or readiness labels for administrative review.</li>
 </ol>
-<p><strong>NEEDS VERIFICATION:</strong> precise fields, build artifact hashes, release approvals, release notes and current deployment commit. A version label is not a validation certificate.</p>
-<p><strong>Screenshot S18:</strong> Release panel. <em>Caption: Build and deployment status are distinct from scientific certification.</em></p>
+<p><strong>NEEDS VERIFICATION:</strong> precise fields, build artifact hashes, release approvals, release notes and current release metadata. A version label is not a validation certificate.</p>
+<p><strong>Screenshot S18:</strong> Release panel. <em>Caption: Software release status is distinct from scientific certification.</em></p>
 <h1 id="15-troubleshooting">15. Troubleshooting</h1>
 <table>
 <thead>
@@ -482,7 +442,7 @@
 <tr>
 <td>Reference resource missing</td>
 <td>Asset or publication gap</td>
-<td>Mark it unavailable; report missing reference and environment</td>
+<td>Mark it unavailable; report the missing reference and page</td>
 </tr>
 <tr>
 <td>Blank or unresponsive panel</td>
@@ -491,12 +451,12 @@
 </tr>
 <tr>
 <td>Unexpectedly different interface</td>
-<td>Environment, version or role mismatch</td>
-<td>Compare authenticated address, release information and role</td>
+<td>Version or role mismatch</td>
+<td>Compare the current release information and authorized role</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Safe diagnostic report:</strong> include page URL (without access tokens), environment, release label, role, action attempted, visible error, local time, and cropped screenshot without sensitive material. Never share passwords, one-time codes, access JWTs, authorization headers, private record payloads or OWNER data in public bug reports. Browser Content Security Policy (CSP) can block unapproved scripts or resources; do not disable CSP as a workaround.</p>
+<p><strong>Safe diagnostic report:</strong> include page URL (without access tokens), release label, role, action attempted, visible error, local time, and cropped screenshot without sensitive material. Never share passwords, one-time codes, access JWTs, authorization headers, private record payloads or OWNER data in public bug reports. Browser Content Security Policy (CSP) can block unapproved scripts or resources; do not disable CSP as a workaround.</p>
 <h1 id="16-security-privacy-and-integrity">16. Security, privacy and integrity</h1>
 <p>RPAS Studio is described as using access controls, protected roles and browser security measures such as <strong>Content Security Policy</strong>. Cloudflare Access protects the public-facing entry points identified above. Application role authorization and record-level access must also be enforced on the server; a hidden navigation item alone is not access control.</p>
 <ul>
@@ -509,7 +469,7 @@
 </ul>
 <p><strong>NEEDS VERIFICATION:</strong> exact CSP policy, backend authorization tests, retention/deletion rules, data encryption, backup policy and incident response procedures. None are certified by this manual.</p>
 <h1 id="17-known-limitations-and-open-verification-register">17. Known limitations and open verification register</h1>
-<p>The following items are not asserted to work in the current staging build:</p>
+<p>The following items are not asserted to work in every current build:</p>
 <table>
 <thead>
 <tr>
@@ -546,7 +506,7 @@
 </tr>
 <tr>
 <td>V-06</td>
-<td>Which Workbench operations are disabled in staging?</td>
+<td>Which Workbench operations are disabled?</td>
 <td>Feature flags, UI, backend permissions</td>
 </tr>
 <tr>
@@ -571,30 +531,30 @@
 </tr>
 <tr>
 <td>V-11</td>
-<td>Why does staging report SYSTEM DEGRADED?</td>
-<td>Current health payload and service/dependency logs</td>
+<td>What conditions cause SYSTEM DEGRADED?</td>
+<td>Current health status and dependency diagnostics</td>
 </tr>
 <tr>
 <td>V-12</td>
-<td>What is the current deployed staging build?</td>
-<td>Read-only version, hash and systemd status audit</td>
+<td>What is the current running build?</td>
+<td>Version and authorized build-record check</td>
 </tr>
 <tr>
 <td>V-13</td>
-<td>Is firmware a UI section or did owner mean footer?</td>
+<td>Where should the in-app manual link appear?</td>
 <td>Current UI screenshot and explicit placement decision</td>
 </tr>
 <tr>
 <td>V-14</td>
-<td>Can the manual itself be served without weakening Access?</td>
-<td>Authorized staging link/route test</td>
+<td>Does the published manual link open correctly?</td>
+<td>Authorized browser link test</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Known constraints:</strong> current role differences, intentionally disabled staging workspace capabilities, unavailable scientific reference resources, no verified physical measurements supplied for this manual, and incomplete independent inspection of the live UI.</p>
+<p><strong>Known constraints:</strong> current role differences, restricted workspace capabilities, unavailable scientific reference resources, no verified physical measurements supplied for this manual, and incomplete independent inspection of the live UI.</p>
 <h1 id="18-future-development-not-present-functionality">18. Future development — not present functionality</h1>
 <p>Possible future documentation and engineering improvements include: expanding each chapter with verified screenshots, in-app contextual help, reliable record provenance labeling, published model assumptions, automated accessibility testing, verified role matrices, comprehensive user acceptance tests and versioned documentation. These are <strong>proposals</strong>, not a declaration that the features are implemented or scheduled.</p>
-<p>The V1.1.1 stable-release boundary should be preserved during experimentation and migration. No production deployment, replacement of OWNER components, or rewriting of private evidence is authorized by this manual.</p>
+<p>The V1.1.1 stable-release boundary should be preserved during future development. This manual does not authorize changes to application services, OWNER components, or private evidence.</p>
 <h1 id="19-glossary">19. Glossary</h1>
 <p><strong>Application health:</strong> Reported operational condition of the RPAS application; separate from hosting service uptime.<br/>
 <strong>Approved reference:</strong> Published digital example authorized for users to inspect.<br/>
@@ -605,7 +565,6 @@
 <strong>Evidence record:</strong> Identifiable stored material submitted or displayed for inspection.<br/>
 <strong>Evidence integrity:</strong> Whether record content matches the expected checking representation.<br/>
 <strong>Experimental validation:</strong> Evidence-supported evaluation that a claimed result reflects the phenomenon and conditions described.<br/>
-<strong>Firmware:</strong> Embedded software on hardware devices; not normally the name for a web application's footer. The requested navigation location must be confirmed.<br/>
 <strong>Frontend:</strong> User-visible browser application.<br/>
 <strong>OWNER:</strong> Privileged role for specifically authorized private engineering functions.<br/>
 <strong>Preview:</strong> Temporary inspection of a reference without a guarantee of saved persistence.<br/>
@@ -613,26 +572,24 @@
 <strong>Release:</strong> Identified software version and readiness information.<br/>
 <strong>SHA-256:</strong> Cryptographic hash algorithm often used in integrity checks; a hash is not itself proof of scientific validity or authorship.<br/>
 <strong>Simulation:</strong> Computed behavior of a model under defined assumptions.<br/>
-<strong>Staging:</strong> Restricted pre-production environment for testing and repair.<br/>
-<strong>systemd:</strong> Linux service manager that can supervise an application process.<br/>
 <strong>Telemetry:</strong> Reported status or collected time-dependent data, whose origin must be documented.<br/>
 <strong>USER:</strong> Restricted role with access to explicitly approved resources.<br/>
 <strong>Verification:</strong> An explicit check against a stated criterion; not necessarily physical validation.<br/>
 <strong>Visualization:</strong> Graphical rendering that may represent simulation, records or illustrative output.</p>
-<h1 id="appendix-a-technical-architecture-supported-boundaries">Appendix A. Technical architecture — supported boundaries</h1>
-<p><strong>Described topology (not an infrastructure certification):</strong></p>
+<h1 id="appendix-a-user-facing-software-architecture-and-scientific-boundaries">Appendix A. User-facing software architecture and scientific boundaries</h1>
+<p>RPAS Studio exposes a browser interface for digital-model exploration, reported application status, experiment-related records, and evidence-oriented views. Its menus and data depend on the current release and authorized role.</p>
 <ul>
-<li>Browser UI accessed through a Cloudflare Access-protected hostname.</li>
-<li>Windows production at <code>rpas.halocyberlife.com</code>, retained as the original production environment.</li>
-<li>Hetzner Ubuntu staging at <code>rpas-staging.halocyberlife.com/jedi-physics-test.html</code>, managed as an application service under systemd according to project reports.</li>
-<li>Staging JavaScript source excerpts show dashboard render code and a status-based badge expression. A verification UI excerpt shows a conditional <code>evidence.verified</code> label and a SHA-256 matching message. The presence of code does not independently verify its deployed version or correct end-to-end behavior.</li>
-<li>Protected OWNER engineering data and published USER resources have distinct authorized scopes.</li>
+<li>The <strong>interface</strong> displays information but does not, by itself, prove that an instrument performed a measurement.</li>
+<li>A <strong>digital reference</strong> is an approved software example, not a validated physical result.</li>
+<li><strong>Telemetry</strong> requires documented data provenance before it can be interpreted as experimental measurements.</li>
+<li>An <strong>integrity check</strong> may verify that a digital record matches an expected representation; it does not certify physical correctness.</li>
+<li><strong>USER</strong> and <strong>OWNER</strong> resources have separate permission boundaries.</li>
 </ul>
-<p><strong>Not verified here:</strong> server endpoints, API schemas, database vendors, precise service names, current firewall policies, deployed build checksums, storage paths and complete network design. These require a read-only source and configuration audit. Do not publish sensitive infrastructure details into USER-facing pages.</p>
+<p>Internal hosting arrangements, server processes, storage paths, and infrastructure transitions are outside the scope of this public manual. They belong in restricted OWNER technical documentation.</p>
 <h1 id="appendix-b-screenshot-checklist-and-publication-rules">Appendix B. Screenshot checklist and publication rules</h1>
-<p>Insert screenshots S01–S18 at the chapter markers after checking they are from the <em>same identified build and role</em>. Redact personal data, tokens, private OWNER records and inaccessible experiments. Annotate each capture with environment, release/build identifier, role and date. Prefer actual captures over reconstructed mockups. If no verified screenshot exists, retain the caption as a clearly labeled editorial placeholder rather than a fabricated screenshot.</p>
+<p>Insert screenshots S01–S18 at the chapter markers after checking they are from the <em>same identified build and role</em>. Redact personal data, tokens, private OWNER records and inaccessible experiments. Annotate each capture with release/build identifier, role and date. Prefer actual captures over reconstructed mockups. If no verified screenshot exists, retain the caption as a clearly labeled editorial placeholder rather than a fabricated screenshot.</p>
 <h2 id="suggested-footer-integration">Suggested footer integration</h2>
-<p>Place a small visible link <strong>User Manual</strong> alongside the release/version text in the authorized USER page footer, opening a separately served documentation page such as <code>user-manual.html</code>. This is an <strong>integration proposal</strong>, not a claim about the current footer source or route. Before integration, inspect the live page's HTML, link policy and access model. A relative <code>href="user-manual.html"</code> resolves relative to the current page location; an absolute site-root path may be preferable only after verifying the chosen deployment route. Do not alter Windows production during staging evaluation.</p>
+<p>Place a visible <strong>User Manual</strong> link in the approved application or website navigation, opening a separately served documentation page such as <code>user-manual.html</code>. This is an <strong>integration proposal</strong>, not a claim about the current footer source or route. Before integration, check that the page exists at the chosen public path and that the link does not expose protected resources.</p>
 <h2 id="editorial-sign-off-criteria">Editorial sign-off criteria</h2>
-<p>This manual may be styled and linked in a controlled staging environment as an evidence-constrained edition. Before labeling it the <strong>fully verified official operating manual</strong>, resolve V-01–V-14, replace placeholders with authorized images, check screen/control terminology, and perform OWNER-approved editorial and security review.</p>
+<p>This manual may be styled and linked in an authorized website environment as an evidence-constrained edition. Before labeling it the <strong>fully verified official operating manual</strong>, resolve V-01–V-14, replace placeholders with authorized images, check screen/control terminology, and perform OWNER-approved editorial and security review.</p>
 </article><div class="footnote">Evidence-constrained manual edition 0.1. This document does not authorize production modification, access-control changes, or claims of verified physical results.</div></main></div><script>const search=document.getElementById('search');search.addEventListener('input',()=>{const q=search.value.trim().toLowerCase();document.querySelectorAll('article p,article li,article tr,article blockquote').forEach(el=>el.classList.toggle('hidden-by-search',Boolean(q)&&!el.textContent.toLowerCase().includes(q)));});</script></body></html>
