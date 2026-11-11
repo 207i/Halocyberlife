@@ -57,47 +57,45 @@
 <li>Avoid treating an illustration, sample result, or unavailable operation as a measured experiment.</li>
 </ol>
 <p><strong>Screenshot S01:</strong> Full Dashboard after successful authorized login. <em>Caption: RPAS Studio V1.1.1 Dashboard and available navigation; visibility varies by role and environment.</em></p>
-<h1 id="2-system-access-and-environments">2. System access and environments</h1>
-<h2 id="2-1-deployment-environments">2.1 Deployment environments</h2>
-<table>
-<thead>
-<tr>
-<th>Environment</th>
-<th>Address</th>
-<th>Documented purpose</th>
-<th>Important qualification</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Windows production</td>
-<td><code>https://rpas.halocyberlife.com/</code></td>
-<td>Original production deployment</td>
-<td>Must not be modified as part of documentation publication without explicit authorization</td>
-</tr>
-<tr>
-<td>Hetzner Ubuntu staging</td>
-<td><code>https://rpas-staging.halocyberlife.com/jedi-physics-test.html</code></td>
-<td>Interface testing, repairs, hardening and development</td>
-<td>Protected by Cloudflare Access; a staging environment is not a completed production migration</td>
-</tr>
-</tbody>
-</table>
-<p>The project owner reports that the staging application is managed by systemd. <strong>NEEDS VERIFICATION:</strong> current service name, health checks, deployed build hash, and exact hosting topology have not been checked against a current server snapshot.</p>
-<h2 id="2-2-open-the-application">2.2 Open the application</h2>
+
+<h1 id="2-system-access-and-environments">2. Accessing RPAS Studio</h1>
+
+<h2 id="2-1-deployment-environments">2.1 Official RPAS Studio Website</h2>
+
+<p>Welcome to RPAS Studio, a browser-based digital research and engineering workspace developed by HaloCyberLife.</p>
+
+<p>Access RPAS Studio using the official HaloCyberLife website:</p>
+
+<p><strong>Official RPAS Studio:</strong>
+<a href="https://rpas.halocyberlife.com/jedi-physics-test.html">rpas.halocyberlife.com</a></p>
+
+<p>This link opens the RPAS Studio V1.1.1 USER interface, where visitors can explore published digital references, engineering demonstrations, and available research features.</p>
+
+<p>RPAS Studio is under active development. Certain tools may be restricted, unavailable, or subject to change depending on the software release and your permissions.</p>
+
+<h2 id="2-2-open-the-application">2.2 How to Open RPAS Studio</h2>
+
 <ol>
-<li>Use the deployment address supplied by the project owner or authorized administrator.</li>
-<li>Complete the Cloudflare Access authentication prompt if displayed.</li>
-<li>If access is denied, confirm your assigned account role with the administrator. Do not attempt to bypass the access gateway.</li>
-<li>Once authenticated, identify the environment you are using before reporting errors or interpreting results.</li>
-<li>If a page does not load, distinguish an authentication problem from a service or application problem using Chapter 15.</li>
+<li>Select the official RPAS Studio link above.</li>
+<li>If prompted, complete the secure sign-in process using an authorized account.</li>
+<li>Wait for the RPAS Studio dashboard to load.</li>
+<li>Confirm that the interface identifies your access context, such as <strong>USER / READ ONLY</strong>.</li>
+<li>Review the dashboard and select an available navigation option.</li>
 </ol>
-<p><strong>Confirmed boundary:</strong> Both documented addresses are access-controlled in a recent unauthenticated external check. This only confirms the external login boundary; it does not establish in-app functionality.</p>
-<p><strong>Screenshot S02:</strong> Cloudflare Access login screen. <em>Caption: Authorized gateway sign-in is separate from the RPAS application itself.</em></p>
-<h2 id="2-3-user-and-owner">2.3 USER and OWNER</h2>
-<p><strong>USER</strong> is the restricted application context intended for approved references, publicly released demonstrations and specifically authorized workspace capabilities. USER is not unrestricted access to private research, administrative execution, backend resources, or internal data.</p>
-<p><strong>OWNER</strong> is the privileged engineering context for private development, internal research, evidence, telemetry, administration and operations as explicitly authorized by the system. OWNER-only data must remain inaccessible to USER accounts unless selectively and deliberately published.</p>
-<p>Do not assume every control is available in both contexts. <strong>NEEDS VERIFICATION:</strong> the exact current role matrix, role indicator, login-to-role mapping, and action-by-action permissions require source inspection.</p>
+
+<p><strong>Understanding system status:</strong> A displayed <strong>SYSTEM OPERATIONAL</strong> indicator reports application status. It does not establish that physical equipment is connected or that a scientific experiment has been independently validated.</p>
+
+<p><strong>Need assistance?</strong> If the application does not load or access is denied, consult Chapter 15: Troubleshooting.</p>
+
+<p><strong>Screenshot S02:</strong> RPAS Studio USER dashboard after successful access. <em>Caption: Official RPAS Studio interface showing the available USER workspace.</em></p>
+
+<h2 id="2-3-user-and-owner">2.3 USER and OWNER Access</h2>
+
+<p><strong>USER</strong> is the restricted application context for approved digital references, published demonstrations, and specifically authorized workspace capabilities. USER access does not provide permission to view private research, administrative functions, or protected engineering data.</p>
+
+<p><strong>OWNER</strong> is a privileged access context reserved for authorized engineering, research, and administrative operations. OWNER-only information and controls are not part of the public USER experience unless specifically approved for publication.</p>
+
+<p>Available navigation items and functions may vary according to your access permissions. A visible control does not necessarily indicate that its underlying operation is enabled.</p>
 <h1 id="3-navigation-and-interface-map">3. Navigation and interface map</h1>
 <p>The following entries are documented as areas of the V1.1.1 interface. An entry in this table is <strong>not</strong> a claim that its entire workflow passes current testing.</p>
 <table>
