@@ -1,18 +1,849 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BioGlow — Resonant Photonic Light | Halocyberlife</title>
-  <meta name="description" content="Resonant photonic excitation — light emerging from engineered materials through frequency, not bulbs. Featuring BioLoop nutrient circuit integration." />
-  <meta name="author" content="Luis Amaya" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>BioGlow™ — Resonant Photonic Light Research | HaloCyberLife</title>
+  <meta name="description" content="Explore BioGlow, an original research-stage concept for surface-integrated illumination using proposed photonic-acoustic activation layers, engineered materials, and controlled excitation.">
+  <meta name="author" content="Luis Amaya">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://halocyberlife.com/blog/BioGlow_resonance_light_energy.html">
 
   <style>
-     /* =========================
-   BACK TO TOP BUTTON
-   ========================= */
-    
+    :root {
+      --bg: #020617;
+      --text: #f9fafb;
+      --muted: #9ca3af;
+      --soft: #d1d5db;
+      --border: rgba(139, 92, 246, 0.3);
+      --accent: #22d3ee;
+      --accent2: #8b5cf6;
+      --accent-magenta: #d946ef;
+      --radius: 18px;
+      --shadow: 0 18px 60px rgba(139, 92, 246, 0.25);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+      background: radial-gradient(
+        circle at top right,
+        #1e1b4b 0%,
+        #020617 55%,
+        #000000 100%
+      );
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--accent);
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 12px;
+      z-index: 20000;
+      padding: 12px 18px;
+      background: #fff;
+      color: #020617;
+      border-radius: 8px;
+    }
+
+    .skip-link:focus {
+      top: 12px;
+    }
+
+    /* HEADER */
+
+    .neon-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(2, 6, 23, 0.92);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+    }
+
+    .neon-header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0.75rem 1.25rem;
+    }
+
+    .neon-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+    }
+
+    .neon-logo {
+      width: 40px;
+      height: auto;
+      filter: drop-shadow(0 0 5px var(--accent2));
+    }
+
+    .neon-nav {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .neon-link {
+      padding: 0.5rem 1rem;
+      border-radius: 99px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: 0.3s;
+      color: #fff;
+      text-transform: uppercase;
+    }
+
+    .color-blue {
+      color: #22d3ee;
+      border-color: rgba(34,211,238,0.3);
+    }
+
+    .color-cyan {
+      color: #06b6d4;
+      border-color: rgba(6,182,212,0.3);
+    }
+
+    .color-gold {
+      color: #fbbf24;
+      border-color: rgba(251,191,36,0.3);
+    }
+
+    .color-rpas {
+      color: #a78bfa;
+      border-color: rgba(167,139,250,0.3);
+    }
+
+    .neon-link:hover {
+      background: rgba(255,255,255,0.05);
+      box-shadow: 0 0 15px currentColor;
+    }
+
+    .neon-nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 10px;
+    }
+
+    .neon-nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #fff;
+      margin: 4px 0;
+      transition: 0.3s;
+    }
+
+    .neon-nav-toggle[aria-expanded="true"] span:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    .neon-nav-toggle[aria-expanded="true"] span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .neon-nav-toggle[aria-expanded="true"] span:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    @media (max-width: 768px) {
+      .neon-nav-toggle {
+        display: block;
+        z-index: 1001;
+      }
+
+      .neon-nav {
+        display: none;
+        opacity: 0;
+        pointer-events: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        height: 100dvh;
+        background: radial-gradient(
+          circle at center,
+          #1e1b4b 0%,
+          #020617 100%
+        );
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        z-index: 1000;
+      }
+
+      .neon-nav.active {
+        display: flex;
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .neon-link {
+        font-size: 1.3rem;
+        width: 80%;
+        text-align: center;
+        padding: 1rem;
+        border-width: 2px;
+      }
+    }
+
+    /* ARTICLE HEADER */
+
+    .article-head {
+      text-align: center;
+      margin: 3rem auto 2.5rem;
+    }
+
+    .meta {
+      color: var(--accent);
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(
+        to right,
+        #fff,
+        var(--accent2),
+        var(--accent-magenta)
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      color: var(--soft);
+      max-width: 820px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      font-weight: 300;
+    }
+
+    .research-label {
+      display: inline-block;
+      margin: 1.5rem auto 0;
+      padding: 9px 18px;
+      border-radius: 999px;
+      background: rgba(34,211,238,0.08);
+      border: 1px solid rgba(34,211,238,0.3);
+      color: #a5f3fc;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin: 2rem 0;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 24px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.06);
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #fff;
+      text-decoration: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn.primary {
+      border: none;
+      background: linear-gradient(
+        135deg,
+        var(--accent2),
+        var(--accent-magenta)
+      );
+      box-shadow: 0 4px 15px rgba(139,92,246,0.4);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(217,70,239,0.4);
+      border-color: #fff;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    .pill {
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(139,92,246,0.1);
+      border: 1px solid rgba(139,92,246,0.3);
+      font-size: 0.85rem;
+      color: #e9d5ff;
+      text-decoration: none;
+    }
+
+    /* IMAGE SLIDER */
+
+    .vision-slider {
+      margin: 3rem auto;
+      position: relative;
+    }
+
+    .vision-viewport {
+      overflow: hidden;
+      border-radius: var(--radius);
+      border: 1px solid rgba(139,92,246,0.4);
+      background: #000;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+
+    .vision-track {
+      display: flex;
+      transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+    }
+
+    .vision-slide {
+      flex: 0 0 100%;
+      min-width: 0;
+    }
+
+    .vision-slide img {
+      width: 100%;
+      height: clamp(300px,50vw,600px);
+      object-fit: cover;
+      display: block;
+    }
+
+    .vision-slide figcaption {
+      padding: 1.5rem;
+      font-size: 1rem;
+      background: rgba(2,6,23,0.85);
+      color: var(--soft);
+      border-top: 1px solid rgba(139,92,246,0.2);
+    }
+
+    .vision-btn {
+      position: absolute;
+      top: 42%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(139,92,246,0.3);
+      color: #fff;
+      font-size: 1.5rem;
+      cursor: pointer;
+      z-index: 5;
+      display: grid;
+      place-items: center;
+      backdrop-filter: blur(4px);
+    }
+
+    .vision-prev { left: 20px; }
+    .vision-next { right: 20px; }
+
+    /* EDITORIAL CONTENT */
+
+    .research-article {
+      max-width: 820px;
+      margin: 4rem auto;
+      text-align: left;
+      color: var(--soft);
+    }
+
+    .research-article h2 {
+      color: #fff;
+      font-size: clamp(1.5rem,3vw,2rem);
+      line-height: 1.3;
+      margin: 3rem 0 1.5rem;
+    }
+
+    .research-article h3 {
+      color: #fff;
+      font-size: 1.2rem;
+      margin: 2rem 0 0.75rem;
+    }
+
+    .research-article p {
+      font-size: 1.05rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .research-article ul,
+    .research-article ol {
+      margin: 0 0 1.8rem 1.5rem;
+      padding-left: 0.5rem;
+    }
+
+    .research-article li {
+      margin-bottom: 0.8rem;
+    }
+
+    .research-article strong {
+      color: #fff;
+    }
+
+    .research-callout {
+      border-left: 3px solid var(--accent2);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      background: rgba(139,92,246,0.06);
+      border-radius: 0 12px 12px 0;
+    }
+
+    .research-callout h3 {
+      margin-top: 0;
+    }
+
+    .research-callout p:last-child {
+      margin-bottom: 0;
+    }
+
+    .research-status {
+      padding: 2rem;
+      margin: 3rem 0;
+      background: rgba(34,211,238,0.04);
+      border: 1px solid rgba(34,211,238,0.25);
+      border-radius: var(--radius);
+    }
+
+    .research-status h2 {
+      margin-top: 0;
+    }
+
+    .research-status p:last-child {
+      margin-bottom: 0;
+    }
+
+    .concept-figure {
+      margin: 4rem auto;
+      text-align: center;
+    }
+
+    .mini-image-slider {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      align-items: stretch;
+      flex-wrap: wrap;
+    }
+
+    .mini-image-slider img {
+      width: min(40%,520px);
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+    }
+
+    .concept-figure figcaption {
+      margin: 1.5rem auto 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      max-width: 700px;
+    }
+
+    /* ARCHITECTURE CARDS */
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: clamp(1.4rem,3vw,1.8rem);
+    }
+
+    .cards-grid {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: repeat(2,1fr);
+      margin-top: 3rem;
+    }
+
+    .feature-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: rgba(139,92,246,0.03);
+      overflow: hidden;
+      transition: 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent2);
+      background: rgba(139,92,246,0.08);
+    }
+
+    .card-media {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      cursor: zoom-in;
+      border-bottom: 1px solid rgba(139,92,246,0.2);
+    }
+
+    .card-body {
+      padding: 1.5rem;
+    }
+
+    .feature-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+
+    .feature-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 4px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--accent2);
+      background: rgba(139,92,246,0.15);
+      color: #e9d5ff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .video-card {
+      grid-column: 1 / -1;
+      border-color: var(--accent2);
+    }
+
+    .video-frame {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+    }
+
+    .video-frame iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* LIGHTBOX */
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      display: none;
+      place-items: center;
+      background: rgba(0,0,0,0.95);
+      backdrop-filter: blur(15px);
+      z-index: 10000;
+      padding: 20px;
+    }
+
+    .lightbox.open {
+      display: grid;
+    }
+
+    .lightbox__panel {
+      width: min(1100px,100%);
+      background: #000;
+      border-radius: 20px;
+      border: 2px solid var(--accent2);
+      box-shadow: 0 0 40px rgba(139,92,246,0.3);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .lightbox__img {
+      width: 100%;
+      max-height: 80vh;
+      object-fit: contain;
+      display: block;
+    }
+
+    .lightbox__close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: rgba(139,92,246,0.3);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.2rem;
+      z-index: 10;
+    }
+
+    /* SUPPORT SECTION */
+
+    .support-node {
+      padding: 6rem 0;
+      border-top: 1px solid var(--border);
+      background: rgba(2,6,23,0.4);
+      margin-top: 5rem;
+    }
+
+    .support-panel {
+      max-width: 800px;
+      width: 100%;
+      margin: 0 auto;
+      background: rgba(5,8,20,0.7);
+      border: 1px solid var(--border);
+      padding: 4rem 2rem;
+      border-radius: 24px;
+      text-align: center;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 0 40px rgba(139,92,246,0.1);
+    }
+
+    .support-logo {
+      width: 80px;
+      height: auto;
+      filter: drop-shadow(0 0 15px var(--accent2));
+      margin-bottom: 1rem;
+    }
+
+    .support-panel h2 {
+      font-size: clamp(1.8rem,4vw,2.5rem);
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+
+    .support-divider {
+      height: 2px;
+      width: 60px;
+      background: var(--accent2);
+      margin: 0 auto 2.5rem;
+    }
+
+    .support-intro {
+      color: #d1d5db;
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+      font-size: 1.05rem;
+    }
+
+    .support-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+      text-align: left;
+    }
+
+    .support-item {
+      padding: 1.5rem;
+      background: rgba(139,92,246,0.05);
+      border: 1px solid rgba(139,92,246,0.2);
+      border-radius: 12px;
+    }
+
+    .support-item h3 {
+      color: #c4b5fd;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.7rem;
+    }
+
+    .support-item p {
+      font-size: 0.9rem;
+      color: var(--soft);
+    }
+
+    .donate-btn {
+      display: inline-block;
+      background: linear-gradient(
+        135deg,
+        var(--accent2),
+        var(--accent-magenta)
+      );
+      color: #fff;
+      padding: 1.2rem 2.5rem;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 6px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .support-note {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 1.5rem;
+    }
+
+    /* FOOTER */
+
+    .site-footer {
+      background: #020617;
+      border-top: 1px solid rgba(139,92,246,0.25);
+      padding: 3rem 0 2.5rem;
+      margin-top: 5rem;
+      color: rgba(209,213,219,0.9);
+    }
+
+    .footer-inner {
+      display: grid;
+      gap: 2.5rem;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    @media (min-width: 768px) {
+      .footer-inner {
+        grid-template-columns: 2fr 1fr 1.2fr;
+        align-items: start;
+      }
+    }
+
+    .footer-column {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-logo {
+      width: 34px;
+      height: auto;
+      filter: drop-shadow(0 0 6px rgba(139,92,246,0.5));
+    }
+
+    .footer-brand-text {
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      color: #fff;
+    }
+
+    .footer-text {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: rgba(209,213,219,0.85);
+    }
+
+    .footer-meta {
+      font-size: 0.78rem;
+      color: rgba(148,163,184,0.7);
+      margin-top: 0.5rem;
+    }
+
+    .footer-heading {
+      font-size: 0.95rem;
+      margin-bottom: 0.4rem;
+      color: #fff;
+    }
+
+    .footer-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 0.88rem;
+    }
+
+    .footer-links li + li {
+      margin-top: 0.35rem;
+    }
+
+    .footer-links a {
+      color: rgba(209,213,219,0.85);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent2);
+      text-decoration: underline;
+    }
+
+    .footer-social a {
+      font-size: 0.88rem;
+      color: var(--accent);
+      text-decoration: none;
+      overflow-wrap: anywhere;
+    }
+
+    .footer-social a:hover {
+      text-decoration: underline;
+    }
+
+    /* BACK TO TOP */
+
     .back-to-top {
       position: fixed;
       bottom: 24px;
@@ -32,741 +863,1298 @@
       cursor: pointer;
       display: none;
       z-index: 1200;
-      box-shadow:
-        0 0 25px rgba(139,92,246,0.45),
-        inset 0 0 12px rgba(255,255,255,0.15);
+      box-shadow: 0 0 25px rgba(139,92,246,0.45);
       backdrop-filter: blur(6px);
-      transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
-    
+
     .back-to-top:hover {
       transform: translateY(-4px);
-      box-shadow:
-        0 0 35px rgba(217,70,239,0.65),
-        inset 0 0 18px rgba(255,255,255,0.25);
+      box-shadow: 0 0 35px rgba(217,70,239,0.65);
     }
 
-    /* ───────────────────────────────────────────────────────────────────────── */
-    /* UPDATED STYLING ATTRIBUTES (ELECTRIC PURPLE & CYAN NEON) */
-    :root {
-      --bg: #020617;
-      --text: #f9fafb;
-      --muted: #9ca3af;
-      --soft: #d1d5db;
-      --border: rgba(139, 92, 246, 0.3); /* Purple tinted border */
-      --accent: #22d3ee; /* Cyan */
-      --accent2: #8b5cf6; /* Electric Purple */
-      --accent-magenta: #d946ef; /* High-energy Magenta */
-      --radius: 18px;
-      --shadow: 0 18px 60px rgba(139, 92, 246, 0.25);
+    @media (max-width: 760px) {
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .mini-image-slider img {
+        width: 100%;
+      }
+
+      .research-status,
+      .support-panel {
+        padding: 1.5rem;
+      }
+
+      .video-card {
+        grid-column: auto;
+      }
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
 
-    body {
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
-      /* Updated gradient to include deeper indigo/purple tones */
-      background: radial-gradient(circle at top right, #1e1b4b 0%, #020617 55%, #000000 100%);
-      color: var(--text);
-      line-height: 1.6;
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
     }
-
-    /* ───────────────────────────────────────────────────────────────────────── */
-    /* HEADER SYNC */
-   /* --- NEW NEON HEADER & MOBILE NAV --- */
-    .neon-header {
-      position: sticky; top: 0; z-index: 1000;
-      background: rgba(2, 6, 23, 0.9);
-      border-bottom: 1px solid rgba(139, 92, 246, 0.3);
-      backdrop-filter: blur(12px);
-    }
-
-    .neon-header-inner {
-      display: flex; align-items: center; justify-content: space-between;
-      max-width: 980px; margin: 0 auto; padding: 0.75rem 1.25rem;
-    }
-
-    .neon-brand { 
-      display: flex; align-items: center; gap: 10px; 
-      text-decoration: none; color: #fff; font-weight: 700; 
-      text-transform: uppercase; font-size: 0.9rem;
-    }
-
-    .neon-logo { width: 40px; filter: drop-shadow(0 0 5px var(--accent2)); }
-
-    /* Desktop Navigation */
-    .neon-nav { display: flex; gap: 0.5rem; }
-
-    .neon-link {
-      padding: 0.5rem 1rem; border-radius: 99px; text-decoration: none; 
-      font-size: 0.85rem; border: 1px solid rgba(255,255,255,0.1); 
-      transition: 0.3s; color: #fff; text-transform: uppercase;
-    }
-
-    /* Your Signature Neon Colors */
-    .color-blue { color: #22d3ee; border-color: rgba(34, 211, 238, 0.3); }
-    .color-cyan { color: #06b6d4; border-color: rgba(6, 182, 212, 0.3); }
-    .color-gold { color: #fbbf24; border-color: rgba(251, 191, 36, 0.3); }
-
-    .neon-link:hover {
-       background: rgba(255,255,255,0.05);
-       box-shadow: 0 0 15px currentColor; /* Glows with the link's color */
-    }
-
-    /* Hamburger Toggle Button */
-    .neon-nav-toggle {
-      display: none; background: none; border: none; cursor: pointer; padding: 10px;
-    }
-    .neon-nav-toggle span {
-      display: block; width: 22px; height: 2px; background: #fff; margin: 4px 0; transition: 0.3s;
-    }
-
-    /* --- MOBILE OVERLAY LOGIC --- */
-@media (max-width: 768px) {
-  .neon-nav-toggle { display: block; z-index: 1001; }
-  
-  .neon-nav {
-    display: none; 
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.35s ease;
-    position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
-    background: radial-gradient(circle at center, #1e1b4b 0%, #020617 100%); 
-    flex-direction: column; justify-content: center; align-items: center; 
-    gap: 2rem; z-index: 1000;
-  }
-
-  .neon-nav.active { 
-    display: flex; 
-    opacity: 1; 
-    pointer-events: auto; 
-  }
-
-  .neon-link { 
-    font-size: 1.6rem; width: 80%; text-align: center; 
-    padding: 1rem; border-width: 2px;
-  }
-}
-      
-      .neon-nav.active {
-        opacity: 1;
-        pointer-events: auto;
-      }
-     /*Nav to show X */
-    .neon-nav-toggle[aria-expanded="true"] span:nth-child(1) {
-        transform: translateY(6px) rotate(45deg);
-      }
-      .neon-nav-toggle[aria-expanded="true"] span:nth-child(2) {
-        opacity: 0;
-      }
-      .neon-nav-toggle[aria-expanded="true"] span:nth-child(3) {
-        transform: translateY(-6px) rotate(-45deg);
-      }
-
-    /* ───────────────────────────────────────────────────────────────────────── */
-    /* ARTICLE HEAD */
-    .container { width: 100%; max-width: 980px; margin: 0 auto; padding: 0 1.25rem; }
-    .article-head { text-align: center; margin: 3rem auto 2.5rem; }
-    .meta { color: var(--accent); font-size: .85rem; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 1rem; font-weight: 600; }
-    
-    h1 { 
-      font-size: clamp(2.2rem, 5vw, 3.2rem); 
-      line-height: 1.1;
-      letter-spacing: -0.02em; 
-      margin-bottom: 1.5rem;
-      background: linear-gradient(to right, #fff, var(--accent2), var(--accent-magenta));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .subtitle { color: var(--soft); max-width: 820px; margin: 0 auto; font-size: 1.1rem; font-weight: 300; }
-
-    /* CTA BUTTONS */
-    .cta { display: flex; gap: 12px; justify-content: center; margin: 2rem 0; }
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center; padding: 12px 24px;
-      border-radius: 999px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.06);
-      font-size: .9rem; font-weight: 700; text-transform: uppercase; color: #fff; text-decoration: none; cursor: pointer; transition: 0.3s;
-    }
-    .btn.primary { 
-      border: none;
-      background: linear-gradient(135deg, var(--accent2) 0%, var(--accent-magenta) 100%);
-      box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
-    }
-    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(217, 70, 239, 0.4); border-color: #fff; }
-
-    /* PILL TAGS */
-    .tag-row { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 10px; }
-    .pill { 
-      padding: 6px 14px; border-radius: 999px; 
-      background: rgba(139, 92, 246, 0.1); 
-      border: 1px solid rgba(139, 92, 246, 0.3); 
-      font-size: .85rem; color: #e9d5ff;
-    }
-
-    /* ───────────────────────────────────────────────────────────────────────── */
-    /* VISION SLIDER */
-    .vision-slider { margin: 3rem auto; position: relative; }
-    .vision-viewport { 
-      overflow: hidden; border-radius: var(--radius); 
-      border: 1px solid rgba(139, 92, 246, 0.4); 
-      background: #000; box-shadow: var(--shadow); position: relative; 
-    }
-    .vision-track { display: flex; transition: transform .6s cubic-bezier(0.16, 1, 0.3, 1); }
-    .vision-slide { flex: 0 0 100%; }
-    .vision-slide img { width: 100%; height: clamp(300px, 50vw, 600px); object-fit: cover; display: block; }
-    .vision-slide figcaption { 
-      padding: 1.5rem; font-size: 1rem; 
-      background: rgba(2,6,23,0.85); color: var(--soft); 
-      border-top: 1px solid rgba(139, 92, 246, 0.2); 
-    }
-    .vision-btn { 
-      position: absolute; top: 50%; transform: translateY(-50%); 
-      width: 48px; height: 48px; border-radius: 999px; 
-      border: 1px solid rgba(255,255,255,0.2); 
-      background: rgba(139, 92, 246, 0.2); color: #fff; 
-      font-size: 1.5rem; cursor: pointer; z-index: 5; 
-      display: grid; place-items: center; backdrop-filter: blur(4px);
-    }
-    .vision-prev { left: 20px; } .vision-next { right: 20px; }
-
-    /* ───────────────────────────────────────────────────────────────────────── */
-    /* GRID CARDS */
-    .cards-grid { display: grid; gap: 24px; grid-template-columns: repeat(2, 1fr); margin-top: 3rem; }
-    @media (max-width: 760px) { .cards-grid { grid-template-columns: 1fr; } }
-
-    .feature-card { 
-      border: 1px solid var(--border); border-radius: var(--radius); 
-      background: rgba(139, 92, 246, 0.03); overflow: hidden; 
-      transition: 0.3s ease; display: flex; flex-direction: column; 
-    }
-    .feature-card:hover { transform: translateY(-5px); border-color: var(--accent2); background: rgba(139, 92, 246, 0.08); }
-    .card-media { width: 100%; height: 220px; object-fit: cover; display: block; cursor: zoom-in; border-bottom: 1px solid rgba(139, 92, 246, 0.2); }
-    .card-body { padding: 1.5rem; }
-    .feature-card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; color: #fff; }
-    .feature-card p { color: var(--muted); font-size: 0.95rem; }
-    .tag { 
-      display: inline-block; margin-top: 1rem; padding: 4px 12px; border-radius: 999px; 
-      border: 1px solid var(--accent2); background: rgba(139, 92, 246, 0.15); 
-      color: #e9d5ff; font-size: .75rem; font-weight: 700; text-transform: uppercase; 
-    }
-
-    /* ───────────────────────────────────────────────────────────────────────── */
-    /* LIGHTBOX */
-    .lightbox { position: fixed; inset: 0; display: none; place-items: center; background: rgba(0,0,0,0.95); backdrop-filter: blur(15px); z-index: 10000; padding: 20px; }
-    .lightbox.open { display: grid; }
-    .lightbox__panel { 
-      width: min(1100px, 100%); background: #000; border-radius: 20px; 
-      border: 2px solid var(--accent2); box-shadow: 0 0 40px rgba(139, 92, 246, 0.3);
-      overflow: hidden; position: relative; 
-    }
-    .lightbox__img { width: 100%; max-height: 80vh; object-fit: contain; }
-    .lightbox__close { position: absolute; top: 15px; right: 15px; background: rgba(139, 92, 246, 0.3); border: 1px solid rgba(255,255,255,0.2); color: white; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.2rem; z-index: 10; display: grid; place-items: center; }
-
-    footer { border-top: 1px solid rgba(139, 92, 246, 0.2); padding: 4rem 0; text-align: center; color: var(--muted); margin-top: 5rem; }
-
-    /* -------------------------------------------------------------------- */
-   
-          /* =========================
-          INLINE FOOTER SYSTEM
-          ========================= */
-      
-      .site-footer {
-        background: #020617;
-        border-top: 1px solid rgba(139, 92, 246, 0.25);
-        padding: 3rem 0 2.5rem;
-        margin-top: 5rem;
-        color: rgba(209,213,219,0.9);
-      }
-      
-      .footer-inner {
-        display: grid;
-        gap: 2.5rem;
-        max-width: 980px;
-        margin: 0 auto;
-        padding: 0 1.25rem;
-      }
-      
-      @media (min-width: 768px) {
-        .footer-inner {
-          grid-template-columns: 2fr 1fr 1.2fr;
-          align-items: start;
-        }
-      }
-      
-      .footer-column {
-        display: flex;
-        flex-direction: column;
-        gap: 0.6rem;
-      }
-      
-      .footer-brand {
-        display: flex;
-        align-items: center;
-        gap: 0.7rem;
-        margin-bottom: 0.5rem;
-      }
-      
-      .footer-logo {
-        width: 34px;
-        height: auto;
-        filter: drop-shadow(0 0 6px rgba(139,92,246,0.5));
-      }
-      
-      .footer-brand-text {
-        font-weight: 600;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        font-size: 0.8rem;
-        color: #fff;
-      }
-      
-      .footer-text {
-        font-size: 0.9rem;
-        line-height: 1.5;
-        color: rgba(209,213,219,0.85);
-      }
-      
-      .footer-meta {
-        font-size: 0.78rem;
-        color: rgba(148,163,184,0.7);
-        margin-top: 0.5rem;
-      }
-      
-      .footer-heading {
-        font-size: 0.95rem;
-        margin-bottom: 0.4rem;
-        color: #fff;
-      }
-      
-      .footer-links {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        font-size: 0.88rem;
-      }
-      
-      .footer-links li + li {
-        margin-top: 0.35rem;
-      }
-      
-      .footer-links a {
-        color: rgba(209,213,219,0.85);
-        text-decoration: none;
-      }
-      
-      .footer-links a:hover {
-        color: var(--accent2);
-        text-decoration: underline;
-      }
-      
-      .footer-social a {
-        font-size: 0.88rem;
-        color: var(--accent);
-        text-decoration: none;
-      }
-      
-      .footer-social a:hover {
-        text-decoration: underline;
-      }
   </style>
 </head>
 
 <body>
+
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <!-- HEADER -->
+
   <header class="neon-header">
-  <div class="container neon-header-inner">
-    <a href="../index.html" class="neon-brand">
-      <img src="../images/negative_white_halocyberlife_logo.webp" alt="Halocyberlife logo" class="neon-logo" />
-      <span class="neon-brand-text">Halocyberlife</span>
-    </a>
+    <div class="container neon-header-inner">
 
-    <button class="neon-nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
-      <span></span><span></span><span></span>
-    </button>
+      <a href="../index.html" class="neon-brand">
+        <img
+          src="../images/negative_white_halocyberlife_logo.webp"
+          alt="HaloCyberLife logo"
+          class="neon-logo"
+        >
+        <span class="neon-brand-text">HaloCyberLife</span>
+      </a>
 
-    <nav id="primary-nav" class="neon-nav">
-      <a href="../index.html" class="neon-link color-blue">Home</a>
-      <a href="../blog.html" class="neon-link color-cyan">Articles</a>
-      <a href="../contact_us.html" class="neon-link color-gold">Contact</a>
-      <a href="/rpas-studio.html">RPAS Studio</a>
-    </nav>
-  </div>
-</header>
+      <button
+        class="neon-nav-toggle"
+        type="button"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+        aria-controls="primary-nav"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
-  <main class="container">
+      <nav id="primary-nav" class="neon-nav" aria-label="Primary navigation">
+        <a href="../index.html" class="neon-link color-blue">Home</a>
+        <a href="../blog.html" class="neon-link color-cyan">Articles</a>
+        <a href="../contact_us.html" class="neon-link color-gold">Contact</a>
+        <a href="/rpas-studio.html" class="neon-link color-rpas">RPAS Studio</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <main id="main-content" class="container">
+
+    <!-- ARTICLE INTRODUCTION -->
+
     <section class="article-head">
-        <p class="meta">Experiments & Tech · Resonance / Lighting Photonics</p>
-        <h1>BioGlow: Resonant Photonic Light</h1>
-        <p class="subtitle">
-          What if illumination didn’t need a bulb, a filament, or a visible emitter—and instead emerged from engineered materials when you “tune” them the right way?
-        </p>
+
+      <p class="meta">
+        Experiments &amp; Tech · Resonance / Lighting Photonics
+      </p>
+
+      <h1>BioGlow™: Resonant Photonic Light</h1>
+
+      <p class="subtitle">
+        Could future buildings, roadways, and designed surfaces
+        incorporate light-emitting materials directly into their
+        structures? BioGlow explores a proposed approach to
+        surface-integrated illumination using engineered materials,
+        controlled excitation, and resonant system architecture.
+      </p>
+
+      <p class="research-label">
+        Independent Research Concept · Exploratory Stage
+      </p>
+
       <div class="cta">
-        <a class="btn primary" href="./Patent_Bio_Glow.html">View Provisional Patent ↗</a>
-        <a class="btn" href="#possibilities">View Architecture</a>
+        <a class="btn primary" href="#research">
+          Explore the Research
+        </a>
+
+        <a class="btn" href="#possibilities">
+          View Architecture
+        </a>
+
+        <a class="btn" href="./Patent_Bio_Glow.html">
+          Concept Documentation
+        </a>
       </div>
 
-     <div class="tag-row">
-      <span class="pill"><strong>Interface:</strong> Resonant Surfaces</span>
-      <span class="pill"><strong>Activation:</strong> Frequency & Signal</span>
-      <span class="pill"><strong>Function:</strong> Photonic Emission</span>
-      <a href="../Patents.html" class="pill"><strong>Patents</strong></a>
-     </div>
+      <div class="tag-row">
+        <span class="pill">
+          <strong>Interface:</strong> Resonant Surfaces
+        </span>
+
+        <span class="pill">
+          <strong>Activation:</strong> Frequency &amp; Signal
+        </span>
+
+        <span class="pill">
+          <strong>Objective:</strong> Photonic Emission
+        </span>
+
+        <span class="pill">
+          <strong>Status:</strong> Research Concept
+        </span>
+      </div>
+
     </section>
-    
-    <section class="vision-slider">
+
+    <!-- CONCEPT IMAGE SLIDER -->
+
+    <section class="vision-slider" aria-label="BioGlow concept gallery">
+
       <div class="vision-viewport">
+
         <div class="vision-track" id="visionTrack">
+
           <figure class="vision-slide">
-            <img src="./Images/BioGlow_images/bioglow_street_city.webp" alt="Futuristic BioGlow roadway illumination concept at night">
+            <img
+              src="./Images/BioGlow_images/bioglow_street_city.webp"
+              alt="Concept rendering of BioGlow roadway illumination at night"
+            >
             <figcaption>
-              <strong>Future Vision</strong> A concept rendering of the BioGlow system integrated into a dark roadway environment, showing illuminated lane lines, modular roadside power architecture, and next-generation low-energy guidance lighting.
+              <strong>Future Vision:</strong>
+              A proposed roadway application featuring illuminated
+              lane boundaries and distributed guidance lighting.
+              This image illustrates a design possibility rather
+              than a completed installation.
             </figcaption>
           </figure>
+
           <figure class="vision-slide">
-            <img src="./Images/blog_images/Adaptive_lighting_control_interface_in_motion.png">
-            <figcaption><strong>Embedded photonic surfaces:</strong> Materials that emit light when activated by resonant stimulation.</figcaption>
+            <img
+              src="./Images/blog_images/Adaptive_lighting_control_interface_in_motion.png"
+              alt="Concept illustration of an adaptive lighting control interface"
+            >
+            <figcaption>
+              <strong>Adaptive Control:</strong>
+              A visualization of how an electronic controller might
+              coordinate the excitation of individual illuminated zones.
+            </figcaption>
           </figure>
+
           <figure class="vision-slide">
-            <img src="./Images/blog_images/resonance-activated-wall-panels.png">
-            <figcaption><strong>Control architecture:</strong> Converts signal input into targeted resonance for activation.</figcaption>
+            <img
+              src="./Images/blog_images/resonance-activated-wall-panels.png"
+              alt="Concept rendering of illuminated architectural wall panels"
+            >
+            <figcaption>
+              <strong>Architectural Surfaces:</strong>
+              An exploration of integrated lighting panels that
+              could reduce reliance on conventional visible fixtures
+              if a suitable emissive material system is developed.
+            </figcaption>
           </figure>
+
           <figure class="vision-slide">
-             <img src="./Images/blog_images/futuristic_city_rpas.png">
-             <figcaption><strong>Layered system:</strong> Engineered materials arranged for dielectric resonance.</figcaption>
+            <img
+              src="./Images/blog_images/futuristic_city_rpas.png"
+              alt="Futuristic city concept illustrating integrated lighting systems"
+            >
+            <figcaption>
+              <strong>Urban Integration:</strong>
+              A speculative view of surface-based lighting applied
+              across future architectural and public environments.
+            </figcaption>
           </figure>
+
         </div>
-        <button class="vision-btn vision-prev" onclick="moveSlide(-1)">‹</button>
-        <button class="vision-btn vision-next" onclick="moveSlide(1)">›</button>
+
+        <button
+          class="vision-btn vision-prev"
+          type="button"
+          onclick="moveSlide(-1)"
+          aria-label="Previous concept image"
+        >‹</button>
+
+        <button
+          class="vision-btn vision-next"
+          type="button"
+          onclick="moveSlide(1)"
+          aria-label="Next concept image"
+        >›</button>
+
       </div>
+
     </section>
 
-      <article style="max-width:820px; margin: 4rem auto; text-align:left; color:var(--soft);">
-        <h2 style="color: #fff; margin-bottom: 1.5rem; text-align: center;">The PAAL Architecture: Resonant Surface Luminescence</h2>
-        <p style="font-size:1.1rem; margin-bottom: 1.5rem;">
-            The <strong>BioGlow™</strong> system is an illumination technology that generates visible light directly from architectural surfaces without the use of traditional bulbs, LEDs, or filaments. At its core, the project utilizes <strong>Photonic-Acoustic Activation Layers (PAAL)</strong>. This architecture integrates a dielectric excitation substrate with a frequency-coupled conductive mesh to establish controlled electromagnetic oscillation within the material itself.
+    <!-- MAIN EDITORIAL ARTICLE -->
+
+    <article class="research-article" id="research">
+
+      <h2>1. The BioGlow Concept</h2>
+
+      <p>
+        <strong>BioGlow™</strong> is an independent research and design
+        concept developed within HaloCyberLife. Its central objective
+        is to explore whether engineered surfaces could incorporate
+        controllable light-emitting layers, allowing illumination
+        to become part of an architectural material rather than
+        relying exclusively on separate visible lighting fixtures.
+      </p>
+
+      <p>
+        Conventional lighting typically concentrates light generation
+        within a dedicated component, such as an LED package, lamp,
+        or lighting module. BioGlow considers a different physical
+        arrangement: distributing the light-emitting function across
+        a designed surface, with electronic control systems activating
+        selected regions as needed.
+      </p>
+
+      <p>
+        The proposed system is not simply a decorative glowing panel.
+        The broader research question concerns the relationship
+        between excitation signals, material response, optical
+        emission, and architectural integration.
+      </p>
+
+      <p>
+        BioGlow therefore brings together several areas of
+        investigation: materials science, photonics, electrical
+        engineering, signal control, acoustic coupling, and
+        surface-based product design.
+      </p>
+
+      <h2>2. The PAAL Architecture: Photonic-Acoustic Activation Layers</h2>
+
+      <p>
+        At the center of the concept is a proposed material assembly
+        called the <strong>Photonic-Acoustic Activation Layer
+        (PAAL)</strong>. PAAL describes a layered architecture
+        intended to bring an excitation mechanism into contact
+        with a material capable of producing visible light.
+      </p>
+
+      <p>
+        In the conceptual design, a PAAL assembly could include
+        a supporting dielectric substrate, conductive coupling
+        structures, a selected emissive layer, and an external
+        control interface. Depending on the materials under
+        investigation, acoustic or mechanical coupling elements
+        could also be considered.
+      </p>
+
+      <p>
+        These elements have different functions. The substrate
+        provides physical support and electrical isolation.
+        Conductive structures may distribute electrical signals.
+        The emissive layer would be responsible for producing
+        photons through a suitable physical process. The
+        controller would determine when and where excitation
+        is applied.
+      </p>
+
+      <div class="research-callout">
+
+        <h3>What Resonance Means in This Concept</h3>
+
+        <p>
+          Resonance occurs when a physical system responds strongly
+          to excitation near one of its characteristic frequencies.
+          Electrical circuits, mechanical structures, and optical
+          systems can each exhibit resonant behavior, although
+          their mechanisms differ.
         </p>
-        
-        <p style="font-size:1.1rem; margin-bottom: 1.5rem;">
-            Traditional LEDs rely on thermal resistance, wasting energy as heat. BioGlow bypasses this by using <strong>Resonant Dielectric Excitation</strong>. By applying synchronized acoustic modulation through micro-transducer arrays, the system induces lattice vibrations in doped crystalline microstructures. The resulting light is a cold, high-efficiency emission that emerges directly from the material's molecular stack when "tuned" to the correct frequency.
+
+        <p>
+          For BioGlow, resonance is being investigated as a
+          possible method of controlling or enhancing coupling
+          within a material system. Resonance alone does not
+          guarantee visible light emission or improved energy
+          efficiency. Those outcomes would depend on the
+          materials and the actual photon-generation mechanism.
         </p>
-      
-        <div style="border-left: 3px solid var(--accent2); padding-left: 1.5rem; margin: 2rem 0;">
-            <h3 style="color: #fff; font-size: 1.2rem; margin-bottom: 0.5rem;">The Serialized Frequency Nodes</h3>
-            <p style="font-size: 1rem; color: var(--muted);">
-                Precision is maintained via modular <strong>serialized frequency nodes</strong>. These hardware components act as the bridge between the digital signal controller and the emissive PAAL surface. Designed for high-density integration, these nodes allow for seamless installation into architectural frameworks, vehicle hulls, and wearable biometrics, enabling distributed illumination without visible fixtures.
-            </p>
-        </div>
-      
-        <p style="font-size:1.1rem; margin-bottom: 1.5rem;">
-            This novel process is currently the subject of the <strong>BioGlow Patent</strong>. The legal defense and technical documentation prioritize the protection of this resonance-driven activation method, ensuring that the Halocyberlife ecosystem remains the primary developer of frequency-driven photonic light.
-        </p>
-      </article>
 
-        <figure style="margin: 4rem auto; text-align: center;">
-      <div class="mini-image-slider" style="display:flex; gap:1rem; justify-content:center; align-items:stretch; flex-wrap:wrap;">
-        
-        <img 
-          src="./Images/BioGlow_images/Park_Illuminatino.webp" 
-          alt="BioGlow park illumination concept"
-          style="width:min(40%, 520px); aspect-ratio:16/9; object-fit:cover; border-radius:16px; border:1px solid var(--border);" 
-        />
-    
-        <img 
-          src="./Images/BioGlow_images/downtownla_bioglow.png" 
-          alt="BioGlow bridge illumination placeholder"
-          style="width:min(40%, 520px); aspect-ratio:16/9; object-fit:cover; border-radius:16px; border:1px solid var(--border);" 
-        />
-    
-      </div>
-    
-      <figcaption style="margin-top:1.5rem; color:var(--muted); font-size:0.9rem; max-width:700px; margin-inline:auto;">
-        <strong>Figure: RPAS Urban Integration Concept</strong> — A conceptual vision of environments illuminated by RPAS/BioGlow surfaces without visible fixtures, including park pathways and future bridge-scale architectural integration.
-      </figcaption>
-    </figure>
-    <!-- <figure style="margin: 4rem auto; text-align: center;">
-      <img src="./Images/BioGlow_images/Park_Illuminatino.webp" style="width: 80%; border-radius:16px; border:1px solid var(--border);" />
-      <figcaption style="margin-top:1.5rem; color:var(--muted); font-size:0.9rem; max-width:700px; margin-inline:auto;">
-        <strong>Figure: RPAS Urban Integration Concept</strong> — A conceptual vision of environments illuminated by RPAS surfaces without visible fixtures, powered by the BioLoop manifold.
-     </figcaption>
-    </figure> -->
-    
-    <section id="possibilities">
-      <h2 style="text-align:center; margin-bottom:3rem; text-transform: uppercase; letter-spacing: 0.2em; font-size:1.8rem;">Architecture & Subsystems</h2>
-      <div class="cards-grid">
-        
-        <article class="feature-card">
-          <img class="card-media lightbox-trigger" src="../images/blog/Resonance_Light.webp">
-          <div class="card-body">
-            <h3>Living architecture</h3>
-            <p>Walls, ceilings, and corridors with embedded illumination response—fewer fixtures, fewer failure points.</p>
-            <span class="tag">Built-in light</span>
-          </div>
-        </article>
-
-        <article class="feature-card">
-            <img class="card-media lightbox-trigger" src="./Images/blog_images/Sleek_glowing_accents_in_modern_spaces.webp" alt="Layered emission stacks">
-            <div class="card-body">
-              <h3>Layered emission stacks</h3>
-              <p>Stack engineering: coupling, dopants, and resonance-friendly interfaces for controlled emission zones.</p>
-              <span class="tag">Layer stack</span>
-            </div>
-          </article>
-
-        <article class="feature-card">
-          <img class="card-media lightbox-trigger" src="./Images/blog_images/resonant-photonic-energy-orb.webp">
-          <div class="card-body">
-            <h3>Ultra-low profile lighting</h3>
-            <p>Thin surfaces glow without bulky assemblies—ideal in tight spaces, vehicles, and wearables.</p>
-            <span class="tag">Slim systems</span>
-          </div>
-        </article>
-
-        <article class="feature-card">
-            <img class="card-media lightbox-trigger" src="./Images/blog_images/Futuristic_illuminated_pathway_at_dusk.png" alt="Navigation markers">
-            <div class="card-body">
-              <h3>Signals, markers, navigation</h3>
-              <p>Wayfinding strips and hazard indicators activated by tuned excitation patterns for enhanced safety.</p>
-              <span class="tag">Guidance + safety</span>
-            </div>
-          </article>
-          
-        <article class="feature-card" style="grid-column: 1 / -1; border-color: var(--accent2);">
-           <div style="position:relative; width:100%; padding-bottom:56.25%;">
-            <iframe src="https://www.youtube.com/embed/enHb_FBTWtU" style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;" allowfullscreen></iframe>
-           </div>
-        </article>
-
-        <article class="feature-card">
-          <img class="card-media lightbox-trigger" src="./Images/blog_images/resonant-frequency-wave-instruction.webp">
-          <div class="card-body">
-            <h3>Adaptive environments</h3>
-            <p>Light intensity and tone shaped by frequency patterns—like waveform lighting presets.</p>
-            <span class="tag">Waveform presets</span>
-          </div>
-        </article>
-
-        <article class="feature-card">
-          <img class="card-media lightbox-trigger" src="./Images/blog_images/resonance-activated-wall-panels.webp">
-          <div class="card-body">
-            <h3>Emergency + redundancy</h3>
-            <p>Surfaces with multiple excitation methods—if one fails, another still triggers visibility.</p>
-            <span class="tag">Failsafe modes</span>
-          </div>
-        </article>
-
-        <article class="feature-card">
-            <img class="card-media lightbox-trigger" src="./Images/blog_images/living-architecture-light-without-fixtures.webp">
-            <div class="card-body">
-                <h3>New display paradigms</h3>
-                <p>Not just screens—materials that become emissive where and when stimulated for information display.</p>
-                <span class="tag">Material display</span>
-            </div>
-          </article>
-        
-        <article class="feature-card">
-          <img class="card-media lightbox-trigger" src="./Images/BioGlow_images/Signal_to_light_conversion.webp">
-          <div class="card-body">
-            <h3>Resonant surface displays</h3>
-            <p>
-              Engineered materials that emit light locally when stimulated by frequency, vibration, or signal input—enabling display and visual feedback without pixels, bulbs, or backlights.
-            </p>
-            <span class="tag">Signal-driven emission</span>
-          </div>
-        </article>
       </div>
 
-      <section id="support-node" style="padding: 6rem 0; border-top: 1px solid var(--border); background: rgba(2, 6, 23, 0.4);">
-        <div class="container" style="display: flex; justify-content: center;">
-          <div style="max-width: 800px; width: 100%; background: rgba(5, 8, 20, 0.7); border: 1px solid var(--border); padding: 4rem 2rem; border-radius: 24px; text-align: center; backdrop-filter: blur(12px); box-shadow: 0 0 40px rgba(139, 92, 246, 0.1);">
-            
-            <div style="margin-bottom: 2.5rem;">
-              <img src="./Images/BioGlow_images/logo_v4_2.png" alt="Halocyberlife Seal" style="width: 80px; filter: drop-shadow(0 0 15px var(--accent2)); margin-bottom: 1rem;">
-              <h2 style="font-size: 2.5rem; color: #fff; margin-bottom: 1rem;">Fuel the Evolution</h2>
-              <div style="height: 2px; width: 60px; background: var(--accent2); margin: 0 auto;"></div>
-            </div>
-      
-            <p style="color: #d1d5db; line-height: 1.8; margin-bottom: 2.5rem; font-size: 1.15rem;">
-              BioGlow is a bridge between frequency and illumination. Your support directly accelerates the transition from conceptual physics to physical reality, fueling two specific mission criticals:
-            </p>
-      
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; text-align: left;">
-              <div style="padding: 1.5rem; background: rgba(139, 92, 246, 0.05); border: 1px solid rgba(139, 92, 246, 0.2); border-radius: 12px;">
-                <strong style="color: var(--accent2); display: block; margin-bottom: 0.5rem; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px;">1. Patent Protection</strong>
-                <p style="font-size: 0.9rem; color: var(--muted);">Funding legal defense to ensure this resonance-driven photonic technology remains proprietary to the Halocyberlife ecosystem.</p>
-              </div>
-              <div style="padding: 1.5rem; background: rgba(34, 211, 238, 0.05); border: 1px solid rgba(34, 211, 238, 0.2); border-radius: 12px;">
-                <strong style="color: var(--accent); display: block; margin-bottom: 0.5rem; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px;">2. Node Serializing</strong>
-                <p style="font-size: 0.9rem; color: var(--muted);">Direct engineering of the serialized hardware nodes and the physical dielectric substrates for biophotonic emission tests.</p>
-              </div>
-            </div>
-      
-            <a href="https://donate.stripe.com/cNi7sLeuEgok6o01m25Rm00" 
-               style="display: inline-block; background: linear-gradient(135deg, var(--accent2), var(--accent-magenta)); color: white; padding: 1.4rem 3.5rem; text-decoration: none; font-weight: bold; border-radius: 4px; letter-spacing: 2px; text-transform: uppercase;">
-               Activate the Photonic Core
-            </a> 
-            
-            <p style="font-size: 0.75rem; color: #4b5563; margin-top: 2rem; text-transform: uppercase; letter-spacing: 1px;">Official Stripe Gateway // Secured Node</p>
-          </div>
-        </div>
+      <h2>3. From Excitation to Visible Light</h2>
+
+      <p>
+        Producing visible light requires energy to be transferred
+        into an optical emission process. Established examples
+        include electroluminescence, photoluminescence,
+        and other material-dependent emission mechanisms.
+      </p>
+
+      <p>
+        The BioGlow proposal explores whether a carefully
+        engineered material stack could support controlled
+        emission while allowing the active lighting function
+        to be distributed over a relatively thin surface.
+      </p>
+
+      <p>
+        One research direction involves examining how electrical
+        excitation might interact with luminescent materials.
+        Another concerns whether acoustic or mechanical modulation
+        could influence the response of a selected structure.
+        Such modulation would need to be studied separately
+        from the mechanism that actually generates photons.
+      </p>
+
+      <p>
+        The important engineering distinction is that
+        <strong>frequency is a control parameter, not an
+        independent energy source</strong>. Any light-emitting
+        surface must receive energy from an identifiable
+        electrical, optical, mechanical, or other physical input.
+      </p>
+
+      <p>
+        BioGlow's proposed contribution lies in investigating
+        how these inputs might be coordinated within an
+        architectural material assembly.
+      </p>
+
+      <h2>4. How BioGlow Differs from Conventional Lighting</h2>
+
+      <p>
+        Modern LED lighting is already a highly developed
+        technology. LEDs generate light through electroluminescence
+        and can achieve high efficiency, long service life,
+        and precise electronic control.
+      </p>
+
+      <p>
+        BioGlow does not assume that a resonant surface will
+        automatically outperform LEDs. Instead, it asks whether
+        an alternative physical arrangement could offer
+        useful characteristics in applications where thinness,
+        integration, distributed illumination, or flexible
+        activation patterns are especially important.
+      </p>
+
+      <p>
+        Any future BioGlow prototype would need to be compared
+        against existing LED panels, electroluminescent materials,
+        and other surface-lighting technologies.
+      </p>
+
+      <p>
+        Meaningful comparisons would include luminous efficacy,
+        electrical consumption, brightness, color stability,
+        thermal performance, durability, manufacturing complexity,
+        and installation requirements.
+      </p>
+
+      <h2>5. Serialized Frequency Nodes</h2>
+
+      <p>
+        Another part of the proposed architecture is the
+        <strong>serialized frequency node</strong>: a modular
+        electronic interface intended to connect a central
+        controller with an individual lighting region or
+        material panel.
+      </p>
+
+      <p>
+        In a possible implementation, each node could have
+        an address or identifier, allowing a controller
+        to distinguish between different sections of a
+        larger illuminated surface.
+      </p>
+
+      <p>
+        A node might manage signal timing, excitation parameters,
+        operating states, or diagnostic feedback. The precise
+        circuitry would depend on the material system eventually
+        selected for experimentation.
+      </p>
+
+      <p>
+        This modular approach could be relevant to long corridors,
+        architectural facades, roadway markers, vehicle interiors,
+        or other environments requiring separately controlled
+        lighting zones.
+      </p>
+
+      <div class="research-callout">
+
+        <h3>Conceptual Signal Path</h3>
+
+        <p>
+          <strong>Power source → Electronic controller →
+          Addressable frequency node → Excitation interface →
+          Emissive material layer → Optical output</strong>
+        </p>
+
+        <p>
+          This sequence describes the intended functional
+          organization of BioGlow. It is a design framework,
+          not a verified circuit or demonstrated optical
+          conversion process.
+        </p>
+
+      </div>
+
+      <h2>6. Why Surface Integration Matters</h2>
+
+      <p>
+        Architectural lighting affects much more than visibility.
+        It influences spatial perception, wayfinding, maintenance,
+        visual comfort, material selection, and the way people
+        experience an environment.
+      </p>
+
+      <p>
+        If a future BioGlow material system could be made
+        practical, it might allow designers to treat illumination
+        as an integrated property of selected surfaces.
+        Instead of attaching separate fixtures to every
+        location, light-emitting regions could be planned
+        alongside the building's geometry.
+      </p>
+
+      <p>
+        Potential applications include illuminated pathways,
+        low-profile wall panels, emergency guidance strips,
+        transportation interiors, and adaptive visual
+        information surfaces.
+      </p>
+
+      <p>
+        These are application concepts rather than confirmed
+        capabilities. Each would introduce its own requirements
+        for electrical safety, brightness, durability,
+        accessibility, environmental resistance, and maintenance.
+      </p>
+
+      <!-- RESEARCH STATUS -->
+
+      <section class="research-status" id="research-status">
+
+        <h2>7. Research Status and Technical Challenges</h2>
+
+        <p>
+          BioGlow is currently presented as an
+          <strong>exploratory engineering concept</strong>.
+          The proposed PAAL architecture, resonant coupling
+          approach, and serialized node system describe
+          intended research directions.
+        </p>
+
+        <p>
+          This article does not report a validated BioGlow
+          prototype, independently measured optical performance,
+          or demonstrated efficiency advantage over existing
+          lighting technologies.
+        </p>
+
+        <p>
+          Before the concept can be assessed as a practical
+          illumination system, several technical questions
+          must be investigated:
+        </p>
+
+        <ul>
+          <li>
+            <strong>Emission mechanism:</strong>
+            Which specific material and physical process
+            would generate the visible photons?
+          </li>
+
+          <li>
+            <strong>Energy conversion:</strong>
+            How much input energy would be required for
+            a measurable amount of optical output?
+          </li>
+
+          <li>
+            <strong>Material selection:</strong>
+            Which substrates, dopants, phosphors, or other
+            emissive structures would be suitable?
+          </li>
+
+          <li>
+            <strong>Frequency response:</strong>
+            Would changes in electrical or acoustic excitation
+            measurably influence emission behavior?
+          </li>
+
+          <li>
+            <strong>Thermal behavior:</strong>
+            What heat would be generated during operation,
+            and how would it be managed?
+          </li>
+
+          <li>
+            <strong>Durability:</strong>
+            Could the layered structure withstand repeated
+            activation, environmental exposure, and
+            mechanical stress?
+          </li>
+
+          <li>
+            <strong>Control architecture:</strong>
+            Could individual lighting regions be activated
+            reliably without excessive complexity?
+          </li>
+        </ul>
+
+        <p>
+          These questions define the next stage of technical
+          investigation. The architectural illustrations
+          throughout this article communicate possible design
+          applications and should not be interpreted as
+          photographs of a functioning BioGlow installation.
+        </p>
+
       </section>
-    <footer class="site-footer">
-      <div class="container footer-inner">
-        <div class="footer-column">
-          <div class="footer-brand">
-            <img src="../images/negative_white_halocyberlife_logo.webp" alt="Halocyberlife logo small" class="footer-logo same as header Logo" />
-            <span class="footer-brand-text">Halocyberlife</span>
-          </div>
-          <p class="footer-text">Esoteric insights, experimental tech concepts, and future-conscious craftsmanship.</p>
-          <p class="footer-meta">v2.0.0 · © <span id="year"></span> Halocyberlife.com</p>
-        </div>
-  
-        <div class="footer-column">
-          <h3 class="footer-heading">Navigate</h3>
-          <ul class="footer-links">
-            <li><a href="../index.html#insights">Latest Insights</a></li>
-            <li><a href="../blog.html">All Articles</a></li>
-            <li><a href="../about.html">About</a></li>
-            <li><a href="../contact_us.html">Contact</a></li>
-            <li><a href="../Privacy & Terms.html">Privacy &amp; Terms</a></li>
-          </ul>
-        </div>
-  
-        <div class="footer-column">
-          <h3 class="footer-heading">Contact &amp; Social</h3>
-            <div class="footer-social">
-              <a href="https://www.youtube.com/@Halocyberlife" aria-label="Youtube">Youtube</a>
-          </div>
-          <div class="footer-social">
-              <a href="" aria-label="Email:">Email: luisamaya@halocyberlife.com/</a>
-          </div>
-          <div class="footer-social">
-            <a href="" aria-label="Email:">Email: info@halocyberlife.com/</a>
-          </div>
-          <div class="footer-social">
-            <a href="https://www.linkedin.com/in/halocyberlife/" aria-label="linkedin">LinkedIn: halocyberlife/</a>
-          </div>
-          <ul class="footer-links">
-            <li><span></span> <a href="https://www.halocyberlife.com/site_map.com">Site Map</a></li>
-          </ul>
-        </div>
+
+      <h2>8. Proposed Development Path</h2>
+
+      <p>
+        A responsible development process would begin with
+        small-scale experiments rather than a complete
+        architectural installation.
+      </p>
+
+      <ol>
+        <li>
+          <strong>Material research:</strong>
+          Identify candidate emissive materials and document
+          their known excitation requirements.
+        </li>
+
+        <li>
+          <strong>Controlled excitation:</strong>
+          Apply measurable electrical or mechanical inputs
+          using suitable laboratory equipment.
+        </li>
+
+        <li>
+          <strong>Optical measurement:</strong>
+          Measure whether visible emission occurs and
+          record intensity, spectrum, and repeatability.
+        </li>
+
+        <li>
+          <strong>Thermal and electrical evaluation:</strong>
+          Monitor input power, temperature, and operating
+          stability.
+        </li>
+
+        <li>
+          <strong>Node integration:</strong>
+          Investigate whether a modular controller can
+          address and regulate separate material regions.
+        </li>
+
+        <li>
+          <strong>Application assessment:</strong>
+          Compare the resulting system against established
+          lighting methods before considering larger-scale
+          architectural uses.
+        </li>
+      </ol>
+
+      <p>
+        Even a negative experimental result could provide
+        useful information by identifying which assumptions
+        require revision. The purpose of the research is
+        to determine what the proposed system can actually
+        achieve.
+      </p>
+
+      <h2>9. Original Concept Documentation</h2>
+
+      <p>
+        BioGlow is part of HaloCyberLife's independent
+        concept-development work. Its terminology,
+        proposed architecture, diagrams, and design
+        applications are documented as an evolving
+        research framework.
+      </p>
+
+      <p>
+        Technical documentation is not equivalent to
+        patent protection. The existence of a concept
+        description or invention disclosure does not
+        establish that a patent application has been filed
+        or that exclusive legal rights have been granted.
+      </p>
+
+      <p>
+        Future documentation may incorporate revised
+        technical assumptions, experimental observations,
+        material studies, and engineering drawings as
+        the research develops.
+      </p>
+
+      <h2>10. Conclusion: From Concept to Testable System</h2>
+
+      <p>
+        BioGlow begins with a design question: what would
+        architectural lighting look like if light-emitting
+        functionality could be incorporated directly into
+        engineered surfaces?
+      </p>
+
+      <p>
+        The proposed PAAL architecture offers one framework
+        for investigating that question. Its emphasis on
+        layered materials, controlled excitation, and
+        modular nodes provides a starting point for
+        future technical analysis.
+      </p>
+
+      <p>
+        The concept remains unvalidated, and its practical
+        feasibility will depend on measurable material
+        behavior, reliable energy conversion, and
+        meaningful comparisons with existing technologies.
+      </p>
+
+      <p>
+        For HaloCyberLife, the value of BioGlow at this
+        stage is not a claim of completed technological
+        success. It is the development of an original
+        illumination idea into a clearer, testable
+        engineering proposal.
+      </p>
+
+    </article>
+
+    <!-- ARCHITECTURAL CONCEPT IMAGES -->
+
+    <figure class="concept-figure">
+
+      <div class="mini-image-slider">
+
+        <img
+          src="./Images/BioGlow_images/Park_Illuminatino.webp"
+          alt="Concept rendering of BioGlow lighting in a public park"
+        >
+
+        <img
+          src="./Images/BioGlow_images/downtownla_bioglow.png"
+          alt="Concept rendering of BioGlow architectural illumination on an urban bridge"
+        >
+
       </div>
-  
-      <button class="back-to-top" aria-label="Back to top">↑</button>
-    </footer>
+
+      <figcaption>
+        <strong>Figure: BioGlow Urban Integration Concepts.</strong>
+        Proposed park and bridge applications illustrating
+        how surface-integrated lighting might be incorporated
+        into future environments. These are design visualizations,
+        not verified installations.
+      </figcaption>
+
+    </figure>
+
+    <!-- ARCHITECTURE AND SUBSYSTEMS -->
+
+    <section id="possibilities">
+
+      <h2 class="section-title">Architecture &amp; Subsystems</h2>
+
+      <div class="cards-grid">
+
+        <article class="feature-card">
+          <img
+            class="card-media lightbox-trigger"
+            src="../images/blog/Resonance_Light.webp"
+            alt="Concept illustration of integrated architectural lighting"
+          >
+          <div class="card-body">
+            <h3>Living Architecture</h3>
+            <p>
+              An exploration of walls, ceilings, and corridors
+              designed with integrated emissive regions.
+              The goal is to investigate new relationships
+              between building materials and illumination.
+            </p>
+            <span class="tag">Built-in Light</span>
+          </div>
+        </article>
+
+        <article class="feature-card">
+          <img
+            class="card-media lightbox-trigger"
+            src="./Images/blog_images/Sleek_glowing_accents_in_modern_spaces.webp"
+            alt="Concept visualization of layered light-emitting materials"
+          >
+          <div class="card-body">
+            <h3>Layered Emission Stacks</h3>
+            <p>
+              A proposed arrangement of supporting substrates,
+              excitation interfaces, and emissive materials.
+              Material compatibility and optical performance
+              remain research questions.
+            </p>
+            <span class="tag">Layer Stack</span>
+          </div>
+        </article>
+
+        <article class="feature-card">
+          <img
+            class="card-media lightbox-trigger"
+            src="./Images/blog_images/resonant-photonic-energy-orb.webp"
+            alt="Speculative illustration of a compact photonic lighting system"
+          >
+          <div class="card-body">
+            <h3>Ultra-Low-Profile Lighting</h3>
+            <p>
+              Thin lighting assemblies could be useful where
+              conventional fixtures are difficult to integrate.
+              Achieving practical brightness and efficiency
+              would require material validation.
+            </p>
+            <span class="tag">Slim Systems</span>
+          </div>
+        </article>
+
+        <article class="feature-card">
+          <img
+            class="card-media lightbox-trigger"
+            src="./Images/blog_images/Futuristic_illuminated_pathway_at_dusk.png"
+            alt="Concept image of an illuminated pedestrian pathway"
+          >
+          <div class="card-body">
+            <h3>Signals, Markers &amp; Navigation</h3>
+            <p>
+              Proposed wayfinding strips, boundary markers,
+              and hazard indicators using individually
+              controlled illumination zones.
+            </p>
+            <span class="tag">Guidance + Safety</span>
+          </div>
+        </article>
+
+        <article class="feature-card video-card">
+
+          <div class="video-frame">
+            <iframe
+              src="https://www.youtube.com/embed/enHb_FBTWtU"
+              title="BioGlow concept video"
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+
+          <div class="card-body">
+            <h3>BioGlow Visual Concept</h3>
+            <p>
+              A visual exploration of the proposed lighting
+              direction. Concept media communicates design
+              intent and does not substitute for experimental
+              validation.
+            </p>
+          </div>
+
+        </article>
+
+        <article class="feature-card">
+          <img
+            class="card-media lightbox-trigger"
+            src="./Images/blog_images/resonant-frequency-wave-instruction.webp"
+            alt="Concept illustration of frequency-based lighting controls"
+          >
+          <div class="card-body">
+            <h3>Adaptive Environments</h3>
+            <p>
+              A possible control interface for adjusting
+              selected lighting regions according to
+              programmed operating states and user needs.
+            </p>
+            <span class="tag">Waveform Presets</span>
+          </div>
+        </article>
+
+        <article class="feature-card">
+          <img
+            class="card-media lightbox-trigger"
+            src="./Images/blog_images/resonance-activated-wall-panels.webp"
+            alt="Concept illustration of illuminated wall panels"
+          >
+          <div class="card-body">
+            <h3>Emergency &amp; Redundancy</h3>
+            <p>
+              An application concept involving separately
+              addressable lighting zones and backup control
+              strategies. Reliability would need to be
+              demonstrated before safety-critical use.
+            </p>
+            <span class="tag">Failsafe Research</span>
+          </div>
+        </article>
+
+        <article class="feature-card">
+          <img
+            class="card-media lightbox-trigger"
+            src="./Images/blog_images/living-architecture-light-without-fixtures.webp"
+            alt="Concept visualization of an illuminated architectural surface"
+          >
+          <div class="card-body">
+            <h3>New Display Paradigms</h3>
+            <p>
+              An investigation into whether controlled
+              emissive materials could eventually form
+              simple information surfaces integrated
+              into architectural elements.
+            </p>
+            <span class="tag">Material Display</span>
+          </div>
+        </article>
+
+        <article class="feature-card">
+          <img
+            class="card-media lightbox-trigger"
+            src="./Images/BioGlow_images/Signal_to_light_conversion.webp"
+            alt="Concept diagram showing signal input and proposed optical output"
+          >
+          <div class="card-body">
+            <h3>Resonant Surface Displays</h3>
+            <p>
+              A proposed system for controlling local
+              emission through selected excitation
+              parameters. The relationship between
+              signal input and optical output remains
+              to be established experimentally.
+            </p>
+            <span class="tag">Signal-Driven Emission</span>
+          </div>
+        </article>
+
+      </div>
+
+    </section>
+
+    <!-- SUPPORT SECTION -->
+
+    <section id="support-node" class="support-node">
+
+      <div class="support-panel">
+
+        <img
+          src="./Images/BioGlow_images/logo_v4_2.png"
+          alt="HaloCyberLife research emblem"
+          class="support-logo"
+        >
+
+        <h2>Fuel the Evolution</h2>
+
+        <div class="support-divider"></div>
+
+        <p class="support-intro">
+          BioGlow is an independent research concept exploring
+          the relationship between material excitation and
+          surface-integrated illumination. Support can help
+          advance the technical documentation and investigation
+          needed to determine whether the proposed approach
+          is feasible.
+        </p>
+
+        <div class="support-grid">
+
+          <div class="support-item">
+
+            <h3>1. Research Documentation</h3>
+
+            <p>
+              Development of technical drawings, material
+              research notes, system descriptions, and
+              preliminary engineering documentation.
+              Future intellectual-property decisions
+              would depend on the progress of the work
+              and appropriate legal evaluation.
+            </p>
+
+          </div>
+
+          <div class="support-item">
+
+            <h3>2. Experimental Development</h3>
+
+            <p>
+              Investigation of candidate substrates,
+              excitation interfaces, modular controller
+              concepts, and methods for measuring
+              potential optical emission.
+            </p>
+
+          </div>
+
+        </div>
+
+        <a
+          href="https://donate.stripe.com/cNi7sLeuEgok6o01m25Rm00"
+          class="donate-btn"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Support BioGlow Research
+        </a>
+
+        <p class="support-note">
+          Contributions support exploratory development.
+          They do not represent an investment, a purchase
+          of technology, or a guarantee of research outcomes.
+        </p>
+
+      </div>
+
+    </section>
+
   </main>
 
-  <div class="lightbox" id="lightbox">
-    <button class="lightbox__close">✕</button>
-    <div class="lightbox__panel">
-      <img src="" id="lightboxImg" class="lightbox__img">
+  <!-- FOOTER -->
+
+  <footer class="site-footer">
+
+    <div class="footer-inner">
+
+      <div class="footer-column">
+
+        <div class="footer-brand">
+          <img
+            src="../images/negative_white_halocyberlife_logo.webp"
+            alt="HaloCyberLife logo"
+            class="footer-logo"
+          >
+          <span class="footer-brand-text">HaloCyberLife</span>
+        </div>
+
+        <p class="footer-text">
+          Independent articles, original research concepts,
+          experimental technology, architecture, and
+          future-focused design.
+        </p>
+
+        <p class="footer-meta">
+          © <span id="year"></span> HaloCyberLife.com
+        </p>
+
+      </div>
+
+      <div class="footer-column">
+
+        <h3 class="footer-heading">Navigate</h3>
+
+        <ul class="footer-links">
+          <li><a href="../index.html#insights">Featured Articles</a></li>
+          <li><a href="../blog.html">All Articles</a></li>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact_us.html">Contact</a></li>
+          <li><a href="../Privacy%20%26%20Terms.html">Privacy &amp; Terms</a></li>
+          <li><a href="../sitemap.html">Site Map</a></li>
+        </ul>
+
+      </div>
+
+      <div class="footer-column">
+
+        <h3 class="footer-heading">Contact &amp; Social</h3>
+
+        <div class="footer-social">
+          <a href="mailto:luisamaya@halocyberlife.com">
+            luisamaya@halocyberlife.com
+          </a>
+        </div>
+
+        <div class="footer-social">
+          <a href="mailto:info@halocyberlife.com">
+            info@halocyberlife.com
+          </a>
+        </div>
+
+        <div class="footer-social">
+          <a
+            href="https://www.youtube.com/@Halocyberlife"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            YouTube
+          </a>
+        </div>
+
+        <div class="footer-social">
+          <a
+            href="https://www.linkedin.com/in/halocyberlife/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn
+          </a>
+        </div>
+
+      </div>
+
     </div>
+
+    <button
+      class="back-to-top"
+      type="button"
+      aria-label="Back to top"
+    >↑</button>
+
+  </footer>
+
+  <!-- IMAGE LIGHTBOX -->
+
+  <div
+    class="lightbox"
+    id="lightbox"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Expanded concept image"
+    aria-hidden="true"
+  >
+
+    <div class="lightbox__panel">
+
+      <button
+        class="lightbox__close"
+        type="button"
+        aria-label="Close image"
+      >✕</button>
+
+      <img
+        src=""
+        id="lightboxImg"
+        class="lightbox__img"
+        alt="Expanded BioGlow concept image"
+      >
+
+    </div>
+
   </div>
-<script>
-/* =========================================================
-    MASTER JS — BioGlow Page
-    Slider • Lightbox • Mobile Nav • Back To Top
-   ========================================================= */
 
-document.addEventListener('DOMContentLoaded', () => {
+  <!-- INTERACTIVE SYSTEMS -->
 
-  /* ───────── SLIDER SYSTEM ───────── */
-  let index = 0;
-  const track = document.getElementById('visionTrack');
-  const slides = document.querySelectorAll('.vision-slide');
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
 
-  function moveSlide(n) {
-    if (!track || !slides.length) return;
-    index = (index + n + slides.length) % slides.length;
-    track.style.transform = `translateX(-${index * 100}%)`;
-  }
+      /* IMAGE SLIDER */
 
-  // Ensure moveSlide is accessible for button clicks
-  window.moveSlide = moveSlide;
+      let index = 0;
 
-  if (track && slides.length) {
-    setInterval(() => moveSlide(1), 6000);
-  }
+      const track = document.getElementById('visionTrack');
+      const slides = document.querySelectorAll('.vision-slide');
+      const reducedMotion = window.matchMedia(
+        '(prefers-reduced-motion: reduce)'
+      );
 
-  /* ───────── LIGHTBOX SYSTEM ───────── */
-const lb = document.getElementById('lightbox');
-const lbImg = document.getElementById('lightboxImg');
-const closeBtn = document.querySelector('.lightbox__close');
+      function moveSlide(n) {
+        if (!track || !slides.length) return;
 
-document.querySelectorAll('.lightbox-trigger').forEach(img => {
-  img.addEventListener('click', () => {
-    lb.classList.add('open');
-    lbImg.src = img.src;
-    document.body.style.overflow = 'hidden';
-  });
-});
+        index = (index + n + slides.length) % slides.length;
 
-function closeLightbox() {
-  lb.classList.remove('open');
-  lbImg.src = '';
-  document.body.style.overflow = '';
-}
-
-if (closeBtn) {
-  closeBtn.addEventListener('click', e => {
-    e.stopPropagation();
-    closeLightbox();
-  });
-}
-
-if (lb) {
-  lb.addEventListener('click', e => {
-    if (e.target === lb) closeLightbox();
-  });
-}
-
-  /* ───────── MOBILE NAV TOGGLE ───────── */
-  const navToggle = document.querySelector('.neon-nav-toggle');
-  const nav = document.getElementById('primary-nav');
-
-  if (navToggle && nav) {
-    navToggle.addEventListener('click', () => {
-      const isOpen = nav.classList.toggle('active');
-      navToggle.setAttribute('aria-expanded', isOpen);
-      document.body.style.overflow = isOpen ? 'hidden' : '';
-    });
-
-    document.querySelectorAll('.neon-nav a').forEach(link => {
-      link.addEventListener('click', () => {
-        nav.classList.remove('active');
-        navToggle.setAttribute('aria-expanded', false);
-        document.body.style.overflow = '';
-      });
-    });
-
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape' && nav.classList.contains('active')) {
-        nav.classList.remove('active');
-        navToggle.setAttribute('aria-expanded', false);
-        document.body.style.overflow = '';
+        track.style.transform =
+          `translateX(-${index * 100}%)`;
       }
+
+      window.moveSlide = moveSlide;
+
+      if (track && slides.length && !reducedMotion.matches) {
+        setInterval(() => {
+          if (!document.hidden) {
+            moveSlide(1);
+          }
+        }, 6000);
+      }
+
+      /* LIGHTBOX */
+
+      const lb = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lightboxImg');
+      const closeBtn = document.querySelector('.lightbox__close');
+
+      let lastFocusedElement = null;
+
+      document.querySelectorAll('.lightbox-trigger').forEach(img => {
+
+        img.setAttribute('tabindex', '0');
+        img.setAttribute('role', 'button');
+        img.setAttribute('aria-label', 'Expand image');
+
+        function openLightbox() {
+          if (!lb || !lbImg) return;
+
+          lastFocusedElement = document.activeElement;
+
+          lb.classList.add('open');
+          lb.setAttribute('aria-hidden', 'false');
+
+          lbImg.src = img.src;
+          lbImg.alt = img.alt || 'BioGlow concept image';
+
+          document.body.style.overflow = 'hidden';
+
+          if (closeBtn) closeBtn.focus();
+        }
+
+        img.addEventListener('click', openLightbox);
+
+        img.addEventListener('keydown', e => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openLightbox();
+          }
+        });
+
+      });
+
+      function closeLightbox() {
+        if (!lb || !lbImg) return;
+
+        lb.classList.remove('open');
+        lb.setAttribute('aria-hidden', 'true');
+
+        lbImg.src = '';
+        document.body.style.overflow = '';
+
+        if (lastFocusedElement) {
+          lastFocusedElement.focus();
+        }
+      }
+
+      if (closeBtn) {
+        closeBtn.addEventListener('click', closeLightbox);
+      }
+
+      if (lb) {
+        lb.addEventListener('click', e => {
+          if (e.target === lb) closeLightbox();
+        });
+      }
+
+      document.addEventListener('keydown', e => {
+        if (
+          e.key === 'Escape' &&
+          lb &&
+          lb.classList.contains('open')
+        ) {
+          closeLightbox();
+        }
+      });
+
+      /* MOBILE NAVIGATION */
+
+      const navToggle = document.querySelector('.neon-nav-toggle');
+      const nav = document.getElementById('primary-nav');
+
+      if (navToggle && nav) {
+
+        navToggle.addEventListener('click', () => {
+
+          const isOpen = nav.classList.toggle('active');
+
+          navToggle.setAttribute(
+            'aria-expanded',
+            String(isOpen)
+          );
+
+          document.body.style.overflow =
+            isOpen ? 'hidden' : '';
+
+        });
+
+        document.querySelectorAll('.neon-nav a').forEach(link => {
+
+          link.addEventListener('click', () => {
+
+            nav.classList.remove('active');
+
+            navToggle.setAttribute(
+              'aria-expanded',
+              'false'
+            );
+
+            document.body.style.overflow = '';
+
+          });
+
+        });
+
+        document.addEventListener('keydown', e => {
+
+          if (
+            e.key === 'Escape' &&
+            nav.classList.contains('active')
+          ) {
+
+            nav.classList.remove('active');
+
+            navToggle.setAttribute(
+              'aria-expanded',
+              'false'
+            );
+
+            document.body.style.overflow = '';
+
+            navToggle.focus();
+          }
+
+        });
+
+      }
+
+      /* BACK TO TOP */
+
+      const backToTop = document.querySelector('.back-to-top');
+
+      if (backToTop) {
+
+        function updateBackToTop() {
+          backToTop.style.display =
+            window.scrollY > 600 ? 'grid' : 'none';
+        }
+
+        window.addEventListener(
+          'scroll',
+          updateBackToTop,
+          { passive: true }
+        );
+
+        updateBackToTop();
+
+        backToTop.addEventListener('click', () => {
+
+          window.scrollTo({
+            top: 0,
+            behavior: reducedMotion.matches
+              ? 'auto'
+              : 'smooth'
+          });
+
+        });
+
+      }
+
+      /* COPYRIGHT YEAR */
+
+      const yearEl = document.getElementById('year');
+
+      if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+      }
+
     });
-  }
+  </script>
 
-  /* ───────── BACK TO TOP BUTTON ───────── */
-  const backToTop = document.querySelector('.back-to-top');
-
-  if (backToTop) {
-    window.addEventListener('scroll', () => {
-      backToTop.style.display = window.scrollY > 600 ? 'grid' : 'none';
-    });
-
-    backToTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  }
-  
-  // Set the year
-  const yearEl = document.getElementById('year');
-  if(yearEl) yearEl.textContent = new Date().getFullYear();
-
-});
-</script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
 
 
 
