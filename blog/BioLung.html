@@ -1,395 +1,1471 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BioLung™ | HaloCyberLife</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>BioLung™ — Environmental Air Purification Research | HaloCyberLife</title>
+
   <meta
     name="description"
-    content="BioLung™ explores a future-facing environmental air purification concept using guided airflow, vortex separation, ionization, and layered filtration architecture."
-  />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    content="Explore BioLung™, an original HaloCyberLife research concept investigating guided airflow, particle separation, electrostatic treatment, and layered filtration for future environmental architecture."
+  >
+
+  <meta name="author" content="Luis Amaya">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
-  />
-  <link rel="stylesheet" href="../style_v2_0_0.css" />
+  >
+
+  <link rel="stylesheet" href="../style_v2_0_0.css">
+
+  <style>
+    /* BioLung editorial additions.
+       The existing HaloCyberLife stylesheet remains in use. */
+
+    .biolung-research-note {
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-left: 4px solid #22d3ee;
+      border-radius: 0 12px 12px 0;
+      background: rgba(34, 211, 238, 0.06);
+    }
+
+    .biolung-research-note h3 {
+      margin-bottom: 0.75rem;
+    }
+
+    .biolung-research-note p:last-child {
+      margin-bottom: 0;
+    }
+
+    .biolung-editorial p {
+      margin-bottom: 1.2rem;
+      line-height: 1.85;
+    }
+
+    .biolung-editorial h3 {
+      margin: 1.5rem 0 0.75rem;
+    }
+
+    .biolung-editorial .bullet-list {
+      margin-top: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .biolung-status {
+      display: inline-block;
+      margin: 1rem 0;
+      padding: 0.45rem 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(34, 211, 238, 0.45);
+      color: #67e8f9;
+      background: rgba(34, 211, 238, 0.08);
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .biolung-figure-note {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    .biolung-disclosure {
+      border: 1px solid rgba(139, 92, 246, 0.35);
+      border-radius: 16px;
+      padding: 1.75rem;
+      background: rgba(139, 92, 246, 0.06);
+      margin-top: 1.5rem;
+    }
+
+    .biolung-disclosure h3 {
+      margin-bottom: 0.75rem;
+    }
+
+    .biolung-disclosure p:last-child {
+      margin-bottom: 0;
+    }
+
+    .biolung-method-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .biolung-method-card {
+      padding: 1.5rem;
+      border-radius: 16px;
+      border: 1px solid rgba(139, 92, 246, 0.25);
+      background: rgba(139, 92, 246, 0.05);
+    }
+
+    .biolung-method-card h3 {
+      margin-bottom: 0.75rem;
+    }
+
+    .biolung-method-card p {
+      line-height: 1.8;
+    }
+
+    .biolung-research-steps {
+      padding-left: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .biolung-research-steps li {
+      margin-bottom: 1.25rem;
+      line-height: 1.8;
+    }
+
+    .biolung-research-steps strong {
+      display: inline;
+    }
+
+    .biolung-image-caption {
+      margin-top: 0.75rem;
+      font-size: 0.9rem;
+      line-height: 1.65;
+    }
+
+    @media (max-width: 760px) {
+      .biolung-method-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .biolung-research-note,
+      .biolung-disclosure {
+        padding: 1.25rem;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <a class="skip-link" href="#main-content">
+    Skip to content
+  </a>
+
+  <!-- HEADER -->
 
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand-link" href="../index.html" aria-label="HaloCyberLife home">
-        <img src="../images/negative_white_halocyberlife_logo.png" alt="HaloCyberLife logo" class="brand-logo" />
+
+      <a
+        class="brand-link"
+        href="../index.html"
+        aria-label="HaloCyberLife home"
+      >
+        <img
+          src="../images/negative_white_halocyberlife_logo.png"
+          alt="HaloCyberLife logo"
+          class="brand-logo"
+        >
+
         <span class="brand-text">HaloCyberLife</span>
       </a>
 
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav">
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+        aria-controls="main-nav"
+      >
         <span class="nav-toggle-line"></span>
         <span class="nav-toggle-line"></span>
         <span class="nav-toggle-line"></span>
       </button>
 
-      <nav class="main-nav" id="main-nav" aria-label="Primary navigation">
+      <nav
+        class="main-nav"
+        id="main-nav"
+        aria-label="Primary navigation"
+      >
         <ul class="nav-list">
-          <li><a class="nav-link" href="../index.html">Home</a></li>
-          <li><a class="nav-link" href="../index.html#insights">Insights</a></li>
-          <li><a class="nav-link" href="../index.html#technologies">Technologies</a></li>
-          <li><a class="nav-link" href="../contact.html">Contact</a></li>
+          <li>
+            <a class="nav-link" href="../index.html">
+              Home
+            </a>
+          </li>
+
+          <li>
+            <a class="nav-link" href="../blog.html">
+              Articles
+            </a>
+          </li>
+
+          <li>
+            <a class="nav-link" href="../index.html#technologies">
+              Technologies
+            </a>
+          </li>
+
+          <li>
+            <a class="nav-link" href="../contact_us.html">
+              Contact
+            </a>
+          </li>
         </ul>
       </nav>
+
     </div>
   </header>
 
   <main id="main-content">
+
+    <!-- HERO -->
+
     <section class="hero">
       <div class="container hero-inner">
+
         <div>
-          <p class="hero-kicker">Air Systems • Environmental Intelligence • Future Infrastructure</p>
-          <h1 class="hero-title">BioLung™</h1>
-          <p class="hero-subtitle">
-            BioLung™ explores a future-facing environmental air purification architecture designed to move beyond passive box-style filtration. Instead of merely trapping airborne contaminants, the concept imagines a guided respiratory-style system that draws, separates, conditions, and refines air through a more intelligent flow path.
+
+          <p class="hero-kicker">
+            Environmental Engineering • Air Systems • Future Infrastructure
           </p>
+
+          <h1 class="hero-title">
+            BioLung™
+          </h1>
+
+          <p class="hero-subtitle">
+            What if air purification could become part of the
+            architecture of our buildings and public spaces?
+
+            BioLung™ is an independent HaloCyberLife research
+            concept exploring how airflow management,
+            particle separation, electrostatic processes,
+            and filtration principles might inform a new
+            generation of environmental air-treatment systems.
+          </p>
+
+          <p class="biolung-status">
+            Independent Research Concept · Exploratory Stage
+          </p>
+
           <div class="hero-actions">
-            <a href="#system-overview" class="btn primary-btn">Explore Concept</a>
-            <a href="../index.html" class="btn ghost-btn">Back to Archive</a>
+
+            <a
+              href="#system-overview"
+              class="btn primary-btn"
+            >
+              Explore Concept
+            </a>
+
+            <a
+              href="#research-status"
+              class="btn ghost-btn"
+            >
+              Research Status
+            </a>
+
           </div>
+
         </div>
 
         <div class="section-card">
+
           <figure class="article-figure">
+
             <img
               src="./Images/BioLung/BioLung_img1_blog.png"
-              alt="BioLung futuristic environmental air purification concept rendering"
-            />
+              alt="BioLung environmental air-treatment concept rendering"
+            >
+
             <figcaption>
-              BioLung™ concept rendering showing a future environmental purification structure shaped by guided airflow and layered treatment stages.
+              BioLung™ architectural concept visualization.
+              The illustration communicates a possible
+              environmental application rather than a
+              completed or tested installation.
             </figcaption>
+
           </figure>
+
         </div>
+
       </div>
     </section>
 
-    <section id="system-overview" class="section section-dark">
+    <!-- INTRODUCTION -->
+
+    <section
+      id="system-overview"
+      class="section section-dark"
+    >
+
       <div class="container">
+
         <div class="section-header">
-          <span class="status-pill">Concept Platform</span>
-          <h2>Why today’s air systems feel too passive</h2>
+
+          <span class="status-pill">
+            Concept Platform
+          </span>
+
+          <h2>
+            Rethinking Air Purification as Environmental Architecture
+          </h2>
+
           <p>
-            BioLung begins with a simple question: what if air purification behaved less like a sealed appliance and more like an engineered respiratory structure?
+            BioLung begins with a design question:
+            could air-treatment systems be developed
+            as integrated environmental infrastructure
+            rather than treated only as standalone appliances?
           </p>
+
         </div>
 
         <div class="section-split">
-          <div class="section-text">
+
+          <div class="section-text biolung-editorial">
+
             <p>
-              Most conventional air-cleaning systems follow a narrow path: pull air in, force it through filter media, and push it back out. That model works, but it is often reactive, visually uninspired, and limited in how it treats the dynamic behavior of particles and flow.
+              Air quality affects the spaces where people
+              live, work, learn, and gather. Buildings
+              commonly rely on ventilation, filtration,
+              and other air-treatment methods to manage
+              airborne particles and contaminants.
             </p>
+
             <p>
-              BioLung proposes a broader design language — one where intake, separation, ionization, and layered capture are treated as parts of an integrated environmental architecture.
+              Existing systems already perform important
+              functions. Mechanical filtration, for example,
+              can remove particles from moving air when
+              the filter media, airflow rate, and system
+              design are appropriate.
             </p>
+
+            <p>
+              BioLung does not assume that conventional
+              purification methods are ineffective.
+              Instead, the project explores whether
+              selected engineering principles could
+              be considered within a broader,
+              architecture-oriented environmental concept.
+            </p>
+
+            <p>
+              Its research themes include airflow behavior,
+              particle movement, separation processes,
+              electrical treatment methods, and the
+              challenges of integrating air-handling
+              infrastructure into built environments.
+            </p>
+
             <ul class="bullet-list">
-              <li>Guided airflow instead of passive intake</li>
-              <li>Flow shaping and separation before deep capture</li>
-              <li>Layered treatment logic instead of one-stage dependence</li>
-              <li>Environmental design that scales beyond a small appliance</li>
+              <li>
+                Understanding how airflow affects particle transport
+              </li>
+
+              <li>
+                Investigating the potential role of particle separation
+              </li>
+
+              <li>
+                Examining electrostatic air-treatment principles
+              </li>
+
+              <li>
+                Evaluating filtration, safety, and energy considerations
+              </li>
+
+              <li>
+                Exploring architectural and infrastructure applications
+              </li>
             </ul>
+
           </div>
 
           <div class="section-card">
+
             <figure class="article-figure">
+
               <img
                 src="./Images/BioLung/BioLung_fig1_article-figure2.png"
-                alt="BioLung concept integrated into a city environmental setting"
-              />
+                alt="BioLung concept integrated into a future urban environment"
+              >
+
               <figcaption>
-                Concept visualization of BioLung™ placed in a future urban environment as an intelligent air-processing structure.
+                Concept visualization of BioLung™
+                in a future urban setting.
+                This is an architectural illustration,
+                not evidence of an operational system.
               </figcaption>
+
             </figure>
+
           </div>
+
         </div>
+
       </div>
+
     </section>
 
+    <!-- SYSTEM PHILOSOPHY -->
+
     <section class="section section-light">
+
       <div class="container">
+
         <div class="section-header">
-          <h2>The system philosophy</h2>
+
+          <h2>The BioLung Research Philosophy</h2>
+
           <p>
-            BioLung is imagined as a breathing system for built environments — one that organizes, guides, and refines air through staged environmental logic.
+            BioLung investigates air treatment through
+            several complementary engineering disciplines.
+            These areas of research help frame the concept
+            without disclosing its private implementation.
           </p>
+
         </div>
-        
+
         <div class="card-grid card-grid-small">
+
+          <!-- CARD 01 -->
+
           <article class="card card-soft system-card">
-  <div class="system-card-image">
-    <img src="Images/BioLung/BioLung_blog_img2.png" alt="BioLung guided intake airflow entering aerodynamic intake channels" />
-  </div>
-  <div class="card-body">
-    <p class="card-meta">01</p>
-    <h3 class="card-title">Guided Intake</h3>
-    <p class="card-text">
-      Air enters through a controlled intake path designed to improve how contaminants move into the system.
-    </p>
-  </div>
-</article>
 
-<article class="card card-soft system-card">
-  <div class="system-card-image">
-    <img src="./Images/BioLung/BioLung_blog_img3.png" alt="BioLung vortex separation chamber showing swirling airflow and particulate separation" />
-  </div>
-  <div class="card-body">
-    <p class="card-meta">02</p>
-    <h3 class="card-title">Vortex Separation</h3>
-    <p class="card-text">
-      Swirl geometry may help influence heavier particulate behavior before later treatment stages begin.
-    </p>
-  </div>
-</article>
+            <div class="system-card-image">
 
-<article class="card card-soft system-card">
-  <div class="system-card-image">
-    <img src="./Images/BioLung/BioLung_blog_img4.png" alt="BioLung ionization zone with charged particles inside a purification chamber" />
-  </div>
-  <div class="card-body">
-    <p class="card-meta">03</p>
-    <h3 class="card-title">Ionization Zone</h3>
-    <p class="card-text">
-      A conceptual conditioning phase may assist in destabilizing or influencing suspended contaminants in the flow path.
-    </p>
-  </div>
-</article>
+              <img
+                src="./Images/BioLung/BioLung_blog_img2.png"
+                alt="Concept illustration of guided airflow entering an air-treatment structure"
+              >
 
-<article class="card card-soft system-card">
-  <div class="system-card-image">
-    <img src="./Images/BioLung/BioLung_blog_img5.png" alt="BioLung layered filtration system with multiple capture stages" />
-  </div>
-  <div class="card-body">
-    <p class="card-meta">04</p>
-    <h3 class="card-title">Layered Capture</h3>
-    <p class="card-text">
-      Multiple stages of filtration and capture create a more refined approach than one single barrier alone.
-    </p>
-  </div>
-</article>
+            </div>
+
+            <div class="card-body">
+
+              <p class="card-meta">01</p>
+
+              <h3 class="card-title">
+                Guided Airflow
+              </h3>
+
+              <p class="card-text">
+                Air movement influences how airborne
+                particles travel through an environment.
+                BioLung explores airflow management
+                as a central research theme.
+              </p>
+
+            </div>
+
+          </article>
+
+          <!-- CARD 02 -->
+
+          <article class="card card-soft system-card">
+
+            <div class="system-card-image">
+
+              <img
+                src="./Images/BioLung/BioLung_blog_img3.png"
+                alt="Concept illustration representing rotational airflow and particle movement"
+              >
+
+            </div>
+
+            <div class="card-body">
+
+              <p class="card-meta">02</p>
+
+              <h3 class="card-title">
+                Particle Separation
+              </h3>
+
+              <p class="card-text">
+                Rotational flow and inertial effects
+                can influence the movement of particles.
+                Their usefulness depends on particle
+                characteristics and operating conditions.
+              </p>
+
+            </div>
+
+          </article>
+
+          <!-- CARD 03 -->
+
+          <article class="card card-soft system-card">
+
+            <div class="system-card-image">
+
+              <img
+                src="./Images/BioLung/BioLung_blog_img4.png"
+                alt="Concept illustration representing electrostatic particle treatment"
+              >
+
+            </div>
+
+            <div class="card-body">
+
+              <p class="card-meta">03</p>
+
+              <h3 class="card-title">
+                Electrostatic Processes
+              </h3>
+
+              <p class="card-text">
+                Electrical charging can influence
+                particle behavior and collection.
+                Any practical application must
+                account for safety and possible
+                unwanted byproducts.
+              </p>
+
+            </div>
+
+          </article>
+
+          <!-- CARD 04 -->
+
+          <article class="card card-soft system-card">
+
+            <div class="system-card-image">
+
+              <img
+                src="./Images/BioLung/BioLung_blog_img5.png"
+                alt="Concept illustration representing layered filtration materials"
+              >
+
+            </div>
+
+            <div class="card-body">
+
+              <p class="card-meta">04</p>
+
+              <h3 class="card-title">
+                Filtration Research
+              </h3>
+
+              <p class="card-text">
+                Filtration media can capture airborne
+                particles through established physical
+                mechanisms. Performance depends on
+                filter properties, airflow, and
+                maintenance conditions.
+              </p>
+
+            </div>
+
+          </article>
+
         </div>
+
+        <div class="biolung-disclosure">
+
+          <h3>About the Illustrations</h3>
+
+          <p>
+            The images above communicate broad scientific
+            themes associated with the BioLung concept.
+            They are not intended as manufacturing
+            instructions, engineering schematics,
+            or accurate representations of the
+            project's unpublished internal configuration.
+          </p>
+
+        </div>
+
       </div>
+
     </section>
+
+    <!-- SCIENTIFIC FOUNDATION -->
 
     <section class="section section-dark">
-      <div class="container">
-        <div class="section-split">
-          <div class="section-card">
-            <figure class="article-figure">
-              <img
-                src="Images/BioLung/BioLung_fig1_article-figure.png"
-                alt="BioLung cutaway showing guided airflow and purification stages"
-              />
-              <figcaption>
-                Internal concept cutaway showing staged intake, guided flow, separation, conditioning, and refined output.
-              </figcaption>
-            </figure>
-          </div>
 
-          <div class="section-text">
-            <h2>How BioLung is imagined to work</h2>
-            <p>
-              The conceptual system begins by drawing surrounding air into a controlled structure. Instead of relying only on brute-force filtration, the internal path is shaped to encourage directional flow and staged treatment.
-            </p>
-            <p>
-              In later phases, the geometry may support vortex-like behavior intended to influence heavier particulate matter. From there, the air can pass through conditioning and layered capture zones before cleaner output is released.
-            </p>
-            <p>
-              The result is a more architectural model of purification — one that treats air as a dynamic environmental medium rather than a simple stream passing through a disposable box.
-            </p>
-          </div>
+      <div class="container">
+
+        <div class="section-header">
+
+          <h2>The Science Behind the Concept</h2>
+
+          <p>
+            BioLung draws on established areas of
+            fluid mechanics, particle dynamics,
+            electrostatic treatment, and filtration.
+            Understanding the strengths and limitations
+            of these methods is essential before
+            proposing any practical application.
+          </p>
+
         </div>
+
+        <div class="biolung-method-grid">
+
+          <article class="biolung-method-card">
+
+            <h3>Airflow and Fluid Dynamics</h3>
+
+            <p>
+              Airflow patterns influence how particles
+              move, disperse, and encounter collection
+              surfaces. Flow velocity, turbulence,
+              resistance, and geometry can all affect
+              air-handling performance.
+            </p>
+
+            <p>
+              BioLung investigates these principles
+              at a conceptual level without publishing
+              its proposed internal geometry.
+            </p>
+
+          </article>
+
+          <article class="biolung-method-card">
+
+            <h3>Inertial Particle Separation</h3>
+
+            <p>
+              Some air-cleaning technologies use changes
+              in flow direction or rotational motion
+              to influence particle trajectories.
+              Larger or denser particles may respond
+              differently from very small particles.
+            </p>
+
+            <p>
+              Separation performance cannot be assumed
+              from the presence of swirling airflow alone.
+              It must be measured under defined conditions.
+            </p>
+
+          </article>
+
+          <article class="biolung-method-card">
+
+            <h3>Electrostatic Air Treatment</h3>
+
+            <p>
+              Electrostatic processes can charge particles
+              and support their collection when paired
+              with suitable collection mechanisms.
+            </p>
+
+            <p>
+              Certain ionization methods can also produce
+              unwanted byproducts, including ozone.
+              Any future investigation would therefore
+              need to prioritize byproduct measurement,
+              electrical safety, and exposure considerations.
+            </p>
+
+          </article>
+
+          <article class="biolung-method-card">
+
+            <h3>Mechanical Filtration</h3>
+
+            <p>
+              Mechanical filters remove particles through
+              processes such as interception, impaction,
+              diffusion, and other mechanisms that depend
+              on particle size and filter properties.
+            </p>
+
+            <p>
+              Effective filtration requires attention
+              to pressure drop, airflow delivery,
+              filter loading, and maintenance.
+              Additional stages do not automatically
+              produce a better overall system.
+            </p>
+
+          </article>
+
+        </div>
+
       </div>
+
     </section>
+
+    <!-- PRIVATE ENGINEERING BOUNDARY -->
 
     <section class="section section-light">
+
       <div class="container">
-        <div class="section-card">
+
+        <div class="section-card biolung-editorial">
+
           <div class="section-header">
-            <h2>Watch the BioLung vision</h2>
-            <p>
-              Add your chosen concept animation, reference video, or future promo here.
-            </p>
+
+            <h2>From Scientific Principles to System Design</h2>
+
           </div>
 
-          <div class="video-wrap">
-            <iframe
-              src="https://www.youtube.com/embed/VIDEO_ID_HERE"
-              title="BioLung concept video"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen>
-            </iframe>
+          <p>
+            Combining multiple air-treatment principles
+            introduces questions that cannot be answered
+            by examining each method independently.
+          </p>
+
+          <p>
+            For example, a process that improves the
+            capture of one particle category may also
+            increase airflow resistance or electrical
+            consumption. A treatment method that works
+            under laboratory conditions may behave
+            differently when exposed to variable
+            environmental conditions.
+          </p>
+
+          <p>
+            BioLung approaches these issues as
+            system-level research questions.
+            The objective is to understand whether
+            the selected principles can support
+            an effective, practical, and safe
+            environmental application.
+          </p>
+
+          <div class="biolung-research-note">
+
+            <h3>Private Engineering Development</h3>
+
+            <p>
+              HaloCyberLife is keeping the proposed
+              BioLung internal configuration,
+              dimensional relationships, component
+              arrangements, detailed control methods,
+              and unpublished technical drawings
+              outside this public article.
+            </p>
+
+            <p>
+              This publication explains the research
+              direction and relevant scientific
+              considerations without providing
+              a reproducible construction plan.
+            </p>
+
           </div>
+
         </div>
+
       </div>
+
     </section>
 
-    <section class="section section-dark">
+    <!-- RESEARCH STATUS -->
+
+    <section
+      id="research-status"
+      class="section section-dark"
+    >
+
       <div class="container">
+
         <div class="section-header">
-          <h2>Possible applications</h2>
+
+          <span class="status-pill">
+            Research Status
+          </span>
+
+          <h2>What Has Not Yet Been Demonstrated</h2>
+
           <p>
-            BioLung can be imagined not only as a room-scale purifier, but as a broader environmental intelligence platform.
+            BioLung is an exploratory research concept.
+            The current public article does not present
+            a validated prototype or independently
+            measured purification results.
           </p>
+
+        </div>
+
+        <div class="section-card biolung-editorial">
+
+          <p>
+            Before BioLung could be evaluated as an
+            operational air-treatment technology,
+            several questions would require
+            controlled experimental investigation.
+          </p>
+
+          <ul class="bullet-list">
+
+            <li>
+              <strong>Particle removal:</strong>
+              How effectively would a future system
+              remove different particle sizes?
+            </li>
+
+            <li>
+              <strong>Airflow delivery:</strong>
+              Could the system process a useful
+              volume of air while maintaining
+              acceptable resistance?
+            </li>
+
+            <li>
+              <strong>Energy consumption:</strong>
+              What electrical power would be required
+              under realistic operating conditions?
+            </li>
+
+            <li>
+              <strong>Air-treatment byproducts:</strong>
+              Would any electrical treatment process
+              generate ozone or other unwanted substances?
+            </li>
+
+            <li>
+              <strong>Maintenance:</strong>
+              How would collected material affect
+              long-term performance and servicing?
+            </li>
+
+            <li>
+              <strong>Safety:</strong>
+              What electrical, mechanical, environmental,
+              and occupational requirements would apply?
+            </li>
+
+            <li>
+              <strong>Scalability:</strong>
+              Would performance remain useful when
+              considering larger architectural
+              or public-space applications?
+            </li>
+
+          </ul>
+
+          <p>
+            These questions are not minor details.
+            They determine whether the concept
+            could provide a meaningful benefit
+            beyond existing air-cleaning technologies.
+          </p>
+
+          <p>
+            No specific contaminant-removal percentage,
+            energy-saving claim, health benefit,
+            or operating capacity is asserted
+            for BioLung at this stage.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- RESEARCH DEVELOPMENT PATH -->
+
+    <section class="section section-light">
+
+      <div class="container">
+
+        <div class="section-card biolung-editorial">
+
+          <div class="section-header">
+
+            <h2>A Responsible Path Toward Validation</h2>
+
+            <p>
+              Moving from a research concept to
+              a measurable system would require
+              structured investigation.
+            </p>
+
+          </div>
+
+          <ol class="biolung-research-steps">
+
+            <li>
+              <strong>Define the research objectives.</strong>
+              Identify which air-quality problems
+              and performance characteristics
+              the concept is intended to address.
+            </li>
+
+            <li>
+              <strong>Review existing technologies.</strong>
+              Compare the relevant principles
+              against established filtration,
+              separation, and electrostatic
+              air-treatment methods.
+            </li>
+
+            <li>
+              <strong>Evaluate individual processes.</strong>
+              Study airflow, particle behavior,
+              and treatment effects under
+              controlled conditions.
+            </li>
+
+            <li>
+              <strong>Measure safety-related outputs.</strong>
+              Investigate energy consumption,
+              pressure loss, and any potentially
+              harmful byproducts.
+            </li>
+
+            <li>
+              <strong>Assess system integration.</strong>
+              Determine whether the investigated
+              principles can operate together
+              without unacceptable trade-offs.
+            </li>
+
+            <li>
+              <strong>Compare against benchmarks.</strong>
+              Evaluate any future results
+              against existing air-cleaning
+              technologies using consistent
+              measurement conditions.
+            </li>
+
+          </ol>
+
+          <p>
+            This proposed research path does not
+            represent completed testing.
+            It describes the type of evidence
+            that would be necessary to evaluate
+            BioLung responsibly.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- POSSIBLE APPLICATIONS -->
+
+    <section class="section section-dark">
+
+      <div class="container">
+
+        <div class="section-header">
+
+          <h2>Possible Architectural Applications</h2>
+
+          <p>
+            BioLung's long-term vision extends
+            beyond a single appliance format.
+            The following images explore where
+            environmental air-treatment
+            infrastructure might become part
+            of future architectural design.
+          </p>
+
         </div>
 
         <div class="two-column-grid">
+
           <div class="column-left">
+
             <article class="mini-card">
+
               <img
                 class="mini-card-image"
                 src="./Images/BioLung/BioLung_fig5.png"
-                alt="BioLung concept inside a large public building"
-              />
+                alt="BioLung concept in a large public interior"
+              >
+
               <div class="mini-card-body">
-                <p class="mini-card-meta">Public Spaces</p>
-                <h3>Schools, offices, transit hubs, and shared interior zones</h3>
+
+                <p class="mini-card-meta">
+                  Public Spaces
+                </p>
+
+                <h3>
+                  Schools, offices, transit hubs,
+                  and shared interior environments
+                </h3>
+
+                <p class="biolung-image-caption">
+                  Conceptual application only.
+                  Any real installation would require
+                  appropriate ventilation design,
+                  testing, and safety evaluation.
+                </p>
+
               </div>
+
             </article>
 
             <article class="mini-card">
+
               <img
                 class="mini-card-image"
                 src="./Images/BioLung/BioLung_fig6.png"
-                alt="BioLung future tower concept for city air purification"
-              />
+                alt="BioLung future environmental tower concept"
+              >
+
               <div class="mini-card-body">
-                <p class="mini-card-meta">Urban Infrastructure</p>
-                <h3>Localized environmental towers for cleaner atmospheric zones</h3>
+
+                <p class="mini-card-meta">
+                  Urban Infrastructure
+                </p>
+
+                <h3>
+                  Environmental structures
+                  for localized urban applications
+                </h3>
+
+                <p class="biolung-image-caption">
+                  A speculative architectural direction.
+                  Outdoor air treatment presents
+                  substantial challenges involving
+                  scale, atmospheric mixing,
+                  energy, and measurable impact.
+                </p>
+
               </div>
+
             </article>
+
           </div>
 
           <div class="column-right">
+
             <article class="mini-card">
+
               <img
                 class="mini-card-image"
                 src="./Images/BioLung/BioLung_fig7.png"
-                alt="BioLung industrial or workshop air handling concept"
-              />
+                alt="BioLung concept for an industrial environment"
+              >
+
               <div class="mini-card-body">
-                <p class="mini-card-meta">Industrial Environments</p>
-                <h3>Workshops, fabrication areas, and high-particle work zones</h3>
+
+                <p class="mini-card-meta">
+                  Industrial Environments
+                </p>
+
+                <h3>
+                  Workshops, fabrication spaces,
+                  and particle-intensive work areas
+                </h3>
+
+                <p class="biolung-image-caption">
+                  Potential applications would need
+                  to be assessed against workplace
+                  ventilation and contaminant-control
+                  requirements.
+                </p>
+
               </div>
+
             </article>
 
             <article class="mini-card">
+
               <img
                 class="mini-card-image"
                 src="./Images/BioLung/BioLung_fig8.png"
-                alt="BioLung visionary future environmental ecosystem"
-              />
+                alt="BioLung visionary environmental architecture concept"
+              >
+
               <div class="mini-card-body">
-                <p class="mini-card-meta">Future Vision</p>
-                <h3>Environmental architecture designed to breathe, protect, and adapt</h3>
+
+                <p class="mini-card-meta">
+                  Future Vision
+                </p>
+
+                <h3>
+                  Architecture designed around
+                  environmental awareness
+                  and air-quality management
+                </h3>
+
+                <p class="biolung-image-caption">
+                  A long-term design exploration,
+                  not a representation of
+                  demonstrated BioLung capabilities.
+                </p>
+
               </div>
+
             </article>
+
           </div>
+
         </div>
+
       </div>
+
     </section>
+
+    <!-- WHY IT MATTERS -->
 
     <section class="section section-light">
+
       <div class="container">
-        <div class="section-card">
+
+        <div class="section-card biolung-editorial">
+
           <div class="section-header">
-            <h2>Why this matters</h2>
+
+            <h2>Why This Research Matters</h2>
+
           </div>
+
           <p>
-            Clean air is one of the most important invisible foundations of healthy life, yet many environments still rely on narrow, low-imagination solutions. BioLung points toward a future in which air systems become more responsive, more architectural, and more integrated with the places people actually live and work.
+            Air quality is an important part of
+            environmental health and building design.
+            Effective ventilation and air-cleaning
+            technologies can contribute to reducing
+            exposure to certain airborne contaminants
+            when appropriately selected and operated.
           </p>
+
           <p>
-            The deeper value of the concept is not only filtration. It is system thinking. It asks whether air handling can evolve into a more elegant relationship between structure, motion, material, and environmental health.
+            BioLung explores the relationship
+            between environmental engineering
+            and architectural imagination.
+            It asks whether future air-treatment
+            systems could be more closely
+            integrated with the structures
+            and spaces they serve.
           </p>
+
+          <p>
+            That question remains worth exploring
+            even if some proposed approaches
+            ultimately prove impractical.
+            Research can identify useful design
+            opportunities, reveal engineering
+            limitations, and improve understanding
+            of complex environmental systems.
+          </p>
+
+          <p>
+            The long-term objective is not
+            simply to produce an unusual-looking
+            purifier. It is to investigate
+            whether a different approach to
+            environmental infrastructure
+            could offer meaningful advantages
+            under measurable conditions.
+          </p>
+
         </div>
+
       </div>
+
     </section>
+
+    <!-- CONCLUSION -->
 
     <section class="section section-dark">
+
       <div class="container">
-        <div class="section-card">
+
+        <div class="section-card biolung-editorial">
+
           <div class="section-header">
-            <h2>The transmission continues</h2>
+
+            <h2>BioLung: The Research Continues</h2>
+
             <p>
-              BioLung™ is part of a larger HaloCyberLife exploration into future systems, environmental intelligence, speculative engineering, and architecture designed to serve life more deeply.
+              An original environmental concept
+              within the HaloCyberLife
+              research ecosystem.
             </p>
+
           </div>
+
+          <p>
+            BioLung™ represents an early-stage
+            investigation into the relationship
+            between air movement, particle behavior,
+            treatment technologies, and
+            environmental architecture.
+          </p>
+
+          <p>
+            Its public documentation focuses
+            on the underlying research questions,
+            scientific principles, possible
+            applications, and technical challenges.
+          </p>
+
+          <p>
+            The project's unpublished engineering
+            details remain separate from
+            this public presentation.
+          </p>
+
+          <p>
+            Future progress will depend on
+            experimental evidence, engineering
+            evaluation, and a clearer understanding
+            of whether the proposed approach
+            can offer practical benefits.
+          </p>
 
           <div class="section-actions">
-            <a class="btn primary-btn" href="../index.html">Return to HaloCyberLife</a>
+
+            <a
+              class="btn primary-btn"
+              href="../blog.html"
+            >
+              Explore More Articles
+            </a>
+
+            <a
+              class="btn ghost-btn"
+              href="../index.html"
+            >
+              Return to HaloCyberLife
+            </a>
+
           </div>
+
         </div>
+
       </div>
+
     </section>
+
   </main>
 
+  <!-- FOOTER -->
+
   <footer class="site-footer">
+
     <div class="container footer-inner">
+
       <div>
+
         <div class="footer-brand">
-          <img src="../images/negative_white_halocyberlife_logo.png" alt="HaloCyberLife logo" class="footer-logo" />
-          <span class="footer-brand-text">HaloCyberLife</span>
+
+          <img
+            src="../images/negative_white_halocyberlife_logo.png"
+            alt="HaloCyberLife logo"
+            class="footer-logo"
+          >
+
+          <span class="footer-brand-text">
+            HaloCyberLife
+          </span>
+
         </div>
+
         <p class="footer-text">
-          Esoteric wisdom, future technology, and concept systems for builders, seekers, and inventors.
+          Independent research concepts,
+          future technology, architecture,
+          and experimental systems.
         </p>
-        <p class="footer-meta">© 2026 HaloCyberLife™</p>
+
+        <p class="footer-meta">
+          © <span id="year"></span> HaloCyberLife™
+        </p>
+
       </div>
 
       <div>
-        <h3 class="footer-heading">Explore</h3>
+
+        <h3 class="footer-heading">
+          Explore
+        </h3>
+
         <ul class="footer-links">
-          <li><a href="../index.html">Home</a></li>
-          <li><a href="../index.html#insights">Insights</a></li>
-          <li><a href="../index.html#technologies">Technologies</a></li>
+
+          <li>
+            <a href="../index.html">
+              Home
+            </a>
+          </li>
+
+          <li>
+            <a href="../blog.html">
+              Articles
+            </a>
+          </li>
+
+          <li>
+            <a href="../index.html#technologies">
+              Technologies
+            </a>
+          </li>
+
+          <li>
+            <a href="../about.html">
+              About
+            </a>
+          </li>
+
         </ul>
+
       </div>
 
       <div>
-        <h3 class="footer-heading">Contact</h3>
+
+        <h3 class="footer-heading">
+          Contact
+        </h3>
+
         <ul class="footer-links">
-          <li><a href="../contact.html">Contact Page</a></li>
-          <li><a href="mailto:info@halocyberlife.com">info@halocyberlife.com</a></li>
+
+          <li>
+            <a href="../contact_us.html">
+              Contact Page
+            </a>
+          </li>
+
+          <li>
+            <a href="mailto:info@halocyberlife.com">
+              info@halocyberlife.com
+            </a>
+          </li>
+
         </ul>
+
       </div>
+
     </div>
+
   </footer>
 
-  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+  <!-- BACK TO TOP -->
+
+  <button
+    class="back-to-top"
+    id="backToTop"
+    type="button"
+    aria-label="Back to top"
+  >
+    ↑
+  </button>
 
   <script>
-    const navToggle = document.querySelector(".nav-toggle");
-    const mainNav = document.querySelector(".main-nav");
+    document.addEventListener("DOMContentLoaded", () => {
 
-    if (navToggle && mainNav) {
-      navToggle.addEventListener("click", () => {
-        const isOpen = mainNav.classList.toggle("open");
-        navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-      });
-    }
+      /* MOBILE NAVIGATION */
 
-    const backToTop = document.getElementById("backToTop");
+      const navToggle =
+        document.querySelector(".nav-toggle");
 
-    if (backToTop) {
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 400) {
-          backToTop.classList.add("show");
-        } else {
-          backToTop.classList.remove("show");
+      const mainNav =
+        document.querySelector(".main-nav");
+
+      if (navToggle && mainNav) {
+
+        navToggle.addEventListener("click", () => {
+
+          const isOpen =
+            mainNav.classList.toggle("open");
+
+          navToggle.setAttribute(
+            "aria-expanded",
+            isOpen ? "true" : "false"
+          );
+
+        });
+
+        document.querySelectorAll(".main-nav a")
+          .forEach(link => {
+
+            link.addEventListener("click", () => {
+
+              mainNav.classList.remove("open");
+
+              navToggle.setAttribute(
+                "aria-expanded",
+                "false"
+              );
+
+            });
+
+          });
+
+        document.addEventListener("keydown", event => {
+
+          if (
+            event.key === "Escape" &&
+            mainNav.classList.contains("open")
+          ) {
+
+            mainNav.classList.remove("open");
+
+            navToggle.setAttribute(
+              "aria-expanded",
+              "false"
+            );
+
+            navToggle.focus();
+
+          }
+
+        });
+
+      }
+
+      /* BACK TO TOP */
+
+      const backToTop =
+        document.getElementById("backToTop");
+
+      if (backToTop) {
+
+        function updateBackToTop() {
+
+          if (window.scrollY > 400) {
+
+            backToTop.classList.add("show");
+
+          } else {
+
+            backToTop.classList.remove("show");
+
+          }
+
         }
-      });
 
-      backToTop.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      });
-    }
+        window.addEventListener(
+          "scroll",
+          updateBackToTop,
+          { passive: true }
+        );
+
+        updateBackToTop();
+
+        backToTop.addEventListener("click", () => {
+
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+          });
+
+        });
+
+      }
+
+      /* COPYRIGHT YEAR */
+
+      const year =
+        document.getElementById("year");
+
+      if (year) {
+
+        year.textContent =
+          new Date().getFullYear();
+
+      }
+
+    });
   </script>
+
 </body>
 </html>
+
+
+
+
+
+
+
