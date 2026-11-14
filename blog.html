@@ -569,16 +569,19 @@
         <button class="back-to-top" style="position: static; display: inline-flex; width: 40px; height: 40px; justify-content: center; align-items: center; border-radius: 50%; border: 1px solid var(--border); background: rgba(139, 92, 246, 0.1); color: #fff; cursor: pointer;">↑</button>
       </div> -->
     </footer>
-
-<script>
-  const navToggle = document.getElementById('navToggle');
-  const neonNav = document.getElementById('neonNav');
-  navToggle.addEventListener('click', () => { neonNav.classList.toggle('active'); });
-  const yearElement = document.getElementById("year");
-
-if (yearElement) {
-  yearElement.textContent = new Date().getFullYear();
-}
+      //Back to Top Button
+  
+    <button id="backToTop" aria-label="Back to top">↑</button>
+  
+    <script>
+      const navToggle = document.getElementById('navToggle');
+      const neonNav = document.getElementById('neonNav');
+      navToggle.addEventListener('click', () => { neonNav.classList.toggle('active'); });
+      const yearElement = document.getElementById("year");
+    
+    if (yearElement) {
+      yearElement.textContent = new Date().getFullYear();
+    }
 
   const backToTop = document.getElementById('backToTop');
 
@@ -599,7 +602,6 @@ if (yearElement) {
     });
   });  
 </script>
-  <button id="backToTop" aria-label="Back to top">↑</button>
 </body>
 </html>
 
