@@ -1,312 +1,1789 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BIOLOOP™ Patent · Public Disclosure | Halocyberlife</title>
-  <meta name="description" content="BIOLOOP™ — #, public disclosure by Luis Amaya." />
-  <meta name="author" content="Luis Amaya" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-  :root {
-    --bg: #020617;
-    --text: #f9fafb;
-    --muted: #9ca3af;
-    --accent: #22d3ee;
-    --border: rgba(148,163,184,0.28);
-    --radius: 18px;
-    --shadow: 0 24px 70px rgba(0,0,0,.45);
-    --panel: rgba(0,0,0,0.38);
-  }
+  <title>BioLoop™ — Circular Energy Research | HaloCyberLife</title>
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+  <meta name="description"
+    content="Discover BioLoop™, an independent HaloCyberLife research concept exploring household odor management, waste-resource recovery, methane-based energy potential, and future circular infrastructure.">
 
-  body {
-    font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
-    background: radial-gradient(circle at top, #111827 0, #020617 55%, #02040a 100%);
-    color: var(--text);
-    line-height: 1.6;
-  }
+  <meta name="author" content="Luis Amaya">
+  <meta name="theme-color" content="#020617">
 
-  header {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(0,0,0,0.65);
-    backdrop-filter: blur(12px);
-    padding: 1rem;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-  }
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-soft: #0b1223;
+      --panel: rgba(15, 23, 42, 0.78);
+      --panel-light: rgba(30, 41, 59, 0.52);
+      --text: #f8fafc;
+      --muted: #a5b4c8;
+      --accent: #22d3ee;
+      --accent-soft: rgba(34, 211, 238, 0.12);
+      --purple: #a78bfa;
+      --border: rgba(148, 163, 184, 0.22);
+      --radius: 20px;
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.3);
+    }
 
-  .brand {
-    display: flex;
-    align-items: center;
-    gap: .65rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: .9rem;
-    letter-spacing: .06em;
-  }
+    * {
+      box-sizing: border-box;
+    }
 
-  header img { width: 40px; height: 40px; }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 110px;
+    }
 
-  /* HEADER BACK BUTTON */
-  .back-wrap {
-    display: flex;
-    justify-content: center;
-    margin-top: 0.5rem;
-  }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(
+          ellipse at 50% 0%,
+          rgba(34, 211, 238, 0.10),
+          transparent 35%
+        ),
+        radial-gradient(
+          ellipse at 90% 35%,
+          rgba(139, 92, 246, 0.08),
+          transparent 35%
+        ),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+    }
 
-  .back-btn {
-    background: rgba(15, 23, 42, 0.6);
-    color: var(--text);
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    padding: 0.5rem 1.4rem;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    cursor: pointer;
-    backdrop-filter: blur(8px);
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-  }
+    a {
+      color: var(--accent);
+    }
 
-  .back-btn:hover {
-    border-color: var(--accent);
-    background: rgba(34, 211, 238, 0.1);
-    color: var(--accent);
-    transform: translateY(-1px);
-    box-shadow: 0 0 20px rgba(34, 211, 238, 0.25);
-  }
+    a:hover {
+      color: #a5f3fc;
+    }
 
-  /* FLOATING BACK TO TOP */
-  .back-to-top {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 46px;
-    height: 46px;
-    border-radius: 50%;
-    background: rgba(15, 23, 42, 0.8);
-    color: var(--accent);
-    border: 1px solid var(--border);
-    font-size: 20px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 90;
-    backdrop-filter: blur(8px);
-    transition: all 0.3s ease;
-    opacity: 0;
-    visibility: hidden;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-  }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
 
-  .back-to-top.show {
-    opacity: 1;
-    visibility: visible;
-  }
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
 
-  .back-to-top:hover {
-    border-color: var(--accent);
-    transform: translateY(-4px);
-    box-shadow: 0 0 15px rgba(34, 211, 238, 0.4);
-  }
+    button:focus-visible,
+    a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+    }
 
-  /* Main Patent Styling */
-  main { max-width: 1700px; margin: 0 auto; padding: 1.1rem .5rem 3rem; }
-  h1 { text-align: center; font-size: clamp(1.85rem, 4vw, 3rem); margin-bottom: .35rem; }
-  .meta { text-align: center; color: var(--muted); margin-bottom: .9rem; }
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 12px;
+      z-index: 1000;
+      padding: 12px 18px;
+      background: var(--accent);
+      color: #020617;
+      border-radius: 10px;
+    }
 
-  .disclosure {
-    max-width: 1320px; margin: 0 auto 1.1rem; padding: .8rem 1rem;
-    border-radius: 14px; border: 1px solid var(--border);
-    background: var(--panel); color: var(--muted); font-size: .86rem; text-align: center;
-  }
+    .skip-link:focus {
+      top: 12px;
+    }
 
-  .slider { position: relative; overflow: hidden; border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid var(--border); background: rgba(0,0,0,0.3); }
-  .slider-track { display: flex; transition: transform 0.5s ease; }
-  .slide { min-width: 100%; padding: .45rem; display: flex; justify-content: center; align-items: center; }
-  .slide img { max-width: 99.5%; max-height: 92vh; border-radius: 12px; cursor: zoom-in; }
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin-inline: auto;
+    }
 
-  .nav-btn {
-    position: absolute; top: 50%; transform: translateY(-50%);
-    background: rgba(0,0,0,0.65); color: white; border: 1px solid rgba(255,255,255,0.25);
-    border-radius: 999px; padding: .55rem .95rem; cursor: pointer; z-index: 5;
-  }
-  .nav-btn:hover { border-color: var(--accent); }
-  .prev { left: .75rem; }
-  .next { right: .75rem; }
+    /* HEADER */
 
-  /* LIGHTBOX */
-  .lightbox { position: fixed; inset: 0; background: rgba(0,0,0,0.82); backdrop-filter: blur(6px); display: none; align-items: center; justify-content: center; z-index: 999; padding: 1rem; }
-  .lightbox.is-open { display: flex; }
-  .lightbox__img { max-width: min(1900px, 98vw); max-height: 96vh; border-radius: 14px; cursor: zoom-out; }
-  .lightbox__close { position: absolute; top: 16px; right: 16px; width: 44px; height: 44px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.25); background: rgba(0,0,0,0.55); color: #fff; font-size: 22px; display: grid; place-items: center; cursor: pointer; }
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(2, 6, 23, 0.90);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
 
-  /* FOOTER */
-  .site-footer { background: #020617; border-top: 1px solid rgba(139, 92, 246, 0.25); padding: 3rem 0 2.5rem; margin-top: 5rem; color: rgba(209,213,219,0.9); }
-  .footer-inner { display: grid; gap: 2.5rem; max-width: 980px; margin: 0 auto; padding: 0 1.25rem; }
-  @media (min-width: 768px) { .footer-inner { grid-template-columns: 2fr 1fr 1.2fr; } }
-  .footer-brand { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 0.5rem; }
-  .footer-logo { width: 34px; filter: drop-shadow(0 0 6px rgba(139,92,246,0.5)); }
-  .footer-links { list-style: none; font-size: 0.88rem; }
-  .footer-links a { color: rgba(209,213,219,0.85); text-decoration: none; }
-  .footer-links a:hover { color: var(--accent); text-decoration: underline; }
-</style>
+    .header-inner {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: 0.045em;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .main-nav a {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 0.91rem;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    .main-nav a:hover {
+      color: var(--accent);
+    }
+
+    .nav-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      background: var(--panel);
+      color: white;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1.4rem;
+    }
+
+    /* HERO */
+
+    .hero {
+      padding: 100px 0 82px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(3.4rem, 10vw, 7rem);
+      line-height: 1.08;
+      letter-spacing: -0.055em;
+      margin: 0 0 20px;
+      background: linear-gradient(
+        120deg,
+        #ffffff 20%,
+        #67e8f9 55%,
+        #a78bfa 100%
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-tagline {
+      font-size: clamp(1.3rem, 3vw, 1.9rem);
+      font-weight: 700;
+      margin: 0 0 22px;
+    }
+
+    .hero-description {
+      max-width: 800px;
+      margin: 0 auto 26px;
+      color: var(--muted);
+      font-size: 1.08rem;
+      line-height: 1.95;
+    }
+
+    .status {
+      display: inline-block;
+      padding: 8px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(34, 211, 238, 0.4);
+      background: var(--accent-soft);
+      color: #a5f3fc;
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 30px;
+    }
+
+    .hero-actions,
+    .section-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 24px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      color: #020617;
+      background: var(--accent);
+    }
+
+    .btn-primary:hover {
+      color: #020617;
+      background: #67e8f9;
+    }
+
+    .btn-outline {
+      color: var(--text);
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.55);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* SECTIONS */
+
+    .section {
+      padding: 85px 0;
+    }
+
+    .section-alt {
+      background: rgba(15, 23, 42, 0.3);
+      border-block: 1px solid rgba(148, 163, 184, 0.07);
+    }
+
+    .section-heading {
+      max-width: 830px;
+      margin-bottom: 38px;
+    }
+
+    .section-heading.center {
+      text-align: center;
+      margin-inline: auto;
+    }
+
+    .section-label {
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      line-height: 1.2;
+      letter-spacing: -0.035em;
+      margin: 0 0 20px;
+    }
+
+    h3 {
+      font-size: 1.2rem;
+      line-height: 1.4;
+      margin: 0 0 14px;
+    }
+
+    p {
+      margin: 0 0 20px;
+    }
+
+    .lead {
+      font-size: 1.08rem;
+      color: var(--muted);
+      line-height: 1.95;
+    }
+
+    .article-copy {
+      max-width: 900px;
+      margin-inline: auto;
+    }
+
+    .article-copy p {
+      color: #cbd5e1;
+      line-height: 1.95;
+      margin-bottom: 22px;
+    }
+
+    .article-copy strong {
+      color: #f8fafc;
+    }
+
+    /* CARDS */
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      padding: 30px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .card-number {
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      margin-bottom: 20px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.85;
+      margin-bottom: 0;
+    }
+
+    .feature-card {
+      border-color: rgba(34, 211, 238, 0.22);
+      background:
+        linear-gradient(
+          145deg,
+          rgba(34, 211, 238, 0.07),
+          rgba(15, 23, 42, 0.85)
+        );
+    }
+
+    /* CONCEPT FLOW */
+
+    .concept-flow {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 35px;
+    }
+
+    .concept-stage {
+      text-align: center;
+      padding: 32px 22px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+    }
+
+    .concept-stage .stage-number {
+      display: inline-grid;
+      place-items: center;
+      width: 45px;
+      height: 45px;
+      margin-bottom: 18px;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .concept-stage h3 {
+      font-size: 1.1rem;
+    }
+
+    .concept-stage p {
+      color: var(--muted);
+      font-size: 0.93rem;
+      margin-bottom: 0;
+    }
+
+    .concept-note {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-top: 20px;
+    }
+
+    /* CALLOUTS */
+
+    .callout {
+      padding: 30px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(34, 211, 238, 0.28);
+      background: rgba(34, 211, 238, 0.06);
+      margin: 30px 0;
+    }
+
+    .callout h3 {
+      color: #a5f3fc;
+    }
+
+    .callout p:last-child {
+      margin-bottom: 0;
+    }
+
+    .private-note {
+      border-color: rgba(167, 139, 250, 0.3);
+      background: rgba(167, 139, 250, 0.07);
+    }
+
+    .private-note h3 {
+      color: #c4b5fd;
+    }
+
+    /* RESEARCH ROADMAP */
+
+    .roadmap {
+      display: grid;
+      gap: 20px;
+      max-width: 950px;
+      margin: 0 auto;
+    }
+
+    .roadmap-item {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 24px;
+      padding: 27px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+    }
+
+    .roadmap-date {
+      color: var(--accent);
+      font-size: 1.1rem;
+      font-weight: 800;
+    }
+
+    .roadmap-item p {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* FOOTER */
+
+    .site-footer {
+      padding: 65px 0 40px;
+      background: #020617;
+      border-top: 1px solid rgba(139, 92, 246, 0.25);
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1.2fr;
+      gap: 40px;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      font-weight: 800;
+    }
+
+    .footer-logo {
+      width: 40px;
+      height: auto;
+    }
+
+    .footer-text,
+    .footer-meta {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .footer-heading {
+      font-size: 1rem;
+      margin-bottom: 18px;
+    }
+
+    .footer-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      color: #cbd5e1;
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    /* BACK TO TOP */
+
+    .back-to-top {
+      position: fixed;
+      right: 25px;
+      bottom: 25px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid rgba(34, 211, 238, 0.35);
+      background: rgba(15, 23, 42, 0.94);
+      color: var(--accent);
+      font-size: 1.3rem;
+      cursor: pointer;
+      z-index: 90;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(12px);
+      transition: all 0.25s ease;
+    }
+
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .back-to-top:hover {
+      background: #164e63;
+      color: white;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 850px) {
+      .nav-toggle {
+        display: inline-grid;
+        place-items: center;
+      }
+
+      .main-nav {
+        display: none;
+        position: absolute;
+        top: 82px;
+        left: 0;
+        right: 0;
+        padding: 22px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 18px;
+        background: #020617;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .main-nav.open {
+        display: flex;
+      }
+
+      .card-grid,
+      .concept-flow {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .hero {
+        padding: 75px 0 65px;
+      }
+
+      .section {
+        padding: 65px 0;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        width: min(100% - 28px, 1180px);
+      }
+
+      .roadmap-item {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .card,
+      .callout {
+        padding: 23px;
+      }
+
+      .hero-description {
+        font-size: 1rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+      }
+    }
+  </style>
 </head>
 
 <body>
-<header>
-  <div class="brand">
-    <img src="../images/negative_white_halocyberlife_logo.png" alt="Halocyberlife logo">
-    <span>Halocyberlife</span>
-  </div>
-  <div class="back-wrap">
-    <button class="back-btn" type="button" onclick="history.back()">
-      <span style="font-size: 1.1rem; line-height: 0;">‹</span> Return to Hub
-    </button>
-  </div>
-</header>
 
-<main>
-  <div class="meta">Public Disclosure · Patent Pages</div>
-  <h1>BIOLOOP™ — Provisional Patent Disclosure</h1>
+  <a class="skip-link" href="#main-content">
+    Skip to content
+  </a>
 
-  <div class="disclosure" role="note" aria-label="Public disclosure formatting note">
-    <strong>Disclosure:</strong> This page is a <strong>public-view</strong> presentation of BIOLOOP™ materials.
-    The <strong>original patent filing</strong> is formatted differently to meet <strong>USPTO</strong> requirements.
-    This version may be modified for readability (layout, spacing, and presentation) while keeping the underlying content intent.
-  </div>
+  <!-- HEADER -->
 
-  <div class="slider" aria-label="BIOLOOP Patent Slider">
-    <div class="slider-track" id="sliderTrack">
+  <header class="site-header">
+    <div class="container header-inner">
 
-      <!-- SLIDES -->
-      <div class="slide"><img src="./Images/blog_images/BioLoop_img/Patent_SingleImage_Bioloop/BioLoop_UNITED STATES PROVISIONAL PATENT APPLICATION_v19-01.png" alt="BIOGLOOP page 1"></div>
-      <div class="slide"><img src="./Images/blog_images/BioLoop_img/Patent_SingleImage_Bioloop/BioLoop_UNITED STATES PROVISIONAL PATENT APPLICATION_v19-02.png" alt="BIOGLOOP page 2"></div>
-      <div class="slide"><img src="./Images/blog_images/BioLoop_img/Patent_SingleImage_Bioloop/BioLoop_UNITED STATES PROVISIONAL PATENT APPLICATION_v19-03.png" alt="BIOGLOOP page 3"></div>
-      <div class="slide"><img src="./Images/blog_images/BioLoop_img/Patent_SingleImage_Bioloop/BioLoop_UNITED STATES PROVISIONAL PATENT APPLICATION_v19-04.png" alt="BIOGLOOP page 4"></div>
-      <div class="slide"><img src="./Images/blog_images/BioLoop_img/Patent_SingleImage_Bioloop/BioLoop_UNITED STATES PROVISIONAL PATENT APPLICATION_v19-05.png" alt="BIOGLOOP page 5"></div>
-      <div class="slide"><img src="./Images/blog_images/BioLoop_img/Patent_SingleImage_Bioloop/BioLoop_UNITED STATES PROVISIONAL PATENT APPLICATION_v19-06.png" alt="BIOGLOOP page 6"></div>
-      <div class="slide"><img src="./Images/blog_images/BioLoop_img/Patent_SingleImage_Bioloop/BioLoop_UNITED STATES PROVISIONAL PATENT APPLICATION_v19-07.png" alt="BIOGLOOP page 7"></div>
-      <div class="slide"><img src="./Images/blog_images/BioLoop_img/Patent_SingleImage_Bioloop/BioLoop_UNITED STATES PROVISIONAL PATENT APPLICATION_v19-08.png" alt="BIOGLOOP page 8"></div>
-      <div class="slide"><img src="./Images/blog_images/BioLoop_img/Patent_SingleImage_Bioloop/BioLoop_UNITED STATES PROVISIONAL PATENT APPLICATION_v19-09.png" alt="BIOGLOOP page 9"></div>
-      <div class="slide"><img src="./Images/blog_images/BioLoop_img/Patent_SingleImage_Bioloop/BioLoop_UNITED STATES PROVISIONAL PATENT APPLICATION_v19-10.png" alt="BIOGLOOP page 10"></div>
-      <div class="slide"><img src="./Images/blog_images/BioLoop_img/Patent_SingleImage_Bioloop/BioLoop_UNITED STATES PROVISIONAL PATENT APPLICATION_v19-11.png" alt="BIOGLOOP page 11"></div>
-      <div class="slide"><img src="./Images/blog_images/BioLoop_img/Patent_SingleImage_Bioloop/BioLoop_UNITED STATES PROVISIONAL PATENT APPLICATION_v19-12.png" alt="BIOGLOOP page 12"></div>
-      <div class="slide"><img src="./Images/blog_images/BioLoop_img/Patent_SingleImage_Bioloop/BioLoop_UNITED STATES PROVISIONAL PATENT APPLICATION_v19-13.png" alt="BIOGLOOP page 13"></div>
-      <div class="slide"><img src="./Images/blog_images/BioLoop_img/Patent_SingleImage_Bioloop/BioLoop_UNITED STATES PROVISIONAL PATENT APPLICATION_v19-14.png" alt="BIOGLOOP page 14"></div>
-      <div class="slide"><img src="./Images/blog_images/BioLoop_img/Patent_SingleImage_Bioloop/BioLoop_UNITED STATES PROVISIONAL PATENT APPLICATION_v19-15.png" alt="BIOGLOOP page 15"></div>
-      <div class="slide"><img src="./Images/blog_images/BioLoop_img/Patent_SingleImage_Bioloop/CONCLUSION .png" alt="BIOGLOOP page 16"></div>
+      <a class="brand" href="../index.html"
+         aria-label="HaloCyberLife home">
+
+        <img
+          src="../images/negative_white_halocyberlife_logo.png"
+          alt=""
+        >
+
+        <span>HaloCyberLife</span>
+      </a>
+
+      <button
+        class="nav-toggle"
+        id="navToggle"
+        type="button"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+        aria-controls="mainNav"
+      >
+        ☰
+      </button>
+
+      <nav class="main-nav" id="mainNav"
+           aria-label="Primary navigation">
+
+        <a href="../index.html">Home</a>
+        <a href="../blog.html">Articles</a>
+        <a href="../about.html">About</a>
+        <a href="../contact_us.html">Contact</a>
+
+      </nav>
 
     </div>
+  </header>
 
-    <button class="nav-btn prev" type="button" onclick="moveSlide(-1)">Prev</button>
-    <button class="nav-btn next" type="button" onclick="moveSlide(1)">Next</button>
-  </div>
-</main>
+  <main id="main-content">
 
- <!-- FOOTER -->
-    <footer class="site-footer">
-      <div class="container footer-inner">
-        <div class="footer-column">
-          <div class="footer-brand">
-            <img src="../images/negative_white_halocyberlife_logo.png" alt="Halocyberlife logo small" class="footer-logo" />
-            <span class="footer-brand-text">Halocyberlife</span>
-          </div>
-          <p class="footer-text">Esoteric insights, experimental tech concepts, and future-conscious craftsmanship.</p>
-          <p class="footer-meta">v2.0.0 · © <span id="year"></span> Halocyberlife.com</p>
+    <!-- HERO -->
+
+    <section class="hero">
+      <div class="container">
+
+        <p class="eyebrow">
+          HaloCyberLife · Independent Research Initiative
+        </p>
+
+        <h1>BioLoop™</h1>
+
+        <p class="hero-tagline">
+          From Household Waste to Community Value
+        </p>
+
+        <p class="hero-description">
+          BioLoop™ explores a future in which household
+          waste management, odor reduction, resource
+          recovery, and local energy systems are
+          considered together.
+
+          The long-term vision is to investigate whether
+          recoverable resources that are normally
+          discarded could contribute to cleaner
+          environments and more circular communities.
+        </p>
+
+        <span class="status">
+          Research Concept · Prototype Target: 2027
+        </span>
+
+        <div class="hero-actions">
+
+          <a class="btn btn-primary" href="#vision">
+            Explore the Vision
+          </a>
+
+          <a class="btn btn-outline" href="#roadmap">
+            Road to Prototype
+          </a>
+
         </div>
-  
-        <div class="footer-column">
-          <h3 class="footer-heading">Navigate</h3>
-          <ul class="footer-links">
-            <li><a href="../index.html#insights">Latest Insights</a></li>
-            <li><a href="../blog.html">All Articles</a></li>
-            <li><a href="../about.html">About</a></li>
-            <li><a href="../contact_us.html">Contact</a></li>
-            <li><a href="../policypage.html">Privacy &amp; Terms</a></li>
-          </ul>
-        </div>
-  
-        <div class="footer-column">
-          <h3 class="footer-heading">Contact &amp; Social</h3>
-          <ul class="footer-links">
-            <li><span>Email:</span> <a href="mailto:luisamaya@halocyberlife.com">luisamaya@halocyberlife.com</a></li>
-          </ul>
-          <div class="footer-social">
-            <a href="https://www.linkedin.com/in/halocyberlife/" aria-label="linkedin">LinkedIn: halocyberlife/</a>
-          </div>
-        </div>
+
       </div>
-  
-      <button class="back-to-top" aria-label="Back to top">↑</button>
-    </footer>
+    </section>
 
-<!-- Lightbox (ONLY X) -->
-<div class="lightbox" id="lightbox" aria-hidden="true">
-  <button class="lightbox__close" id="lightboxClose" type="button" aria-label="Close (Esc)">×</button>
-  <img class="lightbox__img" id="lightboxImg" alt="">
-</div>
+    <!-- INTRODUCTION -->
 
-<script>
-  let index = 0;
-  const track = document.getElementById("sliderTrack");
-  const total = track.children.length;
+    <section class="section section-alt" id="vision">
+      <div class="container">
 
-  function moveSlide(direction) {
-    index += direction;
-    if (index < 0) index = total - 1;
-    if (index >= total) index = 0;
-    track.style.transform = `translateX(-${index * 100}%)`;
-  }
+        <div class="section-heading">
+          <p class="section-label">01 · The Vision</p>
 
-  // Lightbox logic (click page to open; X/outside/image/Esc to close)
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImg = document.getElementById("lightboxImg");
-  const lightboxClose = document.getElementById("lightboxClose");
+          <h2>
+            What If Our Homes Could Recover
+            More of What They Discard?
+          </h2>
 
-  function openLightbox(src, alt) {
-    lightboxImg.src = src;
-    lightboxImg.alt = alt || "Patent page";
-    lightbox.classList.add("is-open");
-    lightbox.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
-  }
+          <p class="lead">
+            Most homes are designed primarily as consumers
+            of energy and utilities. BioLoop asks whether
+            future residential infrastructure could
+            also participate in resource recovery.
+          </p>
+        </div>
 
-  function closeLightbox() {
-    lightbox.classList.remove("is-open");
-    lightbox.setAttribute("aria-hidden", "true");
-    lightboxImg.src = "";
-    document.body.style.overflow = "";
-  }
+        <div class="article-copy">
 
-  document.querySelectorAll(".slide img").forEach(img => {
-    img.addEventListener("click", () => openLightbox(img.src, img.alt));
-  });
+          <p>
+            Household odors, organic waste, wastewater,
+            and energy consumption are usually treated
+            as separate issues. Yet they all form part
+            of a broader relationship between buildings,
+            materials, and the surrounding environment.
+          </p>
 
-  lightboxClose.addEventListener("click", closeLightbox);
+          <p>
+            BioLoop™ is an original HaloCyberLife research
+            concept examining how these issues might
+            inform a more integrated approach to
+            residential infrastructure.
+          </p>
 
-  lightbox.addEventListener("click", (e) => {
-    if (e.target === lightbox) closeLightbox();
-  });
+          <p>
+            Its central ambition is not simply to remove
+            unpleasant smells. It is to explore whether
+            selected household waste streams could
+            become resources rather than being viewed
+            exclusively as disposal problems.
+          </p>
 
-  lightboxImg.addEventListener("click", closeLightbox);
+          <p>
+            The concept also raises a larger question:
+            could future decentralized recovery systems
+            help households and communities retain
+            more value from the resources they use?
+          </p>
 
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && lightbox.classList.contains("is-open")) closeLightbox();
-  });
-</script>
+          <div class="callout">
+
+            <h3>The BioLoop Principle</h3>
+
+            <p>
+              Identify waste streams, investigate
+              recoverable value, and explore whether
+              that value can contribute to useful
+              environmental or energy outcomes.
+            </p>
+
+            <p>
+              This is a research objective,
+              not a claim of demonstrated performance.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- RESEARCH THEMES -->
+
+    <section class="section">
+      <div class="container">
+
+        <div class="section-heading center">
+
+          <p class="section-label">
+            02 · Research Themes
+          </p>
+
+          <h2>Three Connected Challenges</h2>
+
+          <p class="lead">
+            BioLoop explores how household environmental
+            quality, resource recovery, and energy
+            generation might inform one broader
+            research direction.
+          </p>
+
+        </div>
+
+        <div class="card-grid">
+
+          <article class="card feature-card">
+
+            <div class="card-number">01 / ENVIRONMENT</div>
+
+            <h3>Household Odor Management</h3>
+
+            <p>
+              Unwanted odors can arise from several
+              sources, including organic materials,
+              plumbing problems, and waste handling.
+              BioLoop considers odor management
+              as an environmental challenge while
+              recognizing that different odor sources
+              require different solutions.
+            </p>
+
+          </article>
+
+          <article class="card feature-card">
+
+            <div class="card-number">02 / RESOURCES</div>
+
+            <h3>Recoverable Waste Streams</h3>
+
+            <p>
+              Certain organic waste processes can
+              produce biogas containing methane.
+              BioLoop investigates the broader
+              opportunity for recovering useful
+              resources from appropriate waste streams,
+              rather than treating all household
+              emissions as potential fuels.
+            </p>
+
+          </article>
+
+          <article class="card feature-card">
+
+            <div class="card-number">03 / ENERGY</div>
+
+            <h3>Local Energy Potential</h3>
+
+            <p>
+              Methane can serve as a fuel when recovered,
+              conditioned, and used safely. BioLoop's
+              long-term vision includes exploring
+              whether suitable recovered resources
+              could contribute to useful local energy
+              and, where technically and legally
+              feasible, community energy systems.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PUBLIC CONCEPT OVERVIEW -->
+
+    <section class="section section-alt">
+      <div class="container">
+
+        <div class="section-heading center">
+
+          <p class="section-label">
+            03 · Conceptual Framework
+          </p>
+
+          <h2>From Waste to Potential Value</h2>
+
+          <p class="lead">
+            A high-level illustration of the research
+            vision—not a diagram of BioLoop's internal
+            design or operating sequence.
+          </p>
+
+        </div>
+
+        <div class="concept-flow">
+
+          <div class="concept-stage">
+
+            <span class="stage-number">01</span>
+
+            <h3>Environmental Challenge</h3>
+
+            <p>
+              Identify household waste and odor
+              problems worth investigating.
+            </p>
+
+          </div>
+
+          <div class="concept-stage">
+
+            <span class="stage-number">02</span>
+
+            <h3>Resource Opportunity</h3>
+
+            <p>
+              Examine whether suitable waste streams
+              contain resources that could be
+              recovered responsibly.
+            </p>
+
+          </div>
+
+          <div class="concept-stage">
+
+            <span class="stage-number">03</span>
+
+            <h3>Community Benefit</h3>
+
+            <p>
+              Explore whether recovered resources
+              could eventually contribute to
+              useful energy or other value.
+            </p>
+
+          </div>
+
+        </div>
+
+        <p class="concept-note">
+          Conceptual research themes only.
+          No proprietary configuration,
+          processing sequence, or engineering
+          layout is disclosed.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- SCIENTIFIC FOUNDATION -->
+
+    <section class="section">
+      <div class="container">
+
+        <div class="section-heading">
+
+          <p class="section-label">
+            04 · Scientific Foundation
+          </p>
+
+          <h2>
+            What Science Already Tells Us
+          </h2>
+
+        </div>
+
+        <div class="article-copy">
+
+          <p>
+            The BioLoop vision draws on established
+            scientific areas, particularly waste
+            management, gas chemistry, and
+            energy recovery.
+          </p>
+
+          <p>
+            <strong>Methane</strong> is a combustible gas.
+            It can be produced during the anaerobic
+            decomposition of suitable organic material.
+            When collected and used under appropriate
+            conditions, methane-rich biogas can
+            provide useful energy.
+          </p>
+
+          <p>
+            <strong>Carbon dioxide</strong> is different.
+            It is not a fuel that can simply be burned
+            for energy. Converting carbon dioxide into
+            energy-rich products requires an external
+            energy input and suitable conversion
+            processes.
+          </p>
+
+          <p>
+            <strong>Nitrogen gas</strong>, which makes
+            up most of Earth's atmosphere, is also
+            not a practical household fuel.
+            Its potential industrial uses should not
+            be confused with energy generation.
+          </p>
+
+          <p>
+            <strong>Household odors</strong> are often
+            associated with trace concentrations
+            of volatile compounds. Although odor
+            removal can improve environmental comfort,
+            ordinary indoor odor concentrations
+            generally do not provide enough
+            recoverable chemical energy to serve
+            as a meaningful household power source.
+          </p>
+
+          <div class="callout">
+
+            <h3>An Important Engineering Distinction</h3>
+
+            <p>
+              Removing odors and recovering fuel
+              are different technical objectives.
+              A system that reduces smells does not
+              automatically produce usable energy.
+            </p>
+
+            <p>
+              BioLoop's future research must evaluate
+              each objective independently before
+              considering whether they can contribute
+              to a larger integrated concept.
+            </p>
+
+          </div>
+
+          <p>
+            These distinctions are central to the
+            project. The goal is to develop an
+            evidence-based understanding of what
+            can be recovered, what energy must be
+            supplied, and whether a proposed system
+            could provide a net practical benefit.
+          </p>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- COMMUNITY ENERGY -->
+
+    <section class="section section-alt">
+      <div class="container">
+
+        <div class="section-heading">
+
+          <p class="section-label">
+            05 · Long-Term Vision
+          </p>
+
+          <h2>Energy That Goes Back to the People</h2>
+
+        </div>
+
+        <div class="article-copy">
+
+          <p>
+            BioLoop's broader ambition is rooted
+            in a simple idea: communities should
+            have opportunities to benefit from
+            resources that might otherwise be wasted.
+          </p>
+
+          <p>
+            If future research demonstrates that
+            suitable waste streams can support
+            practical energy recovery, that energy
+            might contribute to local needs.
+          </p>
+
+          <p>
+            At a larger scale, decentralized
+            resource-recovery systems could
+            potentially become part of broader
+            energy infrastructure.
+          </p>
+
+          <p>
+            Exporting electricity to a utility
+            grid would require suitable generation
+            equipment, electrical protection,
+            regulatory compliance, and an approved
+            utility interconnection. It would also
+            require sufficient energy production
+            to make export worthwhile.
+          </p>
+
+          <p>
+            These are long-term possibilities,
+            not current BioLoop capabilities.
+          </p>
+
+          <div class="callout">
+
+            <h3>The Community-First Objective</h3>
+
+            <p>
+              Explore whether future resource-recovery
+              technologies can help transform
+              household waste challenges into
+              measurable local benefits.
+            </p>
+
+            <p>
+              The intended outcome is not merely
+              technological novelty, but a more
+              circular relationship between
+              homes, resources, and communities.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CHALLENGES -->
+
+    <section class="section">
+      <div class="container">
+
+        <div class="section-heading center">
+
+          <p class="section-label">
+            06 · Research Challenges
+          </p>
+
+          <h2>Questions That Must Be Answered</h2>
+
+          <p class="lead">
+            BioLoop remains an exploratory concept.
+            Its practical value will depend on
+            research, testing, and measurable results.
+          </p>
+
+        </div>
+
+        <div class="card-grid">
+
+          <article class="card">
+
+            <div class="card-number">01</div>
+
+            <h3>Available Resources</h3>
+
+            <p>
+              Which household waste streams
+              could provide recoverable resources
+              in quantities large enough
+              to justify collection?
+            </p>
+
+          </article>
+
+          <article class="card">
+
+            <div class="card-number">02</div>
+
+            <h3>Energy Balance</h3>
+
+            <p>
+              Would the useful energy recovered
+              exceed the energy required to
+              operate and maintain the system?
+            </p>
+
+          </article>
+
+          <article class="card">
+
+            <div class="card-number">03</div>
+
+            <h3>Environmental Safety</h3>
+
+            <p>
+              How could potential gas leaks,
+              contamination, harmful emissions,
+              and other hazards be addressed?
+            </p>
+
+          </article>
+
+          <article class="card">
+
+            <div class="card-number">04</div>
+
+            <h3>Household Suitability</h3>
+
+            <p>
+              Could any future implementation
+              be practical, affordable,
+              maintainable, and appropriate
+              for residential environments?
+            </p>
+
+          </article>
+
+          <article class="card">
+
+            <div class="card-number">05</div>
+
+            <h3>Regulatory Requirements</h3>
+
+            <p>
+              What building, plumbing, gas,
+              environmental, and electrical
+              regulations would apply to
+              a potential installation?
+            </p>
+
+          </article>
+
+          <article class="card">
+
+            <div class="card-number">06</div>
+
+            <h3>Measurable Benefits</h3>
+
+            <p>
+              Could future testing demonstrate
+              meaningful improvements compared
+              with existing waste-management
+              or energy-recovery methods?
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ROADMAP -->
+
+    <section class="section section-alt" id="roadmap">
+      <div class="container">
+
+        <div class="section-heading center">
+
+          <p class="section-label">
+            07 · Development Outlook
+          </p>
+
+          <h2>Road to Prototype — 2027</h2>
+
+          <p class="lead">
+            BioLoop's next chapter is intended
+            to move from conceptual exploration
+            toward structured research and
+            early physical experimentation.
+          </p>
+
+        </div>
+
+        <div class="roadmap">
+
+          <article class="roadmap-item">
+
+            <div class="roadmap-date">2026</div>
+
+            <div>
+
+              <h3>Research and Documentation</h3>
+
+              <p>
+                Refine the project's objectives,
+                review relevant technologies,
+                evaluate scientific feasibility,
+                and develop private technical
+                documentation for future work.
+              </p>
+
+            </div>
+
+          </article>
+
+          <article class="roadmap-item">
+
+            <div class="roadmap-date">2027</div>
+
+            <div>
+
+              <h3>Initial Prototype Target</h3>
+
+              <p>
+                Begin developing an early
+                experimental prototype,
+                subject to available funding,
+                materials, technical feasibility,
+                and appropriate safety planning.
+              </p>
+
+            </div>
+
+          </article>
+
+          <article class="roadmap-item">
+
+            <div class="roadmap-date">Future</div>
+
+            <div>
+
+              <h3>Testing and Evaluation</h3>
+
+              <p>
+                Investigate relevant performance
+                characteristics, environmental
+                safety, energy requirements,
+                and potential applications
+                before making claims about
+                practical capability.
+              </p>
+
+            </div>
+
+          </article>
+
+        </div>
+
+        <p class="concept-note">
+          This roadmap describes intended research
+          activities, not completed milestones
+          or guaranteed delivery dates.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- RESEARCH STATUS AND IP -->
+
+    <section class="section">
+      <div class="container">
+
+        <div class="section-heading">
+
+          <p class="section-label">
+            08 · Research Status
+          </p>
+
+          <h2>
+            Public Vision. Private Development.
+          </h2>
+
+        </div>
+
+        <div class="article-copy">
+
+          <p>
+            BioLoop™ is an independent research
+            initiative developed under HaloCyberLife.
+            Its long-term direction involves
+            exploring environmental management,
+            recoverable resources, and potential
+            waste-to-energy applications.
+          </p>
+
+          <p>
+            The project has a history of
+            provisional patent documentation.
+            That historical filing should not
+            be interpreted as confirmation
+            of current patent protection,
+            an active application, or
+            an issued patent.
+          </p>
+
+          <p>
+            Further intellectual-property
+            decisions and technical development
+            will be handled separately from
+            this public research presentation.
+          </p>
+
+          <div class="callout private-note">
+
+            <h3>Technical Disclosure Policy</h3>
+
+            <p>
+              HaloCyberLife does not publish
+              BioLoop's unpublished internal
+              configurations, detailed schematics,
+              dimensions, component relationships,
+              engineering parameters, or
+              construction documentation
+              on this page.
+            </p>
+
+            <p>
+              The information presented here
+              is intended to communicate
+              the project's research objectives,
+              relevant scientific background,
+              and future development goals.
+            </p>
+
+          </div>
+
+          <p>
+            At the time of this publication,
+            this page does not present
+            a completed or validated BioLoop
+            prototype, verified energy output,
+            measured odor-removal performance,
+            or demonstrated grid-export capability.
+          </p>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONCLUSION -->
+
+    <section class="section section-alt">
+      <div class="container">
+
+        <div class="section-heading center">
+
+          <p class="section-label">
+            09 · The Bigger Picture
+          </p>
+
+          <h2>
+            Building Toward a More Circular Future
+          </h2>
+
+        </div>
+
+        <div class="article-copy">
+
+          <p>
+            BioLoop begins with a familiar
+            household problem and expands
+            into a larger question about
+            the future of infrastructure.
+          </p>
+
+          <p>
+            Can waste management become
+            more resource-conscious?
+            Can useful materials and energy
+            be recovered where technically
+            feasible?
+            And can future technologies
+            help communities retain
+            more of that value?
+          </p>
+
+          <p>
+            The answers require evidence,
+            engineering discipline,
+            and careful experimentation.
+          </p>
+
+          <p>
+            BioLoop™ is not presented
+            as a finished solution.
+            It is an original research
+            direction with an intended
+            path toward prototyping
+            and future evaluation.
+          </p>
+
+          <p>
+            For HaloCyberLife, the mission
+            is to explore technologies
+            that serve people while
+            respecting the realities
+            of science and engineering.
+          </p>
+
+          <div class="callout">
+
+            <h3>BioLoop™</h3>
+
+            <p>
+              From household waste
+              to community value.
+            </p>
+
+            <p>
+              An independent HaloCyberLife
+              research concept.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="section-actions">
+
+          <a class="btn btn-primary" href="../blog.html">
+            Explore More Research
+          </a>
+
+          <a class="btn btn-outline" href="../index.html">
+            Return to HaloCyberLife
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+
+      <div>
+
+        <div class="footer-brand">
+
+          <img
+            class="footer-logo"
+            src="../images/negative_white_halocyberlife_logo.png"
+            alt=""
+          >
+
+          <span>HaloCyberLife</span>
+
+        </div>
+
+        <p class="footer-text">
+          Independent research concepts,
+          future technology, experimental
+          engineering, and architecture
+          designed to serve life.
+        </p>
+
+        <p class="footer-meta">
+          © <span id="year">2026</span>
+          HaloCyberLife™
+        </p>
+
+      </div>
+
+      <div>
+
+        <h3 class="footer-heading">Navigate</h3>
+
+        <ul class="footer-links">
+
+          <li>
+            <a href="../index.html">Home</a>
+          </li>
+
+          <li>
+            <a href="../blog.html">All Articles</a>
+          </li>
+
+          <li>
+            <a href="../about.html">About</a>
+          </li>
+
+          <li>
+            <a href="../contact_us.html">Contact</a>
+          </li>
+
+          <li>
+            <a href="../policypage.html">
+              Privacy &amp; Terms
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+      <div>
+
+        <h3 class="footer-heading">
+          Contact &amp; Social
+        </h3>
+
+        <ul class="footer-links">
+
+          <li>
+            <a href="mailto:luisamaya@halocyberlife.com">
+              luisamaya@halocyberlife.com
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="https://www.linkedin.com/in/halocyberlife/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- BACK TO TOP -->
+
+  <button
+    class="back-to-top"
+    id="backToTop"
+    type="button"
+    aria-label="Back to top"
+  >
+    ↑
+  </button>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+      /* NAVIGATION */
+
+      const navToggle =
+        document.getElementById("navToggle");
+
+      const mainNav =
+        document.getElementById("mainNav");
+
+      if (navToggle && mainNav) {
+
+        navToggle.addEventListener("click", () => {
+
+          const isOpen =
+            mainNav.classList.toggle("open");
+
+          navToggle.setAttribute(
+            "aria-expanded",
+            isOpen ? "true" : "false"
+          );
+
+          navToggle.textContent =
+            isOpen ? "×" : "☰";
+
+        });
+
+        mainNav.querySelectorAll("a").forEach(link => {
+
+          link.addEventListener("click", () => {
+
+            mainNav.classList.remove("open");
+
+            navToggle.setAttribute(
+              "aria-expanded",
+              "false"
+            );
+
+            navToggle.textContent = "☰";
+
+          });
+
+        });
+
+        document.addEventListener("keydown", event => {
+
+          if (
+            event.key === "Escape" &&
+            mainNav.classList.contains("open")
+          ) {
+
+            mainNav.classList.remove("open");
+
+            navToggle.setAttribute(
+              "aria-expanded",
+              "false"
+            );
+
+            navToggle.textContent = "☰";
+            navToggle.focus();
+
+          }
+
+        });
+
+      }
+
+      /* BACK TO TOP */
+
+      const backToTop =
+        document.getElementById("backToTop");
+
+      if (backToTop) {
+
+        const updateBackToTop = () => {
+
+          backToTop.classList.toggle(
+            "show",
+            window.scrollY > 400
+          );
+
+        };
+
+        window.addEventListener(
+          "scroll",
+          updateBackToTop,
+          { passive: true }
+        );
+
+        updateBackToTop();
+
+        backToTop.addEventListener("click", () => {
+
+          const reducedMotion =
+            window.matchMedia(
+              "(prefers-reduced-motion: reduce)"
+            ).matches;
+
+          window.scrollTo({
+            top: 0,
+            behavior: reducedMotion ? "auto" : "smooth"
+          });
+
+        });
+
+      }
+
+      /* COPYRIGHT YEAR */
+
+      const year =
+        document.getElementById("year");
+
+      if (year) {
+        year.textContent =
+          new Date().getFullYear();
+      }
+
+    });
+  </script>
 
 </body>
 </html>
+
+
+
+
+
 
 
 
