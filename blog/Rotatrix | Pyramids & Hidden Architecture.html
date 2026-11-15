@@ -1,6 +1,30 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#020617">
+
+  <title>Rotatrix™ | Pyramids, Hidden Architecture &amp; Mechanical Imagination | HaloCyberLife</title>
+  <meta name="description" content="Explore Rotatrix™, a cinematic HaloCyberLife concept inspired by ancient pyramids, hidden passages, rotating chambers, architectural geometry, and mechanical imagination.">
+  <meta name="author" content="Luis Amaya">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://halocyberlife.com/blog/Rotatrix.html">
+  <link rel="icon" href="../images/favicon.ico">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="HaloCyberLife">
+  <meta property="og:title" content="Rotatrix™ | Hidden Architecture Beneath the Pyramid">
+  <meta property="og:description" content="A cinematic exploration of hidden passages, rotating chambers, pyramid geometry, and speculative mechanical architecture.">
+  <meta property="og:url" content="https://halocyberlife.com/blog/Rotatrix.html">
+  <meta property="og:image" content="https://halocyberlife.com/images/Pyramid_image.webp">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Rotatrix™ | Hidden Architecture Beneath the Pyramid">
+  <meta name="twitter:description" content="Ancient architecture meets mechanical imagination in the Rotatrix concept.">
+  <meta name="twitter:image" content="https://halocyberlife.com/images/Pyramid_image.webp">
+
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-0HZN617CB1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -9,385 +33,1763 @@
     gtag("config", "G-0HZN617CB1");
   </script>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Rotatrix | Pyramids & Hidden Architecture</title>
-  <meta name="description" content="Rotatrix explores pyramids, hidden architecture, rotational geometry, sacred ratios, and ancient structures as symbolic geometric resonators.">
-  <meta name="author" content="Luis Amaya">
-  <meta name="robots" content="index, follow">
-
-  <link rel="canonical" href="https://halocyberlife.com/blog/Rotatrix.html">
-  <link rel="icon" href="../images/favicon.ico" sizes="any">
-  <link rel="stylesheet" href="../style_v2_0_0.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Rotatrix: Pyramids, Hidden Architecture and Mechanical Imagination",
+    "description": "A cinematic speculative architecture concept inspired by pyramid passages, rotational geometry, concealed chambers and mechanical design.",
+    "author": {
+      "@type": "Person",
+      "name": "Luis Amaya"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "HaloCyberLife"
+    },
+    "mainEntityOfPage": "https://halocyberlife.com/blog/Rotatrix.html",
+    "image": "https://halocyberlife.com/images/Pyramid_image.webp",
+    "genre": "Speculative architecture"
+  }
+  </script>
 
   <style>
     :root {
-      --rotatrix-gold: #fbbf24;
-      --rotatrix-cyan: #22d3ee;
-      --rotatrix-purple: #8b5cf6;
-      --rotatrix-dark: #020617;
-      --rotatrix-soft: rgba(255,255,255,0.08);
+      --bg: #020617;
+      --panel: #0c1426;
+      --text: #f8fafc;
+      --soft: #cbd5e1;
+      --muted: #94a3b8;
+      --gold: #fbbf24;
+      --cyan: #22d3ee;
+      --purple: #a78bfa;
+      --magenta: #d946ef;
+      --border: rgba(251,191,36,.22);
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
     }
 
     body {
+      margin: 0;
+      color: var(--text);
       background:
-        radial-gradient(circle at top, rgba(251,191,36,0.12), transparent 35%),
-        radial-gradient(circle at 80% 20%, rgba(139,92,246,0.16), transparent 35%),
+        radial-gradient(circle at 20% 0%, rgba(251,191,36,.09), transparent 32%),
+        radial-gradient(circle at 85% 18%, rgba(139,92,246,.14), transparent 35%),
         #020617;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, Arial, sans-serif;
+      line-height: 1.8;
     }
 
-    .article-hero {
-      padding: 4rem 0 2rem;
+    body.menu-open,
+    body.lightbox-open {
+      overflow: hidden;
+    }
+
+    img { max-width: 100%; }
+    a { color: var(--cyan); }
+    button { font: inherit; }
+
+    :focus-visible {
+      outline: 2px solid var(--cyan);
+      outline-offset: 4px;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    .reading-width {
+      width: min(850px, calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 15px;
+      z-index: 3000;
+      padding: 12px 18px;
+      background: var(--cyan);
+      color: #020617;
+      border-radius: 8px;
+    }
+
+    .skip-link:focus { top: 12px; }
+
+    /* HEADER */
+
+    .neon-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(139,92,246,.3);
+      background: rgba(2,6,23,.96);
+      backdrop-filter: blur(14px);
+    }
+
+    .neon-header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      min-height: 76px;
+    }
+
+    .neon-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #fff;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: .88rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+    }
+
+    .neon-logo {
+      width: 42px;
+      height: auto;
+      filter: drop-shadow(0 0 8px rgba(139,92,246,.5));
+    }
+
+    .neon-nav {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .neon-link {
+      padding: 9px 17px;
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 999px;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: .83rem;
+      font-weight: 700;
+      transition: background .2s, box-shadow .2s;
+    }
+
+    .color-blue {
+      color: #38bdf8;
+      border-color: rgba(56,189,248,.4);
+    }
+
+    .color-cyan {
+      color: var(--cyan);
+      border-color: rgba(34,211,238,.4);
+    }
+
+    .color-purple {
+      color: #c4b5fd;
+      border-color: rgba(167,139,250,.4);
+    }
+
+    .color-gold {
+      color: var(--gold);
+      border-color: rgba(251,191,36,.4);
+    }
+
+    .neon-link:hover {
+      background: rgba(255,255,255,.06);
+      box-shadow: 0 0 14px currentColor;
+    }
+
+    .neon-nav-toggle {
+      display: none;
+      padding: 10px;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .neon-nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      margin: 5px 0;
+      background: #fff;
+      transition: transform .2s, opacity .2s;
+    }
+
+    .neon-nav-toggle[aria-expanded="true"] span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .neon-nav-toggle[aria-expanded="true"] span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .neon-nav-toggle[aria-expanded="true"] span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* HERO */
+
+    .hero {
+      padding: 80px 0 45px;
       text-align: center;
     }
 
-    .article-kicker {
-      color: var(--rotatrix-gold);
+    .eyebrow {
+      margin: 0 0 17px;
+      color: var(--gold);
       text-transform: uppercase;
-      letter-spacing: 0.25em;
-      font-size: 0.78rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
+      letter-spacing: .15em;
+      font-size: .8rem;
+      font-weight: 800;
     }
 
-    .article-title {
-      font-size: clamp(2.4rem, 7vw, 5rem);
-      line-height: 1;
-      background: linear-gradient(120deg, #fff, var(--rotatrix-gold), var(--rotatrix-cyan));
+    h1 {
+      margin: 0 auto 22px;
+      font-size: clamp(3.2rem, 9vw, 6rem);
+      line-height: 1.05;
+      letter-spacing: -.05em;
+      background: linear-gradient(110deg, #fff, var(--gold), var(--cyan));
       -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 1rem;
+      background-clip: text;
+      color: transparent;
     }
 
-    .article-subtitle {
-      max-width: 760px;
+    .hero-subtitle {
+      max-width: 780px;
       margin: 0 auto;
-      color: var(--text-soft, #d1d5db);
-      font-size: 1.1rem;
+      color: var(--soft);
+      font-size: 1.15rem;
     }
 
-    .article-shell {
-      max-width: 920px;
-      margin: 0 auto;
-      padding: 2rem 1.5rem 5rem;
+    .status-pill {
+      display: inline-block;
+      margin-top: 24px;
+      padding: 8px 17px;
+      border: 1px solid rgba(251,191,36,.4);
+      border-radius: 999px;
+      background: rgba(251,191,36,.06);
+      color: #fde68a;
+      font-size: .82rem;
+      font-weight: 700;
     }
 
-    .article-figure {
-      margin: 2rem 0;
-      border-radius: 22px;
-      overflow: hidden;
-      border: 1px solid rgba(251,191,36,0.35);
-      box-shadow: 0 0 45px rgba(251,191,36,0.15);
-      background: rgba(255,255,255,0.04);
+    .tag-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 24px;
     }
 
-    .article-figure img {
-      width: 100%;
+    .tag {
+      padding: 7px 14px;
+      border: 1px solid rgba(139,92,246,.3);
+      border-radius: 999px;
+      background: rgba(139,92,246,.07);
+      color: #ddd6fe;
+      font-size: .8rem;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 12px 23px;
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 999px;
+      background: rgba(255,255,255,.05);
+      color: #fff;
+      font-size: .85rem;
+      font-weight: 800;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: transform .2s;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn.primary {
+      border: 0;
+      background: linear-gradient(135deg, #8b5cf6, #d946ef);
+    }
+
+    /* FEATURE IMAGE */
+
+    .feature-figure {
+      margin: 20px auto 55px;
+    }
+
+    .feature-figure img {
       display: block;
+      width: 100%;
+      max-height: 650px;
       object-fit: cover;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      box-shadow: 0 20px 65px rgba(251,191,36,.11);
     }
 
-    .article-card {
-      background: rgba(2,6,23,0.72);
-      border: 1px solid rgba(148,163,184,0.22);
-      border-left: 4px solid var(--rotatrix-gold);
-      border-radius: 18px;
-      padding: 1.4rem;
-      margin: 1.5rem 0;
-      box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+    figcaption {
+      margin-top: 15px;
+      color: var(--muted);
+      font-size: .9rem;
+      text-align: center;
     }
 
-    .article-card h2 {
-      color: var(--rotatrix-cyan);
-      margin-bottom: 0.7rem;
-      font-size: 1.45rem;
+    /* ARTICLE */
+
+    .section {
+      padding: 65px 0;
     }
 
-    .article-card p,
-    .article-card li {
-      color: rgba(255,255,255,0.86);
+    .section.alt {
+      background: linear-gradient(
+        135deg,
+        rgba(251,191,36,.035),
+        rgba(139,92,246,.05)
+      );
+      border-top: 1px solid rgba(255,255,255,.05);
+      border-bottom: 1px solid rgba(255,255,255,.05);
     }
 
-    .article-card ul {
-      margin-left: 1.2rem;
-      margin-top: 0.8rem;
+    .section h2 {
+      margin: 0 0 23px;
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      line-height: 1.2;
+      letter-spacing: -.03em;
     }
+
+    .section h3 {
+      margin: 0 0 13px;
+      font-size: 1.25rem;
+    }
+
+    .section p {
+      margin: 0 0 22px;
+      color: var(--soft);
+    }
+
+    .section strong { color: #fff; }
 
     .quote-box {
-      margin: 2rem 0;
-      padding: 1.5rem;
+      margin: 30px 0;
+      padding: 30px;
+      border: 1px solid rgba(251,191,36,.25);
       border-radius: 18px;
-      background: linear-gradient(135deg, rgba(251,191,36,0.12), rgba(139,92,246,0.12));
-      border: 1px solid rgba(251,191,36,0.25);
+      background: linear-gradient(
+        135deg,
+        rgba(251,191,36,.1),
+        rgba(139,92,246,.1)
+      );
       color: #fff;
-      font-size: 1.15rem;
+      font-size: 1.17rem;
       font-style: italic;
+      line-height: 1.9;
     }
 
-    .rotatrix-grid {
+    .info-box {
+      margin: 28px 0;
+      padding: 26px;
+      border-left: 4px solid var(--gold);
+      border-radius: 0 15px 15px 0;
+      background: rgba(251,191,36,.055);
+    }
+
+    .info-box h3 { color: #fde68a; }
+    .info-box p:last-child { margin-bottom: 0; }
+
+    .story-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
-      margin: 1.5rem 0;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 22px;
+      margin-top: 35px;
     }
 
-    .rotatrix-node {
-      border: 1px solid rgba(34,211,238,0.25);
-      background: rgba(255,255,255,0.04);
-      border-radius: 16px;
-      padding: 1rem;
+    .story-card {
+      overflow: hidden;
+      min-width: 0;
+      border: 1px solid var(--border);
+      border-radius: 19px;
+      background: rgba(15,23,42,.75);
+      transition: transform .2s, border-color .2s;
     }
 
-    .rotatrix-node strong {
+    .story-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(251,191,36,.55);
+    }
+
+    .story-card img {
       display: block;
-      color: var(--rotatrix-gold);
-      margin-bottom: 0.35rem;
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      cursor: zoom-in;
     }
 
-    .back-link {
-      display: inline-flex;
-      margin-bottom: 1rem;
-      color: var(--rotatrix-cyan);
+    .story-card-body { padding: 23px; }
+
+    .story-card h3 {
+      color: #fff;
+      font-size: 1.17rem;
+    }
+
+    .story-card p {
+      margin-bottom: 0;
+      font-size: .94rem;
+    }
+
+    .feature-layout {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      align-items: center;
+      gap: 42px;
+      margin-top: 35px;
+    }
+
+    .feature-layout img {
+      display: block;
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      cursor: zoom-in;
+      box-shadow: 0 25px 70px rgba(0,0,0,.35);
+    }
+
+    .feature-layout h3 {
+      color: var(--gold);
+      font-size: clamp(1.7rem, 3vw, 2.5rem);
+      line-height: 1.2;
+    }
+
+    .design-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 20px;
+      margin-top: 28px;
+    }
+
+    .design-card {
+      padding: 25px;
+      border: 1px solid rgba(34,211,238,.22);
+      border-radius: 18px;
+      background: rgba(15,23,42,.6);
+    }
+
+    .design-card span {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--cyan);
+      font-size: .8rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+    }
+
+    .design-card p { margin-bottom: 0; }
+
+    .reading-list {
+      padding-left: 24px;
+      color: var(--soft);
+    }
+
+    .reading-list li { margin-bottom: 14px; }
+
+    /* FOOTER */
+
+    .site-footer {
+      padding: 55px 0 40px;
+      border-top: 1px solid rgba(139,92,246,.3);
+      background: #020617;
+      text-align: left;
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1.2fr;
+      gap: 45px;
+      align-items: start;
+    }
+
+    .footer-column {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .footer-logo { width: 38px; height: auto; }
+
+    .footer-brand-text {
+      color: #fff;
+      text-transform: uppercase;
+      font-size: .86rem;
+      font-weight: 800;
+      letter-spacing: .09em;
+    }
+
+    .footer-heading {
+      margin: 0 0 5px;
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    .footer-text {
+      max-width: 370px;
+      margin: 0;
+      color: var(--soft);
+      font-size: .92rem;
+    }
+
+    .footer-meta {
+      margin: 0;
+      color: var(--muted);
+      font-size: .82rem;
+    }
+
+    .footer-links {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .footer-links li { margin-bottom: 9px; }
+
+    .footer-links a,
+    .footer-social a {
+      color: #a5f3fc;
+      font-size: .9rem;
       text-decoration: none;
-      font-weight: 700;
+      overflow-wrap: anywhere;
     }
 
-    .back-link:hover {
+    .footer-links a:hover,
+    .footer-social a:hover {
+      color: #c4b5fd;
       text-decoration: underline;
+    }
+
+    /* LIGHTBOX */
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      display: none;
+      place-items: center;
+      padding: 20px;
+      background: rgba(0,0,0,.95);
+    }
+
+    .lightbox.open { display: grid; }
+
+    .lightbox-panel {
+      position: relative;
+      width: min(1100px,100%);
+      padding: 14px;
+      border: 1px solid var(--gold);
+      border-radius: 18px;
+      background: #020617;
+    }
+
+    .lightbox-img {
+      display: block;
+      width: 100%;
+      max-height: 80vh;
+      object-fit: contain;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      background: #1e1b4b;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .back-to-top {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      z-index: 1100;
+      display: none;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      border: 1px solid rgba(139,92,246,.4);
+      border-radius: 50%;
+      background: #1e1b4b;
+      color: #fff;
+      cursor: pointer;
+      box-shadow: 0 0 22px rgba(139,92,246,.35);
+    }
+
+    .back-to-top.visible { display: grid; }
+
+    /* MOBILE */
+
+    @media (max-width: 900px) {
+      .story-grid,
+      .design-grid {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+      }
+
+      .feature-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .neon-nav-toggle {
+        display: block;
+        z-index: 1002;
+      }
+
+      .neon-nav {
+        position: fixed;
+        top: 76px;
+        left: 0;
+        right: 0;
+        height: calc(100dvh - 76px);
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        padding: 25px;
+        background: radial-gradient(
+          circle, #1e1b4b, #020617);
+      }
+
+      .neon-nav.active { display: flex; }
+
+      .neon-link {
+        width: min(320px,100%);
+        padding: 15px;
+        font-size: 1.1rem;
+        text-align: center;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-column:first-child {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .container,
+      .reading-width {
+        width: calc(100% - 28px);
+      }
+
+      .hero { padding-top: 55px; }
+      .section { padding: 48px 0; }
+
+      .story-grid,
+      .design-grid,
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-column:first-child {
+        grid-column: auto;
+      }
+
+      .story-card img { height: 250px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .story-card { transition: none; }
     }
   </style>
 </head>
 
 <body>
-  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <a class="skip-link" href="#main-content">
+    Skip to content
+  </a>
+
+  <!-- HEADER -->
 
   <header class="neon-header">
     <div class="container neon-header-inner">
-      <a href="../index.html" class="neon-brand">
-        <img src="../images/negative_white_halocyberlife_logo.webp" alt="Halocyberlife logo" class="neon-logo">
-        <span class="brand-text">Halocyberlife</span>
+
+      <a href="../index.html"
+         class="neon-brand"
+         aria-label="HaloCyberLife home">
+
+        <img
+          src="../images/negative_white_halocyberlife_logo.webp"
+          alt=""
+          class="neon-logo">
+
+        <span>HaloCyberLife</span>
       </a>
 
-      <button class="neon-nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+      <button
+        class="neon-nav-toggle"
+        type="button"
+        aria-label="Toggle navigation"
+        aria-controls="primary-nav"
+        aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
       </button>
 
-      <nav class="neon-nav" id="neonNav">
-        <a href="../index.html" class="neon-link color-blue">Home</a>
-        <a href="../about.html" class="neon-link color-cyan">About</a>
-        <a href="../blog.html" class="neon-link color-purple">Articles</a>
-        <a href="../contact_us.html" class="neon-link color-gold">Contact</a>
+      <nav
+        class="neon-nav"
+        id="primary-nav"
+        aria-label="Primary navigation">
+
+        <a href="../index.html"
+           class="neon-link color-blue">
+          Home
+        </a>
+
+        <a href="../about.html"
+           class="neon-link color-cyan">
+          About
+        </a>
+
+        <a href="../blog.html"
+           class="neon-link color-purple">
+          Articles
+        </a>
+
+        <a href="../contact_us.html"
+           class="neon-link color-gold">
+          Contact
+        </a>
+
       </nav>
+
     </div>
   </header>
 
   <main id="main-content">
-    <section class="article-hero">
-      <div class="container">
-        <p class="article-kicker">Inner Wisdom • Geometry • Resonance</p>
-        <h1 class="article-title">Rotatrix</h1>
-        <p class="article-subtitle">
-          Pyramids, hidden architecture, rotational geometry, and the ancient search for resonance through form.
+
+    <!-- HERO -->
+
+    <section class="hero">
+      <div class="reading-width">
+
+        <p class="eyebrow">
+          HaloCyberLife · Geometry &amp; Hidden Architecture
         </p>
+
+        <h1>Rotatrix™</h1>
+
+        <p class="hero-subtitle">
+          Beneath the pyramid lies a question:
+          What if monumental architecture
+          concealed a second world of moving
+          chambers, disguised passages,
+          and rotational mechanisms?
+        </p>
+
+        <span class="status-pill">
+          Speculative Architectural Concept
+        </span>
+
+        <div class="tag-row">
+          <span class="tag">Pyramid Geometry</span>
+          <span class="tag">Hidden Passages</span>
+          <span class="tag">Rotational Mechanics</span>
+          <span class="tag">Ancient-Inspired Design</span>
+        </div>
+
+        <div class="actions">
+          <a href="#the-concept" class="btn primary">
+            Explore Rotatrix
+          </a>
+
+          <a href="#gallery" class="btn">
+            View Concept Gallery
+          </a>
+        </div>
+
       </div>
     </section>
 
-    <article class="article-shell">
-      <a class="back-link" href="../blog.html">← Back to Articles</a>
+    <!-- MAIN IMAGE -->
 
-      <figure class="article-figure">
-        <img src="../images/Pyramid_image.webp" alt="Pyramid geometry and hidden architecture concept">
+    <div class="container">
+
+      <figure class="feature-figure">
+
+        <img
+          src="../images/Pyramid_image.webp"
+          alt="Pyramid-inspired architectural concept"
+          fetchpriority="high">
+
+        <figcaption>
+          <strong>Rotatrix™:</strong>
+          An original conceptual exploration
+          inspired by monumental geometry,
+          concealed spaces,
+          and mechanical imagination.
+        </figcaption>
+
       </figure>
 
-      <div class="quote-box">
-        “Some structures are not only built to occupy space. They are designed to organize attention, direction, memory, and symbolic energy.”
-      </div>
-
-     <section class="rot-blog">
-  <style>
-    .rot-blog{
-      background:#07090d;
-      color:#fff;
-      font-family:Arial,sans-serif;
-      padding:0;
-    }
-    .rot-hero{
-      min-height:620px;
-      padding:80px 28px;
-      display:flex;
-      align-items:end;
-      background:
-        linear-gradient(180deg,rgba(0,0,0,.15),#07090d 92%),
-        url("images/rotratix-hero.jpg") center/cover no-repeat;
-    }
-    .rot-inner{max-width:1180px;margin:auto;width:100%}
-    .rot-tag{color:#58a6ff;text-transform:uppercase;font-weight:800;letter-spacing:2px}
-    .rot-title{font-size:clamp(44px,7vw,92px);line-height:.92;margin:14px 0}
-    .rot-sub{max-width:720px;color:#c7d0da;font-size:20px;line-height:1.7}
-    .rot-grid{
-      max-width:1180px;
-      margin:0 auto;
-      padding:70px 28px;
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:24px;
-    }
-    .rot-card{
-      background:#101722;
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:24px;
-      overflow:hidden;
-      box-shadow:0 30px 80px rgba(0,0,0,.45);
-    }
-    .rot-card img{width:100%;height:240px;object-fit:cover;display:block}
-    .rot-card div{padding:26px}
-    .rot-card h3{font-size:24px;margin:0 0 10px}
-    .rot-card p{color:#aeb8c2;line-height:1.65;margin:0}
-    .rot-feature{
-      max-width:1180px;
-      margin:0 auto;
-      padding:40px 28px 90px;
-      display:grid;
-      grid-template-columns:1.1fr .9fr;
-      gap:34px;
-      align-items:center;
-    }
-    .rot-feature img{
-      width:100%;
-      border-radius:28px;
-      box-shadow:0 40px 100px rgba(0,0,0,.55);
-    }
-    .rot-feature h2{font-size:clamp(34px,5vw,64px);margin:0 0 18px}
-    .rot-feature p{color:#c1cad3;font-size:18px;line-height:1.8}
-    @media(max-width:850px){
-      .rot-grid,.rot-feature{grid-template-columns:1fr}
-      .rot-hero{min-height:520px}
-    }
-  </style>
-
-  <div class="rot-hero">
-    <div class="rot-inner">
-      <div class="rot-tag">Pyramid Rotratix</div>
-      <h1 class="rot-title">The Hidden Engine Beneath the Pyramid</h1>
-      <p class="rot-sub">
-        A cinematic exploration of secret corridors, false walls, rotating chambers,
-        and the ancient-tech logic powering the Rotratix system.
-      </p>
     </div>
-  </div>
 
-  <div class="rot-grid">
-    <article class="rot-card">
-      <img src="./Images/Rotatrix | Pyramids & Hidden Architecture/hidden_door.png" alt="Hidden passage behind false wall">
-      <div>
-        <h3>Hidden Passage</h3>
-        <p>A seamless stone wall conceals the route into the deeper Rotratix mechanism.</p>
+    <!-- INTRODUCTION -->
+
+    <section id="the-concept" class="section">
+      <div class="reading-width">
+
+        <p class="eyebrow">
+          01 · The Vision
+        </p>
+
+        <h2>
+          The Hidden Engine Beneath the Pyramid
+        </h2>
+
+        <p>
+          Pyramids have fascinated generations
+          of architects, historians,
+          engineers, and storytellers.
+          Their monumental proportions,
+          internal passages,
+          and precise construction
+          continue to inspire questions
+          about geometry, movement,
+          and the organization of space.
+        </p>
+
+        <p>
+          <strong>Rotatrix™</strong>
+          is a HaloCyberLife concept
+          that takes this fascination
+          into speculative architectural design.
+        </p>
+
+        <p>
+          Imagine a pyramid containing
+          more than fixed stone corridors.
+          Behind an apparently solid wall,
+          a concealed passage opens.
+          Deeper inside,
+          a circular chamber turns.
+          A sequence of architectural
+          alignments reveals spaces
+          that were previously inaccessible.
+        </p>
+
+        <p>
+          In the Rotatrix narrative,
+          the pyramid becomes
+          an architectural puzzle:
+          a structure in which
+          geometry is not merely
+          something to observe,
+          but something that moves.
+        </p>
+
+        <div class="quote-box">
+          “The most intriguing door
+          is the one that looks
+          exactly like a wall.”
+        </div>
+
+        <div class="info-box">
+
+          <h3>
+            Concept Versus Historical Evidence
+          </h3>
+
+          <p>
+            Rotatrix is a fictional
+            and speculative mechanical
+            architecture concept.
+            Its rotating chambers,
+            concealed activation systems,
+            and hidden machinery
+            are creative interpretations,
+            not documented discoveries
+            inside ancient Egyptian pyramids.
+          </p>
+
+          <p>
+            The project draws inspiration
+            from real architectural history
+            while exploring ideas
+            through cinematic visualization.
+          </p>
+
+        </div>
+
       </div>
-    </article>
+    </section>
 
-    <article class="rot-card">
-      <img src="Images/Rotatrix | Pyramids & Hidden Architecture/hallway_rotatrix6.png" alt="Long pyramid hallway">
-      <div>
-        <h3>The Long Hallway</h3>
-        <p>A narrow corridor pulls the viewer forward with light, shadow, and mystery.</p>
+    <!-- GALLERY -->
+
+    <section id="gallery" class="section alt">
+      <div class="container">
+
+        <div class="reading-width">
+
+          <p class="eyebrow">
+            02 · Concept Gallery
+          </p>
+
+          <h2>
+            Four Spaces.
+            One Hidden System.
+          </h2>
+
+          <p>
+            The Rotatrix environment
+            unfolds as a sequence
+            of imagined architectural
+            discoveries.
+          </p>
+
+          <p>
+            Each scene explores
+            a different relationship
+            between enclosure,
+            movement, mystery,
+            and mechanical design.
+          </p>
+
+        </div>
+
+        <div class="story-grid">
+
+          <article class="story-card">
+
+            <img
+              class="lightbox-trigger"
+              src="./Images/Rotatrix | Pyramids & Hidden Architecture/hidden_door.png"
+              alt="Concept art of a hidden passage behind a stone wall"
+              loading="lazy"
+              tabindex="0"
+              role="button">
+
+            <div class="story-card-body">
+
+              <h3>
+                The Hidden Passage
+              </h3>
+
+              <p>
+                A seemingly continuous
+                stone surface conceals
+                the first entrance
+                into the imagined
+                Rotatrix system.
+              </p>
+
+            </div>
+
+          </article>
+
+          <article class="story-card">
+
+            <img
+              class="lightbox-trigger"
+              src="./Images/Rotatrix | Pyramids & Hidden Architecture/hallway_rotatrix6.png"
+              alt="Concept art of a long atmospheric pyramid corridor"
+              loading="lazy"
+              tabindex="0"
+              role="button">
+
+            <div class="story-card-body">
+
+              <h3>
+                The Long Hallway
+              </h3>
+
+              <p>
+                A narrow corridor
+                stretches into darkness,
+                using perspective
+                and controlled illumination
+                to create anticipation.
+              </p>
+
+            </div>
+
+          </article>
+
+          <article class="story-card">
+
+            <img
+              class="lightbox-trigger"
+              src="./Images/Rotatrix | Pyramids & Hidden Architecture/core_pyramid.png"
+              alt="Concept art of an illuminated mechanical chamber inside a pyramid"
+              loading="lazy"
+              tabindex="0"
+              role="button">
+
+            <div class="story-card-body">
+
+              <h3>
+                The Core Chamber
+              </h3>
+
+              <p>
+                At the center
+                of the imagined structure,
+                a monumental chamber
+                suggests an ancient-inspired
+                mechanical heart.
+              </p>
+
+            </div>
+
+          </article>
+
+        </div>
+
       </div>
-    </article>
+    </section>
 
-    <article class="rot-card">
-      <img src="Images/Rotatrix | Pyramids & Hidden Architecture/core_pyramid.png" alt="Rotratix core chamber">
-      <div>
-        <h3>Core Chamber</h3>
-        <p>The inner system glows like an ancient machine awakened beneath the pyramid.</p>
+    <!-- FEATURED FALSE WALL -->
+
+    <section class="section">
+      <div class="container">
+
+        <p class="eyebrow">
+          03 · The Concealed Threshold
+        </p>
+
+        <div class="feature-layout">
+
+          <img
+            class="lightbox-trigger"
+            src="./Images/Rotatrix | Pyramids & Hidden Architecture/fake_wall.png"
+            alt="Concept art of a concealed stone wall opening into a passage"
+            loading="lazy"
+            tabindex="0"
+            role="button">
+
+          <div>
+
+            <h3>
+              The Wall Was Never a Wall.
+            </h3>
+
+            <p>
+              One of the central
+              visual ideas in Rotatrix
+              is the false wall:
+              a surface designed
+              to appear permanent,
+              even though it conceals
+              a passage.
+            </p>
+
+            <p>
+              In the fictional system,
+              an alignment event
+              causes the concealed
+              entrance to become accessible.
+            </p>
+
+            <p>
+              This creates a dramatic
+              contrast between
+              what the visitor believes
+              the building to be
+              and what the building
+              actually reveals.
+            </p>
+
+            <p>
+              The result is a form
+              of architectural storytelling
+              in which movement
+              transforms the meaning
+              of space.
+            </p>
+
+          </div>
+
+        </div>
+
       </div>
-    </article>
-  </div>
+    </section>
 
-  <div class="rot-feature">
-    <img src="Images/Rotatrix | Pyramids & Hidden Architecture/fake_wall.png" alt="Fake wall opening into secret door">
-    <div>
-      <div class="rot-tag">Secret Mechanism</div>
-      <h2>The wall was never a wall.</h2>
-      <p>
-        Behind the carved surface is a disguised passage door. When the Rotratix
-        alignment activates, the false wall separates, revealing the hidden route
-        into the pyramid’s mechanical interior.
-      </p>
-    </div>
-  </div>
-</section>
-    </article>
+    <!-- ARCHITECTURAL IDEAS -->
+
+    <section class="section alt">
+      <div class="container">
+
+        <div class="reading-width">
+
+          <p class="eyebrow">
+            04 · Design Language
+          </p>
+
+          <h2>
+            Geometry as an
+            Architectural Narrative
+          </h2>
+
+          <p>
+            Rotatrix is built around
+            three interconnected
+            design ideas:
+            alignment, concealment,
+            and transformation.
+          </p>
+
+        </div>
+
+        <div class="design-grid">
+
+          <article class="design-card">
+
+            <span>01 / ALIGNMENT</span>
+
+            <h3>
+              Rotational Geometry
+            </h3>
+
+            <p>
+              Circular movement
+              contrasts with the
+              static mass of the pyramid.
+              The tension between
+              rotation and permanence
+              becomes a central
+              visual motif.
+            </p>
+
+          </article>
+
+          <article class="design-card">
+
+            <span>02 / CONCEALMENT</span>
+
+            <h3>
+              Hidden Architecture
+            </h3>
+
+            <p>
+              False walls,
+              disguised thresholds,
+              and concealed corridors
+              create an environment
+              where the visible
+              floor plan tells
+              only part of the story.
+            </p>
+
+          </article>
+
+          <article class="design-card">
+
+            <span>03 / TRANSFORMATION</span>
+
+            <h3>
+              Moving Space
+            </h3>
+
+            <p>
+              Imagined chambers
+              change their relationship
+              to adjacent spaces.
+              Architecture becomes
+              a sequence of events,
+              rather than a fixed
+              arrangement of rooms.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- HISTORICAL CONTEXT -->
+
+    <section class="section">
+      <div class="reading-width">
+
+        <p class="eyebrow">
+          05 · History &amp; Imagination
+        </p>
+
+        <h2>
+          What Real Pyramid Architecture
+          Can Teach Us
+        </h2>
+
+        <p>
+          Ancient Egyptian pyramids
+          are remarkable examples
+          of large-scale construction,
+          geometric planning,
+          and sophisticated
+          architectural organization.
+        </p>
+
+        <p>
+          Some pyramid complexes
+          contain passages,
+          chambers, blocking stones,
+          and other carefully planned
+          internal features.
+          Their study belongs
+          to archaeology,
+          architectural history,
+          and engineering research.
+        </p>
+
+        <p>
+          These real features
+          provide inspiration
+          for Rotatrix,
+          but they do not establish
+          the existence of
+          its imagined rotating
+          machinery or hidden
+          activation systems.
+        </p>
+
+        <p>
+          The distinction matters.
+          Historical evidence
+          tells us what researchers
+          can substantiate;
+          speculative design
+          asks what new stories
+          and experiences
+          those forms might inspire.
+        </p>
+
+        <div class="info-box">
+
+          <h3>
+            Research Starting Points
+          </h3>
+
+          <p>
+            Readers interested
+            in documented Egyptian
+            architecture can explore
+            the collections and
+            educational resources
+            of the
+            <a href="https://www.metmuseum.org/"
+               rel="noopener noreferrer">
+              Metropolitan Museum of Art
+            </a>
+            and the
+            <a href="https://egymonuments.gov.eg/"
+               rel="noopener noreferrer">
+              Egyptian Ministry of Tourism
+              and Antiquities
+            </a>.
+          </p>
+
+          <p>
+            These resources provide
+            historical context;
+            they are not sources
+            validating the fictional
+            Rotatrix mechanism.
+          </p>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- POSSIBLE CREATIVE APPLICATIONS -->
+
+    <section class="section alt">
+      <div class="reading-width">
+
+        <p class="eyebrow">
+          06 · Creative Applications
+        </p>
+
+        <h2>
+          Where Could the
+          Rotatrix Concept Lead?
+        </h2>
+
+        <p>
+          Although Rotatrix is not
+          presented as an ancient
+          technological discovery,
+          its design language
+          could inspire
+          contemporary creative work.
+        </p>
+
+        <ul class="reading-list">
+
+          <li>
+            <strong>Immersive exhibitions:</strong>
+            walk-through environments
+            where concealed entrances
+            and moving architectural
+            elements reveal
+            successive spaces.
+          </li>
+
+          <li>
+            <strong>Film and game environments:</strong>
+            cinematic settings
+            built around
+            hidden chambers,
+            mechanical puzzles,
+            and monumental geometry.
+          </li>
+
+          <li>
+            <strong>Architectural installations:</strong>
+            experimental spatial
+            compositions that use
+            controlled movement,
+            lighting, and perspective.
+          </li>
+
+          <li>
+            <strong>Concept visualization:</strong>
+            visual studies
+            exploring how
+            ancient-inspired forms
+            can interact with
+            contemporary mechanical
+            design ideas.
+          </li>
+
+        </ul>
+
+        <p>
+          These applications
+          are creative possibilities,
+          not claims about
+          ancient engineering.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- CONCLUSION -->
+
+    <section class="section">
+      <div class="reading-width">
+
+        <p class="eyebrow">
+          07 · Final Transmission
+        </p>
+
+        <h2>
+          The Architecture
+          of the Unknown
+        </h2>
+
+        <p>
+          Rotatrix begins with
+          a simple visual contradiction:
+          an apparently immovable
+          monument that contains
+          the possibility of movement.
+        </p>
+
+        <p>
+          The imagined system
+          combines the visual
+          permanence of stone
+          with the surprise
+          of concealed machinery.
+        </p>
+
+        <p>
+          Its purpose is not
+          to rewrite archaeological
+          history, but to explore
+          how geometry,
+          architectural mystery,
+          and mechanical imagination
+          can create new
+          design narratives.
+        </p>
+
+        <div class="quote-box">
+          “A structure can preserve
+          the past while inspiring
+          an entirely new future
+          in the imagination.”
+        </div>
+
+        <div class="actions">
+
+          <a href="../blog.html"
+             class="btn primary">
+            Explore More Articles
+          </a>
+
+          <a href="../contact_us.html"
+             class="btn">
+            Contact HaloCyberLife
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
   </main>
 
+  <!-- FOOTER -->
+
   <footer class="site-footer">
+
     <div class="container footer-inner">
+
       <div class="footer-column">
+
         <div class="footer-brand">
-          <img src="../images/negative_white_halocyberlife_logo.png" alt="Halocyberlife logo small" class="footer-logo">
-          <span class="footer-brand-text">Halocyberlife</span>
+
+          <img
+            src="../images/negative_white_halocyberlife_logo.webp"
+            alt=""
+            class="footer-logo">
+
+          <span class="footer-brand-text">
+            HaloCyberLife
+          </span>
+
         </div>
+
         <p class="footer-text">
-          Architecture concepts, experimental technology, original systems thinking, and future-focused research.
+          Original research concepts,
+          speculative architecture,
+          experimental technology,
+          and future-focused
+          systems thinking.
         </p>
-        <p class="footer-meta">© <span id="year"></span> Halocyberlife.com</p>
+
+        <p class="footer-meta">
+          © <span id="year">2026</span>
+          HaloCyberLife.com
+        </p>
+
       </div>
 
       <div class="footer-column">
-        <h3 class="footer-heading">Navigate</h3>
+
+        <h3 class="footer-heading">
+          Navigate
+        </h3>
+
         <ul class="footer-links">
-          <li><a href="../index.html">Home</a></li>
-          <li><a href="../blog.html">All Articles</a></li>
-          <li><a href="../about.html">About</a></li>
-          <li><a href="../contact_us.html">Contact</a></li>
-          <li><a href="../Privacy & Terms.html">Privacy &amp; Terms</a></li>
+
+          <li>
+            <a href="../index.html">
+              Home
+            </a>
+          </li>
+
+          <li>
+            <a href="../blog.html">
+              All Articles
+            </a>
+          </li>
+
+          <li>
+            <a href="../about.html">
+              About
+            </a>
+          </li>
+
+          <li>
+            <a href="../contact_us.html">
+              Contact
+            </a>
+          </li>
+
+          <li>
+            <a href="../Privacy%20%26%20Terms.html">
+              Privacy &amp; Terms
+            </a>
+          </li>
+
         </ul>
+
       </div>
 
       <div class="footer-column">
-        <h3 class="footer-heading">Contact</h3>
+
+        <h3 class="footer-heading">
+          Contact &amp; Social
+        </h3>
+
         <div class="footer-social">
-          <a href="mailto:luisamaya@halocyberlife.com">luisamaya@halocyberlife.com</a>
+          <a href="mailto:luisamaya@halocyberlife.com">
+            luisamaya@halocyberlife.com
+          </a>
         </div>
+
         <div class="footer-social">
-          <a href="https://www.linkedin.com/in/halocyberlife/">LinkedIn: halocyberlife</a>
+          <a href="mailto:info@halocyberlife.com">
+            info@halocyberlife.com
+          </a>
         </div>
+
         <div class="footer-social">
-          <a href="https://www.youtube.com/@Halocyberlife">YouTube: @Halocyberlife</a>
+          <a href="https://www.linkedin.com/in/halocyberlife/"
+             rel="noopener noreferrer">
+            LinkedIn
+          </a>
         </div>
+
+        <div class="footer-social">
+          <a href="https://www.youtube.com/@Halocyberlife"
+             rel="noopener noreferrer">
+            YouTube
+          </a>
+        </div>
+
       </div>
+
     </div>
 
-    <button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
   </footer>
 
-  <script src="../main_v2_0_0.js"></script>
+  <!-- LIGHTBOX -->
+
+  <div
+    class="lightbox"
+    id="lightbox"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Expanded Rotatrix concept image"
+    aria-hidden="true">
+
+    <div class="lightbox-panel">
+
+      <button
+        class="lightbox-close"
+        type="button"
+        aria-label="Close image">
+        &#10005;
+      </button>
+
+      <img
+        id="lightboxImg"
+        class="lightbox-img"
+        alt="">
+
+    </div>
+
+  </div>
+
+  <!-- BACK TO TOP -->
+
+  <button
+    class="back-to-top"
+    type="button"
+    aria-label="Back to top">
+    &#8593;
+  </button>
+
   <script>
-    const navToggle = document.getElementById("navToggle");
-    const neonNav = document.getElementById("neonNav");
+    document.addEventListener("DOMContentLoaded", () => {
 
-    if (navToggle && neonNav) {
-      navToggle.addEventListener("click", () => {
-        const open = neonNav.classList.toggle("active");
-        navToggle.setAttribute("aria-expanded", String(open));
+      /* MOBILE NAV */
+
+      const toggle =
+        document.querySelector(".neon-nav-toggle");
+
+      const nav =
+        document.getElementById("primary-nav");
+
+      function closeMenu() {
+        nav.classList.remove("active");
+        toggle.setAttribute("aria-expanded", "false");
+        document.body.classList.remove("menu-open");
+      }
+
+      toggle.addEventListener("click", () => {
+        const open = nav.classList.toggle("active");
+
+        toggle.setAttribute(
+          "aria-expanded",
+          String(open)
+        );
+
+        document.body.classList.toggle(
+          "menu-open",
+          open
+        );
       });
-    }
 
-    const yearEl = document.getElementById("year");
-    if (yearEl) yearEl.textContent = new Date().getFullYear();
+      nav.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", closeMenu);
+      });
 
-    const backToTop = document.getElementById("backToTop");
-    if (backToTop) {
-      window.addEventListener("scroll", () => {
-        backToTop.classList.toggle("show", window.scrollY > 300);
-      }, { passive: true });
+      /* LIGHTBOX */
+
+      const lightbox =
+        document.getElementById("lightbox");
+
+      const lightboxImg =
+        document.getElementById("lightboxImg");
+
+      const lightboxClose =
+        document.querySelector(".lightbox-close");
+
+      let lastFocused = null;
+
+      function openLightbox(img) {
+        lastFocused = document.activeElement;
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt || "";
+
+        lightbox.classList.add("open");
+        lightbox.setAttribute("aria-hidden", "false");
+        document.body.classList.add("lightbox-open");
+
+        lightboxClose.focus();
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove("open");
+        lightbox.setAttribute("aria-hidden", "true");
+        lightboxImg.removeAttribute("src");
+        document.body.classList.remove("lightbox-open");
+
+        if (lastFocused) {
+          lastFocused.focus();
+        }
+      }
+
+      document.querySelectorAll(
+        ".lightbox-trigger"
+      ).forEach(img => {
+
+        img.addEventListener("click", () => {
+          openLightbox(img);
+        });
+
+        img.addEventListener("keydown", event => {
+          if (
+            event.key === "Enter" ||
+            event.key === " "
+          ) {
+            event.preventDefault();
+            openLightbox(img);
+          }
+        });
+
+      });
+
+      lightboxClose.addEventListener(
+        "click",
+        closeLightbox
+      );
+
+      lightbox.addEventListener("click", event => {
+        if (event.target === lightbox) {
+          closeLightbox();
+        }
+      });
+
+      document.addEventListener("keydown", event => {
+
+        if (event.key === "Escape") {
+          if (lightbox.classList.contains("open")) {
+            closeLightbox();
+          } else if (nav.classList.contains("active")) {
+            closeMenu();
+            toggle.focus();
+          }
+        }
+
+        if (
+          event.key === "Tab" &&
+          lightbox.classList.contains("open")
+        ) {
+          event.preventDefault();
+          lightboxClose.focus();
+        }
+
+      });
+
+      /* BACK TO TOP */
+
+      const backToTop =
+        document.querySelector(".back-to-top");
+
+      function updateBackToTop() {
+        backToTop.classList.toggle(
+          "visible",
+          window.scrollY > 600
+        );
+      }
+
+      window.addEventListener(
+        "scroll",
+        updateBackToTop,
+        { passive: true }
+      );
+
+      updateBackToTop();
+
+      const reducedMotion =
+        window.matchMedia(
+          "(prefers-reduced-motion: reduce)"
+        ).matches;
 
       backToTop.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        window.scrollTo({
+          top: 0,
+          behavior: reducedMotion ? "auto" : "smooth"
+        });
       });
-    }
+
+      /* YEAR */
+
+      const year = document.getElementById("year");
+
+      if (year) {
+        year.textContent = new Date().getFullYear();
+      }
+
+    });
   </script>
+
 </body>
 </html>
