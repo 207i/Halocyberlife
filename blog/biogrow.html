@@ -1,70 +1,1434 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BioGrow™ | Photonic Agriculture Platform</title>
-  <link rel="stylesheet" href="../style_v2_0_0.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>
+    BioGrow™ — Photonic Agriculture & Renewable Architecture | HaloCyberLife
+  </title>
+
+  <meta
+    name="description"
+    content="Explore BioGrow™, a HaloCyberLife research concept investigating light-driven agriculture, renewable energy integration, and future architecture for controlled-environment plant growth."
+  >
+
+  <meta name="author" content="Luis Amaya">
+  <meta name="theme-color" content="#020617">
+
+  <link rel="stylesheet" href="../style_v2_0_0.css">
+
+  <style>
+    :root {
+      --bg: #020617;
+      --panel: #0f172a;
+      --panel-soft: rgba(15, 23, 42, 0.78);
+      --cyan: #22d3ee;
+      --purple: #a78bfa;
+      --text: #f8fafc;
+      --muted: #a5b4c8;
+      --border: rgba(148, 163, 184, 0.22);
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .biogrow-page {
+      overflow: hidden;
+    }
+
+    .biogrow-page * {
+      box-sizing: border-box;
+    }
+
+    .biogrow-page p {
+      line-height: 1.85;
+    }
+
+    .biogrow-page .bg-container {
+      width: min(1120px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    .biogrow-page .bg-section {
+      padding: 80px 0;
+    }
+
+    .biogrow-page .bg-section-alt {
+      background:
+        linear-gradient(
+          135deg,
+          rgba(34, 211, 238, 0.035),
+          rgba(139, 92, 246, 0.055)
+        );
+      border-top: 1px solid rgba(148, 163, 184, 0.08);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+    }
+
+    .biogrow-page .bg-kicker {
+      color: var(--cyan);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .biogrow-page .bg-hero {
+      text-align: center;
+      padding: 95px 0 85px;
+      background:
+        radial-gradient(
+          ellipse at 50% 10%,
+          rgba(34, 211, 238, 0.10),
+          transparent 45%
+        ),
+        radial-gradient(
+          ellipse at 80% 75%,
+          rgba(139, 92, 246, 0.08),
+          transparent 40%
+        );
+    }
+
+    .biogrow-page .bg-hero-title {
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      line-height: 1.12;
+      letter-spacing: -0.045em;
+      margin: 0 auto 24px;
+      max-width: 980px;
+      background: linear-gradient(
+        90deg,
+        #ffffff,
+        #67e8f9,
+        #a78bfa
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .biogrow-page .bg-hero-subtitle {
+      max-width: 820px;
+      margin: 0 auto 26px;
+      color: var(--muted);
+      font-size: 1.12rem;
+      line-height: 1.9;
+    }
+
+    .biogrow-page .bg-status {
+      display: inline-block;
+      padding: 9px 17px;
+      border: 1px solid rgba(34, 211, 238, 0.4);
+      border-radius: 999px;
+      background: rgba(34, 211, 238, 0.08);
+      color: #a5f3fc;
+      font-size: 0.84rem;
+      font-weight: 700;
+      margin-bottom: 28px;
+    }
+
+    .biogrow-page .bg-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .biogrow-page .bg-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 23px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 700;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .biogrow-page .bg-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .biogrow-page .bg-btn-primary {
+      background: var(--cyan);
+      color: #020617;
+    }
+
+    .biogrow-page .bg-btn-primary:hover {
+      background: #67e8f9;
+      color: #020617;
+    }
+
+    .biogrow-page .bg-btn-outline {
+      border: 1px solid var(--border);
+      color: var(--text);
+      background: rgba(15, 23, 42, 0.6);
+    }
+
+    .biogrow-page .bg-btn-outline:hover {
+      border-color: var(--cyan);
+      color: var(--cyan);
+    }
+
+    .biogrow-page .bg-section-heading {
+      max-width: 850px;
+      margin-bottom: 34px;
+    }
+
+    .biogrow-page .bg-section-heading.center {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .biogrow-page h2 {
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      line-height: 1.2;
+      letter-spacing: -0.035em;
+      margin: 0 0 20px;
+      color: #fff;
+    }
+
+    .biogrow-page h3 {
+      font-size: 1.2rem;
+      line-height: 1.4;
+      margin: 0 0 15px;
+      color: #f8fafc;
+    }
+
+    .biogrow-page .bg-lead {
+      color: var(--muted);
+      font-size: 1.08rem;
+      line-height: 1.9;
+    }
+
+    .biogrow-page .bg-article {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .biogrow-page .bg-article p {
+      color: #cbd5e1;
+      margin-bottom: 23px;
+    }
+
+    .biogrow-page .bg-article strong {
+      color: #fff;
+    }
+
+    .biogrow-page .bg-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .biogrow-page .bg-card {
+      padding: 30px;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: var(--panel-soft);
+      box-shadow: 0 18px 55px rgba(0, 0, 0, 0.18);
+    }
+
+    .biogrow-page .bg-card-number {
+      color: var(--cyan);
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      margin-bottom: 19px;
+    }
+
+    .biogrow-page .bg-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 0;
+    }
+
+    .biogrow-page .bg-highlight {
+      padding: 30px;
+      margin: 30px 0;
+      border-radius: 18px;
+      border: 1px solid rgba(34, 211, 238, 0.3);
+      background: rgba(34, 211, 238, 0.055);
+    }
+
+    .biogrow-page .bg-highlight h3 {
+      color: #a5f3fc;
+    }
+
+    .biogrow-page .bg-highlight p:last-child {
+      margin-bottom: 0;
+    }
+
+    .biogrow-page .bg-private {
+      border-color: rgba(167, 139, 250, 0.3);
+      background: rgba(167, 139, 250, 0.06);
+    }
+
+    .biogrow-page .bg-private h3 {
+      color: #c4b5fd;
+    }
+
+    .biogrow-page .bg-research-list {
+      padding-left: 24px;
+      margin: 25px 0;
+      color: #cbd5e1;
+    }
+
+    .biogrow-page .bg-research-list li {
+      padding-left: 6px;
+      margin-bottom: 17px;
+      line-height: 1.85;
+    }
+
+    .biogrow-page .bg-research-list strong {
+      color: #fff;
+    }
+
+    .biogrow-page .bg-roadmap {
+      display: grid;
+      gap: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .biogrow-page .bg-roadmap-item {
+      display: grid;
+      grid-template-columns: 95px 1fr;
+      gap: 22px;
+      padding: 27px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: var(--panel-soft);
+    }
+
+    .biogrow-page .bg-roadmap-label {
+      color: var(--cyan);
+      font-weight: 800;
+      font-size: 0.95rem;
+    }
+
+    .biogrow-page .bg-roadmap-item p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .biogrow-page .bg-final {
+      text-align: center;
+    }
+
+    .biogrow-page .bg-final p {
+      max-width: 850px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .bg-skip-link {
+      position: absolute;
+      top: -100px;
+      left: 12px;
+      z-index: 1000;
+      padding: 12px 18px;
+      border-radius: 10px;
+      background: var(--cyan);
+      color: #020617;
+    }
+
+    .bg-skip-link:focus {
+      top: 12px;
+    }
+
+    @media (max-width: 850px) {
+      .biogrow-page .bg-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .biogrow-page .bg-section {
+        padding: 65px 0;
+      }
+
+      .biogrow-page .bg-hero {
+        padding: 75px 0 65px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .biogrow-page .bg-container {
+        width: min(100% - 28px, 1120px);
+      }
+
+      .biogrow-page .bg-card,
+      .biogrow-page .bg-highlight {
+        padding: 23px;
+      }
+
+      .biogrow-page .bg-roadmap-item {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .biogrow-page .bg-hero-subtitle {
+        font-size: 1rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .biogrow-page .bg-btn {
+        transition: none;
+      }
+    }
+  </style>
 </head>
 
 <body>
-  <!-- shared header -->
- <header class="neon-header">
+
+  <a class="bg-skip-link" href="#main-content">
+    Skip to content
+  </a>
+
+  <!-- SHARED HALOCYBERLIFE HEADER -->
+
+  <header class="neon-header">
     <div class="container neon-header-inner">
-      <a href="index.html" class="neon-brand">
-        <h1 class="logo-h1">
-          <div class="logo-pair">
-            <img src="../images/negative_white_halocyberlife_logo.png" alt="HaloCyberLife logo" class="neon-logo main-logo" />
-          </div>
-        </h1>
+
+      <a href="../index.html"
+         class="neon-brand"
+         aria-label="HaloCyberLife home">
+
+        <div class="logo-pair">
+          <img
+            src="../images/negative_white_halocyberlife_logo.png"
+            alt="HaloCyberLife logo"
+            class="neon-logo main-logo"
+          >
+        </div>
+
       </a>
 
-      <button class="neon-nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
-        <span></span><span></span><span></span>
+      <button
+        class="neon-nav-toggle"
+        type="button"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+        aria-controls="primary-nav"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
 
-      <nav id="primary-nav" class="neon-nav">
-        <a href="/index.html#insights" class="neon-link color-blue">Insights</a>
-        <a href="/blog.html" class="neon-link color-cyan">Articles</a>
-        <a href="/about.html" class="neon-link color-magenta">About</a>
-        <a href="/contact_us.html" class="neon-link color-gold">Contact</a>
+      <nav
+        id="primary-nav"
+        class="neon-nav"
+        aria-label="Primary navigation"
+      >
+
+        <a href="../index.html#insights"
+           class="neon-link color-blue">
+          Insights
+        </a>
+
+        <a href="../blog.html"
+           class="neon-link color-cyan">
+          Articles
+        </a>
+
+        <a href="../about.html"
+           class="neon-link color-magenta">
+          About
+        </a>
+
+        <a href="../contact_us.html"
+           class="neon-link color-gold">
+          Contact
+        </a>
+
       </nav>
+
     </div>
   </header>
 
+  <main id="main-content" class="biogrow-page">
 
-  <!-- Hero -->
-  <section class="hero container" style="text-align:center;padding-top:4rem;">
-    <h1 class="hero-title" style="background:linear-gradient(90deg,#fff,#22d3ee,#8b5cf6);
-      -webkit-background-clip:text;-webkit-text-fill-color:transparent;">
-      Light‑Driven Architecture.<br>Energy‑Autonomous Growth.
-    </h1>
-    <p class="hero-subtitle" style="color:#9ca3af;max-width:720px;margin:0.5rem auto;">
-      Integrated BioGen™ and BioGrow™ system demonstrating rooftop photonic modules, renewable turbines, and internal
-      BioStore™ energy conduits.
-    </p>
-  </section>
+    <!-- HERO -->
 
-  <!-- Figure gallery -->
-  <main class="container" style="padding-top:2rem;">
-    <div class="section-card" style="text-align:center;">
-      <h2 style="color:#fff;">Patent Figures</h2>
-    </div>
+    <section class="bg-hero">
+      <div class="bg-container">
+
+        <p class="bg-kicker">
+          HaloCyberLife · Agricultural Technology Research
+        </p>
+
+        <h1 class="bg-hero-title">
+          BioGrow™
+          <br>
+          Light-Driven Architecture.
+          <br>
+          Energy-Aware Growth.
+        </h1>
+
+        <p class="bg-hero-subtitle">
+          BioGrow™ is an independent HaloCyberLife
+          research concept exploring how controlled
+          plant lighting, renewable energy systems,
+          and architectural design might contribute
+          to future food-production environments.
+
+          The project considers a broader relationship
+          between the energy used by buildings
+          and the environmental conditions
+          required for plant growth.
+        </p>
+
+        <span class="bg-status">
+          Independent Research Concept · Exploratory Stage
+        </span>
+
+        <div class="bg-actions">
+
+          <a href="#concept"
+             class="bg-btn bg-btn-primary">
+            Explore the Concept
+          </a>
+
+          <a href="#research"
+             class="bg-btn bg-btn-outline">
+            Research Challenges
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONCEPT INTRODUCTION -->
+
+    <section id="concept" class="bg-section bg-section-alt">
+      <div class="bg-container">
+
+        <div class="bg-section-heading">
+
+          <p class="bg-kicker">
+            01 · The Concept
+          </p>
+
+          <h2>
+            Can Architecture Become
+            Part of the Growing Environment?
+          </h2>
+
+          <p class="bg-lead">
+            Agriculture depends on energy,
+            water, nutrients, light, and
+            environmental stability.
+            BioGrow explores how these
+            requirements might influence
+            the design of future buildings
+            and agricultural infrastructure.
+          </p>
+
+        </div>
+
+        <div class="bg-article">
+
+          <p>
+            Controlled-environment agriculture
+            allows growers to manage important
+            conditions affecting plant development.
+            Depending on the application,
+            these conditions may include
+            light intensity, photoperiod,
+            temperature, humidity,
+            carbon dioxide concentration,
+            and nutrient availability.
+          </p>
+
+          <p>
+            BioGrow™ approaches these factors
+            from an architectural perspective.
+            Rather than treating agricultural
+            lighting and energy infrastructure
+            as completely separate concerns,
+            the concept investigates whether
+            they could inform a more integrated
+            approach to future growing spaces.
+          </p>
+
+          <p>
+            The original BioGrow vision includes
+            photonic agricultural modules,
+            renewable energy elements,
+            and a proposed relationship
+            between BioGen™ and BioStore™.
+          </p>
+
+          <p>
+            Those names represent elements
+            of the broader HaloCyberLife
+            concept ecosystem. Their exact
+            implementation and performance
+            have not been established
+            in this public article.
+          </p>
+
+          <div class="bg-highlight">
+
+            <h3>The Central Research Question</h3>
+
+            <p>
+              Could future agricultural
+              architecture coordinate
+              plant-lighting requirements
+              with renewable energy
+              availability and responsible
+              environmental management?
+            </p>
+
+            <p>
+              BioGrow explores that question
+              as a research direction,
+              not as a demonstrated
+              energy-autonomous system.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- RESEARCH THEMES -->
+
+    <section class="bg-section">
+      <div class="bg-container">
+
+        <div class="bg-section-heading center">
+
+          <p class="bg-kicker">
+            02 · Research Themes
+          </p>
+
+          <h2>
+            Three Areas of Investigation
+          </h2>
+
+          <p class="bg-lead">
+            BioGrow brings together
+            agricultural lighting,
+            energy infrastructure,
+            and environmental design
+            at a conceptual level.
+          </p>
+
+        </div>
+
+        <div class="bg-grid">
+
+          <article class="bg-card">
+
+            <div class="bg-card-number">
+              01 / LIGHT
+            </div>
+
+            <h3>
+              Photonic Agriculture
+            </h3>
+
+            <p>
+              Plant development depends
+              on suitable light conditions.
+              BioGrow explores how
+              agricultural lighting
+              could become part of
+              a broader architectural
+              research framework.
+            </p>
+
+          </article>
+
+          <article class="bg-card">
+
+            <div class="bg-card-number">
+              02 / ENERGY
+            </div>
+
+            <h3>
+              Renewable Integration
+            </h3>
+
+            <p>
+              Solar and wind technologies
+              may contribute electricity
+              to suitable agricultural
+              installations. BioGrow
+              investigates the challenges
+              of coordinating variable
+              renewable generation
+              with plant-growth demands.
+            </p>
+
+          </article>
+
+          <article class="bg-card">
+
+            <div class="bg-card-number">
+              03 / ARCHITECTURE
+            </div>
+
+            <h3>
+              Integrated Growing Spaces
+            </h3>
+
+            <p>
+              Future growing environments
+              may benefit from considering
+              lighting, energy, ventilation,
+              and spatial design together.
+              BioGrow explores these
+              relationships without
+              publishing proprietary layouts.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SCIENTIFIC FOUNDATION -->
+
+    <section class="bg-section bg-section-alt">
+      <div class="bg-container">
+
+        <div class="bg-section-heading">
+
+          <p class="bg-kicker">
+            03 · Scientific Foundation
+          </p>
+
+          <h2>
+            Understanding Light
+            as an Agricultural Resource
+          </h2>
+
+        </div>
+
+        <div class="bg-article">
+
+          <p>
+            Light provides the energy
+            used in photosynthesis,
+            allowing plants to convert
+            carbon dioxide and water
+            into chemical energy
+            stored in organic compounds.
+          </p>
+
+          <p>
+            However, successful plant growth
+            depends on more than simply
+            increasing brightness.
+            Different plant species
+            and developmental stages
+            respond to light intensity,
+            spectral distribution,
+            and exposure duration
+            in different ways.
+          </p>
+
+          <p>
+            In horticultural research,
+            <strong>photosynthetic photon flux density
+            (PPFD)</strong> describes the number
+            of photosynthetically active
+            photons reaching a surface
+            per unit area per second.
+          </p>
+
+          <p>
+            <strong>Daily light integral (DLI)</strong>
+            describes the total quantity
+            of photosynthetically active
+            photons received over a day.
+          </p>
+
+          <p>
+            These measurements are useful
+            because plant-lighting design
+            requires an understanding
+            of both instantaneous light
+            delivery and total exposure.
+          </p>
+
+          <p>
+            For BioGrow, the relevant
+            research question is not
+            whether light can grow plants—
+            that is well established.
+            The question is how lighting
+            requirements might be managed
+            within a future energy-aware
+            architectural environment.
+          </p>
+
+          <div class="bg-highlight">
+
+            <h3>
+              Why Energy Balance Matters
+            </h3>
+
+            <p>
+              Artificial plant lighting
+              requires electricity.
+              Renewable energy systems
+              can supply some of that
+              electricity, but their output
+              varies with environmental
+              conditions.
+            </p>
+
+            <p>
+              A genuinely energy-autonomous
+              agricultural installation
+              would need to demonstrate
+              that available generation,
+              storage, and energy management
+              can reliably meet the
+              system's operating requirements.
+            </p>
+
+            <p>
+              BioGrow has not yet
+              demonstrated that capability.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SYSTEM RELATIONSHIPS -->
+
+    <section class="bg-section">
+      <div class="bg-container">
+
+        <div class="bg-section-heading">
+
+          <p class="bg-kicker">
+            04 · HaloCyberLife Ecosystem
+          </p>
+
+          <h2>
+            BioGrow, BioGen,
+            and BioStore
+          </h2>
+
+        </div>
+
+        <div class="bg-article">
+
+          <p>
+            The original BioGrow concept
+            references BioGen™ and BioStore™
+            as related parts of a broader
+            architectural energy vision.
+          </p>
+
+          <p>
+            In this public presentation,
+            BioGrow represents the
+            agricultural research direction,
+            while BioGen and BioStore
+            remain associated concept
+            elements within the
+            HaloCyberLife ecosystem.
+          </p>
+
+          <p>
+            Their precise relationships,
+            internal arrangements,
+            technical specifications,
+            and potential implementations
+            are not disclosed here.
+          </p>
+
+          <p>
+            This separation allows
+            HaloCyberLife to discuss
+            the overall research vision
+            while retaining unpublished
+            engineering documentation
+            for private development.
+          </p>
+
+          <div class="bg-highlight bg-private">
+
+            <h3>
+              Private Engineering Boundary
+            </h3>
+
+            <p>
+              This article does not include
+              proprietary schematics,
+              component configurations,
+              energy-routing diagrams,
+              internal layouts,
+              dimensional specifications,
+              or construction instructions.
+            </p>
+
+            <p>
+              Any future technical
+              implementation will require
+              separate research,
+              engineering analysis,
+              and validation.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- APPLICATIONS -->
+
+    <section class="bg-section bg-section-alt">
+      <div class="bg-container">
+
+        <div class="bg-section-heading center">
+
+          <p class="bg-kicker">
+            05 · Potential Applications
+          </p>
+
+          <h2>
+            Where Could BioGrow
+            Be Explored?
+          </h2>
+
+          <p class="bg-lead">
+            The concept suggests several
+            possible research settings.
+            These are illustrative
+            opportunities, not
+            demonstrated deployments.
+          </p>
+
+        </div>
+
+        <div class="bg-grid">
+
+          <article class="bg-card">
+
+            <div class="bg-card-number">
+              01 / URBAN
+            </div>
+
+            <h3>
+              Urban Agriculture
+            </h3>
+
+            <p>
+              Growing environments
+              integrated with buildings
+              could offer opportunities
+              to study how agricultural
+              production interacts with
+              urban energy demand.
+            </p>
+
+          </article>
+
+          <article class="bg-card">
+
+            <div class="bg-card-number">
+              02 / CONTROLLED
+            </div>
+
+            <h3>
+              Indoor Growing Spaces
+            </h3>
+
+            <p>
+              Controlled-environment
+              facilities provide
+              a potential setting
+              for examining lighting
+              requirements, energy
+              management, and
+              environmental conditions.
+            </p>
+
+          </article>
+
+          <article class="bg-card">
+
+            <div class="bg-card-number">
+              03 / DISTRIBUTED
+            </div>
+
+            <h3>
+              Decentralized Food Systems
+            </h3>
+
+            <p>
+              Smaller agricultural
+              installations could
+              inform research into
+              local production,
+              resource use,
+              and the practical
+              limitations of
+              distributed growing.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CHALLENGES -->
+
+    <section id="research" class="bg-section">
+      <div class="bg-container">
+
+        <div class="bg-section-heading">
+
+          <p class="bg-kicker">
+            06 · Research Challenges
+          </p>
+
+          <h2>
+            What BioGrow Still
+            Needs to Prove
+          </h2>
+
+        </div>
+
+        <div class="bg-article">
+
+          <p>
+            BioGrow is a research concept,
+            not a validated agricultural
+            technology or operational
+            energy-autonomous building.
+          </p>
+
+          <p>
+            Before the concept could
+            be evaluated for practical
+            use, several questions
+            would need investigation.
+          </p>
+
+          <ul class="bg-research-list">
+
+            <li>
+              <strong>Plant performance:</strong>
+              Can a future lighting approach
+              support healthy growth
+              under controlled conditions?
+            </li>
+
+            <li>
+              <strong>Light delivery:</strong>
+              How would useful light
+              intensity, spectrum,
+              and exposure duration
+              be measured?
+            </li>
+
+            <li>
+              <strong>Energy demand:</strong>
+              How much electricity
+              would lighting and
+              environmental controls
+              require?
+            </li>
+
+            <li>
+              <strong>Renewable availability:</strong>
+              How would changes in
+              solar or wind output
+              affect system operation?
+            </li>
+
+            <li>
+              <strong>Environmental control:</strong>
+              What temperature,
+              humidity, airflow,
+              and nutrient conditions
+              would be necessary?
+            </li>
+
+            <li>
+              <strong>Practical integration:</strong>
+              Could the concept
+              meet relevant structural,
+              electrical, agricultural,
+              and building requirements?
+            </li>
+
+            <li>
+              <strong>Economic feasibility:</strong>
+              Would the potential
+              benefits justify
+              installation,
+              maintenance,
+              and operating costs?
+            </li>
+
+          </ul>
+
+          <p>
+            These questions will help
+            determine whether BioGrow
+            can develop beyond
+            architectural imagination
+            into a measurable
+            research platform.
+          </p>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- DEVELOPMENT PATH -->
+
+    <section class="bg-section bg-section-alt">
+      <div class="bg-container">
+
+        <div class="bg-section-heading center">
+
+          <p class="bg-kicker">
+            07 · Development Path
+          </p>
+
+          <h2>
+            From Concept to Evidence
+          </h2>
+
+          <p class="bg-lead">
+            Future BioGrow development
+            would benefit from a
+            structured research process.
+          </p>
+
+        </div>
+
+        <div class="bg-roadmap">
+
+          <article class="bg-roadmap-item">
+
+            <div class="bg-roadmap-label">
+              Phase 01
+            </div>
+
+            <div>
+
+              <h3>
+                Scientific Review
+              </h3>
+
+              <p>
+                Evaluate existing
+                agricultural lighting,
+                renewable energy,
+                and controlled-environment
+                research to identify
+                realistic objectives.
+              </p>
+
+            </div>
+
+          </article>
+
+          <article class="bg-roadmap-item">
+
+            <div class="bg-roadmap-label">
+              Phase 02
+            </div>
+
+            <div>
+
+              <h3>
+                Experimental Planning
+              </h3>
+
+              <p>
+                Establish measurable
+                research questions
+                and appropriate
+                performance benchmarks
+                without publicly
+                disclosing unpublished
+                engineering details.
+              </p>
+
+            </div>
+
+          </article>
+
+          <article class="bg-roadmap-item">
+
+            <div class="bg-roadmap-label">
+              Phase 03
+            </div>
+
+            <div>
+
+              <h3>
+                Prototype Investigation
+              </h3>
+
+              <p>
+                Explore the feasibility
+                of controlled experiments
+                when technical resources,
+                funding, and development
+                priorities permit.
+              </p>
+
+            </div>
+
+          </article>
+
+          <article class="bg-roadmap-item">
+
+            <div class="bg-roadmap-label">
+              Phase 04
+            </div>
+
+            <div>
+
+              <h3>
+                Performance Evaluation
+              </h3>
+
+              <p>
+                Compare any future
+                experimental results
+                with established
+                agricultural and
+                energy-performance
+                benchmarks.
+              </p>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- RESEARCH STATUS -->
+
+    <section class="bg-section">
+      <div class="bg-container">
+
+        <div class="bg-section-heading">
+
+          <p class="bg-kicker">
+            08 · Research Status
+          </p>
+
+          <h2>
+            Original Vision.
+            Responsible Research.
+          </h2>
+
+        </div>
+
+        <div class="bg-article">
+
+          <p>
+            BioGrow™ is an original
+            HaloCyberLife research
+            concept exploring the
+            relationship between
+            photonic agriculture,
+            renewable energy,
+            and architectural design.
+          </p>
+
+          <p>
+            The project is presented
+            at an exploratory stage.
+            This article does not
+            claim a completed prototype,
+            validated agricultural
+            performance, verified
+            energy autonomy,
+            or commercially available
+            technology.
+          </p>
+
+          <p>
+            Future technical
+            development may change
+            the proposed research
+            direction as evidence
+            becomes available.
+          </p>
+
+          <p>
+            HaloCyberLife's public
+            documentation focuses
+            on the research vision,
+            scientific context,
+            and engineering challenges.
+            Detailed unpublished
+            implementation information
+            remains outside
+            this article.
+          </p>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONCLUSION -->
+
+    <section class="bg-section bg-section-alt">
+      <div class="bg-container bg-final">
+
+        <p class="bg-kicker">
+          09 · The Future of BioGrow
+        </p>
+
+        <h2>
+          Growing Beyond
+          Conventional Boundaries
+        </h2>
+
+        <p class="bg-lead">
+          BioGrow imagines agricultural
+          spaces where light, energy,
+          and architecture are
+          considered as parts
+          of a connected
+          environmental challenge.
+        </p>
+
+        <p class="bg-lead">
+          The goal is not to
+          declare that a new
+          agricultural system
+          has already been proven.
+          It is to investigate
+          what might become possible
+          through careful research,
+          practical engineering,
+          and measurable experimentation.
+        </p>
+
+        <div class="bg-actions">
+
+          <a href="../blog.html"
+             class="bg-btn bg-btn-primary">
+            Explore More Research
+          </a>
+
+          <a href="../index.html"
+             class="bg-btn bg-btn-outline">
+            Return to HaloCyberLife
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
   </main>
 
-  <!-- Footer -->
+  <!-- FOOTER -->
+
   <footer class="site-footer">
     <div class="container footer-inner">
+
       <div>
+
         <div class="footer-brand">
-          <img src="/images/negative_white_halocyberlife_logo.png" class="footer-logo" alt="HaloCyberlife">
-          <span class="footer-brand-text">HALOCYBERLIFE SYSTEMS</span>
+
+          <img
+            src="../images/negative_white_halocyberlife_logo.png"
+            class="footer-logo"
+            alt="HaloCyberLife logo"
+          >
+
+          <span class="footer-brand-text">
+            HALOCYBERLIFE SYSTEMS
+          </span>
+
         </div>
-        <p class="footer-text">Unified photonic‑renewable architecture for next‑generation ecology.</p>
+
+        <p class="footer-text">
+          Independent research concepts
+          in architecture, renewable
+          technology, environmental
+          engineering, and future systems.
+        </p>
+
+        <p class="footer-meta">
+          © <span id="bgYear">2026</span>
+          HaloCyberLife™
+        </p>
+
       </div>
+
     </div>
   </footer>
 
   <script src="../main_v2_0_0.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const year = document.getElementById("bgYear");
+
+      if (year) {
+        year.textContent = new Date().getFullYear();
+      }
+    });
+  </script>
+
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
