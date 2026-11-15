@@ -1,797 +1,2346 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BioLumen™ | Biophotonic Extraction System</title>
-  <meta name="description" content="Capture ultraweak photons from biological processes with BioLumen™ TRIA-CORE™ technology for signal and energy conversion.">
-  <meta name="description" content="BioLumen™ is an inward-directed biophotonic extraction system that captures ultraweak photons emitted by biological processes and converts them into measurable signals and recoverable energy." />
-  <meta name="author" content="Luis Amaya" />
-  <link rel="icon" href="../images/negative_white_halocyberlife_logo.png" type="image/png">
-  <link rel="apple-touch-icon" href="../images/negative_white_halocyberlife_logo.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>BioLumen™ | Biophotonic Sensing Research | HaloCyberLife</title>
+
+  <meta name="description"
+    content="Explore BioLumen™ and TRIA-CORE™, HaloCyberLife research concepts investigating ultraweak photon emission, biological optical sensing, signal detection, and scientific feasibility.">
+
+  <meta name="author" content="Luis Amaya">
+  <meta name="theme-color" content="#020617">
+
+  <link rel="canonical"
+    href="https://halocyberlife.com/blog/BioLumen.html">
+
+  <link rel="icon"
+    href="../images/negative_white_halocyberlife_logo.png"
+    type="image/png">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title"
+    content="BioLumen™ | Biophotonic Sensing Research">
+  <meta property="og:description"
+    content="An independent research-stage concept exploring ultraweak photon emission, biological sensing, and optical signal detection.">
+  <meta property="og:url"
+    content="https://halocyberlife.com/blog/BioLumen.html">
+
   <style>
-     /* =========================
-   BACK TO TOP BUTTON
-   ========================= */
-    
-    .back-to-top {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      width: 46px;
-      height: 46px;
-      border-radius: 50%;
-      border: 1px solid rgba(139,92,246,0.4);
-      background: radial-gradient(
-        circle at 30% 30%,
-        rgba(255,255,255,0.25),
-        rgba(139,92,246,0.35) 45%,
-        rgba(2,6,23,0.95) 75%
-      );
-      color: #fff;
-      font-size: 1.3rem;
-      cursor: pointer;
-      display: none;
-      z-index: 1200;
-      box-shadow:
-        0 0 25px rgba(139,92,246,0.45),
-        inset 0 0 12px rgba(255,255,255,0.15);
-      backdrop-filter: blur(6px);
-      transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s;
-    }
-    
-    .back-to-top:hover {
-      transform: translateY(-4px);
-      box-shadow:
-        0 0 35px rgba(217,70,239,0.65),
-        inset 0 0 18px rgba(255,255,255,0.25);
-    }
-    /* ───────────────────────────────────────────────────────────────────────── */
-    /* UPDATED STYLING ATTRIBUTES (ELECTRIC PURPLE & CYAN NEON) */
     :root {
       --bg: #020617;
       --text: #f9fafb;
-      --muted: #9ca3af;
+      --muted: #aab5c7;
       --soft: #d1d5db;
-      --border: rgba(139, 92, 246, 0.3); /* Purple tinted border */
-      --accent: #22d3ee; /* Cyan */
-      --accent2: #8b5cf6; /* Electric Purple */
-      --accent-magenta: #d946ef; /* High-energy Magenta */
+      --border: rgba(139, 92, 246, 0.3);
+      --accent: #22d3ee;
+      --accent2: #8b5cf6;
+      --accent-magenta: #d946ef;
       --radius: 18px;
-      --shadow: 0 18px 60px rgba(139, 92, 246, 0.25);
+      --shadow: 0 18px 60px rgba(139, 92, 246, 0.2);
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 95px;
+    }
 
     body {
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
-      /* Updated gradient to include deeper indigo/purple tones */
-      background: radial-gradient(circle at top right, #1e1b4b 0%, #020617 55%, #000000 100%);
+      margin: 0;
       color: var(--text);
-      line-height: 1.6;
+      font-family:
+        system-ui, -apple-system, Segoe UI,
+        Roboto, Inter, Arial, sans-serif;
+      line-height: 1.7;
+      background:
+        radial-gradient(
+          circle at top right,
+          #1e1b4b 0%,
+          #020617 52%,
+          #000 100%
+        );
     }
 
-    /* ───────────────────────────────────────────────────────────────────────── */
-    /* HEADER SYNC */
-   /* --- NEW NEON HEADER & MOBILE NAV --- */
+    img {
+      max-width: 100%;
+    }
+
+    a {
+      color: var(--accent);
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .article-container {
+      width: min(980px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 15px;
+      z-index: 10000;
+      padding: 12px 18px;
+      border-radius: 8px;
+      color: #020617;
+      background: var(--accent);
+    }
+
+    .skip-link:focus {
+      top: 12px;
+    }
+
+    /* HEADER */
+
     .neon-header {
-      position: sticky; top: 0; z-index: 1000;
-      background: rgba(2, 6, 23, 0.9);
-      border-bottom: 1px solid rgba(139, 92, 246, 0.3);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(2, 6, 23, 0.95);
+      border-bottom:
+        1px solid rgba(139, 92, 246, 0.3);
       backdrop-filter: blur(12px);
     }
 
     .neon-header-inner {
-      display: flex; align-items: center; justify-content: space-between;
-      max-width: 980px; margin: 0 auto; padding: 0.75rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      min-height: 70px;
     }
 
-    .neon-brand { 
-      display: flex; align-items: center; gap: 10px; 
-      text-decoration: none; color: #fff; font-weight: 700; 
-      text-transform: uppercase; font-size: 0.9rem;
+    .neon-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
     }
 
-    .neon-logo { width: 40px; filter: drop-shadow(0 0 5px var(--accent2)); }
+    .neon-logo {
+      width: 40px;
+      height: auto;
+      filter:
+        drop-shadow(0 0 6px rgba(139,92,246,.5));
+    }
 
-    /* Desktop Navigation */
-    .neon-nav { display: flex; gap: 0.5rem; }
+    .neon-nav {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
     .neon-link {
-      padding: 0.5rem 1rem; border-radius: 99px; text-decoration: none; 
-      font-size: 0.85rem; border: 1px solid rgba(255,255,255,0.1); 
-      transition: 0.3s; color: #fff; text-transform: uppercase;
+      display: inline-block;
+      padding: 9px 17px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.15);
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: .83rem;
+      font-weight: 700;
+      transition:
+        background .2s,
+        box-shadow .2s;
     }
 
-    /* Your Signature Neon Colors */
-    .color-blue { color: #22d3ee; border-color: rgba(34, 211, 238, 0.3); }
-    .color-cyan { color: #06b6d4; border-color: rgba(6, 182, 212, 0.3); }
-    .color-gold { color: #fbbf24; border-color: rgba(251, 191, 36, 0.3); }
+    .color-blue {
+      color: #38bdf8;
+      border-color: rgba(56,189,248,.45);
+    }
+
+    .color-cyan {
+      color: #22d3ee;
+      border-color: rgba(34,211,238,.45);
+    }
+
+    .color-magenta {
+      color: #e879f9;
+      border-color: rgba(232,121,249,.45);
+    }
+
+    .color-gold {
+      color: #fbbf24;
+      border-color: rgba(251,191,36,.45);
+    }
 
     .neon-link:hover {
-       background: rgba(255,255,255,0.05);
-       box-shadow: 0 0 15px currentColor; /* Glows with the link's color */
+      background: rgba(255,255,255,.06);
+      box-shadow: 0 0 15px currentColor;
     }
 
-    /* Hamburger Toggle Button */
     .neon-nav-toggle {
-      display: none; background: none; border: none; cursor: pointer; padding: 10px;
+      display: none;
+      border: 0;
+      padding: 10px;
+      background: transparent;
+      cursor: pointer;
     }
+
     .neon-nav-toggle span {
-      display: block; width: 22px; height: 2px; background: #fff; margin: 4px 0; transition: 0.3s;
+      display: block;
+      width: 24px;
+      height: 2px;
+      margin: 5px 0;
+      background: #fff;
+      transition: transform .2s, opacity .2s;
     }
 
-    /* --- MOBILE OVERLAY LOGIC --- */
-@media (max-width: 768px) {
-  .neon-nav-toggle { display: block; z-index: 1001; }
-  
-  .neon-nav {
-    display: none; /* Keep this to prevent flashes on load */
-    
-    /* MOVE THE HIDING LOGIC HERE */
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.35s ease;
+    .neon-nav-toggle[aria-expanded="true"]
+    span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
 
-    position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
-    background: radial-gradient(circle at center, #1e1b4b 0%, #020617 100%); 
-    flex-direction: column; justify-content: center; align-items: center; 
-    gap: 2rem; z-index: 1000;
-  }
+    .neon-nav-toggle[aria-expanded="true"]
+    span:nth-child(2) {
+      opacity: 0;
+    }
 
-  /* ENSURE THE MENU SHOWS UP WHEN TOGGLED */
-  .neon-nav.active { 
-    display: flex; 
-    opacity: 1; 
-    pointer-events: auto; 
-  }
+    .neon-nav-toggle[aria-expanded="true"]
+    span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
 
-  .neon-link { 
-    font-size: 1.6rem; width: 80%; text-align: center; 
-    padding: 1rem; border-width: 2px;
-  }
-}
+    /* HERO */
 
-      /* .neon-nav {
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.35s ease;
-      } */
-      
-      .neon-nav.active {
-        opacity: 1;
-        pointer-events: auto;
-      }
-     /*Nav to show X */
-    .neon-nav-toggle[aria-expanded="true"] span:nth-child(1) {
-        transform: translateY(6px) rotate(45deg);
-      }
-      .neon-nav-toggle[aria-expanded="true"] span:nth-child(2) {
-        opacity: 0;
-      }
-      .neon-nav-toggle[aria-expanded="true"] span:nth-child(3) {
-        transform: translateY(-6px) rotate(-45deg);
-      }
+    .article-head {
+      padding: 70px 0 30px;
+      text-align: center;
+    }
 
-    /* ───────────────────────────────────────────────────────────────────────── */
-    /* ARTICLE HEAD */
-    .container { width: 100%; max-width: 980px; margin: 0 auto; padding: 0 1.25rem; }
-    .article-head { text-align: center; margin: 3rem auto 2.5rem; }
-    .meta { color: var(--accent); font-size: .85rem; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 1rem; font-weight: 600; }
-    
-    h1 { 
-      font-size: clamp(2.2rem, 5vw, 3.2rem); 
+    .eyebrow {
+      color: var(--accent);
+      text-transform: uppercase;
+      font-weight: 800;
+      font-size: .8rem;
+      letter-spacing: .14em;
+      margin: 0 0 18px;
+    }
+
+    h1 {
+      margin: 0 0 18px;
+      font-size: clamp(2.7rem, 7vw, 5rem);
       line-height: 1.1;
-      letter-spacing: -0.02em; 
-      margin-bottom: 1.5rem;
-      background: linear-gradient(to right, #fff, var(--accent2), var(--accent-magenta));
+      letter-spacing: -.05em;
+      background:
+        linear-gradient(
+          90deg,
+          #fff,
+          #a78bfa,
+          #d946ef
+        );
       -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
     }
-    .subtitle { color: var(--soft); max-width: 820px; margin: 0 auto; font-size: 1.1rem; font-weight: 300; }
 
-    /* CTA BUTTONS */
-    .cta { display: flex; gap: 12px; justify-content: center; margin: 2rem 0; }
+    .subtitle {
+      max-width: 800px;
+      margin: 0 auto 22px;
+      color: var(--soft);
+      font-size: 1.1rem;
+      line-height: 1.85;
+    }
+
+    .status {
+      display: inline-block;
+      margin: 8px auto 18px;
+      padding: 9px 16px;
+      border: 1px solid rgba(34,211,238,.35);
+      border-radius: 999px;
+      background: rgba(34,211,238,.06);
+      color: #a5f3fc;
+      font-size: .83rem;
+      font-weight: 700;
+    }
+
+    .cta {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 24px 0;
+    }
+
     .btn {
-      display: inline-flex; align-items: center; justify-content: center; padding: 12px 24px;
-      border-radius: 999px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.06);
-      font-size: .9rem; font-weight: 700; text-transform: uppercase; color: #fff; text-decoration: none; cursor: pointer; transition: 0.3s;
-    }
-    .btn.primary { 
-      border: none;
-      background: linear-gradient(135deg, var(--accent2) 0%, var(--accent-magenta) 100%);
-      box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
-    }
-    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(217, 70, 239, 0.4); border-color: #fff; }
-
-    /* PILL TAGS */
-    .tag-row { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 10px; }
-    .pill { 
-      padding: 6px 14px; border-radius: 999px; 
-      background: rgba(139, 92, 246, 0.1); 
-      border: 1px solid rgba(139, 92, 246, 0.3); 
-      font-size: .85rem; color: #e9d5ff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 12px 24px;
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 999px;
+      color: #fff;
+      background: rgba(255,255,255,.06);
+      font-size: .88rem;
+      font-weight: 800;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: transform .2s;
     }
 
-    /* ───────────────────────────────────────────────────────────────────────── */
-    /* VISION SLIDER */
-    .vision-slider { margin: 3rem auto; position: relative; }
-    .vision-viewport { 
-      overflow: hidden; border-radius: var(--radius); 
-      border: 1px solid rgba(139, 92, 246, 0.4); 
-      background: #000; box-shadow: var(--shadow); position: relative; 
-    }
-    .vision-track { display: flex; transition: transform .6s cubic-bezier(0.16, 1, 0.3, 1); }
-    .vision-slide { flex: 0 0 100%; }
-    .vision-slide img { width: 100%; height: clamp(300px, 50vw, 600px); object-fit: cover; display: block; }
-    .vision-slide figcaption { 
-      padding: 1.5rem; font-size: 1rem; 
-      background: rgba(2,6,23,0.85); color: var(--soft); 
-      border-top: 1px solid rgba(139, 92, 246, 0.2); 
-    }
-    .vision-btn { 
-      position: absolute; top: 50%; transform: translateY(-50%); 
-      width: 48px; height: 48px; border-radius: 999px; 
-      border: 1px solid rgba(255,255,255,0.2); 
-      background: rgba(139, 92, 246, 0.2); color: #fff; 
-      font-size: 1.5rem; cursor: pointer; z-index: 5; 
-      display: grid; place-items: center; backdrop-filter: blur(4px);
-    }
-    .vision-prev { left: 20px; } .vision-next { right: 20px; }
-
-    /* ───────────────────────────────────────────────────────────────────────── */
-    /* GRID CARDS */
-    .cards-grid { display: grid; gap: 24px; grid-template-columns: repeat(2, 1fr); margin-top: 3rem; }
-    @media (max-width: 760px) { .cards-grid { grid-template-columns: 1fr; } }
-
-    .feature-card { 
-      border: 1px solid var(--border); border-radius: var(--radius); 
-      background: rgba(139, 92, 246, 0.03); overflow: hidden; 
-      transition: 0.3s ease; display: flex; flex-direction: column; 
-    }
-    .feature-card:hover { transform: translateY(-5px); border-color: var(--accent2); background: rgba(139, 92, 246, 0.08); }
-    .card-media { width: 100%; height: 220px; object-fit: cover; display: block; cursor: zoom-in; border-bottom: 1px solid rgba(139, 92, 246, 0.2); }
-    .card-body { padding: 1.5rem; }
-    .feature-card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; color: #fff; }
-    .feature-card p { color: var(--muted); font-size: 0.95rem; }
-    .tag { 
-      display: inline-block; margin-top: 1rem; padding: 4px 12px; border-radius: 999px; 
-      border: 1px solid var(--accent2); background: rgba(139, 92, 246, 0.15); 
-      color: #e9d5ff; font-size: .75rem; font-weight: 700; text-transform: uppercase; 
+    .btn:hover {
+      transform: translateY(-2px);
     }
 
-    /* ───────────────────────────────────────────────────────────────────────── */
-    /* LIGHTBOX */
-    .lightbox { position: fixed; inset: 0; display: none; place-items: center; background: rgba(0,0,0,0.95); backdrop-filter: blur(15px); z-index: 10000; padding: 20px; }
-    .lightbox.open { display: grid; }
-    .lightbox__panel { 
-      width: min(1100px, 100%); background: #000; border-radius: 20px; 
-      border: 2px solid var(--accent2); box-shadow: 0 0 40px rgba(139, 92, 246, 0.3);
-      overflow: hidden; position: relative; 
+    .btn.primary {
+      border: 0;
+      background:
+        linear-gradient(
+          135deg,
+          var(--accent2),
+          var(--accent-magenta)
+        );
+      box-shadow:
+        0 8px 25px rgba(139,92,246,.3);
     }
-    .lightbox__img { width: 100%; max-height: 80vh; object-fit: contain; }
-    .lightbox__close { position: absolute; top: 15px; right: 15px; background: rgba(139, 92, 246, 0.3); border: 1px solid rgba(255,255,255,0.2); color: white; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.2rem; z-index: 10; display: grid; place-items: center; }
 
-    footer { border-top: 1px solid rgba(139, 92, 246, 0.2); padding: 4rem 0; text-align: center; color: var(--muted); margin-top: 5rem; }
-      
-          /* =========================
-         INLINE FOOTER SYSTEM
-         ========================= */
-      
-      .site-footer {
-        background: #020617;
-        border-top: 1px solid rgba(139, 92, 246, 0.25);
-        padding: 3rem 0 2.5rem;
-        margin-top: 5rem;
-        color: rgba(209,213,219,0.9);
-      }
-      
-      .footer-inner {
-        display: grid;
-        gap: 2.5rem;
-        max-width: 980px;
-        margin: 0 auto;
-        padding: 0 1.25rem;
-      }
-      
-      @media (min-width: 768px) {
-        .footer-inner {
-          grid-template-columns: 2fr 1fr 1.2fr;
-          align-items: start;
-        }
-      }
-      
-      .footer-column {
-        display: flex;
-        flex-direction: column;
-        gap: 0.6rem;
-      }
-      
-      .footer-brand {
-        display: flex;
-        align-items: center;
-        gap: 0.7rem;
-        margin-bottom: 0.5rem;
-      }
-      
-      .footer-logo {
-        width: 34px;
-        height: auto;
-        filter: drop-shadow(0 0 6px rgba(139,92,246,0.5));
-      }
-      
-      .footer-brand-text {
-        font-weight: 600;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        font-size: 0.8rem;
-        color: #fff;
-      }
-      
-      .footer-text {
-        font-size: 0.9rem;
-        line-height: 1.5;
-        color: rgba(209,213,219,0.85);
-      }
-      
-      .footer-meta {
-        font-size: 0.78rem;
-        color: rgba(148,163,184,0.7);
-        margin-top: 0.5rem;
-      }
-      
-      .footer-heading {
-        font-size: 0.95rem;
-        margin-bottom: 0.4rem;
-        color: #fff;
-      }
-      
-      .footer-links {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        font-size: 0.88rem;
-      }
-      
-      .footer-links li + li {
-        margin-top: 0.35rem;
-      }
-      
-      .footer-links a {
-        color: rgba(209,213,219,0.85);
-        text-decoration: none;
-      }
-      
-      .footer-links a:hover {
-        color: var(--accent2);
-        text-decoration: underline;
-      }
-      
-      .footer-social a {
-        font-size: 0.88rem;
-        color: var(--accent);
-        text-decoration: none;
-      }
-      
-      .footer-social a:hover {
-        text-decoration: underline;
-      }
-      /* youtube video specs */
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .pill {
+      padding: 7px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(139,92,246,.08);
+      color: #e9d5ff;
+      font-size: .82rem;
+      text-decoration: none;
+    }
+
+    /* ARTICLE */
+
+    .content-section {
+      padding: 55px 0;
+    }
+
+    .content-section h2 {
+      margin: 0 0 22px;
+      color: #fff;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      line-height: 1.25;
+      letter-spacing: -.03em;
+    }
+
+    .content-section h3 {
+      margin: 0 0 12px;
+      color: #fff;
+      font-size: 1.2rem;
+    }
+
+    .content-section p {
+      color: var(--soft);
+      margin: 0 0 22px;
+      line-height: 1.9;
+    }
+
+    .section-intro {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .content-panel {
+      padding: 32px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: rgba(139,92,246,.035);
+    }
+
+    .content-panel + .content-panel {
+      margin-top: 20px;
+    }
+
+    .research-note {
+      padding: 25px;
+      margin: 28px 0;
+      border-left: 4px solid var(--accent);
+      border-radius: 0 14px 14px 0;
+      background: rgba(34,211,238,.055);
+    }
+
+    .research-note p:last-child {
+      margin-bottom: 0;
+    }
+
+    .research-note h3 {
+      color: #a5f3fc;
+    }
+
+    .content-list {
+      padding-left: 23px;
+      color: var(--soft);
+    }
+
+    .content-list li {
+      margin-bottom: 14px;
+      line-height: 1.8;
+    }
+
+    .section-divider {
+      border: 0;
+      height: 1px;
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(139,92,246,.4),
+          transparent
+        );
+    }
+
+    /* SLIDER */
+
+    .vision-slider {
+      position: relative;
+      margin: 35px auto 60px;
+    }
+
+    .vision-viewport {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(139,92,246,.4);
+      border-radius: var(--radius);
+      background: #000;
+      box-shadow: var(--shadow);
+    }
+
+    .vision-track {
+      display: flex;
+      transition:
+        transform .55s cubic-bezier(.16,1,.3,1);
+    }
+
+    .vision-slide {
+      flex: 0 0 100%;
+      min-width: 0;
+      margin: 0;
+    }
+
+    .vision-slide img {
+      display: block;
+      width: 100%;
+      height: clamp(270px, 48vw, 560px);
+      object-fit: contain;
+      background: #020617;
+      cursor: zoom-in;
+    }
+
+    .vision-slide figcaption {
+      padding: 20px 25px;
+      border-top: 1px solid var(--border);
+      background: rgba(2,6,23,.95);
+      color: var(--soft);
+      font-size: .94rem;
+      line-height: 1.8;
+    }
+
+    .vision-btn {
+      position: absolute;
+      top: 40%;
+      z-index: 5;
+      transform: translateY(-50%);
+      display: grid;
+      place-items: center;
+      width: 45px;
+      height: 45px;
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 50%;
+      color: #fff;
+      background: rgba(30,27,75,.8);
+      cursor: pointer;
+      font-size: 1.5rem;
+    }
+
+    .vision-prev {
+      left: 15px;
+    }
+
+    .vision-next {
+      right: 15px;
+    }
+
+    /* IMAGES AND CARDS */
+
+    .overview-figure {
+      max-width: 900px;
+      margin: 45px auto;
+      text-align: center;
+    }
+
+    .overview-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      cursor: zoom-in;
+    }
+
+    .overview-figure figcaption {
+      max-width: 760px;
+      margin: 18px auto 0;
+      color: var(--muted);
+      font-size: .9rem;
+      line-height: 1.8;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      margin-top: 32px;
+    }
+
+    .feature-card {
+      min-width: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: rgba(139,92,246,.04);
+      transition:
+        transform .2s,
+        border-color .2s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent2);
+    }
+
+    .feature-card-wide {
+      grid-column: 1 / -1;
+    }
+
+    .card-media {
+      display: block;
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      border-bottom: 1px solid var(--border);
+      cursor: zoom-in;
+    }
+
+    .card-body {
+      padding: 24px;
+    }
+
+    .card-body p {
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.8;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-top: 17px;
+      padding: 5px 12px;
+      border: 1px solid var(--accent2);
+      border-radius: 999px;
+      background: rgba(139,92,246,.12);
+      color: #e9d5ff;
+      font-size: .75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
     .video-wrapper {
       position: relative;
-      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-      height: 0;
-      overflow: hidden;
       width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
     }
-    
+
     .video-wrapper iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
+      display: block;
       width: 100%;
       height: 100%;
       border: 0;
+    }
+
+    /* SUPPORT */
+
+    .support-section {
+      padding: 75px 0;
+    }
+
+    .support-card {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 42px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: rgba(2,6,23,.85);
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .support-card h2 {
+      margin: 0 0 20px;
+      font-size: clamp(1.8rem,4vw,2.5rem);
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    .support-card p {
+      color: var(--soft);
+      line-height: 1.8;
+    }
+
+    .support-logo {
+      width: 75px;
+      height: auto;
+      margin-bottom: 15px;
+      filter:
+        drop-shadow(0 0 12px var(--accent2));
+    }
+
+    .support-grid {
+      display: grid;
+      grid-template-columns:
+        repeat(3, minmax(0,1fr));
+      gap: 16px;
+      margin: 30px 0;
+      text-align: left;
+    }
+
+    .support-item {
+      padding: 20px;
+      border-left: 2px solid var(--accent2);
+      background: rgba(139,92,246,.06);
+    }
+
+    .support-item:nth-child(2) {
+      border-color: var(--accent);
+    }
+
+    .support-item:nth-child(3) {
+      border-color: var(--accent-magenta);
+    }
+
+    .support-item h3 {
+      margin: 0 0 10px;
+      color: #fff;
+      font-size: .9rem;
+      text-transform: uppercase;
+    }
+
+    .support-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .donate-btn {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 16px 28px;
+      border-radius: 999px;
+      color: #fff;
+      background:
+        linear-gradient(
+          135deg,
+          var(--accent2),
+          var(--accent-magenta)
+        );
+      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: .08em;
+      box-shadow:
+        0 10px 30px rgba(139,92,246,.3);
+    }
+
+    /* FOOTER */
+
+    .site-footer {
+      width: 100%;
+      padding: 55px 0 42px;
+      margin-top: 50px;
+      border-top:
+        1px solid rgba(139,92,246,.3);
+      background: #020617;
+      color: #cbd5e1;
+      text-align: left;
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1.2fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .footer-column {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .footer-logo {
+      width: 38px;
+      height: auto;
+    }
+
+    .footer-brand-text {
+      color: #fff;
+      font-size: .86rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .09em;
+    }
+
+    .footer-heading {
+      margin: 0 0 6px;
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    .footer-text {
+      max-width: 360px;
+      margin: 0;
+      color: #cbd5e1;
+      font-size: .92rem;
+      line-height: 1.8;
+    }
+
+    .footer-meta {
+      margin: 0;
+      color: #94a3b8;
+      font-size: .82rem;
+    }
+
+    .footer-links {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 9px;
+    }
+
+    .footer-links a,
+    .footer-social a {
+      color: #a5f3fc;
+      text-decoration: none;
+      font-size: .9rem;
+      overflow-wrap: anywhere;
+    }
+
+    .footer-links a:hover,
+    .footer-social a:hover {
+      color: #c4b5fd;
+      text-decoration: underline;
+    }
+
+    /* LIGHTBOX */
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      display: none;
+      place-items: center;
+      padding: 20px;
+      background: rgba(0,0,0,.94);
+    }
+
+    .lightbox.open {
+      display: grid;
+    }
+
+    .lightbox-panel {
+      position: relative;
+      width: min(1100px,100%);
+      padding: 15px;
+      border: 1px solid var(--accent2);
+      border-radius: 18px;
+      background: #020617;
+    }
+
+    .lightbox-img {
+      display: block;
+      width: 100%;
+      max-height: 80vh;
+      object-fit: contain;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      background: #1e1b4b;
+      color: #fff;
+      cursor: pointer;
+      font-size: 1.2rem;
+    }
+
+    /* BACK TO TOP */
+
+    .back-to-top {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 1200;
+      display: none;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      border: 1px solid rgba(139,92,246,.5);
+      border-radius: 50%;
+      background: rgba(30,27,75,.92);
+      color: #fff;
+      cursor: pointer;
+      box-shadow:
+        0 0 22px rgba(139,92,246,.3);
+    }
+
+    .back-to-top.visible {
+      display: grid;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 850px) {
+      .footer-inner {
+        grid-template-columns: 1fr 1fr;
+        gap: 35px;
+      }
+
+      .footer-column:first-child {
+        grid-column: 1 / -1;
+      }
+
+      .support-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .neon-nav-toggle {
+        display: block;
+        z-index: 1002;
+      }
+
+      .neon-nav {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        height: calc(100dvh - 70px);
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        padding: 25px;
+        background:
+          radial-gradient(
+            circle,
+            #1e1b4b,
+            #020617
+          );
+      }
+
+      .neon-nav.active {
+        display: flex;
+      }
+
+      .neon-link {
+        width: min(320px,100%);
+        padding: 15px;
+        font-size: 1.1rem;
+        text-align: center;
+      }
+
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-card-wide {
+        grid-column: auto;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .container,
+      .article-container {
+        width: min(100% - 28px, 1180px);
+      }
+
+      .article-head {
+        padding-top: 50px;
+      }
+
+      .content-section {
+        padding: 42px 0;
+      }
+
+      .content-panel,
+      .support-card {
+        padding: 22px;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-column:first-child {
+        grid-column: auto;
+      }
+
+      .vision-btn {
+        width: 38px;
+        height: 38px;
+      }
+
+      .vision-prev {
+        left: 7px;
+      }
+
+      .vision-next {
+        right: 7px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .vision-track,
+      .btn,
+      .feature-card {
+        transition: none;
+      }
     }
   </style>
 </head>
 
 <body>
+
+  <a class="skip-link" href="#main-content">
+    Skip to content
+  </a>
+
+  <!-- HEADER -->
+
   <header class="neon-header">
-  <div class="container neon-header-inner">
-    <a href="../index.html" class="neon-brand">
-      <img src="../images/negative_white_halocyberlife_logo.png" alt="Halocyberlife logo" class="neon-logo" />
-      <span class="neon-brand-text">Halocyberlife</span>
-    </a>
+    <div class="container neon-header-inner">
 
-    <button class="neon-nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
-      <span></span><span></span><span></span>
-    </button>
+      <a href="../index.html"
+         class="neon-brand"
+         aria-label="HaloCyberLife home">
 
-    <nav id="primary-nav" class="neon-nav">
-      <a href="../index.html" class="neon-link color-blue">Home</a>
-      <a href="../blog.html" class="neon-link color-cyan">Articles</a>
-      <a href="../contact_us.html" class="neon-link color-gold">Contact</a>
-    </nav>
-  </div>
-</header>
+        <img
+          src="../images/negative_white_halocyberlife_logo.png"
+          alt=""
+          class="neon-logo"
+        >
 
-  <main class="container">
-    <section class="article-head">
-        <p style="color:var(--accent); text-transform:uppercase;">BioLumen · Tria</p>
-        <h1>BioLumen™</h1>
-        <p>TRIA-CORE™ Inward-Directed Biophotonic Extraction System</p>
-      <div class="cta">
-        <a class="btn primary" href="./Patent_BioLumen.html">View Provisional Patent ↗</a>
-        <a class="btn" href="#possibilities">View Architecture</a>
-      </div>
+        <span>HaloCyberLife</span>
+      </a>
 
-      <div class="tag-row">
-        <span class="pill"><strong>Input:</strong> Biological Biophotons</span>
-        <span class="pill"><strong>Core:</strong> TRIA-CORE™ Extraction</span>
-        <span class="pill"><strong>Output:</strong> Signal & Energy Conversion</span>
-        <a href="../Patents.html" class="pill"><strong>Patents</strong></a>
-      </div>
-    </section>
+      <button
+        class="neon-nav-toggle"
+        type="button"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+        aria-controls="primary-nav"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
-    <section class="vision-slider">
-      <div class="vision-viewport">
-        <div class="vision-track" id="visionTrack">
-          <figure class="vision-slide">
-            <img src="./Images/blog_images/BioLumen_img/BioLumen_TriaCore_biophotonic_extractions_system2.png">
-            <figcaption>
-            <strong>Biophotonic extraction interface:</strong>
-            Ultraweak photons emitted by organic matter are routed inward through the TRIA-CORE™ geometry for capture, sensing, and energy conversion.
-          </figcaption>
-          </figure>
-          <figure class="vision-slide">
-            <img src="./Images/blog_images/BioLumen_img/Photon_conversion_feedback_module.png">
-            <figcaption>
-            <strong>Photon conversion & feedback:</strong>
-            Captured biophotons are transformed into measurable signals and recoverable energy, enabling continuous monitoring, synchronization, and adaptive system optimization.
-            </figcaption>
-          </figure>
-          <figure class="vision-slide">
-            <img src="./Images/blog_images/BioLumen_img/TriaCore_internal_photon_guidance_layers.png">
-            <figcaption>
-              <strong>Inward photon guidance layers:</strong>
-              Multi-layer optical and resonance structures selectively filter, focus, and route ultraweak biophotons inward toward the TRIA-CORE™ detection and conversion stage.
-            </figcaption>
-          </figure>
-        </div>
-        <button class="vision-btn vision-prev" onclick="moveSlide(-1)">‹</button>
-        <button class="vision-btn vision-next" onclick="moveSlide(1)">›</button>
-      </div>
-    </section>
+      <nav
+        id="primary-nav"
+        class="neon-nav"
+        aria-label="Primary navigation"
+      >
+        <a href="../index.html"
+           class="neon-link color-blue">
+          Home
+        </a>
 
-    <article style="max-width:820px; margin: 4rem auto; text-align:center;">
-       <p style="font-size:1.2rem; color:var(--soft);">Picture a space with no visible lights — no bulbs, no panels, no fixtures. Just surface.</p>
-       <p style="font-size:1.2rem; color:var(--soft);">Then, with a signal — vibration, frequency, or pressure — those surfaces begin to emit light through direct resonance.</p> 
-    </article>
+        <a href="../blog.html"
+           class="neon-link color-cyan">
+          Articles
+        </a>
 
-    <figure style="margin: 4rem auto; text-align: center;">
-      <img 
-        src="./Images/blog_images/BioLumen_img/BioLumen_system_overview.png" 
-        style="width: 80%; border-radius:16px; border:1px solid var(--border);" 
-        alt="BioLumen TRIA-CORE biophotonic extraction system overview"
-      />
-      <figcaption style="margin-top:1.5rem; color:var(--muted); font-size:0.9rem; max-width:700px; margin-inline:auto;">
-        <strong>Figure: BioLumen™ System Overview</strong> — A conceptual representation of inward-directed biophotonic extraction, showing biological photon emission, TRIA-CORE™ capture, guided optical routing, and conversion into measurable signals and recoverable energy.
-      </figcaption>
-    </figure>
+        <a href="../about.html"
+           class="neon-link color-magenta">
+          About
+        </a>
 
-    <section class="content-block" id="biolumen-theory" style="padding: 4rem 0; background: rgba(34, 211, 238, 0.02); border-radius: 24px; border: 1px solid rgba(34, 211, 238, 0.1); margin-top: 4rem;">
-  <div class="container">
-    <h2 style="color: var(--accent); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 2.5rem; text-align: center;">Biological Signal Extraction Theory</h2>
-    
-    <div style="display: grid; gap: 3rem; grid-template-columns: 1fr;">
-      
-      <div class="theory-segment">
-        <h3 style="color: #fff; margin-bottom: 1.2rem;">Ultraweak Photon Emission (UPE) & The TRIA-CORE™ Interface</h3>
-        <p style="font-size: 1.1rem; line-height: 1.8; color: var(--soft);">
-          Every living organism emits a constant stream of ultraweak photons (biophotons) as a byproduct of metabolic oxidative processes and cellular signaling. While these emissions are typically invisible to the naked eye, the **BioLumen™ TRIA-CORE™** system treats these emissions as a viable data and energy stream. 
-        </p>
-        <p style="font-size: 1.1rem; line-height: 1.8; color: var(--soft); margin-top: 1rem;">
-          By utilizing inward-directed collector geometry, the system creates a "photonic funnel." This funnel focuses disparate, low-density emissions into a localized detection plane. This isn't just passive observation; it is active extraction managed by the Integrated System Controller (950), which dynamically filters environmental noise to isolate the true biological signal., which filters out environmental noise to isolate the true biological signal.
-        </p>
-      </div>
-
-      
-
-        <div style="display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); margin: 2rem 0;">
-        <div style="padding: 2rem; background: rgba(2, 6, 23, 0.6); border: 1px solid var(--accent); border-radius: 18px;">
-          <h4 style="color: var(--accent); text-transform: uppercase; margin-bottom: 1rem;">Core Extraction Geometry</h4>
-          <p style="font-size: 0.95rem; color: var(--muted); line-height: 1.6;">
-            The physical deployment utilizes an inward-directed <strong>TRIA-CORE™ collector array</strong>. These high-sensitivity reception points act as the primary interface between organic matter and the detection system. Each collector is tuned to the specific photonic wavelengths of biological oxidative processes, ensuring maximum capture efficiency without invasive contact.
-          </p>
-        </div>
-
-          <div style="padding: 2rem; background: rgba(2, 6, 23, 0.6); border: 1px solid var(--accent2); border-radius: 18px;">
-            <h4 style="color: var(--accent2); text-transform: uppercase; margin-bottom: 1rem;">Energy Conversion & Feedback</h4>
-            <p style="font-size: 0.95rem; color: var(--muted); line-height: 1.6;">
-              Once captured, the TRIA-CORE™ converts ultraweak biophotons into measurable electrical signals. This data is processed through the <strong>System 950 Integrated Controller</strong> to modulate the excitation layers, creating a Bio-Optic Feedback Loop that adapts in real-time to the vitality of the biological source.
-            </p>
-          </div>
-        </div>
-
-        <div style="padding: 2rem; background: rgba(2, 6, 23, 0.6); border: 1px solid var(--accent2); border-radius: 18px;">
-          <h4 style="color: var(--accent2); text-transform: uppercase; margin-bottom: 1rem;">Energy Conversion & Feedback</h4>
-          <p style="font-size: 0.95rem; color: var(--muted); line-height: 1.6;">
-            Once captured, the TRIA-CORE™ converts these biophotons into measurable electrical signals. This data is then fed back into the system to modulate the excitation layers. This creates a <strong>Bio-Optic Feedback Loop</strong>, where the system adapts its extraction intensity in real-time based on the vitality and response of the biological source.
-          </p>
-        </div>
-      </div>
-
-      <div class="accent-border-box" style="border-left: 4px solid var(--accent); padding: 2rem; background: rgba(34, 211, 238, 0.05);">
-        <h3 style="color: #fff; margin-bottom: 1rem;">Algorithmic Synchronization</h3>
-        <p style="color: var(--soft); font-size: 1.1rem; line-height: 1.7;">
-        The complexity of biophotonic signals requires an adaptive software layer. Our implementation handles the 'Phase-Locked Loop' (PLL) synchronization between the multi-stage collector array and the central extraction core. By analyzing the frequency of photon bursts, 
-        the script predicts metabolic shifts, allowing the BioLumen™ system to remain 'in-phase' with the living organism, preventing signal collapse and maximizing energy recovery.  
-        </p>
-      </div>
-
-      <div style="text-align: center; max-width: 750px; margin: 0 auto;">
-        <p style="font-style: italic; color: var(--muted); font-size: 1.2rem;">
-          "BioLumen™ represents a shift from invasive energy consumption to symbiotic energy extraction—listening to the light that life is already speaking."
-        </p>
-      </div>
+        <a href="../contact_us.html"
+           class="neon-link color-gold">
+          Contact
+        </a>
+      </nav>
 
     </div>
-  </div>
-</section>
-    <section id="possibilities">
-      <h2 style="text-align:center; margin-bottom:3rem; text-transform: uppercase; letter-spacing: 0.2em; font-size:1.8rem;">Architecture & Subsystems</h2>
-      <div class="cards-grid">
-        
-       <article class="feature-card">
-        <img class="card-media lightbox-trigger" src="./Images/blog_images/BioLumen_img/Biological_photon_sensing_interface.png" alt="BioLumen biophotonic sensing interface capturing ultraweak biological photons">
-        <div class="card-body">
-          <h3>Biophotonic sensing interface</h3>
-          <p>
-            Non-invasive coupling interfaces capture ultraweak biophotons emitted by living organisms, enabling precise sensing and monitoring without light emission or external illumination.
-          </p>
-          <span class="tag">Photon capture</span>
+  </header>
+
+  <main id="main-content">
+
+    <!-- HERO -->
+
+    <section class="article-head">
+      <div class="article-container">
+
+        <p class="eyebrow">
+          HaloCyberLife · Biophotonic Research
+        </p>
+
+        <h1>BioLumen™</h1>
+
+        <p class="subtitle">
+          TRIA-CORE™ is a speculative
+          research concept exploring
+          the detection and interpretation
+          of ultraweak light emitted
+          by biological systems.
+        </p>
+
+        <span class="status">
+          Independent Concept Research · Not Validated
+        </span>
+
+        <div class="cta">
+
+          <a class="btn primary"
+             href="#research">
+            Explore the Research
+          </a>
+
+          <a class="btn"
+             href="#possibilities">
+            View Concept Gallery
+          </a>
+
+          <a class="btn"
+             href="../Patents.html">
+            Patent Information
+          </a>
+
         </div>
-      </article>
 
-        <article class="feature-card">
-            <img class="card-media lightbox-trigger" src="./Images/blog_images/BioLumen_img/Biophotonic_Harvesting_System.png">
-            <div class="card-body">
-              <h3>Biophotonic Harvesting Core</h3>
-              <p>Inward-directed TRIA-CORE™ collector geometry captures ultraweak photon emissions from organic matter.</p>
-              <span class="tag">Photon extraction</span>
-            </div>
-          </article>
+        <div class="tag-row">
+          <span class="pill">
+            Ultraweak Photon Emission
+          </span>
 
-          <article class="feature-card lightbox-trigger">
-            <img class="card-media" src="./Images/blog_images/BioLumen_img/Photon_Extraction_System.png">
-            <div class="card-body">
-              <h3>Extraction Module</h3>
-              <p>Non-invasive resonance technology for biological energy recovery through biophotonic extraction.</p>
-              <span class="tag">Energy Recovery</span>
-            </div>
-          </article>
+          <span class="pill">
+            Optical Sensing
+          </span>
 
-        <article class="feature-card lightbox-trigger">
-            <img class="card-media" src="./Images/blog_images/BioLumen_img/Biophoton_sensing_feedback_system.png">
-            <div class="card-body">
-              <h3>Bio-Optic Feedback Loop</h3>
-              <p>Advanced fiber-optic arrays route harvested light data back to the central processing unit.</p>
-              <span class="tag">Interface</span>
-            </div>
-          </article>
-          
-        <article class="feature-card lightbox-trigger" style="grid-column: 1 / -1; border-color: var(--accent2);">
-          <div class="video-wrapper">
-            <iframe width="1680" height="793" src="https://www.youtube.com/embed/PLTqaByGeQI" title="BioLumen™ — Biophotonic Light Extraction from Living Plants" frameborder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-          </div>
-        </article>
+          <span class="pill">
+            Signal Processing
+          </span>
 
-        <article class="feature-card lightbox-trigger">
-            <img class="card-media" src="./Images/blog_images/BioLumen_img/Futuristic_biophotonic_extraction_system.png">
-            <div class="card-body">
-              <h3>Cycle Synchronization</h3>
-              <p>Automated adjustment to biological rhythm cycles to maximize peak extraction efficiency.</p>
-              <span class="tag">Continuous Cycle</span>
-            </div>
-          </article>
+          <span class="pill">
+            TRIA-CORE™ Concept
+          </span>
+        </div>
 
-        <article class="feature-card">
-            <img class="card-media lightbox-trigger" src="./Images/blog_images/BioLumen_img/Biophoton_sensing_feedback_system.png">
-            <div class="card-body">
-              <h3>Bio-Optic Feedback Loop</h3>
-              <p>Advanced fiber-optic arrays route harvested light data back to the central processing unit.</p>
-              <span class="tag">Interface</span>
-            </div>
-          </article>
-
-       
       </div>
+    </section>
 
-     <section class="section section-dark" id="support-node" style="padding: 5rem 0; border-top: 1px solid rgba(139, 92, 246, 0.2);">
-  <div class="container" style="display: flex; justify-content: center;">
-    
-    <div class="card card-soft" style="max-width: 900px; width: 100%; background: rgba(2, 6, 23, 0.8); border: 1px solid var(--border); padding: 3rem; border-radius: var(--radius); text-align: center; backdrop-filter: blur(10px);">
-      
-      <div style="margin-bottom: 2rem;">
-        <img src="./Images/BioGlow_images/logo_v4_2.png" alt="Halocyberlife Patent Seal" style="width: 80px; filter: drop-shadow(0 0 15px var(--accent2)); opacity: 0.9;">
-        <p style="font-family: monospace; font-size: 0.75rem; color: var(--accent); margin-top: 1rem; letter-spacing: 4px; text-transform: uppercase;">Node Status: Online</p>
+    <!-- IMAGE SLIDER -->
+
+    <section class="article-container vision-slider"
+             aria-label="BioLumen concept illustrations">
+
+      <div class="vision-viewport">
+
+        <div class="vision-track" id="visionTrack">
+
+          <figure class="vision-slide">
+
+            <img
+              class="lightbox-trigger"
+              src="./Images/blog_images/BioLumen_img/BioLumen_TriaCore_biophotonic_extractions_system2.png"
+              alt="BioLumen TRIA-CORE biophotonic research concept illustration"
+              loading="eager"
+            >
+
+            <figcaption>
+              <strong>BioLumen™ concept:</strong>
+              An illustrative interpretation
+              of biological optical sensing.
+              The image does not represent
+              a validated instrument.
+            </figcaption>
+
+          </figure>
+
+          <figure class="vision-slide">
+
+            <img
+              class="lightbox-trigger"
+              src="./Images/blog_images/BioLumen_img/Photon_conversion_feedback_module.png"
+              alt="Concept illustration of a photon detection and feedback module"
+              loading="lazy"
+            >
+
+            <figcaption>
+              <strong>Photon detection and feedback:</strong>
+              A proposed research direction
+              involving optical measurements,
+              electronic signal processing,
+              and interpretation of
+              low-light observations.
+            </figcaption>
+
+          </figure>
+
+          <figure class="vision-slide">
+
+            <img
+              class="lightbox-trigger"
+              src="./Images/blog_images/BioLumen_img/TriaCore_internal_photon_guidance_layers.png"
+              alt="Concept illustration of BioLumen optical guidance structures"
+              loading="lazy"
+            >
+
+            <figcaption>
+              <strong>Optical guidance concept:</strong>
+              A speculative visualization
+              of potential light-management
+              approaches, not a disclosure
+              of a verified engineering design.
+            </figcaption>
+
+          </figure>
+
+        </div>
+
+        <button
+          class="vision-btn vision-prev"
+          type="button"
+          aria-label="Previous image"
+        >&#8249;</button>
+
+        <button
+          class="vision-btn vision-next"
+          type="button"
+          aria-label="Next image"
+        >&#8250;</button>
+
       </div>
+    </section>
 
-      <h2 style="font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 1rem; color: #fff; text-transform: uppercase; letter-spacing: 2px;">Fuel the Evolution</h2>
-      
-      <p style="color: var(--soft); line-height: 1.6; margin-bottom: 3rem; font-size: 1.1rem; max-width: 700px; margin-inline: auto;">
-        Your contribution secures the legal patent framework and precision manufacturing for the following core milestones:
+    <!-- INTRO -->
+
+    <section id="research"
+             class="content-section article-container">
+
+      <p class="eyebrow">
+        01 · Scientific Foundation
       </p>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-bottom: 3.5rem; text-align: left;">
-        
-        <div style="padding: 1.2rem; border-left: 2px solid var(--accent2); background: rgba(139, 92, 246, 0.05);">
-          <h4 style="color: #fff; font-size: 0.9rem; text-transform: uppercase; margin-bottom: 0.5rem;">Hardware Scaling</h4>
-          <p style="font-size: 0.85rem; color: var(--muted);">Manufacturing 360° Parabolic & Conical stage arrays.</p>
+      <h2>
+        Can Living Systems Be Studied
+        Through Their Faint Light?
+      </h2>
+
+      <p>
+        Living biological material can emit
+        extremely small amounts of light
+        through processes associated
+        with oxidative chemical reactions.
+        This phenomenon is commonly
+        described as ultraweak photon
+        emission, or UPE.
+      </p>
+
+      <p>
+        These emissions are generally
+        far below ordinary visual
+        detection thresholds.
+        Researchers use specialized
+        low-light instruments
+        to investigate them.
+      </p>
+
+      <p>
+        BioLumen™ explores whether
+        future optical sensing systems
+        could use such observations
+        as one source of information
+        about biological activity.
+      </p>
+
+      <div class="research-note">
+
+        <h3>
+          An Important Scientific Distinction
+        </h3>
+
+        <p>
+          Detecting photons is not the same
+          as harvesting useful electrical
+          power from them.
+          Ultraweak biological emissions
+          have very low photon flux.
+          Their potential as a practical
+          energy source is unproven.
+        </p>
+
+        <p>
+          BioLumen's proposed
+          energy-conversion applications
+          therefore remain speculative.
+          No net energy production,
+          extraction efficiency,
+          or operational performance
+          is claimed.
+        </p>
+
+      </div>
+
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- RESEARCH THEORY -->
+
+    <section class="content-section article-container"
+             id="biolumen-theory">
+
+      <p class="eyebrow">
+        02 · Research Questions
+      </p>
+
+      <h2>
+        Understanding Ultraweak
+        Photon Emission
+      </h2>
+
+      <div class="content-panel">
+
+        <h3>
+          What Produces Biological
+          Photon Emissions?
+        </h3>
+
+        <p>
+          Some biochemical reactions,
+          including reactions involving
+          reactive oxygen species,
+          can produce electronically
+          excited molecules.
+          When certain excited states
+          relax, photons may be emitted.
+        </p>
+
+        <p>
+          The intensity and characteristics
+          of ultraweak emission can vary
+          with biological material,
+          environmental conditions,
+          metabolic processes,
+          and measurement methods.
+        </p>
+
+        <p>
+          Because the signal is extremely
+          faint, measurements must be
+          interpreted carefully.
+          Ambient light, detector noise,
+          sample preparation, and
+          experimental controls
+          can affect the results.
+        </p>
+
+      </div>
+
+      <div class="content-panel">
+
+        <h3>
+          Why Is Detection Difficult?
+        </h3>
+
+        <p>
+          Low-light detection requires
+          instrumentation capable of
+          distinguishing rare photon
+          events from background noise.
+        </p>
+
+        <p>
+          Relevant challenges include
+          sensor sensitivity,
+          dark counts,
+          optical losses,
+          calibration,
+          environmental interference,
+          and repeatability.
+        </p>
+
+        <p>
+          A useful measurement system
+          would need to show that
+          detected signals genuinely
+          originate from the sample
+          rather than the equipment
+          or surrounding environment.
+        </p>
+
+      </div>
+
+      <div class="content-panel">
+
+        <h3>
+          Could Optical Signals
+          Support Biological Monitoring?
+        </h3>
+
+        <p>
+          BioLumen considers the
+          possibility that optical
+          observations could eventually
+          complement other forms
+          of biological measurement.
+        </p>
+
+        <p>
+          Establishing a reliable
+          relationship between photon
+          emission and a biological
+          condition would require
+          controlled experiments,
+          comparison with established
+          measurements, and
+          independent validation.
+        </p>
+
+        <p>
+          A photon signal alone
+          should not be interpreted
+          as a definitive measure
+          of health, vitality,
+          or cellular condition.
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- OVERVIEW IMAGE -->
+
+    <div class="article-container">
+
+      <figure class="overview-figure">
+
+        <img
+          class="lightbox-trigger"
+          src="./Images/blog_images/BioLumen_img/BioLumen_system_overview.png"
+          alt="BioLumen system overview concept artwork"
+          loading="lazy"
+        >
+
+        <figcaption>
+          <strong>BioLumen™ System Overview.</strong>
+          A conceptual visualization
+          of the proposed research area.
+          The illustration should not
+          be interpreted as a tested
+          device or verified
+          energy-conversion process.
+        </figcaption>
+
+      </figure>
+
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- CONCEPT GALLERY -->
+
+    <section id="possibilities"
+             class="content-section article-container">
+
+      <p class="eyebrow">
+        03 · Concept Gallery
+      </p>
+
+      <h2>
+        Exploring the BioLumen™ Vision
+      </h2>
+
+      <p>
+        The following illustrations
+        explore possible directions
+        for optical sensing,
+        low-light measurement,
+        and future biological
+        research interfaces.
+      </p>
+
+      <p>
+        These images are concept art.
+        They do not establish
+        that the illustrated
+        devices have been built,
+        tested, or validated.
+      </p>
+
+      <div class="cards-grid">
+
+        <article class="feature-card">
+
+          <img
+            class="card-media lightbox-trigger"
+            src="./Images/blog_images/BioLumen_img/Biological_photon_sensing_interface.png"
+            alt="Biological photon sensing concept"
+            loading="lazy"
+          >
+
+          <div class="card-body">
+            <h3>
+              Biological Photon Sensing
+            </h3>
+
+            <p>
+              A proposed direction
+              for investigating
+              faint biological
+              light emissions.
+            </p>
+
+            <span class="tag">
+              Optical Research
+            </span>
+          </div>
+
+        </article>
+
+        <article class="feature-card">
+
+          <img
+            class="card-media lightbox-trigger"
+            src="./Images/blog_images/BioLumen_img/Biophotonic_Harvesting_System.png"
+            alt="Speculative BioLumen photon harvesting concept"
+            loading="lazy"
+          >
+
+          <div class="card-body">
+            <h3>
+              Photon Collection Concepts
+            </h3>
+
+            <p>
+              Exploring whether
+              low-light optical
+              observations could
+              be collected and
+              characterized reliably.
+            </p>
+
+            <span class="tag">
+              Concept Research
+            </span>
+          </div>
+
+        </article>
+
+        <article class="feature-card">
+
+          <img
+            class="card-media lightbox-trigger"
+            src="./Images/blog_images/BioLumen_img/Photon_Extraction_System.png"
+            alt="BioLumen speculative photon extraction visualization"
+            loading="lazy"
+          >
+
+          <div class="card-body">
+            <h3>
+              Optical Signal Investigation
+            </h3>
+
+            <p>
+              Considering the
+              relationship between
+              photon detection,
+              measurement electronics,
+              and signal interpretation.
+            </p>
+
+            <span class="tag">
+              Signal Detection
+            </span>
+          </div>
+
+        </article>
+
+        <article class="feature-card">
+
+          <img
+            class="card-media lightbox-trigger"
+            src="./Images/blog_images/BioLumen_img/Biophoton_sensing_feedback_system.png"
+            alt="BioLumen feedback system concept illustration"
+            loading="lazy"
+          >
+
+          <div class="card-body">
+            <h3>
+              Measurement Feedback
+            </h3>
+
+            <p>
+              Exploring how
+              repeatable measurements
+              and environmental
+              controls could improve
+              experimental interpretation.
+            </p>
+
+            <span class="tag">
+              Measurement Systems
+            </span>
+          </div>
+
+        </article>
+
+        <!-- VIDEO -->
+
+        <article class="feature-card feature-card-wide">
+
+          <div class="video-wrapper">
+
+            <iframe
+              src="https://www.youtube.com/embed/PLTqaByGeQI"
+              title="BioLumen biophotonic research concept video"
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+
+          </div>
+
+          <div class="card-body">
+
+            <h3>
+              BioLumen™ Concept Film
+            </h3>
+
+            <p>
+              A visual exploration
+              of the BioLumen idea.
+              Illustrative content
+              is not experimental
+              evidence or proof
+              of energy recovery.
+            </p>
+
+          </div>
+
+        </article>
+
+        <article class="feature-card">
+
+          <img
+            class="card-media lightbox-trigger"
+            src="./Images/blog_images/BioLumen_img/Futuristic_biophotonic_extraction_system.png"
+            alt="Futuristic BioLumen research concept illustration"
+            loading="lazy"
+          >
+
+          <div class="card-body">
+
+            <h3>
+              Future Research Interfaces
+            </h3>
+
+            <p>
+              Imagining how optical
+              sensing concepts
+              might inform
+              future laboratory
+              research tools.
+            </p>
+
+            <span class="tag">
+              Future Applications
+            </span>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- LIMITATIONS -->
+
+    <section class="content-section article-container"
+             id="limitations">
+
+      <p class="eyebrow">
+        04 · Scientific Limitations
+      </p>
+
+      <h2>
+        What Would Need to Be Proven?
+      </h2>
+
+      <p>
+        BioLumen remains an independent
+        speculative research concept.
+        Several fundamental questions
+        would need to be answered
+        before practical claims
+        could be supported.
+      </p>
+
+      <ul class="content-list">
+
+        <li>
+          <strong>Signal authenticity:</strong>
+          Can photon measurements
+          be distinguished reliably
+          from detector noise
+          and environmental light?
+        </li>
+
+        <li>
+          <strong>Repeatability:</strong>
+          Can observations be
+          reproduced across
+          controlled experiments?
+        </li>
+
+        <li>
+          <strong>Biological relevance:</strong>
+          Do changes in measured
+          emission correspond
+          consistently with
+          independently measured
+          biological processes?
+        </li>
+
+        <li>
+          <strong>Energy feasibility:</strong>
+          Is the available photon
+          energy sufficient
+          for any meaningful
+          electrical output
+          after conversion losses?
+        </li>
+
+        <li>
+          <strong>System reliability:</strong>
+          Can a proposed instrument
+          operate safely and
+          consistently under
+          realistic conditions?
+        </li>
+
+      </ul>
+
+      <div class="research-note">
+
+        <h3>
+          Research Status
+        </h3>
+
+        <p>
+          No validated prototype
+          performance, clinical
+          diagnostic capability,
+          net energy generation,
+          or commercially available
+          BioLumen product
+          is claimed here.
+        </p>
+
+        <p>
+          The TRIA-CORE™ name
+          identifies HaloCyberLife's
+          proposed research concept,
+          not an independently
+          established scientific
+          instrument category.
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- RESEARCH ROADMAP -->
+
+    <section class="content-section article-container">
+
+      <p class="eyebrow">
+        05 · Proposed Research Path
+      </p>
+
+      <h2>
+        From Concept to Evidence
+      </h2>
+
+      <div class="content-panel">
+
+        <h3>
+          Phase One: Literature Review
+        </h3>
+
+        <p>
+          Examine published research
+          on ultraweak photon emission,
+          low-light instrumentation,
+          biological oxidation,
+          and experimental controls.
+        </p>
+
+      </div>
+
+      <div class="content-panel">
+
+        <h3>
+          Phase Two: Measurement Design
+        </h3>
+
+        <p>
+          Define the measurable
+          quantities, appropriate
+          control conditions,
+          calibration requirements,
+          and criteria for
+          interpreting results.
+        </p>
+
+      </div>
+
+      <div class="content-panel">
+
+        <h3>
+          Phase Three: Controlled Testing
+        </h3>
+
+        <p>
+          If suitable resources
+          become available,
+          investigate limited
+          non-clinical experiments
+          with appropriate
+          instrumentation
+          and documentation.
+        </p>
+
+      </div>
+
+      <div class="content-panel">
+
+        <h3>
+          Phase Four: Independent Review
+        </h3>
+
+        <p>
+          Evaluate whether
+          reproducible results
+          justify additional
+          research or more
+          specialized development.
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- SUPPORT -->
+
+    <section class="support-section"
+             id="support-node">
+
+      <div class="article-container">
+
+        <div class="support-card">
+
+          <img
+            src="./Images/BioGlow_images/logo_v4_2.png"
+            alt="HaloCyberLife research emblem"
+            class="support-logo"
+            loading="lazy"
+          >
+
+          <p class="eyebrow">
+            Support Independent Research
+          </p>
+
+          <h2>
+            Fuel the Evolution
+          </h2>
+
+          <p>
+            HaloCyberLife explores
+            original ideas at the
+            intersection of
+            biological systems,
+            sensing technology,
+            and speculative
+            engineering.
+          </p>
+
+          <p>
+            Contributions can help
+            support continued
+            concept development,
+            research preparation,
+            and related
+            project expenses.
+          </p>
+
+          <div class="support-grid">
+
+            <div class="support-item">
+
+              <h3>
+                Research Preparation
+              </h3>
+
+              <p>
+                Literature review,
+                documentation,
+                and feasibility analysis.
+              </p>
+
+            </div>
+
+            <div class="support-item">
+
+              <h3>
+                Experimental Planning
+              </h3>
+
+              <p>
+                Exploring appropriate
+                measurement methods
+                and testing requirements.
+              </p>
+
+            </div>
+
+            <div class="support-item">
+
+              <h3>
+                Project Development
+              </h3>
+
+              <p>
+                Supporting continued
+                independent
+                research activity.
+              </p>
+
+            </div>
+
+          </div>
+
+          <a
+            href="https://donate.stripe.com/cNi7sLeuEgok6o01m25Rm00"
+            class="donate-btn"
+            rel="noopener noreferrer"
+          >
+            SUPPORT BIOLUMEN RESEARCH
+          </a>
+
+          <p style="
+            margin:18px 0 0;
+            color:var(--muted);
+            font-size:.8rem;
+          ">
+            Payment processing
+            through Stripe.
+            Contributions do not
+            represent an investment
+            or a guarantee of
+            technical results.
+          </p>
+
         </div>
 
-        <div style="padding: 1.2rem; border-left: 2px solid var(--accent); background: rgba(34, 211, 238, 0.05);">
-          <h4 style="color: #fff; font-size: 0.9rem; text-transform: uppercase; margin-bottom: 0.5rem;">Resonance Testing</h4>
-          <p style="font-size: 0.85rem; color: var(--muted);">Optimizing Electromagnetic & Sonic Resonance modules.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FULL-WIDTH FOOTER -->
+
+  <footer class="site-footer">
+
+    <div class="container footer-inner">
+
+      <div class="footer-column">
+
+        <div class="footer-brand">
+
+          <img
+            src="../images/negative_white_halocyberlife_logo.png"
+            alt=""
+            class="footer-logo"
+          >
+
+          <span class="footer-brand-text">
+            HaloCyberLife
+          </span>
+
         </div>
 
-        <div style="padding: 1.2rem; border-left: 2px solid var(--accent-magenta); background: rgba(217, 70, 239, 0.05);">
-          <h4 style="color: #fff; font-size: 0.9rem; text-transform: uppercase; margin-bottom: 0.5rem;">Infrastructure</h4>
-          <p style="font-size: 0.85rem; color: var(--muted);">Legal patent protection and Micro-Energy conversion.</p>
+        <p class="footer-text">
+          Independent research concepts
+          exploring future technology,
+          environmental systems,
+          and speculative engineering.
+        </p>
+
+        <p class="footer-meta">
+          © <span id="year">2026</span>
+          HaloCyberLife.com
+        </p>
+
+      </div>
+
+      <div class="footer-column">
+
+        <h3 class="footer-heading">
+          Navigate
+        </h3>
+
+        <ul class="footer-links">
+
+          <li>
+            <a href="../index.html#insights">
+              Featured Articles
+            </a>
+          </li>
+
+          <li>
+            <a href="../blog.html">
+              All Articles
+            </a>
+          </li>
+
+          <li>
+            <a href="../about.html">
+              About
+            </a>
+          </li>
+
+          <li>
+            <a href="../contact_us.html">
+              Contact
+            </a>
+          </li>
+
+          <li>
+            <a href="../Privacy%20%26%20Terms.html">
+              Privacy &amp; Terms
+            </a>
+          </li>
+
+          <li>
+            <a href="../sitemap.xml">
+              Sitemap
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+      <div class="footer-column">
+
+        <h3 class="footer-heading">
+          Contact &amp; Social
+        </h3>
+
+        <div class="footer-social">
+
+          <a href="mailto:luisamaya@halocyberlife.com">
+            luisamaya@halocyberlife.com
+          </a>
+
+        </div>
+
+        <div class="footer-social">
+
+          <a href="mailto:info@halocyberlife.com">
+            info@halocyberlife.com
+          </a>
+
+        </div>
+
+        <div class="footer-social">
+
+          <a
+            href="https://www.linkedin.com/company/halocyberlife/"
+            rel="noopener noreferrer"
+          >
+            LinkedIn
+          </a>
+
+        </div>
+
+        <div class="footer-social">
+
+          <a
+            href="https://www.youtube.com/@Halocyberlife"
+            rel="noopener noreferrer"
+          >
+            YouTube
+          </a>
+
         </div>
 
       </div>
 
-      <a href="https://donate.stripe.com/cNi7sLeuEgok6o01m25Rm00" 
-         style="display: inline-block; background: linear-gradient(135deg, var(--accent2), var(--accent-magenta)); color: white; padding: 1.2rem 3rem; text-decoration: none; font-weight: bold; border-radius: 99px; letter-spacing: 2px; transition: 0.3s; box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);"
-         onmouseover="this.style.transform='scale(1.05)'" 
-         onmouseout="this.style.transform='scale(1)'">
-        FUND THE EXTRACTION CORE
-      </a>
-      
-      <p style="font-size: 0.75rem; color: var(--muted); margin-top: 1.5rem; letter-spacing: 1px;">Secure processing via Stripe Gateway</p>
+    </div>
+
+  </footer>
+
+  <!-- SINGLE LIGHTBOX -->
+
+  <div
+    class="lightbox"
+    id="lightbox"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Expanded concept image"
+    aria-hidden="true"
+  >
+
+    <div class="lightbox-panel">
+
+      <button
+        class="lightbox-close"
+        type="button"
+        aria-label="Close image"
+      >
+        &#10005;
+      </button>
+
+      <img
+        id="lightboxImg"
+        class="lightbox-img"
+        alt=""
+      >
+
     </div>
 
   </div>
-</section>
 
-     <!-- FOOTER -->
-    <footer class="site-footer">
-      <div class="container footer-inner">
-        <div class="footer-column">
-          <div class="footer-brand">
-            <img src="../images/negative_white_halocyberlife_logo.png" alt="Halocyberlife logo small" class="footer-logo" />
-            <span class="footer-brand-text">Halocyberlife</span>
-          </div>
-          <p class="footer-text">Esoteric insights, experimental tech concepts, and future-conscious craftsmanship.</p>
-          <p class="footer-meta">v2.0.0 · © <span id="year"></span> Halocyberlife.com</p>
-        </div>
-  
-        <div class="footer-column">
-          <h3 class="footer-heading">Navigate</h3>
-          <ul class="footer-links">
-            <li><a href="../index.html#insights">Latest Insights</a></li>
-            <li><a href="../blog.html">All Articles</a></li>
-            <li><a href="../about.html">About</a></li>
-            <li><a href="../contact_us.html">Contact</a></li>
-            <li><a href="../Privacy & Terms.html">Privacy &amp; Terms</a></li>
-          </ul>
-        </div>
-  
-         <div class="footer-column">
-          <h3 class="footer-heading">Contact & Social</h3>
-          <div class="footer-social">
-            <a href="https://www.youtube.com/@Halocyberlife">YouTube.com/@Halocyberlife</a>
-          </div>
-          
-          <div class="footer-social">
-            <a href="mailto:luisamaya@halocyberlife.com">Email: luisamaya@halocyberlife.com</a>
-          </div>
-          
-          <div class="footer-social">
-            <a href="mailto:info@halocyberlife.com">Email: info@halocyberlife.com</a>
-          </div>
-          
-          <div class="footer-social">
-            <a href="https://www.linkedin.com/in/halocyberlife/">LinkedIn</a>
-          </div>
-        </div>
-    
-      <button class="back-to-top" aria-label="Back to top">↑</button>
-    </footer>
-  </main>
+  <button
+    class="back-to-top"
+    type="button"
+    aria-label="Back to top"
+  >
+    &#8593;
+  </button>
 
-  <div class="lightbox" id="lightbox">
-    <button class="lightbox__close">✕</button>
-    <div class="lightbox__panel">
-      <img src="" id="lightboxImg" class="lightbox__img">
-    </div>
-  </div>
-    <div class="lightbox" id="lightbox">
-      <button class="lightbox__close" aria-label="Close image">✕</button>
-      <img id="lightboxImg" alt="" />
-    </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
 
-<div class="lightbox" id="lightbox">
-  <button class="lightbox__close" aria-label="Close image">✕</button>
-  <div class="lightbox__panel">
-    <img src="" id="lightboxImg" class="lightbox__img">
-  </div>
-</div>
+      /* SLIDER */
 
-<script>
-  /* =========================================================
-     MASTER JS — BioGlow Page
-     Slider • Lightbox • Mobile Nav • Back To Top
-     ========================================================= */
+      const track =
+        document.getElementById("visionTrack");
 
-  // 1. GLOBAL SLIDER LOGIC (Must be outside DOMContentLoaded)
-  let index = 0;
-  function moveSlide(n) {
-    const track = document.getElementById('visionTrack');
-    const slides = document.querySelectorAll('.vision-slide');
-    if (!track || slides.length === 0) return;
-    index = (index + n + slides.length) % slides.length;
-    track.style.transform = `translateX(-${index * 100}%)`;
-  }
+      const slides =
+        document.querySelectorAll(".vision-slide");
 
-  document.addEventListener('DOMContentLoaded', () => {
-    
-    // Auto-advance slider every 6 seconds
-    setInterval(() => moveSlide(1), 6000);
+      const prev =
+        document.querySelector(".vision-prev");
 
-    // 2. LIGHTBOX SYSTEM
-    const lb = document.getElementById('lightbox');
-    const lbImg = document.getElementById('lightboxImg');
-    const closeBtn = document.querySelector('.lightbox__close');
+      const next =
+        document.querySelector(".vision-next");
 
-    document.querySelectorAll('.lightbox-trigger').forEach(img => {
-      img.addEventListener('click', () => {
-        lb.classList.add('open');
-        lbImg.src = img.src;
-        document.body.style.overflow = 'hidden';
+      let slideIndex = 0;
+
+      function moveSlide(amount) {
+        if (!track || !slides.length) return;
+
+        slideIndex =
+          (slideIndex + amount + slides.length)
+          % slides.length;
+
+        track.style.transform =
+          `translateX(-${slideIndex * 100}%)`;
+      }
+
+      if (prev) {
+        prev.addEventListener("click", () => {
+          moveSlide(-1);
+        });
+      }
+
+      if (next) {
+        next.addEventListener("click", () => {
+          moveSlide(1);
+        });
+      }
+
+      const reducedMotion =
+        window.matchMedia(
+          "(prefers-reduced-motion: reduce)"
+        ).matches;
+
+      if (!reducedMotion && slides.length > 1) {
+        setInterval(() => {
+          if (
+            !document.hidden &&
+            !document.getElementById("lightbox")
+              .classList.contains("open")
+          ) {
+            moveSlide(1);
+          }
+        }, 6000);
+      }
+
+      /* LIGHTBOX */
+
+      const lightbox =
+        document.getElementById("lightbox");
+
+      const lightboxImg =
+        document.getElementById("lightboxImg");
+
+      const closeButton =
+        document.querySelector(".lightbox-close");
+
+      let previousFocus = null;
+
+      function openLightbox(image) {
+        previousFocus = document.activeElement;
+
+        lightboxImg.src = image.src;
+        lightboxImg.alt = image.alt || "";
+
+        lightbox.classList.add("open");
+        lightbox.setAttribute(
+          "aria-hidden", "false"
+        );
+
+        document.body.style.overflow = "hidden";
+        closeButton.focus();
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove("open");
+        lightbox.setAttribute(
+          "aria-hidden", "true"
+        );
+
+        lightboxImg.removeAttribute("src");
+        document.body.style.overflow = "";
+
+        if (previousFocus) {
+          previousFocus.focus();
+        }
+      }
+
+      document.querySelectorAll(
+        "img.lightbox-trigger"
+      ).forEach(image => {
+
+        image.setAttribute("tabindex", "0");
+        image.setAttribute("role", "button");
+
+        image.addEventListener("click", () => {
+          openLightbox(image);
+        });
+
+        image.addEventListener("keydown", event => {
+          if (
+            event.key === "Enter" ||
+            event.key === " "
+          ) {
+            event.preventDefault();
+            openLightbox(image);
+          }
+        });
+
       });
+
+      closeButton.addEventListener(
+        "click", closeLightbox
+      );
+
+      lightbox.addEventListener("click", event => {
+        if (event.target === lightbox) {
+          closeLightbox();
+        }
+      });
+
+      document.addEventListener("keydown", event => {
+        if (
+          event.key === "Escape" &&
+          lightbox.classList.contains("open")
+        ) {
+          closeLightbox();
+        }
+
+        if (
+          event.key === "Tab" &&
+          lightbox.classList.contains("open")
+        ) {
+          event.preventDefault();
+          closeButton.focus();
+        }
+      });
+
+      /* MOBILE NAV */
+
+      const navToggle =
+        document.querySelector(".neon-nav-toggle");
+
+      const nav =
+        document.getElementById("primary-nav");
+
+      function closeNav() {
+        nav.classList.remove("active");
+
+        navToggle.setAttribute(
+          "aria-expanded", "false"
+        );
+
+        document.body.style.overflow = "";
+      }
+
+      navToggle.addEventListener("click", () => {
+
+        const isOpen =
+          nav.classList.toggle("active");
+
+        navToggle.setAttribute(
+          "aria-expanded",
+          String(isOpen)
+        );
+
+        document.body.style.overflow =
+          isOpen ? "hidden" : "";
+
+      });
+
+      nav.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", closeNav);
+      });
+
+      document.addEventListener("keydown", event => {
+        if (
+          event.key === "Escape" &&
+          nav.classList.contains("active")
+        ) {
+          closeNav();
+          navToggle.focus();
+        }
+      });
+
+      /* BACK TO TOP */
+
+      const backToTop =
+        document.querySelector(".back-to-top");
+
+      function updateBackToTop() {
+        backToTop.classList.toggle(
+          "visible",
+          window.scrollY > 600
+        );
+      }
+
+      window.addEventListener(
+        "scroll",
+        updateBackToTop,
+        { passive: true }
+      );
+
+      updateBackToTop();
+
+      backToTop.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: reducedMotion
+            ? "instant"
+            : "smooth"
+        });
+      });
+
+      /* FOOTER YEAR */
+
+      const year =
+        document.getElementById("year");
+
+      if (year) {
+        year.textContent =
+          new Date().getFullYear();
+      }
+
     });
+  </script>
 
-    const closeLightbox = () => {
-      lb.classList.remove('open');
-      lbImg.src = '';
-      document.body.style.overflow = '';
-    };
-
-    if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
-    if (lb) lb.addEventListener('click', (e) => { if (e.target === lb) closeLightbox(); });
-
-    // 3. MOBILE NAV TOGGLE
-    const navToggle = document.querySelector('.neon-nav-toggle');
-    const nav = document.getElementById('primary-nav');
-
-    if (navToggle && nav) {
-      navToggle.addEventListener('click', () => {
-        const isOpen = nav.classList.toggle('active');
-        navToggle.setAttribute('aria-expanded', isOpen);
-        document.body.style.overflow = isOpen ? 'hidden' : '';
-      });
-    }
-
-    // 4. BACK TO TOP
-    const backToTop = document.querySelector('.back-to-top');
-    if (backToTop) {
-      window.addEventListener('scroll', () => {
-        backToTop.style.display = window.scrollY > 600 ? 'grid' : 'none';
-      });
-      backToTop.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-    }
-
-    // Set dynamic year in footer
-    const yearEl = document.getElementById('year');
-    if (yearEl) yearEl.textContent = new Date().getFullYear();
-  });
-</script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
