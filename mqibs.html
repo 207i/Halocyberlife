@@ -439,6 +439,97 @@ footer {
 
   .vision-quote { padding:20px; }
 }
+
+
+/* HALOCYBERLIFE — CLEAN SITE NAVIGATION */
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(8,20,33,.97);
+  backdrop-filter: blur(12px);
+}
+
+.topbar .brand {
+  color: #f3f8fc;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.topbar nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.topbar nav a {
+  padding: 9px 16px;
+  border: 1px solid rgba(69,221,247,.35);
+  border-radius: 999px;
+  color: #45ddf7;
+  font-size: 12px;
+  font-weight: 750;
+  text-decoration: none;
+  transition: background .2s, color .2s;
+}
+
+.topbar nav a:hover {
+  background: rgba(69,221,247,.12);
+  color: #fff;
+}
+
+.topbar nav a:last-child {
+  color: #ffad63;
+  border-color: rgba(255,173,99,.45);
+}
+
+.menu-toggle {
+  display: none;
+  border: 1px solid #294660;
+  border-radius: 9px;
+  padding: 9px 11px;
+  background: #101e30;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 23px;
+  height: 2px;
+  margin: 5px 0;
+  background: #45ddf7;
+}
+
+@media (max-width: 780px) {
+  .topbar-inner {
+    flex-wrap: wrap;
+  }
+
+  .menu-toggle {
+    display: block;
+    margin-left: auto;
+  }
+
+  .topbar nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    padding: 12px 0;
+  }
+
+  .topbar nav.open {
+    display: flex;
+  }
+
+  .topbar nav a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+  }
+}
+
 </style>
 </head>
 
