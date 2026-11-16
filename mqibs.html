@@ -4,14 +4,48 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07101d">
+<meta name="author" content="Luis Amaya">
+<meta name="robots" content="index, follow">
 
-<title>QIBS | Mini Quantum Induction Battery System</title>
+<title>QIBS | Mini Quantum Induction Battery System | HaloCyberLife</title>
 
-<meta name="description"
-content="Explore the Mini Quantum Induction Battery System (QIBS): an original concept investigating miniature induction generators, supercapacitor energy management, scalable electronic modules, and the possibility of reducing or eliminating external charging under suitable conditions.">
+<meta name="description" content="Explore QIBS, the Mini Quantum Induction Battery System: Luis Amaya's original concept investigating miniature induction generators, actuator-controlled rotors, supercapacitor energy management, modular power systems, and scientific validation.">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="HaloCyberLife">
+<meta property="og:title" content="QIBS — Mini Quantum Induction Battery System">
+<meta property="og:description" content="From an original miniature magnetic generator concept to engineering research, modular energy harvesting, and experimental validation.">
+
+<!--
+  MASTER IMAGE DIRECTORY:
+  blog/Images/QIBS/
+
+  THIS HTML IS ASSUMED TO LIVE INSIDE:
+  blog/
+
+  THEREFORE IMAGE SOURCES USE:
+  Images/QIBS/filename.webp
+
+  REQUIRED IMAGE FILES:
+
+  01 QIBS Mini Quantum Battery Exploded View.webp
+  02 QIBS Lift-and-Disengage Control Infographic.webp
+  03 QIBS Three-Supercapacitor Energy Architecture.webp
+  04 QIBS Quantum Battery Research Dashboard.webp
+  05 QIBS Finished Technology Concept.webp
+  06 QIBS Multi-Unit Induction Power Platform.webp
+  07 QIBS Modular Circuit Board.webp
+  08 QIBS Future Device Applications.webp
+
+  Upload any missing files with these exact names.
+
+  If this HTML is instead published at the website root,
+  change IMAGE_BASE below to "blog/Images/QIBS/".
+-->
 
 <style>
-:root {
+:root{
   --bg:#07101d;
   --panel:#101e30;
   --panel2:#14263b;
@@ -23,62 +57,131 @@ content="Explore the Mini Quantum Induction Battery System (QIBS): an original c
   --green:#72e5b4;
 }
 
-* { box-sizing:border-box; }
+*{box-sizing:border-box}
 
-html { scroll-behavior:smooth; }
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:90px;
+}
 
-body {
+body{
   margin:0;
   background:var(--bg);
   color:var(--white);
   font:16px/1.75 system-ui,-apple-system,
-    BlinkMacSystemFont,"Segoe UI",sans-serif;
+       BlinkMacSystemFont,"Segoe UI",sans-serif;
 }
 
-a { color:var(--cyan); }
+body.menu-open{overflow:hidden}
 
-.container {
+a{color:var(--cyan)}
+img{max-width:100%}
+button{font:inherit}
+
+:focus-visible{
+  outline:2px solid var(--cyan);
+  outline-offset:4px;
+}
+
+.container{
   width:min(1120px,calc(100% - 36px));
   margin:auto;
 }
 
-.topbar {
-  border-bottom:1px solid var(--line);
-  background:#081421;
-  padding:16px 0;
+.skip-link{
+  position:absolute;
+  top:-100px;
+  left:15px;
+  z-index:3000;
+  padding:10px 16px;
+  background:var(--cyan);
+  color:var(--bg);
+  border-radius:8px;
 }
 
-.topbar-inner {
+.skip-link:focus{top:12px}
+
+/* =====================================
+   HALOCYBERLIFE SITE HEADER
+   ===================================== */
+
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  border-bottom:1px solid var(--line);
+  background:rgba(8,20,33,.97);
+  backdrop-filter:blur(12px);
+}
+
+.topbar-inner{
+  min-height:76px;
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:20px;
-  flex-wrap:wrap;
 }
 
-.brand {
+.brand{
+  color:var(--white);
   font-size:17px;
   font-weight:800;
   letter-spacing:.05em;
-}
-
-.brand span { color:var(--cyan); }
-
-.topbar nav {
-  display:flex;
-  gap:18px;
-  flex-wrap:wrap;
-}
-
-.topbar nav a {
-  color:var(--muted);
   text-decoration:none;
-  font-size:13px;
+  white-space:nowrap;
 }
 
-.topbar nav a:hover { color:var(--cyan); }
+.brand span{color:var(--cyan)}
 
-.hero {
+.topbar nav{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.topbar nav a{
+  padding:9px 16px;
+  border:1px solid rgba(69,221,247,.35);
+  border-radius:999px;
+  color:var(--cyan);
+  font-size:12px;
+  font-weight:750;
+  text-decoration:none;
+  transition:background .2s,color .2s;
+}
+
+.topbar nav a:hover{
+  background:rgba(69,221,247,.12);
+  color:white;
+}
+
+.topbar nav a:last-child{
+  color:var(--orange);
+  border-color:rgba(255,173,99,.45);
+}
+
+.menu-toggle{
+  display:none;
+  border:1px solid var(--line);
+  border-radius:9px;
+  padding:9px 11px;
+  background:var(--panel);
+  cursor:pointer;
+}
+
+.menu-toggle span{
+  display:block;
+  width:23px;
+  height:2px;
+  margin:5px 0;
+  background:var(--cyan);
+}
+
+/* =====================================
+   HERO
+   ===================================== */
+
+.hero{
   padding:85px 0 70px;
   background:
     radial-gradient(
@@ -89,7 +192,7 @@ a { color:var(--cyan); }
     linear-gradient(155deg,#0b1b2e,#07101d);
 }
 
-.eyebrow {
+.eyebrow{
   color:var(--cyan);
   font-size:12px;
   font-weight:800;
@@ -97,7 +200,7 @@ a { color:var(--cyan); }
   text-transform:uppercase;
 }
 
-h1 {
+h1{
   font-size:clamp(38px,6vw,72px);
   line-height:1.07;
   letter-spacing:-.045em;
@@ -105,37 +208,37 @@ h1 {
   margin:18px 0 26px;
 }
 
-h1 em {
+h1 em{
   color:var(--cyan);
   font-style:normal;
 }
 
-h2 {
+h2{
   color:var(--white);
   font-size:clamp(27px,4vw,36px);
   line-height:1.2;
   margin:0 0 22px;
 }
 
-h3 {
+h3{
   color:var(--cyan);
   font-size:18px;
   margin-top:24px;
 }
 
-.lead {
+.lead{
   color:#d0dfeb;
   font-size:19px;
   max-width:820px;
 }
 
-.meta {
+.meta{
   color:var(--muted);
   font-size:13px;
   margin-top:32px;
 }
 
-.pill {
+.pill{
   display:inline-block;
   border:1px solid #287c9a;
   border-radius:99px;
@@ -147,26 +250,54 @@ h3 {
   margin-bottom:20px;
 }
 
-main section {
+.hero-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:30px;
+}
+
+.button{
+  display:inline-block;
+  padding:12px 22px;
+  border:1px solid var(--cyan);
+  border-radius:999px;
+  color:var(--bg);
+  background:var(--cyan);
+  font-size:13px;
+  font-weight:800;
+  text-decoration:none;
+}
+
+.button.secondary{
+  color:var(--cyan);
+  background:transparent;
+}
+
+/* =====================================
+   ARTICLE
+   ===================================== */
+
+main section{
   padding:70px 0;
   border-bottom:1px solid #183047;
 }
 
-p { color:var(--muted); }
-strong { color:var(--white); }
-.intro { max-width:800px; }
+p{color:var(--muted)}
+strong{color:var(--white)}
+.intro{max-width:800px}
 
-.grid {
+.grid{
   display:grid;
   grid-template-columns:repeat(3,minmax(0,1fr));
   gap:18px;
 }
 
-.grid.two {
+.grid.two{
   grid-template-columns:repeat(2,minmax(0,1fr));
 }
 
-.card {
+.card{
   background:linear-gradient(
     145deg,var(--panel2),var(--panel)
   );
@@ -176,37 +307,45 @@ strong { color:var(--white); }
   min-width:0;
 }
 
-.card-number {
+.card-number{
   font-size:12px;
   color:var(--orange);
   font-weight:800;
   letter-spacing:.14em;
 }
 
-.card h3 { margin:11px 0; }
+.card h3{margin:11px 0}
 
-.card p {
+.card p{
   margin-bottom:0;
   font-size:14px;
 }
 
-/* ALL SEVEN ENGINEERING IMAGES */
+/* =====================================
+   EIGHT ENGINEERING IMAGE SLOTS
+   ===================================== */
 
-.qibs-engineering-image {
+.qibs-engineering-image{
   width:100%;
-  margin:30px 0;
+  margin:32px 0;
 }
 
-.qibs-engineering-image img {
-  display:block;
-  width:100%;
-  height:auto;
-  border-radius:18px;
+.qibs-image-shell{
+  overflow:hidden;
   border:1px solid var(--line);
+  border-radius:18px;
+  background:#0b1b2e;
   box-shadow:0 12px 40px rgba(0,0,0,.35);
 }
 
-.qibs-engineering-image .caption {
+.qibs-engineering-image img{
+  display:block;
+  width:100%;
+  height:auto;
+  cursor:zoom-in;
+}
+
+.qibs-engineering-image .caption{
   display:block;
   margin-top:14px;
   color:#92aabd;
@@ -215,19 +354,8 @@ strong { color:var(--white); }
   font-style:italic;
 }
 
-.qibs-future-image {
-  display:block;
-  width:100%;
-  aspect-ratio:16 / 9;
-  border:1px solid var(--line);
-  border-radius:18px;
-  background:#0b1b2e;
-  object-fit:contain;
-  overflow:hidden;
-}
-
-.qibs-image-fallback {
-  min-height:100%;
+.qibs-image-fallback{
+  min-height:280px;
   padding:35px;
   background:
     radial-gradient(
@@ -244,27 +372,35 @@ strong { color:var(--white); }
   gap:12px;
 }
 
-.qibs-image-fallback strong {
+.qibs-image-fallback strong{
   font-size:20px;
   color:var(--cyan);
 }
 
-.qibs-image-fallback p {
+.qibs-image-fallback p{
   margin:0;
   max-width:550px;
   font-size:14px;
 }
 
-.qibs-image-label {
+.qibs-image-label{
   color:var(--orange);
   font-size:12px;
   letter-spacing:.16em;
   font-weight:800;
 }
 
-/* RESEARCH AND PRESENTATION */
+.qibs-image-filename{
+  color:#d0dfeb;
+  font-size:12px;
+  overflow-wrap:anywhere;
+}
 
-.equation {
+/* =====================================
+   RESEARCH PRESENTATION
+   ===================================== */
+
+.equation{
   border-left:3px solid var(--cyan);
   background:#102338;
   padding:22px 25px;
@@ -274,7 +410,7 @@ strong { color:var(--white); }
   overflow-wrap:anywhere;
 }
 
-.flow {
+.flow{
   display:flex;
   align-items:stretch;
   flex-wrap:wrap;
@@ -282,7 +418,7 @@ strong { color:var(--white); }
   margin-top:25px;
 }
 
-.flow-box {
+.flow-box{
   flex:1 1 140px;
   text-align:center;
   background:#122b41;
@@ -293,20 +429,20 @@ strong { color:var(--white); }
   font-weight:700;
 }
 
-.flow-box small {
+.flow-box small{
   display:block;
   color:var(--muted);
   font-weight:400;
   margin-top:7px;
 }
 
-.flow-arrow {
+.flow-arrow{
   align-self:center;
   color:var(--cyan);
   font-size:22px;
 }
 
-.note {
+.note{
   background:#142438;
   border-left:4px solid var(--orange);
   border-radius:0 12px 12px 0;
@@ -314,50 +450,50 @@ strong { color:var(--white); }
   margin:30px 0;
 }
 
-.note strong { color:var(--orange); }
-.note p { margin-bottom:0; }
+.note strong{color:var(--orange)}
+.note p{margin-bottom:0}
 
-ul,ol {
+ul,ol{
   color:var(--muted);
   padding-left:23px;
 }
 
-li { margin:9px 0; }
+li{margin:9px 0}
 
-.specs {
+.specs{
   width:100%;
   border-collapse:collapse;
   margin:25px 0;
 }
 
 .specs th,
-.specs td {
+.specs td{
   padding:15px;
   text-align:left;
   border-bottom:1px solid var(--line);
   vertical-align:top;
 }
 
-.specs th {
+.specs th{
   color:var(--cyan);
   background:#10263a;
 }
 
-.specs td { color:var(--muted); }
+.specs td{color:var(--muted)}
 
-.table-wrap { overflow-x:auto; }
+.table-wrap{overflow-x:auto}
 
-.timeline {
+.timeline{
   border-left:2px solid var(--cyan);
   padding-left:26px;
 }
 
-.milestone {
+.milestone{
   position:relative;
   margin:0 0 28px;
 }
 
-.milestone::before {
+.milestone::before{
   content:"";
   width:12px;
   height:12px;
@@ -368,10 +504,10 @@ li { margin:9px 0; }
   top:8px;
 }
 
-.milestone h3 { margin-bottom:5px; }
-.milestone p { margin-top:0; }
+.milestone h3{margin-bottom:5px}
+.milestone p{margin-top:0}
 
-.highlight {
+.highlight{
   background:linear-gradient(
     130deg,#112940,#161c38
   );
@@ -380,7 +516,7 @@ li { margin:9px 0; }
   padding:38px;
 }
 
-.vision-quote {
+.vision-quote{
   border-left:4px solid var(--cyan);
   padding:24px 30px;
   background:linear-gradient(120deg,#102c44,#102039);
@@ -388,7 +524,7 @@ li { margin:9px 0; }
   margin:30px 0;
 }
 
-.vision-quote p {
+.vision-quote p{
   font-size:clamp(21px,3vw,29px);
   font-weight:750;
   line-height:1.45;
@@ -396,150 +532,187 @@ li { margin:9px 0; }
   margin:0;
 }
 
-.kicker {
-  font-size:12px;
-  color:var(--orange);
-  letter-spacing:.14em;
+/* =====================================
+   IMAGE LIGHTBOX
+   ===================================== */
+
+.lightbox{
+  position:fixed;
+  inset:0;
+  z-index:2000;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  background:rgba(0,0,0,.95);
+}
+
+.lightbox.open{display:flex}
+
+.lightbox-panel{
+  position:relative;
+  width:min(1250px,100%);
+}
+
+.lightbox-panel img{
+  display:block;
+  max-width:100%;
+  max-height:85vh;
+  width:auto;
+  height:auto;
+  margin:auto;
+  object-fit:contain;
+}
+
+.lightbox-close{
+  position:absolute;
+  top:-14px;
+  right:-5px;
+  z-index:1;
+  width:42px;
+  height:42px;
+  border:1px solid var(--cyan);
+  border-radius:50%;
+  background:var(--panel);
+  color:white;
+  cursor:pointer;
+}
+
+/* =====================================
+   FOOTER
+   ===================================== */
+
+footer{
+  padding:48px 0;
+  background:#050d18;
+  border-top:1px solid var(--line);
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.5fr 1fr;
+  gap:40px;
+}
+
+.footer-title{
+  color:var(--white);
   font-weight:800;
 }
 
-footer {
-  padding:45px 0;
-  text-align:center;
-  color:var(--muted);
+footer p{
   font-size:13px;
 }
 
-@media(max-width:780px) {
-  .hero { padding:55px 0; }
+.footer-links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px 20px;
+}
 
-  main section { padding:48px 0; }
+.footer-links a{
+  color:var(--cyan);
+  font-size:13px;
+  text-decoration:none;
+}
 
-  .grid,.grid.two {
+.footer-links a:hover{text-decoration:underline}
+
+.back-top{
+  position:fixed;
+  bottom:22px;
+  right:22px;
+  z-index:900;
+  display:none;
+  width:45px;
+  height:45px;
+  border:1px solid var(--cyan);
+  border-radius:50%;
+  background:var(--panel);
+  color:var(--cyan);
+  cursor:pointer;
+}
+
+.back-top.visible{display:block}
+
+/* =====================================
+   RESPONSIVE
+   ===================================== */
+
+@media(max-width:780px){
+
+  .hero{padding:55px 0}
+  main section{padding:48px 0}
+
+  .grid,.grid.two,
+  .footer-grid{
     grid-template-columns:1fr;
   }
 
-  .flow { flex-direction:column; }
+  .flow{flex-direction:column}
+  .flow-arrow{transform:rotate(90deg)}
 
-  .flow-arrow {
-    transform:rotate(90deg);
+  .highlight{padding:24px}
+  .vision-quote{padding:20px}
+
+  .menu-toggle{
+    display:block;
+    margin-left:auto;
   }
 
-  .highlight { padding:24px; }
+  .topbar nav{
+    position:fixed;
+    top:76px;
+    left:0;
+    right:0;
+    height:calc(100dvh - 76px);
+    display:none;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+    padding:25px;
+    background:linear-gradient(#081421,#10263a);
+  }
 
-  .qibs-image-fallback { padding:18px; }
+  .topbar nav.open{display:flex}
 
-  .qibs-image-fallback strong {
+  .topbar nav a{
+    display:block;
+    width:min(320px,100%);
+    text-align:center;
+    padding:15px;
     font-size:15px;
   }
 
-  .qibs-image-fallback p {
-    font-size:12px;
-  }
-
-  .vision-quote { padding:20px; }
+  .qibs-image-fallback{padding:22px}
 }
 
-
-/* HALOCYBERLIFE — CLEAN SITE NAVIGATION */
-
-.topbar {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: rgba(8,20,33,.97);
-  backdrop-filter: blur(12px);
+@media(max-width:480px){
+  .equation{font-size:19px}
+  .card{padding:20px}
 }
 
-.topbar .brand {
-  color: #f3f8fc;
-  text-decoration: none;
-  white-space: nowrap;
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
 }
-
-.topbar nav {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.topbar nav a {
-  padding: 9px 16px;
-  border: 1px solid rgba(69,221,247,.35);
-  border-radius: 999px;
-  color: #45ddf7;
-  font-size: 12px;
-  font-weight: 750;
-  text-decoration: none;
-  transition: background .2s, color .2s;
-}
-
-.topbar nav a:hover {
-  background: rgba(69,221,247,.12);
-  color: #fff;
-}
-
-.topbar nav a:last-child {
-  color: #ffad63;
-  border-color: rgba(255,173,99,.45);
-}
-
-.menu-toggle {
-  display: none;
-  border: 1px solid #294660;
-  border-radius: 9px;
-  padding: 9px 11px;
-  background: #101e30;
-  cursor: pointer;
-}
-
-.menu-toggle span {
-  display: block;
-  width: 23px;
-  height: 2px;
-  margin: 5px 0;
-  background: #45ddf7;
-}
-
-@media (max-width: 780px) {
-  .topbar-inner {
-    flex-wrap: wrap;
-  }
-
-  .menu-toggle {
-    display: block;
-    margin-left: auto;
-  }
-
-  .topbar nav {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    padding: 12px 0;
-  }
-
-  .topbar nav.open {
-    display: flex;
-  }
-
-  .topbar nav a {
-    display: block;
-    width: 100%;
-    text-align: center;
-    padding: 12px;
-  }
-}
-
 </style>
 </head>
 
 <body>
 
+<a class="skip-link" href="#main">
+  Skip to article
+</a>
+
+<!-- =====================================
+     REGULAR HALOCYBERLIFE HEADER
+     ===================================== -->
 
 <header class="topbar">
   <div class="container topbar-inner">
 
-    <a class="brand" href="../index.html"
+    <a class="brand"
+       href="../index.html"
        aria-label="HaloCyberLife home">
       <span>HALO</span>CYBERLIFE
     </a>
@@ -565,11 +738,11 @@ footer {
   </div>
 </header>
 
-<main>
+<main id="main">
 
-<!-- ======================================
+<!-- =====================================
      HERO
-     ====================================== -->
+     ===================================== -->
 
 <div class="hero">
   <div class="container">
@@ -613,12 +786,21 @@ footer {
       and Scientific Validation
     </div>
 
+    <div class="hero-actions">
+      <a class="button" href="#origin">
+        Explore the Research
+      </a>
+      <a class="button secondary" href="#roadmap">
+        Development Roadmap
+      </a>
+    </div>
+
   </div>
 </div>
 
-<!-- ======================================
+<!-- =====================================
      SECTION 01 / ORIGIN
-     ====================================== -->
+     ===================================== -->
 
 <section id="origin">
   <div class="container intro">
@@ -679,10 +861,9 @@ footer {
   </div>
 </section>
 
-<!-- ======================================
-     SECTION 02 / FIGURE 01
-     EXISTING FILE
-     ====================================== -->
+<!-- =====================================
+     SECTION 02 / IMAGE 01
+     ===================================== -->
 
 <section>
   <div class="container">
@@ -695,16 +876,17 @@ footer {
       Reconstructing the miniature mechanism
     </h2>
 
-    <figure class="qibs-engineering-image">
+    <p>
+      The proposed miniature assembly combines
+      a short-shaft rotor, bearing,
+      magnetic components, induction coils,
+      and a vertically controlled actuator.
+    </p>
 
-      <img
-        src="blog/Images/QIBS/QIBS Mini Quantum Battery Exploded View.webp"
-        alt="Conceptual QIBS exploded assembly with magnetic rotor, short shaft, bearing, induction coils, and actuator"
-        width="1600"
-        height="900"
-        loading="lazy"
-        decoding="async"
-      >
+    <figure class="qibs-engineering-image"
+      data-image="QIBS Mini Quantum Battery Exploded View.webp">
+
+      <div class="qibs-image-shell"></div>
 
       <figcaption class="caption">
         FIGURE 01 — QIBS conceptual mechanical
@@ -718,9 +900,9 @@ footer {
   </div>
 </section>
 
-<!-- ======================================
+<!-- =====================================
      SECTION 03 / MECHANICAL ARCHITECTURE
-     ====================================== -->
+     ===================================== -->
 
 <section id="engineering">
   <div class="container">
@@ -791,9 +973,9 @@ footer {
   </div>
 </section>
 
-<!-- ======================================
+<!-- =====================================
      SECTION 04 / PHYSICS
-     ====================================== -->
+     ===================================== -->
 
 <section>
   <div class="container">
@@ -856,10 +1038,9 @@ footer {
   </div>
 </section>
 
-<!-- ======================================
-     SECTION 05 / FIGURE 02
-     EXISTING FILE
-     ====================================== -->
+<!-- =====================================
+     SECTION 05 / IMAGE 02
+     ===================================== -->
 
 <section>
   <div class="container">
@@ -902,16 +1083,10 @@ footer {
 
     </div>
 
-    <figure class="qibs-engineering-image">
+    <figure class="qibs-engineering-image"
+      data-image="QIBS Lift-and-Disengage Control Infographic.webp">
 
-      <img
-        src="blog/Images/QIBS/QIBS Lift-and-Disengage Control Infographic.webp"
-        alt="Conceptual QIBS actuator showing engaged and disengaged magnetic rotor positions"
-        width="1600"
-        height="900"
-        loading="lazy"
-        decoding="async"
-      >
+      <div class="qibs-image-shell"></div>
 
       <figcaption class="caption">
         FIGURE 02 — Actuator-controlled
@@ -925,10 +1100,9 @@ footer {
   </div>
 </section>
 
-<!-- ======================================
-     SECTION 06 / FIGURE 03
-     EXISTING FILE PATH PRESERVED
-     ====================================== -->
+<!-- =====================================
+     SECTION 06 / IMAGE 03
+     ===================================== -->
 
 <section id="energy">
   <div class="container">
@@ -985,31 +1159,10 @@ footer {
 
     </div>
 
-    <!-- FIGURE 03 -->
+    <figure class="qibs-engineering-image"
+      data-image="QIBS Three-Supercapacitor Energy Architecture.webp">
 
-    <figure class="qibs-engineering-image">
-
-      <object
-        class="qibs-future-image"
-        data="blog/Images/QIBS/QIBS Three-Supercapacitor Energy Architecture.webp"
-        type="image/webp"
-        aria-label="QIBS three-supercapacitor energy architecture">
-
-        <div class="qibs-image-fallback">
-          <div class="qibs-image-label">
-            ENGINEERING VISUAL 03
-          </div>
-          <strong>
-            Three-Supercapacitor Architecture
-          </strong>
-          <p>
-            Energy charging, load buffering,
-            reserve management, switching,
-            and DC regulation.
-          </p>
-        </div>
-
-      </object>
+      <div class="qibs-image-shell"></div>
 
       <figcaption class="caption">
         FIGURE 03 — Proposed coordinated
@@ -1102,9 +1255,9 @@ footer {
   </div>
 </section>
 
-<!-- ======================================
+<!-- =====================================
      SECTION 07 / PRELIMINARY SPECS
-     ====================================== -->
+     ===================================== -->
 
 <section>
   <div class="container">
@@ -1201,10 +1354,9 @@ footer {
   </div>
 </section>
 
-<!-- ======================================
-     SECTION 08 / FIGURE 04
-     RPAS DASHBOARD PATH PRESERVED
-     ====================================== -->
+<!-- =====================================
+     SECTION 08 / IMAGE 04
+     ===================================== -->
 
 <section id="rpas">
   <div class="container">
@@ -1237,8 +1389,7 @@ footer {
 
     </div>
 
-    <div class="grid"
-         style="margin-top:24px">
+    <div class="grid" style="margin-top:24px">
 
       <article class="card">
         <div class="card-number">RPAS / 01</div>
@@ -1300,31 +1451,10 @@ footer {
 
     </div>
 
-    <!-- FIGURE 04 -->
+    <figure class="qibs-engineering-image"
+      data-image="QIBS Quantum Battery Research Dashboard.webp">
 
-    <figure class="qibs-engineering-image">
-
-      <object
-        class="qibs-future-image"
-        data="blog/Images/QIBS/QIBS Quantum Battery Research Dashboard.webp"
-        type="image/webp"
-        aria-label="Conceptual QIBS research dashboard for RPAS Studio">
-
-        <div class="qibs-image-fallback">
-          <div class="qibs-image-label">
-            ENGINEERING VISUAL 04
-          </div>
-          <strong>
-            QIBS × RPAS Research Dashboard
-          </strong>
-          <p>
-            Planned geometry, simulation
-            results, capacitor monitoring,
-            and experimental comparisons.
-          </p>
-        </div>
-
-      </object>
+      <div class="qibs-image-shell"></div>
 
       <figcaption class="caption">
         FIGURE 04 — Future RPAS Studio
@@ -1339,10 +1469,9 @@ footer {
   </div>
 </section>
 
-<!-- ======================================
-     SECTION 09 / NEW FIGURE 05
-     FINISHED DEVICE CONCEPT
-     ====================================== -->
+<!-- =====================================
+     SECTION 09 / IMAGES 05 AND 06
+     ===================================== -->
 
 <section id="vision">
   <div class="container">
@@ -1400,49 +1529,48 @@ footer {
       The imagined finished technology
     </h3>
 
-    <!-- FIGURE 05: NEW SLOT -->
-    <!-- Save your finished-device image as:
-         QIBS Finished Technology Concept.webp
-         Folder: blog/Images/QIBS/
-    -->
+    <!-- NEW SEPARATE FINISHED DEVICE IMAGE -->
 
-    <figure class="qibs-engineering-image">
+    <figure class="qibs-engineering-image"
+      data-image="QIBS Finished Technology Concept.webp">
 
-      <object
-        class="qibs-future-image"
-        data="blog/Images/QIBS/QIBS Multi-Unit Induction Power Platform.webp"
-        type="image/webp"
-        aria-label="Concept art of the finished compact QIBS induction generator">
-
-        <div class="qibs-image-fallback">
-
-          <div class="qibs-image-label">
-            ENGINEERING VISUAL 05
-          </div>
-
-          <strong>
-            The Finished QIBS Concept
-          </strong>
-
-          <p>
-            A compact assembled device
-            with magnetic rotor,
-            stationary induction coils,
-            precision bearing,
-            vertical actuator,
-            and integrated power management.
-          </p>
-
-        </div>
-
-      </object>
+      <div class="qibs-image-shell"></div>
 
       <figcaption class="caption">
         FIGURE 05 — Proposed finished QIBS
-        product appearance. This is
-        speculative industrial design
-        artwork, not a validated or
-        functioning production device.
+        product appearance. This is speculative
+        industrial design artwork, not a
+        validated or functioning production device.
+      </figcaption>
+
+    </figure>
+
+    <h3>
+      Multi-unit induction power platform
+    </h3>
+
+    <p>
+      Beyond a single compact device,
+      the QIBS vision also explores
+      arrangements of multiple induction
+      modules operating as a coordinated
+      energy-conversion platform.
+    </p>
+
+    <!-- PRESERVED ORIGINAL MULTI-UNIT IMAGE -->
+
+    <figure class="qibs-engineering-image"
+      data-image="QIBS Multi-Unit Induction Power Platform.webp">
+
+      <div class="qibs-image-shell"></div>
+
+      <figcaption class="caption">
+        FIGURE 06 — Conceptual multi-unit
+        induction power platform.
+        Each generator module would require
+        a suitable mechanical input source.
+        The illustration is not a verified
+        power-generation system.
       </figcaption>
 
     </figure>
@@ -1462,10 +1590,9 @@ footer {
   </div>
 </section>
 
-<!-- ======================================
-     SECTION 10 / NEW FIGURE 06
-     MULTI-MODULE CIRCUIT BOARD
-     ====================================== -->
+<!-- =====================================
+     SECTION 10 / IMAGE 07
+     ===================================== -->
 
 <section id="scaling">
   <div class="container">
@@ -1537,43 +1664,13 @@ footer {
 
     </div>
 
-    <!-- FIGURE 06: NEW SLOT -->
-    <!-- Save your 4-unit circuit-board image as:
-         QIBS Modular Circuit Board.webp
-         Folder: blog/Images/QIBS/
-    -->
+    <figure class="qibs-engineering-image"
+      data-image="QIBS Modular Circuit Board.webp">
 
-    <figure class="qibs-engineering-image">
-
-      <object
-        class="qibs-future-image"
-        data="blog/Images/QIBS/QIBS Modular Circuit Board.webp"
-        type="image/webp"
-        aria-label="Conceptual circuit board integrating four miniature QIBS generator modules">
-
-        <div class="qibs-image-fallback">
-
-          <div class="qibs-image-label">
-            ENGINEERING VISUAL 06
-          </div>
-
-          <strong>
-            Four-Module QIBS Circuit Board
-          </strong>
-
-          <p>
-            Four compact induction generators
-            integrated with rectification,
-            energy storage, DC regulation,
-            and electronic control.
-          </p>
-
-        </div>
-
-      </object>
+      <div class="qibs-image-shell"></div>
 
       <figcaption class="caption">
-        FIGURE 06 — Speculative modular QIBS
+        FIGURE 07 — Speculative modular QIBS
         circuit-board concept. Increasing the
         number of adequately driven generator
         modules could increase total electrical
@@ -1629,10 +1726,9 @@ footer {
   </div>
 </section>
 
-<!-- ======================================
-     SECTION 11 / NEW FIGURE 07
-     APPLICATION VISION
-     ====================================== -->
+<!-- =====================================
+     SECTION 11 / IMAGE 08
+     ===================================== -->
 
 <section id="applications">
   <div class="container">
@@ -1703,46 +1799,13 @@ footer {
 
     </div>
 
-    <!-- FIGURE 07: NEW SLOT -->
-    <!-- Save your applications image as:
-         QIBS Future Device Applications.webp
-         Folder: blog/Images/QIBS/
-    -->
+    <figure class="qibs-engineering-image"
+      data-image="QIBS Future Device Applications.webp">
 
-    <figure class="qibs-engineering-image">
-
-      <object
-        class="qibs-future-image"
-        data="blog/Images/QIBS/QIBS Future Device Applications.webp"
-        type="image/webp"
-        aria-label="Futuristic concept showing QIBS power modules integrated into electronic products">
-
-        <div class="qibs-image-fallback">
-
-          <div class="qibs-image-label">
-            ENGINEERING VISUAL 07
-          </div>
-
-          <strong>
-            Imagine a World of
-            Energy-Recovering Devices
-          </strong>
-
-          <p>
-            Novelty concept art:
-            compact electronics,
-            sensor systems, and
-            household devices with
-            proposed integrated QIBS
-            energy-management modules.
-          </p>
-
-        </div>
-
-      </object>
+      <div class="qibs-image-shell"></div>
 
       <figcaption class="caption">
-        FIGURE 07 — Future device-application
+        FIGURE 08 — Future device-application
         concepts. Reduced charging would
         depend on a suitable external
         energy source, efficient conversion,
@@ -1804,9 +1867,9 @@ footer {
   </div>
 </section>
 
-<!-- ======================================
+<!-- =====================================
      SECTION 12 / SCIENTIFIC VALIDATION
-     ====================================== -->
+     ===================================== -->
 
 <section>
   <div class="container">
@@ -1906,9 +1969,9 @@ footer {
   </div>
 </section>
 
-<!-- ======================================
+<!-- =====================================
      SECTION 13 / ROADMAP
-     ====================================== -->
+     ===================================== -->
 
 <section id="roadmap">
   <div class="container">
@@ -2025,9 +2088,9 @@ footer {
   </div>
 </section>
 
-<!-- ======================================
+<!-- =====================================
      CLOSING
-     ====================================== -->
+     ===================================== -->
 
 <section>
   <div class="container">
@@ -2080,6 +2143,14 @@ footer {
         Induction Battery System.
       </h3>
 
+      <p>
+        <strong>
+          Imagination proposes.
+          Engineering investigates.
+          Evidence decides.
+        </strong>
+      </p>
+
     </div>
 
   </div>
@@ -2087,54 +2158,385 @@ footer {
 
 </main>
 
+<!-- =====================================
+     FOOTER
+     ===================================== -->
+
 <footer>
-  <div class="container">
+  <div class="container footer-grid">
 
-    <strong>
-      RPAS Studio · QIBS Engineering Research
-    </strong>
+    <div>
+      <div class="footer-title">
+        HALOCYBERLIFE
+      </div>
 
-    <p>
-      Original concept: approximately 13 years ago<br>
-      Research revival: 2026<br>
-      Status: Concept development and experimental
-      validation planned
-    </p>
+      <p>
+        RPAS Studio · QIBS Engineering Research
+      </p>
 
-    <p>
-      Concept illustrations are speculative.
-      No self-powered operation,
-      production-ready design,
-      or measured performance
-      is claimed.
-    </p>
+      <p>
+        Original concept: approximately 13 years ago<br>
+        Research revival: 2026<br>
+        Status: Concept development and experimental
+        validation planned
+      </p>
+
+      <p>
+        Concept illustrations are speculative.
+        No self-powered operation,
+        production-ready design,
+        or measured performance is claimed.
+      </p>
+
+      <p>
+        © <span id="copyright-year">2026</span>
+        HaloCyberLife.
+      </p>
+    </div>
+
+    <div>
+      <div class="footer-title">
+        Navigation
+      </div>
+
+      <div class="footer-links">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../blog.html">Articles</a>
+        <a href="../contact_us.html">Contact</a>
+      </div>
+
+      <p>
+        HaloCyberLife — Where imagination starts
+        the conversation, engineering explores
+        the possibilities, and evidence guides
+        the conclusions.
+      </p>
+    </div>
 
   </div>
-  
+</footer>
+
+<!-- =====================================
+     LIGHTBOX
+     ===================================== -->
+
+<div
+  class="lightbox"
+  id="lightbox"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Expanded engineering illustration"
+  aria-hidden="true">
+
+  <div class="lightbox-panel">
+
+    <button
+      class="lightbox-close"
+      type="button"
+      aria-label="Close image">
+      &#10005;
+    </button>
+
+    <img
+      id="lightbox-img"
+      alt="">
+  </div>
+
+</div>
+
+<button
+  class="back-top"
+  type="button"
+  aria-label="Back to top">
+  &#8593;
+</button>
+
+<!-- =====================================
+     SITE SCRIPT
+     ===================================== -->
+
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-  const button = document.querySelector(".menu-toggle");
+
+  /*
+    IMAGE LOCATION
+
+    HTML page:
+      blog/QIBS.html
+
+    Image directory:
+      blog/Images/QIBS/
+
+    If HTML is at website root, use:
+      const IMAGE_BASE = "blog/Images/QIBS/";
+  */
+
+  const IMAGE_BASE = "Images/QIBS/";
+
+  /*
+    RENDER ALL EIGHT IMAGES
+
+    Missing files show a named placeholder.
+    When you upload the correct WebP file,
+    the image displays automatically.
+  */
+
+  document.querySelectorAll(
+    ".qibs-engineering-image[data-image]"
+  ).forEach(figure => {
+
+    const filename = figure.dataset.image;
+    const shell = figure.querySelector(
+      ".qibs-image-shell"
+    );
+
+    const img = document.createElement("img");
+
+    img.src = IMAGE_BASE + encodeURIComponent(filename);
+    img.alt = filename.replace(/\.webp$/i, "");
+    img.loading = "lazy";
+    img.decoding = "async";
+
+    img.addEventListener("click", () => {
+      openLightbox(img);
+    });
+
+    img.tabIndex = 0;
+    img.setAttribute("role", "button");
+    img.setAttribute(
+      "aria-label",
+      "Expand " + img.alt
+    );
+
+    img.addEventListener("keydown", event => {
+      if (
+        event.key === "Enter" ||
+        event.key === " "
+      ) {
+        event.preventDefault();
+        openLightbox(img);
+      }
+    });
+
+    img.addEventListener("error", () => {
+
+      const fallback = document.createElement("div");
+      fallback.className = "qibs-image-fallback";
+
+      const label = document.createElement("div");
+      label.className = "qibs-image-label";
+      label.textContent = "IMAGE FILE NOT FOUND";
+
+      const title = document.createElement("strong");
+      title.textContent = img.alt;
+
+      const description = document.createElement("p");
+      description.textContent =
+        "Upload this WebP image to the QIBS image folder.";
+
+      const file = document.createElement("div");
+      file.className = "qibs-image-filename";
+      file.textContent = filename;
+
+      fallback.append(
+        label,
+        title,
+        description,
+        file
+      );
+
+      shell.replaceChildren(fallback);
+
+    }, {once:true});
+
+    shell.appendChild(img);
+
+  });
+
+  /*
+    MOBILE NAVIGATION
+  */
+
+  const menuButton = document.querySelector(
+    ".menu-toggle"
+  );
+
   const nav = document.getElementById("main-nav");
 
-  if (!button || !nav) return;
+  function closeMenu() {
+    nav.classList.remove("open");
+    menuButton.setAttribute(
+      "aria-expanded",
+      "false"
+    );
+    menuButton.setAttribute(
+      "aria-label",
+      "Open navigation"
+    );
+    document.body.classList.remove("menu-open");
+  }
 
-  button.addEventListener("click", () => {
+  menuButton.addEventListener("click", () => {
+
     const open = nav.classList.toggle("open");
-    button.setAttribute("aria-expanded", String(open));
-    button.setAttribute(
+
+    menuButton.setAttribute(
+      "aria-expanded",
+      String(open)
+    );
+
+    menuButton.setAttribute(
       "aria-label",
       open ? "Close navigation" : "Open navigation"
     );
+
+    document.body.classList.toggle(
+      "menu-open",
+      open
+    );
+
   });
 
   nav.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", () => {
-      nav.classList.remove("open");
-      button.setAttribute("aria-expanded", "false");
-    });
+    link.addEventListener("click", closeMenu);
   });
+
+  /*
+    IMAGE LIGHTBOX
+  */
+
+  const lightbox = document.getElementById(
+    "lightbox"
+  );
+
+  const lightboxImg = document.getElementById(
+    "lightbox-img"
+  );
+
+  const closeButton = document.querySelector(
+    ".lightbox-close"
+  );
+
+  let previousFocus = null;
+
+  function openLightbox(img) {
+
+    previousFocus = document.activeElement;
+
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+
+    lightbox.classList.add("open");
+    lightbox.setAttribute(
+      "aria-hidden",
+      "false"
+    );
+
+    document.body.classList.add("menu-open");
+    closeButton.focus();
+
+  }
+
+  function closeLightbox() {
+
+    lightbox.classList.remove("open");
+
+    lightbox.setAttribute(
+      "aria-hidden",
+      "true"
+    );
+
+    lightboxImg.removeAttribute("src");
+
+    document.body.classList.remove("menu-open");
+
+    if (previousFocus) {
+      previousFocus.focus();
+    }
+
+  }
+
+  closeButton.addEventListener(
+    "click",
+    closeLightbox
+  );
+
+  lightbox.addEventListener("click", event => {
+    if (event.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  document.addEventListener("keydown", event => {
+
+    if (event.key === "Escape") {
+
+      if (lightbox.classList.contains("open")) {
+        closeLightbox();
+      } else if (nav.classList.contains("open")) {
+        closeMenu();
+        menuButton.focus();
+      }
+
+    }
+
+    if (
+      event.key === "Tab" &&
+      lightbox.classList.contains("open")
+    ) {
+      event.preventDefault();
+      closeButton.focus();
+    }
+
+  });
+
+  /*
+    BACK TO TOP
+  */
+
+  const backTop = document.querySelector(
+    ".back-top"
+  );
+
+  function updateBackTop() {
+    backTop.classList.toggle(
+      "visible",
+      window.scrollY > 600
+    );
+  }
+
+  window.addEventListener(
+    "scroll",
+    updateBackTop,
+    {passive:true}
+  );
+
+  updateBackTop();
+
+  backTop.addEventListener("click", () => {
+
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    window.scrollTo({
+      top:0,
+      behavior:reducedMotion ? "auto" : "smooth"
+    });
+
+  });
+
+  /*
+    COPYRIGHT YEAR
+  */
+
+  document.getElementById(
+    "copyright-year"
+  ).textContent = new Date().getFullYear();
+
 });
 </script>
-</footer>
+
 </body>
 </html>
