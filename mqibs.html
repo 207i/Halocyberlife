@@ -1,1 +1,2105 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07101d">
+<meta name="author" content="Luis Amaya">
+<meta name="robots" content="index, follow">
+
+<title>QIBS | Next-Generation Energy Research | HaloCyberLife</title>
+
+<meta name="description" content="Explore QIBS, an original HaloCyberLife technology initiative focused on compact energy research, integrated systems, future applications, and engineering development.">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="HaloCyberLife">
+<meta property="og:title" content="QIBS — Next-Generation Energy Research">
+<meta property="og:description" content="An original technology vision exploring compact energy systems, integrated electronics, and future engineering possibilities.">
+
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0HZN617CB1"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-0HZN617CB1');
+</script>
+
+<!--
+  QIBS PUBLIC PRESENTATION
+
+  PAGE:
+  https://halocyberlife.com/mqibs.html
+
+  IMAGE DIRECTORY:
+  /blog/Images/QIBS/
+
+  PUBLIC IMAGES:
+  QIBS Finished Technology Concept.webp
+  QIBS Modular Circuit Board.webp
+  QIBS Future Device Applications.webp
+
+  IMPORTANT:
+  This article intentionally excludes
+  proprietary mechanisms, dimensions,
+  control sequences, internal construction,
+  detailed schematics and implementation methods.
+
+  Review the actual image contents before
+  publication to ensure they do not reveal
+  confidential engineering information.
+-->
+
+<style>
+:root {
+  --bg:#07101d;
+  --panel:#101e30;
+  --panel2:#14263b;
+  --line:#294660;
+  --cyan:#45ddf7;
+  --orange:#ffad63;
+  --white:#f3f8fc;
+  --muted:#a7b9c9;
+  --green:#72e5b4;
+}
+
+* {
+  box-sizing:border-box;
+}
+
+html {
+  scroll-behavior:smooth;
+  scroll-padding-top:90px;
+}
+
+body {
+  margin:0;
+  background:var(--bg);
+  color:var(--white);
+  font:16px/1.75 system-ui,-apple-system,
+       BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+
+body.menu-open {
+  overflow:hidden;
+}
+
+a {
+  color:var(--cyan);
+}
+
+img {
+  max-width:100%;
+}
+
+button {
+  font:inherit;
+}
+
+:focus-visible {
+  outline:2px solid var(--cyan);
+  outline-offset:4px;
+}
+
+.container {
+  width:min(1120px,calc(100% - 36px));
+  margin:auto;
+}
+
+.skip-link {
+  position:absolute;
+  top:-100px;
+  left:15px;
+  z-index:3000;
+  padding:10px 16px;
+  background:var(--cyan);
+  color:var(--bg);
+  border-radius:8px;
+}
+
+.skip-link:focus {
+  top:12px;
+}
+
+/* HEADER */
+
+.topbar {
+  position:sticky;
+  top:0;
+  z-index:1000;
+  border-bottom:1px solid var(--line);
+  background:rgba(8,20,33,.97);
+  backdrop-filter:blur(12px);
+}
+
+.topbar-inner {
+  min-height:76px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.brand {
+  color:var(--white);
+  font-size:17px;
+  font-weight:800;
+  letter-spacing:.05em;
+  text-decoration:none;
+  white-space:nowrap;
+}
+
+.brand span {
+  color:var(--cyan);
+}
+
+.topbar nav {
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.topbar nav a {
+  padding:9px 16px;
+  border:1px solid rgba(69,221,247,.35);
+  border-radius:999px;
+  color:var(--cyan);
+  font-size:12px;
+  font-weight:750;
+  text-decoration:none;
+  transition:background .2s,color .2s;
+}
+
+.topbar nav a:hover {
+  background:rgba(69,221,247,.12);
+  color:white;
+}
+
+.topbar nav a:last-child {
+  color:var(--orange);
+  border-color:rgba(255,173,99,.45);
+}
+
+.menu-toggle {
+  display:none;
+  border:1px solid var(--line);
+  border-radius:9px;
+  padding:9px 11px;
+  background:var(--panel);
+  cursor:pointer;
+}
+
+.menu-toggle span {
+  display:block;
+  width:23px;
+  height:2px;
+  margin:5px 0;
+  background:var(--cyan);
+}
+
+/* HERO */
+
+.hero {
+  padding:85px 0 70px;
+  background:
+    radial-gradient(
+      ellipse at 80% 25%,
+      #124466 0%,
+      transparent 53%
+    ),
+    linear-gradient(155deg,#0b1b2e,#07101d);
+}
+
+.eyebrow {
+  color:var(--cyan);
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+
+h1 {
+  font-size:clamp(38px,6vw,72px);
+  line-height:1.07;
+  letter-spacing:-.045em;
+  max-width:900px;
+  margin:18px 0 26px;
+}
+
+h1 em {
+  color:var(--cyan);
+  font-style:normal;
+}
+
+h2 {
+  color:var(--white);
+  font-size:clamp(27px,4vw,36px);
+  line-height:1.2;
+  margin:0 0 22px;
+}
+
+h3 {
+  color:var(--cyan);
+  font-size:18px;
+  margin-top:24px;
+}
+
+.lead {
+  color:#d0dfeb;
+  font-size:19px;
+  max-width:820px;
+}
+
+.meta {
+  color:var(--muted);
+  font-size:13px;
+  margin-top:32px;
+}
+
+.pill {
+  display:inline-block;
+  border:1px solid #287c9a;
+  border-radius:99px;
+  color:var(--cyan);
+  padding:5px 13px;
+  font-size:12px;
+  font-weight:750;
+  letter-spacing:.07em;
+  margin-bottom:20px;
+}
+
+.hero-actions {
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:30px;
+}
+
+.button {
+  display:inline-block;
+  padding:12px 22px;
+  border:1px solid var(--cyan);
+  border-radius:999px;
+  color:var(--bg);
+  background:var(--cyan);
+  font-size:13px;
+  font-weight:800;
+  text-decoration:none;
+}
+
+.button.secondary {
+  color:var(--cyan);
+  background:transparent;
+}
+
+/* ARTICLE */
+
+main section {
+  padding:70px 0;
+  border-bottom:1px solid #183047;
+}
+
+p {
+  color:var(--muted);
+}
+
+strong {
+  color:var(--white);
+}
+
+.intro {
+  max-width:800px;
+}
+
+.grid {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px;
+}
+
+.grid.two {
+  grid-template-columns:repeat(2,minmax(0,1fr));
+}
+
+.card {
+  background:linear-gradient(
+    145deg,var(--panel2),var(--panel)
+  );
+  border:1px solid var(--line);
+  border-radius:15px;
+  padding:26px;
+  min-width:0;
+}
+
+.card-number {
+  font-size:12px;
+  color:var(--orange);
+  font-weight:800;
+  letter-spacing:.14em;
+}
+
+.card h3 {
+  margin:11px 0;
+}
+
+.card p {
+  margin-bottom:0;
+  font-size:14px;
+}
+
+/* IMAGES */
+
+.qibs-engineering-image {
+  width:100%;
+  margin:32px 0;
+}
+
+.qibs-image-shell {
+  overflow:hidden;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:#0b1b2e;
+  box-shadow:0 12px 40px rgba(0,0,0,.35);
+}
+
+.qibs-engineering-image img {
+  display:block;
+  width:100%;
+  height:auto;
+  cursor:zoom-in;
+}
+
+.qibs-engineering-image .caption {
+  display:block;
+  margin-top:14px;
+  color:#92aabd;
+  font-size:12px;
+  line-height:1.7;
+  font-style:italic;
+}
+
+.qibs-image-fallback {
+  min-height:280px;
+  padding:35px;
+  background:
+    radial-gradient(
+      circle at 50% 40%,
+      rgba(41,143,182,.25),
+      transparent 65%
+    ),
+    linear-gradient(145deg,#102c44,#091522);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  flex-direction:column;
+  gap:12px;
+}
+
+.qibs-image-fallback strong {
+  font-size:20px;
+  color:var(--cyan);
+}
+
+.qibs-image-fallback p {
+  margin:0;
+  max-width:550px;
+  font-size:14px;
+}
+
+.qibs-image-label {
+  color:var(--orange);
+  font-size:12px;
+  letter-spacing:.16em;
+  font-weight:800;
+}
+
+.qibs-image-filename {
+  color:#d0dfeb;
+  font-size:12px;
+  overflow-wrap:anywhere;
+}
+
+/* RESEARCH ELEMENTS */
+
+.note {
+  background:#142438;
+  border-left:4px solid var(--orange);
+  border-radius:0 12px 12px 0;
+  padding:22px 26px;
+  margin:30px 0;
+}
+
+.note strong {
+  color:var(--orange);
+}
+
+.note p {
+  margin-bottom:0;
+}
+
+ul,ol {
+  color:var(--muted);
+  padding-left:23px;
+}
+
+li {
+  margin:9px 0;
+}
+
+.timeline {
+  border-left:2px solid var(--cyan);
+  padding-left:26px;
+}
+
+.milestone {
+  position:relative;
+  margin:0 0 28px;
+}
+
+.milestone::before {
+  content:"";
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  background:var(--cyan);
+  position:absolute;
+  left:-33px;
+  top:8px;
+}
+
+.milestone h3 {
+  margin-bottom:5px;
+}
+
+.milestone p {
+  margin-top:0;
+}
+
+.highlight {
+  background:linear-gradient(
+    130deg,#112940,#161c38
+  );
+  border:1px solid #38678c;
+  border-radius:18px;
+  padding:38px;
+}
+
+.vision-quote {
+  border-left:4px solid var(--cyan);
+  padding:24px 30px;
+  background:linear-gradient(120deg,#102c44,#102039);
+  border-radius:0 16px 16px 0;
+  margin:30px 0;
+}
+
+.vision-quote p {
+  font-size:clamp(21px,3vw,29px);
+  font-weight:750;
+  line-height:1.45;
+  color:var(--white);
+  margin:0;
+}
+
+.status {
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 13px;
+  border:1px solid rgba(114,229,180,.35);
+  border-radius:999px;
+  color:var(--green);
+  background:rgba(114,229,180,.07);
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.06em;
+}
+
+.status::before {
+  content:"";
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:var(--green);
+}
+
+/* IMAGE LIGHTBOX */
+
+.lightbox {
+  position:fixed;
+  inset:0;
+  z-index:2000;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  background:rgba(0,0,0,.95);
+}
+
+.lightbox.open {
+  display:flex;
+}
+
+.lightbox-panel {
+  position:relative;
+  width:min(1250px,100%);
+}
+
+.lightbox-panel img {
+  display:block;
+  max-width:100%;
+  max-height:85vh;
+  width:auto;
+  height:auto;
+  margin:auto;
+  object-fit:contain;
+}
+
+.lightbox-close {
+  position:absolute;
+  top:-14px;
+  right:-5px;
+  z-index:1;
+  width:42px;
+  height:42px;
+  border:1px solid var(--cyan);
+  border-radius:50%;
+  background:var(--panel);
+  color:white;
+  cursor:pointer;
+}
+
+/* FOOTER */
+
+footer {
+  padding:48px 0;
+  background:#050d18;
+  border-top:1px solid var(--line);
+}
+
+.footer-grid {
+  display:grid;
+  grid-template-columns:1.5fr 1fr;
+  gap:40px;
+}
+
+.footer-title {
+  color:var(--white);
+  font-weight:800;
+}
+
+footer p {
+  font-size:13px;
+}
+
+.footer-links {
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px 20px;
+}
+
+.footer-links a {
+  color:var(--cyan);
+  font-size:13px;
+  text-decoration:none;
+}
+
+.footer-links a:hover {
+  text-decoration:underline;
+}
+
+.back-top {
+  position:fixed;
+  bottom:22px;
+  right:22px;
+  z-index:900;
+  display:none;
+  width:45px;
+  height:45px;
+  border:1px solid var(--cyan);
+  border-radius:50%;
+  background:var(--panel);
+  color:var(--cyan);
+  cursor:pointer;
+}
+
+.back-top.visible {
+  display:block;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:780px) {
+  .hero {
+    padding:55px 0;
+  }
+
+  main section {
+    padding:48px 0;
+  }
+
+  .grid,
+  .grid.two,
+  .footer-grid {
+    grid-template-columns:1fr;
+  }
+
+  .highlight {
+    padding:24px;
+  }
+
+  .vision-quote {
+    padding:20px;
+  }
+
+  .menu-toggle {
+    display:block;
+    margin-left:auto;
+  }
+
+  .topbar nav {
+    position:fixed;
+    top:76px;
+    left:0;
+    right:0;
+    height:calc(100dvh - 76px);
+    display:none;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+    padding:25px;
+    background:linear-gradient(#081421,#10263a);
+  }
+
+  .topbar nav.open {
+    display:flex;
+  }
+
+  .topbar nav a {
+    display:block;
+    width:min(320px,100%);
+    text-align:center;
+    padding:15px;
+    font-size:15px;
+  }
+
+  .qibs-image-fallback {
+    padding:22px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  html {
+    scroll-behavior:auto;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<a class="skip-link" href="#main">
+  Skip to article
+</a>
+
+<!-- HEADER -->
+
+<header class="topbar">
+  <div class="container topbar-inner">
+
+    <a class="brand"
+       href="/index.html"
+       aria-label="HaloCyberLife home">
+      <span>HALO</span>CYBERLIFE
+    </a>
+
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-label="Open navigation"
+      aria-controls="main-nav"
+      aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav id="main-nav" aria-label="Main navigation">
+      <a href="/index.html">HOME</a>
+      <a href="/about.html">ABOUT</a>
+      <a href="/blog.html">ARTICLES</a>
+      <a href="/contact_us.html">CONTACT</a>
+    </nav>
+
+  </div>
+</header>
+
+<main id="main">
+
+<!-- HERO -->
+
+<div class="hero">
+  <div class="container">
+
+    <div class="pill">
+      Original Technology Vision
+    </div>
+
+    <div class="eyebrow">
+      Independent Engineering Research
+      / Future Technology Concepts
+    </div>
+
+    <h1>
+      The Mini <em>Quantum Induction</em>
+      Battery System
+    </h1>
+
+    <p class="lead">
+      What if future electronics could make
+      more effective use of available energy
+      through compact, integrated technology?
+    </p>
+
+    <p class="lead">
+      QIBS is an original HaloCyberLife research
+      initiative exploring the possibilities
+      of compact energy systems, integrated
+      electronics, modular development,
+      and future product applications.
+    </p>
+
+    <p class="lead">
+      From an early personal invention concept
+      to a renewed vision for engineering
+      exploration and scientific testing.
+    </p>
+
+    <div class="status">
+      Concept Development
+    </div>
+
+    <div class="meta">
+      QIBS Research Series · November 2026 ·
+      Conceptual Engineering and Future Research
+    </div>
+
+    <div class="hero-actions">
+      <a class="button" href="#origin">
+        Explore the Vision
+      </a>
+
+      <a class="button secondary" href="#roadmap">
+        Development Roadmap
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<!-- SECTION 01 / ORIGIN -->
+
+<section id="origin">
+  <div class="container intro">
+
+    <div class="eyebrow">
+      01 / The Beginning
+    </div>
+
+    <h2>
+      Every invention begins
+      with a question.
+    </h2>
+
+    <p>
+      More than a decade ago, I began
+      exploring ideas for compact
+      energy technology as an independent
+      engineering hobby.
+    </p>
+
+    <p>
+      The original concept grew from
+      sketches, curiosity, mechanical
+      design exploration, and a desire
+      to imagine new possibilities
+      for miniature electronic systems.
+    </p>
+
+    <p>
+      Today, QIBS is being revisited
+      as a broader research initiative,
+      with an emphasis on responsible
+      engineering development,
+      feasibility, and experimental
+      evidence.
+    </p>
+
+    <p>
+      The goal is not simply to recreate
+      an old drawing. It is to investigate
+      what the original vision could
+      inspire through future research.
+    </p>
+
+    <div class="note">
+      <strong>Public research overview</strong>
+      <p>
+        This article presents the project's
+        development vision and illustrative
+        design concepts. Detailed internal
+        configurations, proprietary mechanisms,
+        and implementation methods are not
+        included in this public presentation.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- SECTION 02 / FUTURE PRODUCT IMAGE -->
+
+<section id="design">
+  <div class="container">
+
+    <div class="eyebrow">
+      02 / Industrial Design Vision
+    </div>
+
+    <h2>
+      Imagining the finished technology
+    </h2>
+
+    <p>
+      QIBS explores the idea of an integrated,
+      compact technology platform that could
+      inspire future electronic products
+      and research devices.
+    </p>
+
+    <p>
+      The product illustration below represents
+      an industrial design direction rather
+      than a completed or functioning device.
+    </p>
+
+    <figure class="qibs-engineering-image"
+      data-image="QIBS Finished Technology Concept.webp">
+
+      <div class="qibs-image-shell"></div>
+
+      <figcaption class="caption">
+        FIGURE 01 — Proposed QIBS finished-product
+        appearance. Conceptual industrial
+        design visualization only. The image
+        does not establish a functioning
+        prototype, verified performance,
+        or production readiness.
+      </figcaption>
+
+    </figure>
+
+  </div>
+</section>
+
+<!-- SECTION 03 / RESEARCH OBJECTIVES -->
+
+<section id="engineering">
+  <div class="container">
+
+    <div class="eyebrow">
+      03 / Research Direction
+    </div>
+
+    <h2>
+      Four priorities,
+      one technology vision
+    </h2>
+
+    <div class="grid">
+
+      <article class="card">
+        <div class="card-number">RESEARCH / 01</div>
+        <h3>Compact Integration</h3>
+        <p>
+          Investigate how future
+          energy-related technologies
+          might be integrated into
+          smaller electronic platforms.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="card-number">RESEARCH / 02</div>
+        <h3>System Efficiency</h3>
+        <p>
+          Establish meaningful ways to
+          measure energy input, useful output,
+          losses, and operating conditions.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="card-number">RESEARCH / 03</div>
+        <h3>Modular Development</h3>
+        <p>
+          Explore how independently
+          characterized technology modules
+          might support future
+          integrated systems.
+        </p>
+      </article>
+
+    </div>
+
+    <div class="grid two" style="margin-top:18px">
+
+      <article class="card">
+        <div class="card-number">RESEARCH / 04</div>
+        <h3>Real-World Applications</h3>
+        <p>
+          Identify possible applications
+          where practical constraints,
+          energy availability, and
+          device requirements can be studied.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="card-number">RESEARCH / 05</div>
+        <h3>Scientific Validation</h3>
+        <p>
+          Move from visual concepts
+          toward measurable hypotheses,
+          repeatable testing, and
+          documented results.
+        </p>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- SECTION 04 / SCIENTIFIC INTEGRITY -->
+
+<section>
+  <div class="container intro">
+
+    <div class="eyebrow">
+      04 / Engineering Perspective
+    </div>
+
+    <h2>
+      Imagination needs
+      scientific evidence.
+    </h2>
+
+    <p>
+      Energy technology is governed
+      by measurable physical principles.
+      Any practical QIBS implementation
+      would need to demonstrate where
+      its operating energy comes from,
+      how efficiently energy is converted,
+      and how the complete system behaves
+      under real conditions.
+    </p>
+
+    <p>
+      A compelling design illustration
+      is not the same as a verified
+      scientific result.
+    </p>
+
+    <p>
+      QIBS therefore approaches
+      future performance claims
+      as questions for engineering
+      investigation rather than
+      established outcomes.
+    </p>
+
+    <div class="note">
+      <strong>Scientific integrity</strong>
+      <p>
+        "Quantum" is part of the QIBS project
+        name; this page does not claim
+        a demonstrated quantum effect.
+        No perpetual-motion capability,
+        energy creation, self-powered
+        operation, or measured prototype
+        performance is claimed.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- SECTION 05 / INTEGRATED ELECTRONICS -->
+
+<section id="integration">
+  <div class="container">
+
+    <div class="eyebrow">
+      05 / Integrated Electronics
+    </div>
+
+    <h2>
+      A vision for modular
+      electronic platforms
+    </h2>
+
+    <p>
+      One direction for QIBS is the exploration
+      of future systems in which compact
+      technology modules could be integrated
+      alongside conventional electronics.
+    </p>
+
+    <p>
+      This vision includes opportunities
+      to investigate packaging,
+      manufacturability, monitoring,
+      compatibility, reliability,
+      and system-level performance.
+    </p>
+
+    <p>
+      The illustration below is a
+      speculative circuit-board
+      presentation. It is not an
+      electrical schematic, validated
+      PCB design, or assembly guide.
+    </p>
+
+    <figure class="qibs-engineering-image"
+      data-image="QIBS Modular Circuit Board.webp">
+
+      <div class="qibs-image-shell"></div>
+
+      <figcaption class="caption">
+        FIGURE 02 — Conceptual QIBS modular
+        circuit-board visualization.
+        The illustration is not a verified
+        electronic layout, working circuit,
+        or production-ready design.
+        Any illustrated performance values
+        are speculative.
+      </figcaption>
+
+    </figure>
+
+    <div class="note">
+      <strong>Development boundary</strong>
+      <p>
+        Internal circuit architecture,
+        proprietary control methods,
+        construction details, and
+        manufacturing specifications
+        are outside the scope of
+        this public overview.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- SECTION 06 / RESEARCH PLATFORM -->
+
+<section id="rpas">
+  <div class="container">
+
+    <div class="eyebrow">
+      06 / Research Platform
+    </div>
+
+    <h2>
+      QIBS and the RPAS Studio vision
+    </h2>
+
+    <div class="highlight">
+
+      <h3>Organizing engineering research</h3>
+
+      <p>
+        The long-term development objective
+        is to investigate how RPAS Studio
+        could support the organization
+        of QIBS research questions,
+        proposed experiments,
+        model comparisons,
+        and documented findings.
+      </p>
+
+      <p>
+        Specialized simulation and
+        physical validation would
+        require appropriate models,
+        instruments, and experimental
+        methods. Such capabilities
+        are not implied to be
+        operational today.
+      </p>
+
+    </div>
+
+    <div class="grid" style="margin-top:24px">
+
+      <article class="card">
+        <div class="card-number">RPAS / 01</div>
+        <h3>Hypotheses</h3>
+        <p>
+          Organize research questions
+          and proposed explanations.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="card-number">RPAS / 02</div>
+        <h3>Study Plans</h3>
+        <p>
+          Document assumptions,
+          experimental requirements,
+          and evaluation criteria.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="card-number">RPAS / 03</div>
+        <h3>Evidence</h3>
+        <p>
+          Distinguish proposed
+          configurations from
+          measured and verified results.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="card-number">RPAS / 04</div>
+        <h3>Comparisons</h3>
+        <p>
+          Evaluate design alternatives
+          against stated constraints.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="card-number">RPAS / 05</div>
+        <h3>Provenance</h3>
+        <p>
+          Identify the origin
+          and status of research
+          data and conclusions.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="card-number">RPAS / 06</div>
+        <h3>Validation</h3>
+        <p>
+          Record successful outcomes,
+          limitations, and
+          unsuccessful experiments.
+        </p>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- SECTION 07 / FUTURE APPLICATIONS -->
+
+<section id="applications">
+  <div class="container">
+
+    <div class="eyebrow">
+      07 / Future Application Concepts
+    </div>
+
+    <h2>
+      Where could integrated
+      energy technology lead?
+    </h2>
+
+    <p>
+      The QIBS vision extends beyond
+      an individual laboratory concept.
+      It explores future opportunities
+      for research into compact
+      energy-related systems
+      and electronic integration.
+    </p>
+
+    <div class="grid">
+
+      <article class="card">
+        <div class="card-number">
+          APPLICATION / 01
+        </div>
+        <h3>Low-Power Sensors</h3>
+        <p>
+          Explore future technologies
+          for monitoring devices
+          with strict power
+          and size constraints.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="card-number">
+          APPLICATION / 02
+        </div>
+        <h3>Portable Electronics</h3>
+        <p>
+          Investigate energy
+          management challenges
+          in compact consumer
+          electronic platforms.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="card-number">
+          APPLICATION / 03
+        </div>
+        <h3>Integrated Systems</h3>
+        <p>
+          Study modular technology
+          concepts for future
+          electronic and
+          industrial applications.
+        </p>
+      </article>
+
+    </div>
+
+    <figure class="qibs-engineering-image"
+      data-image="QIBS Future Device Applications.webp">
+
+      <div class="qibs-image-shell"></div>
+
+      <figcaption class="caption">
+        FIGURE 03 — Speculative future
+        QIBS application concepts.
+        These images represent research
+        possibilities, not demonstrated
+        commercial products or verified
+        operating capabilities.
+      </figcaption>
+
+    </figure>
+
+    <div class="vision-quote">
+      <p>
+        The next generation of technology
+        begins with questions worth
+        investigating.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- SECTION 08 / RESEARCH VALIDATION -->
+
+<section id="validation">
+  <div class="container intro">
+
+    <div class="eyebrow">
+      08 / Scientific Validation
+    </div>
+
+    <h2>
+      What would meaningful
+      progress look like?
+    </h2>
+
+    <p>
+      The goal of future QIBS research
+      is to move from conceptual
+      design toward evidence-based
+      engineering conclusions.
+    </p>
+
+    <p>
+      An appropriate development
+      program would include:
+    </p>
+
+    <ul>
+      <li>
+        Defining research questions
+        and measurable objectives.
+      </li>
+
+      <li>
+        Establishing engineering
+        requirements and constraints.
+      </li>
+
+      <li>
+        Evaluating technical feasibility
+        through suitable scientific methods.
+      </li>
+
+      <li>
+        Developing safe and repeatable
+        experimental procedures.
+      </li>
+
+      <li>
+        Measuring relevant inputs,
+        outputs, losses, and
+        environmental conditions.
+      </li>
+
+      <li>
+        Comparing predicted behavior
+        with observed results.
+      </li>
+
+      <li>
+        Documenting limitations,
+        failed experiments,
+        and design revisions.
+      </li>
+
+      <li>
+        Investigating practical
+        applications only when
+        supported by evidence.
+      </li>
+    </ul>
+
+    <div class="note">
+      <strong>Evidence comes first</strong>
+      <p>
+        The current public QIBS presentation
+        is conceptual. It does not
+        establish experimental validation,
+        a functioning commercial device,
+        or scientifically confirmed
+        performance improvements.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- SECTION 09 / ROADMAP -->
+
+<section id="roadmap">
+  <div class="container">
+
+    <div class="eyebrow">
+      09 / Development Roadmap
+    </div>
+
+    <h2>
+      From imagination
+      to engineering evidence
+    </h2>
+
+    <div class="timeline">
+
+      <div class="milestone">
+        <h3>
+          Phase 1 — Revisit the original vision
+        </h3>
+        <p>
+          Organize the project's history,
+          broad research objectives,
+          and design direction.
+        </p>
+      </div>
+
+      <div class="milestone">
+        <h3>
+          Phase 2 — Develop concept visuals
+        </h3>
+        <p>
+          Create external product
+          illustrations, presentation
+          materials, and future
+          application concepts.
+        </p>
+      </div>
+
+      <div class="milestone">
+        <h3>
+          Phase 3 — Establish requirements
+        </h3>
+        <p>
+          Define technical constraints,
+          research priorities,
+          and evaluation goals.
+        </p>
+      </div>
+
+      <div class="milestone">
+        <h3>
+          Phase 4 — Plan the research
+        </h3>
+        <p>
+          Develop hypotheses,
+          identify suitable analytical
+          tools, and prepare
+          experimental criteria.
+        </p>
+      </div>
+
+      <div class="milestone">
+        <h3>
+          Phase 5 — Explore RPAS integration
+        </h3>
+        <p>
+          Investigate structured
+          research documentation,
+          provenance, and
+          comparison workflows.
+        </p>
+      </div>
+
+      <div class="milestone">
+        <h3>
+          Phase 6 — Evaluate feasibility
+        </h3>
+        <p>
+          Study the technical and
+          practical constraints
+          governing possible
+          implementations.
+        </p>
+      </div>
+
+      <div class="milestone">
+        <h3>
+          Phase 7 — Develop test plans
+        </h3>
+        <p>
+          Prepare reproducible
+          experiments with measurable
+          success and failure criteria.
+        </p>
+      </div>
+
+      <div class="milestone">
+        <h3>
+          Phase 8 — Assess applications
+        </h3>
+        <p>
+          Compare promising
+          use cases against actual
+          requirements and
+          validated outcomes.
+        </p>
+      </div>
+
+      <div class="milestone">
+        <h3>
+          Phase 9 — Share research findings
+        </h3>
+        <p>
+          Publish appropriate
+          nonconfidential results,
+          limitations, and
+          future development directions.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- SECTION 10 / DEVELOPMENT INFORMATION -->
+
+<section id="development">
+  <div class="container">
+
+    <div class="eyebrow">
+      10 / Research and Development
+    </div>
+
+    <h2>
+      Building the future
+      responsibly
+    </h2>
+
+    <div class="grid two">
+
+      <article class="card">
+        <div class="card-number">
+          PROJECT STATUS
+        </div>
+
+        <h3>Concept Development</h3>
+
+        <p>
+          QIBS is presented as
+          an evolving engineering
+          research initiative.
+          Further feasibility work,
+          testing, and validation
+          would be required before
+          practical performance
+          claims could be made.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="card-number">
+          PUBLIC DISCLOSURE
+        </div>
+
+        <h3>High-Level Overview</h3>
+
+        <p>
+          This website describes
+          the public research vision,
+          speculative design concepts,
+          and possible applications.
+          Detailed proprietary
+          engineering information
+          is not provided.
+        </p>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- SECTION 11 / CREATIVE WORK -->
+
+<section>
+  <div class="container intro">
+
+    <div class="eyebrow">
+      11 / Original Creative Work
+    </div>
+
+    <h2>
+      A personal vision,
+      publicly shared
+    </h2>
+
+    <p>
+      QIBS began as an independent
+      creative and engineering concept.
+      HaloCyberLife presents the project
+      as a platform for exploration,
+      learning, and future research.
+    </p>
+
+    <p>
+      Original article text,
+      original illustrations,
+      and other qualifying creative
+      materials may be protected
+      by applicable copyright law.
+    </p>
+
+    <p>
+      Copyright protection for
+      creative expression does not,
+      by itself, establish exclusive
+      rights to the underlying
+      technical ideas, mechanisms,
+      or methods.
+    </p>
+
+  </div>
+</section>
+
+<!-- SECTION 12 / LONG-TERM VISION -->
+
+<section id="vision">
+  <div class="container">
+
+    <div class="eyebrow">
+      12 / The Bigger Vision
+    </div>
+
+    <h2>
+      More than a device.
+      A research journey.
+    </h2>
+
+    <div class="vision-quote">
+      <p>
+        Imagine boldly.
+        Investigate carefully.
+        Let evidence decide.
+      </p>
+    </div>
+
+    <p>
+      The long-term ambition behind QIBS
+      is to investigate whether original
+      ideas can inspire useful developments
+      in compact energy technology
+      and integrated electronics.
+    </p>
+
+    <p>
+      Future research may support parts
+      of the original concept,
+      identify important limitations,
+      or lead toward entirely
+      different engineering directions.
+    </p>
+
+    <p>
+      Each outcome can contribute
+      to a better understanding
+      of what is technically possible.
+    </p>
+
+  </div>
+</section>
+
+<!-- SECTION 13 / CLOSING -->
+
+<section>
+  <div class="container">
+
+    <div class="highlight">
+
+      <div class="eyebrow">
+        The QIBS Research Revival
+      </div>
+
+      <h2>
+        The vision continues.
+      </h2>
+
+      <p>
+        More than a decade ago,
+        QIBS began as a personal
+        idea about compact technology
+        and future electronic systems.
+      </p>
+
+      <p>
+        Today, the project represents
+        an opportunity to revisit that
+        original ambition with a
+        stronger emphasis on
+        engineering research,
+        responsible development,
+        and scientific evidence.
+      </p>
+
+      <p>
+        The images on this page
+        represent possible
+        design directions.
+        They are not proof
+        of technical performance.
+      </p>
+
+      <h3>
+        Welcome to the Mini Quantum
+        Induction Battery System.
+      </h3>
+
+      <p>
+        <strong>
+          Imagination proposes.
+          Engineering investigates.
+          Evidence decides.
+        </strong>
+      </p>
+
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+  <div class="container footer-grid">
+
+    <div>
+
+      <div class="footer-title">
+        HALOCYBERLIFE
+      </div>
+
+      <p>
+        RPAS Studio · QIBS Engineering Research
+      </p>
+
+      <p>
+        Original concept: More than a decade ago<br>
+        Research presentation: 2026<br>
+        Status: Concept development;
+        scientific validation not established
+      </p>
+
+      <p>
+        Concept illustrations are speculative.
+        No self-powered operation,
+        production-ready design,
+        or measured performance is claimed.
+      </p>
+
+      <p>
+        © <span id="copyright-year">2026</span>
+        HaloCyberLife.
+        Original creative content.
+        All rights reserved.
+      </p>
+
+    </div>
+
+    <div>
+
+      <div class="footer-title">
+        Navigation
+      </div>
+
+      <div class="footer-links">
+        <a href="/index.html">Home</a>
+        <a href="/about.html">About</a>
+        <a href="/blog.html">Articles</a>
+        <a href="/contact_us.html">Contact</a>
+      </div>
+
+      <p>
+        HaloCyberLife — Where imagination
+        starts the conversation,
+        engineering explores the possibilities,
+        and evidence guides the conclusions.
+      </p>
+
+    </div>
+
+  </div>
+</footer>
+
+<!-- IMAGE LIGHTBOX -->
+
+<div
+  class="lightbox"
+  id="lightbox"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Expanded QIBS illustration"
+  aria-hidden="true">
+
+  <div class="lightbox-panel">
+
+    <button
+      class="lightbox-close"
+      type="button"
+      aria-label="Close image">
+      &#10005;
+    </button>
+
+    <img
+      id="lightbox-img"
+      alt="">
+  </div>
+
+</div>
+
+<button
+  class="back-top"
+  type="button"
+  aria-label="Back to top">
+  &#8593;
+</button>
+
+<!-- WEBSITE SCRIPT -->
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  /*
+    IMAGE LOCATION
+
+    This file:
+      /mqibs.html
+
+    Images:
+      /blog/Images/QIBS/
+
+    Only public presentation images
+    are referenced in this page.
+  */
+
+  const IMAGE_BASE = "/blog/Images/QIBS/";
+
+  /*
+    IMAGE RENDERER
+  */
+
+  document.querySelectorAll(
+    ".qibs-engineering-image[data-image]"
+  ).forEach(figure => {
+
+    const filename = figure.dataset.image;
+    const shell = figure.querySelector(
+      ".qibs-image-shell"
+    );
+
+    const img = document.createElement("img");
+
+    img.src = IMAGE_BASE + encodeURIComponent(filename);
+    img.alt = filename.replace(/\.webp$/i, "");
+    img.loading = "lazy";
+    img.decoding = "async";
+
+    img.addEventListener("click", () => {
+      openLightbox(img);
+    });
+
+    img.tabIndex = 0;
+    img.setAttribute("role", "button");
+    img.setAttribute(
+      "aria-label",
+      "Expand " + img.alt
+    );
+
+    img.addEventListener("keydown", event => {
+      if (
+        event.key === "Enter" ||
+        event.key === " "
+      ) {
+        event.preventDefault();
+        openLightbox(img);
+      }
+    });
+
+    img.addEventListener("error", () => {
+
+      const fallback = document.createElement("div");
+      fallback.className = "qibs-image-fallback";
+
+      const label = document.createElement("div");
+      label.className = "qibs-image-label";
+      label.textContent = "IMAGE FILE NOT FOUND";
+
+      const title = document.createElement("strong");
+      title.textContent = img.alt;
+
+      const description = document.createElement("p");
+      description.textContent =
+        "Check this image's public URL " +
+        "and exact filename in the QIBS folder.";
+
+      const file = document.createElement("div");
+      file.className = "qibs-image-filename";
+      file.textContent = filename;
+
+      fallback.append(
+        label,
+        title,
+        description,
+        file
+      );
+
+      shell.replaceChildren(fallback);
+
+    }, {once:true});
+
+    shell.appendChild(img);
+
+  });
+
+  /*
+    MOBILE NAVIGATION
+  */
+
+  const menuButton = document.querySelector(
+    ".menu-toggle"
+  );
+
+  const nav = document.getElementById("main-nav");
+
+  function closeMenu() {
+    nav.classList.remove("open");
+    menuButton.setAttribute(
+      "aria-expanded",
+      "false"
+    );
+    menuButton.setAttribute(
+      "aria-label",
+      "Open navigation"
+    );
+    document.body.classList.remove("menu-open");
+  }
+
+  menuButton.addEventListener("click", () => {
+
+    const open = nav.classList.toggle("open");
+
+    menuButton.setAttribute(
+      "aria-expanded",
+      String(open)
+    );
+
+    menuButton.setAttribute(
+      "aria-label",
+      open ? "Close navigation" : "Open navigation"
+    );
+
+    document.body.classList.toggle(
+      "menu-open",
+      open
+    );
+
+  });
+
+  nav.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", closeMenu);
+  });
+
+  /*
+    IMAGE LIGHTBOX
+  */
+
+  const lightbox = document.getElementById(
+    "lightbox"
+  );
+
+  const lightboxImg = document.getElementById(
+    "lightbox-img"
+  );
+
+  const closeButton = document.querySelector(
+    ".lightbox-close"
+  );
+
+  let previousFocus = null;
+
+  function openLightbox(img) {
+
+    previousFocus = document.activeElement;
+
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+
+    lightbox.classList.add("open");
+    lightbox.setAttribute(
+      "aria-hidden",
+      "false"
+    );
+
+    document.body.classList.add("menu-open");
+    closeButton.focus();
+
+  }
+
+  function closeLightbox() {
+
+    lightbox.classList.remove("open");
+
+    lightbox.setAttribute(
+      "aria-hidden",
+      "true"
+    );
+
+    lightboxImg.removeAttribute("src");
+
+    document.body.classList.remove("menu-open");
+
+    if (previousFocus) {
+      previousFocus.focus();
+    }
+
+  }
+
+  closeButton.addEventListener(
+    "click",
+    closeLightbox
+  );
+
+  lightbox.addEventListener("click", event => {
+    if (event.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  document.addEventListener("keydown", event => {
+
+    if (event.key === "Escape") {
+
+      if (lightbox.classList.contains("open")) {
+        closeLightbox();
+      } else if (nav.classList.contains("open")) {
+        closeMenu();
+        menuButton.focus();
+      }
+
+    }
+
+    if (
+      event.key === "Tab" &&
+      lightbox.classList.contains("open")
+    ) {
+      event.preventDefault();
+      closeButton.focus();
+    }
+
+  });
+
+  /*
+    BACK TO TOP
+  */
+
+  const backTop = document.querySelector(
+    ".back-top"
+  );
+
+  function updateBackTop() {
+    backTop.classList.toggle(
+      "visible",
+      window.scrollY > 600
+    );
+  }
+
+  window.addEventListener(
+    "scroll",
+    updateBackTop,
+    {passive:true}
+  );
+
+  updateBackTop();
+
+  backTop.addEventListener("click", () => {
+
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    window.scrollTo({
+      top:0,
+      behavior:reducedMotion ? "auto" : "smooth"
+    });
+
+  });
+
+  /*
+    COPYRIGHT YEAR
+  */
+
+  document.getElementById(
+    "copyright-year"
+  ).textContent = new Date().getFullYear();
+
+});
+</script>
+
+</body>
+</html>
+
