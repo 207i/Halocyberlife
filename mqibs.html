@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,38 +20,41 @@
 <!-- Google Analytics 4 — HaloCyberLife -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0HZN617CB1"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-
-  gtag('js', new Date());
-  gtag('config', 'G-0HZN617CB1');
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-0HZN617CB1');
 </script>
 
 <!--
-  MASTER IMAGE DIRECTORY:
-  blog/Images/QIBS/
+  QIBS — COMPLETE ROOT-LEVEL WEBSITE VERSION
 
-  THIS HTML IS ASSUMED TO LIVE INSIDE:
-  blog/
+  PUBLIC HTML:
+    https://halocyberlife.com/mqibs.html
 
-  THEREFORE IMAGE SOURCES USE:
-  Images/QIBS/filename.webp
+  GITHUB IMAGE DIRECTORY:
+    blog/Images/QIBS/
 
-  REQUIRED IMAGE FILES:
+  PUBLIC IMAGE BASE:
+    /blog/Images/QIBS/
 
-  01 QIBS Mini Quantum Battery Exploded View.webp
-  02 QIBS Lift-and-Disengage Control Infographic.webp
-  03 QIBS Three-Supercapacitor Energy Architecture.webp
-  04 QIBS Quantum Battery Research Dashboard.webp
-  05 QIBS Finished Technology Concept.webp
-  06 QIBS Multi-Unit Induction Power Platform.webp
-  07 QIBS Modular Circuit Board.webp
-  08 QIBS Future Device Applications.webp
+  VERIFIED AGAINST THE SUPPLIED GITHUB FOLDER LIST:
 
-  Upload any missing files with these exact names.
+    QIBS Mini Quantum Battery Exploded View.webp
+    QIBS Lift-and-Disengage Control Infographic.webp
+    QIBS Three-Supercapacitor Energy Architecture.webp
+    QIBS Quantum Battery Research Dashboard.webp
+    QIBS Finished Technology Concept.webp
+    QIBS Multi-Unit Induction Power Platform.webp
+    QIBS Modular Circuit Board.webp
+    QIBS Future Device Applications.webp
 
-  If this HTML is instead published at the website root,
-  change IMAGE_BASE below to "blog/Images/QIBS/".
+  The image slots correspond to their matching
+  article sections. No image renaming required.
+
+  IMPORTANT:
+  GitHub repository paths and public GitHub Pages
+  URLs must correspond to the deployed site.
 -->
 
 <style>
@@ -110,9 +114,7 @@ button{font:inherit}
 
 .skip-link:focus{top:12px}
 
-/* =====================================
-   HALOCYBERLIFE SITE HEADER
-   ===================================== */
+/* HALOCYBERLIFE SITE HEADER */
 
 .topbar{
   position:sticky;
@@ -186,9 +188,7 @@ button{font:inherit}
   background:var(--cyan);
 }
 
-/* =====================================
-   HERO
-   ===================================== */
+/* HERO */
 
 .hero{
   padding:85px 0 70px;
@@ -283,9 +283,7 @@ h3{
   background:transparent;
 }
 
-/* =====================================
-   ARTICLE
-   ===================================== */
+/* ARTICLE */
 
 main section{
   padding:70px 0;
@@ -330,9 +328,7 @@ strong{color:var(--white)}
   font-size:14px;
 }
 
-/* =====================================
-   EIGHT ENGINEERING IMAGE SLOTS
-   ===================================== */
+/* ENGINEERING IMAGE SLOTS */
 
 .qibs-engineering-image{
   width:100%;
@@ -405,9 +401,7 @@ strong{color:var(--white)}
   overflow-wrap:anywhere;
 }
 
-/* =====================================
-   RESEARCH PRESENTATION
-   ===================================== */
+/* RESEARCH PRESENTATION */
 
 .equation{
   border-left:3px solid var(--cyan);
@@ -541,9 +535,7 @@ li{margin:9px 0}
   margin:0;
 }
 
-/* =====================================
-   IMAGE LIGHTBOX
-   ===================================== */
+/* IMAGE LIGHTBOX */
 
 .lightbox{
   position:fixed;
@@ -587,9 +579,7 @@ li{margin:9px 0}
   cursor:pointer;
 }
 
-/* =====================================
-   FOOTER
-   ===================================== */
+/* FOOTER */
 
 footer{
   padding:48px 0;
@@ -643,12 +633,9 @@ footer p{
 
 .back-top.visible{display:block}
 
-/* =====================================
-   RESPONSIVE
-   ===================================== */
+/* RESPONSIVE */
 
 @media(max-width:780px){
-
   .hero{padding:55px 0}
   main section{padding:48px 0}
 
@@ -713,15 +700,13 @@ footer p{
   Skip to article
 </a>
 
-<!-- =====================================
-     REGULAR HALOCYBERLIFE HEADER
-     ===================================== -->
+<!-- ROOT-LEVEL HALOCYBERLIFE HEADER -->
 
 <header class="topbar">
   <div class="container topbar-inner">
 
     <a class="brand"
-       href="../index.html"
+       href="/index.html"
        aria-label="HaloCyberLife home">
       <span>HALO</span>CYBERLIFE
     </a>
@@ -738,10 +723,10 @@ footer p{
     </button>
 
     <nav id="main-nav" aria-label="Main navigation">
-      <a href="../index.html">HOME</a>
-      <a href="../about.html">ABOUT</a>
-      <a href="../blog.html">ARTICLES</a>
-      <a href="../contact_us.html">CONTACT</a>
+      <a href="/index.html">HOME</a>
+      <a href="/about.html">ABOUT</a>
+      <a href="/blog.html">ARTICLES</a>
+      <a href="/contact_us.html">CONTACT</a>
     </nav>
 
   </div>
@@ -749,9 +734,7 @@ footer p{
 
 <main id="main">
 
-<!-- =====================================
-     HERO
-     ===================================== -->
+<!-- HERO -->
 
 <div class="hero">
   <div class="container">
@@ -807,9 +790,7 @@ footer p{
   </div>
 </div>
 
-<!-- =====================================
-     SECTION 01 / ORIGIN
-     ===================================== -->
+<!-- SECTION 01 / ORIGIN -->
 
 <section id="origin">
   <div class="container intro">
@@ -870,9 +851,7 @@ footer p{
   </div>
 </section>
 
-<!-- =====================================
-     SECTION 02 / IMAGE 01
-     ===================================== -->
+<!-- SECTION 02 / IMAGE 01 -->
 
 <section>
   <div class="container">
@@ -909,9 +888,7 @@ footer p{
   </div>
 </section>
 
-<!-- =====================================
-     SECTION 03 / MECHANICAL ARCHITECTURE
-     ===================================== -->
+<!-- SECTION 03 / MECHANICAL ARCHITECTURE -->
 
 <section id="engineering">
   <div class="container">
@@ -982,9 +959,7 @@ footer p{
   </div>
 </section>
 
-<!-- =====================================
-     SECTION 04 / PHYSICS
-     ===================================== -->
+<!-- SECTION 04 / PHYSICS -->
 
 <section>
   <div class="container">
@@ -1047,9 +1022,7 @@ footer p{
   </div>
 </section>
 
-<!-- =====================================
-     SECTION 05 / IMAGE 02
-     ===================================== -->
+<!-- SECTION 05 / IMAGE 02 -->
 
 <section>
   <div class="container">
@@ -1109,9 +1082,7 @@ footer p{
   </div>
 </section>
 
-<!-- =====================================
-     SECTION 06 / IMAGE 03
-     ===================================== -->
+<!-- SECTION 06 / IMAGE 03 -->
 
 <section id="energy">
   <div class="container">
@@ -1264,9 +1235,7 @@ footer p{
   </div>
 </section>
 
-<!-- =====================================
-     SECTION 07 / PRELIMINARY SPECS
-     ===================================== -->
+<!-- SECTION 07 / PRELIMINARY SPECS -->
 
 <section>
   <div class="container">
@@ -1363,9 +1332,7 @@ footer p{
   </div>
 </section>
 
-<!-- =====================================
-     SECTION 08 / IMAGE 04
-     ===================================== -->
+<!-- SECTION 08 / IMAGE 04 -->
 
 <section id="rpas">
   <div class="container">
@@ -1478,9 +1445,7 @@ footer p{
   </div>
 </section>
 
-<!-- =====================================
-     SECTION 09 / IMAGES 05 AND 06
-     ===================================== -->
+<!-- SECTION 09 / IMAGES 05 AND 06 -->
 
 <section id="vision">
   <div class="container">
@@ -1538,8 +1503,6 @@ footer p{
       The imagined finished technology
     </h3>
 
-    <!-- NEW SEPARATE FINISHED DEVICE IMAGE -->
-
     <figure class="qibs-engineering-image"
       data-image="QIBS Finished Technology Concept.webp">
 
@@ -1565,8 +1528,6 @@ footer p{
       modules operating as a coordinated
       energy-conversion platform.
     </p>
-
-    <!-- PRESERVED ORIGINAL MULTI-UNIT IMAGE -->
 
     <figure class="qibs-engineering-image"
       data-image="QIBS Multi-Unit Induction Power Platform.webp">
@@ -1599,9 +1560,7 @@ footer p{
   </div>
 </section>
 
-<!-- =====================================
-     SECTION 10 / IMAGE 07
-     ===================================== -->
+<!-- SECTION 10 / IMAGE 07 -->
 
 <section id="scaling">
   <div class="container">
@@ -1735,9 +1694,7 @@ footer p{
   </div>
 </section>
 
-<!-- =====================================
-     SECTION 11 / IMAGE 08
-     ===================================== -->
+<!-- SECTION 11 / IMAGE 08 -->
 
 <section id="applications">
   <div class="container">
@@ -1876,9 +1833,7 @@ footer p{
   </div>
 </section>
 
-<!-- =====================================
-     SECTION 12 / SCIENTIFIC VALIDATION
-     ===================================== -->
+<!-- SECTION 12 / SCIENTIFIC VALIDATION -->
 
 <section>
   <div class="container">
@@ -1978,9 +1933,7 @@ footer p{
   </div>
 </section>
 
-<!-- =====================================
-     SECTION 13 / ROADMAP
-     ===================================== -->
+<!-- SECTION 13 / ROADMAP -->
 
 <section id="roadmap">
   <div class="container">
@@ -2097,9 +2050,7 @@ footer p{
   </div>
 </section>
 
-<!-- =====================================
-     CLOSING
-     ===================================== -->
+<!-- CLOSING -->
 
 <section>
   <div class="container">
@@ -2167,9 +2118,7 @@ footer p{
 
 </main>
 
-<!-- =====================================
-     FOOTER
-     ===================================== -->
+<!-- FOOTER -->
 
 <footer>
   <div class="container footer-grid">
@@ -2209,10 +2158,10 @@ footer p{
       </div>
 
       <div class="footer-links">
-        <a href="../index.html">Home</a>
-        <a href="../about.html">About</a>
-        <a href="../blog.html">Articles</a>
-        <a href="../contact_us.html">Contact</a>
+        <a href="/index.html">Home</a>
+        <a href="/about.html">About</a>
+        <a href="/blog.html">Articles</a>
+        <a href="/contact_us.html">Contact</a>
       </div>
 
       <p>
@@ -2226,9 +2175,7 @@ footer p{
   </div>
 </footer>
 
-<!-- =====================================
-     LIGHTBOX
-     ===================================== -->
+<!-- IMAGE LIGHTBOX -->
 
 <div
   class="lightbox"
@@ -2261,34 +2208,34 @@ footer p{
   &#8593;
 </button>
 
-<!-- =====================================
-     SITE SCRIPT
-     ===================================== -->
+<!-- SITE SCRIPT -->
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
   /*
-    IMAGE LOCATION
+    CORRECT IMAGE LOCATION FOR mqibs.html
 
-    HTML page:
-      blog/QIBS.html
+    Page:
+      https://halocyberlife.com/mqibs.html
 
     Image directory:
       blog/Images/QIBS/
 
-    If HTML is at website root, use:
-      const IMAGE_BASE = "blog/Images/QIBS/";
+    Root-relative URLs remain correct
+    regardless of the current page path.
   */
 
-  const IMAGE_BASE = "Images/QIBS/";
+  const IMAGE_BASE = "/blog/Images/QIBS/";
 
   /*
-    RENDER ALL EIGHT IMAGES
+    RENDER ALL EIGHT MATCHED IMAGES
 
-    Missing files show a named placeholder.
-    When you upload the correct WebP file,
-    the image displays automatically.
+    Filename spelling and capitalization
+    match the supplied GitHub screenshot.
+
+    If a file is unavailable from GitHub Pages,
+    display the existing named placeholder.
   */
 
   document.querySelectorAll(
@@ -2342,7 +2289,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const description = document.createElement("p");
       description.textContent =
-        "Upload this WebP image to the QIBS image folder.";
+        "Check this WebP image in the QIBS image folder.";
 
       const file = document.createElement("div");
       file.className = "qibs-image-filename";
