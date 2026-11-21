@@ -349,25 +349,31 @@ strong {
 }
 
 /* IMAGES */
+/* IMAGES — CLEAN RESPONSIVE PRESENTATION */
 
 .qibs-engineering-image {
-  width:100%;
-  margin:32px 0;
+  width: 100%;
+  max-width: 760px;
+  margin: 36px auto;
 }
 
 .qibs-image-shell {
-  overflow:hidden;
-  border:1px solid var(--line);
-  border-radius:18px;
-  background:#0b1b2e;
-  box-shadow:0 12px 40px rgba(0,0,0,.35);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #0b1b2e;
+  box-shadow: 0 8px 24px rgba(0,0,0,.25);
+  text-align: center;
 }
 
 .qibs-engineering-image img {
-  display:block;
-  width:100%;
-  height:auto;
-  cursor:zoom-in;
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+  cursor: zoom-in;
 }
 
 .qibs-engineering-image .caption {
