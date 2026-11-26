@@ -715,6 +715,42 @@
   text-shadow:
     0 0 8px rgba(52, 211, 153, 0.6);
 }    
+
+  /* HALOCYBERLIFE — COLOR HEADER LOGO */
+
+.neon-header .logo-pair {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 85px;
+  overflow: hidden;
+}
+
+.neon-header .halo-color-logo {
+  display: block;
+  width: 120px;
+  height: 120px;
+  max-width: none;
+  flex-shrink: 0;
+  object-fit: contain;
+  transform: scale(1.65);
+  filter: none;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+  .neon-header .logo-pair {
+    width: 85px;
+    height: 65px;
+  }
+
+  .neon-header .halo-color-logo {
+    width: 85px;
+    height: 85px;
+  }
+}
   </style>
 </head>
 
