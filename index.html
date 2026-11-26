@@ -229,6 +229,115 @@
     max-width: 100%;
   }
 }
+
+/* ========================================
+   HALOCYBERLIFE — SEMANTIC BRAND HEADING
+======================================== */
+
+.brand-h1-section {
+  width: 100%;
+  padding: 38px 20px 40px;
+  box-sizing: border-box;
+  text-align: center;
+  background: #101624;
+}
+
+/* Main SEO H1 */
+
+.brand-h1-section .brand-h1 {
+  display: block;
+  width: 100%;
+  margin: 0 auto 12px;
+
+  font-family: 'Michroma', sans-serif;
+  font-size: clamp(1.4rem, 5.5vw, 5rem);
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: 0.035em;
+
+  text-transform: uppercase;
+  white-space: nowrap;
+
+  color: #45c2cb;
+
+  background: linear-gradient(
+    90deg,
+    #269ecb 0%,
+    #35b6d0 30%,
+    #45c2cb 60%,
+    #bad5e4 100%
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Brand tagline */
+
+.brand-tagline {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.85rem, 2.4vw, 2.1rem);
+  font-weight: 400;
+  line-height: 1.4;
+  color: #8395a3;
+}
+
+.brand-tagline p {
+  margin: 0;
+}
+
+.brand-tagline p + p {
+  margin-top: 4px;
+}
+
+/* Decorative horizontal lines */
+
+.brand-tagline-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+.brand-tagline-line::before,
+.brand-tagline-line::after {
+  content: "";
+  display: block;
+  width: clamp(20px, 9vw, 125px);
+  height: 2px;
+  background: #8395a3;
+  opacity: 0.7;
+}
+
+/* Mobile responsiveness */
+
+@media (max-width: 768px) {
+
+  .brand-h1-section {
+    padding: 30px 12px;
+  }
+
+  .brand-h1-section .brand-h1 {
+    font-size: clamp(1rem, 5.5vw, 2.6rem);
+    letter-spacing: 0.02em;
+    margin-bottom: 14px;
+  }
+
+  .brand-tagline {
+    font-size: clamp(0.75rem, 3vw, 1.1rem);
+  }
+
+  .brand-tagline-line {
+    gap: 8px;
+  }
+
+  .brand-tagline-line::before,
+  .brand-tagline-line::after {
+    width: 20px;
+    height: 1px;
+  }
+}    
 </style>
 </head>
 <body>
