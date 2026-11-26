@@ -2499,7 +2499,57 @@
 
       'use strict';
 
-      const IMAGE_DIRECTORY = '/Images/BioTree/';
+      const IMAGE_DIRECTORY = '/images/BioTree/';
+
+const IMAGE_FILES = {
+  'biotree-01-hero.webp':
+    'biotree-01-hero.webp',
+
+  'biotree-02-solar-canopy.webp':
+    'Futuristic BioTree Solar Installation-2.png',
+
+  'biotree-03-material-detail.webp':
+    'biotree-03-material-detail.webp',
+
+  'biotree-04-thermal-tank.webp':
+    'biotree-04-thermal-tank.webp',
+
+  'biotree-05-public-comfort.webp':
+    'biotree-05-public-comfort.webp',
+
+  'biotree-06-charging.webp':
+    'biotree-06-charging.webp',
+
+  'biotree-07-water-station.webp':
+    'BioTree Public Water Station.png',
+
+  'biotree-08-night.webp':
+    'Futuristic BioTree Night Plaza.png',
+
+  'biotree-09-urban-plaza.webp':
+    'biotree-09-urban-plaza.webp',
+
+  'biotree-10-community-park.webp':
+    'biotree-10-community-park.webp',
+
+  'biotree-11-campus.webp':
+    'biotree-11-campus.webp',
+
+  'biotree-12-network.webp':
+    'biotree-12-network.webp'
+};
+
+function resolveImagePath(value) {
+
+  const filename = value.split('/').pop();
+
+  const actualFilename =
+    IMAGE_FILES[filename] || filename;
+
+  return IMAGE_DIRECTORY +
+    encodeURIComponent(actualFilename);
+
+}
 
       /* ========================================
          PUBLIC SYSTEM CONFIGURATION
