@@ -13,46 +13,70 @@
      IMAGE DIRECTORY AND FILE MAPPING
   ========================================= */
 
- 
-const IMAGE_DIRECTORY = '/images/BioTree/';
+  const IMAGE_DIRECTORY = '/images/BioTree/';
 
-const IMAGE_FILES = {
-  'biotree-01-hero.webp': 'biotree-01-hero.webp',
+  const IMAGE_FILES = {
 
-  'biotree-02-solar-canopy.webp': 'Futuristic BioTree Solar Installation-2.webp',
+    'biotree-01-hero.webp':
+      'biotree-01-hero.webp',
 
-  'biotree-03-material-detail.webp': 'biotree-03-material-detail.webp',
+    'biotree-02-solar-canopy.webp':
+      'Futuristic BioTree Solar Installation-2.png',
 
-  'biotree-04-thermal-tank.webp': 'biotree-04-thermal-tank.webp',
+    'Futuristic BioTree Solar Installation-2.webp':
+      'Futuristic BioTree Solar Installation-2.png',
 
-  'biotree-05-public-comfort.webp': 'biotree-05-public-comfort.webp',
+    'biotree-03-material-detail.webp':
+      'biotree-03-material-detail.webp',
 
-  'biotree-06-charging.webp': 'biotree-06-charging.webp',
+    'biotree-04-thermal-tank.webp':
+      'biotree-04-thermal-tank.webp',
 
-  'biotree-07-water-station.webp': 'BioTree Public Water Station.png',
+    'biotree-05-public-comfort.webp':
+      'biotree-05-public-comfort.webp',
 
-  'biotree-08-night.webp': 'Futuristic BioTree Night Plaza.png',
+    'biotree-06-charging.webp':
+      'biotree-06-charging.webp',
 
-  'biotree-09-urban-plaza.webp': 'biotree-09-urban-plaza.webp',
+    'biotree-07-water-station.webp':
+      'BioTree Public Water Station.png',
 
-  'biotree-10-community-park.webp': 'biotree-10-community-park.webp',
+    'biotree-08-night.webp':
+      'Futuristic BioTree Night Plaza.png',
 
-  'biotree-11-campus.webp': 'biotree-11-campus.webp',
+    'biotree-09-urban-plaza.webp':
+      'biotree-09-urban-plaza.webp',
 
-  'biotree-12-network.webp': 'biotree-12-network.webp'
-};
+    'biotree-10-community-park.webp':
+      'biotree-10-community-park.webp',
 
-function resolveImagePath(value) {
-  if (!value) return '';
+    'biotree-11-campus.webp':
+      'biotree-11-campus.webp',
 
-  const filename = value.trim().split('/').pop();
+    'biotree-12-network.webp':
+      'biotree-12-network.webp'
 
-  const actualFilename =
-    IMAGE_FILES[filename] || filename;
+  };
 
-  return IMAGE_DIRECTORY +
-    encodeURIComponent(actualFilename);
-}
+  /* ========================================
+     UNIVERSAL IMAGE PATH RESOLVER
+  ========================================= */
+
+  function resolveImagePath(value) {
+
+    if (!value) {
+      return '';
+    }
+
+    const filename = value.trim().split('/').pop();
+
+    const actualFilename =
+      IMAGE_FILES[filename] || filename;
+
+    return IMAGE_DIRECTORY +
+      encodeURIComponent(actualFilename);
+
+  }
 
   /* ========================================
      PUBLIC SYSTEM CONFIGURATION
