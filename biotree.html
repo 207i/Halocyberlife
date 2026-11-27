@@ -1,622 +1,3081 @@
+<!DOCTYPE html>
+<html lang="en">
 
-<!-- ========================================
-     BIOTREE EXPLORER — PREVIEW ENGINE
-     Corrected Image Resolution
-========================================= -->
+<head>
 
-<script>
-(() => {
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  'use strict';
+  <!-- ========================================
+       BIOTREE — SEO
+  ========================================= -->
 
-  /* ========================================
-     IMAGE DIRECTORY AND FILE MAPPING
-  ========================================= */
+  <title>BioTree™ — Integrated Environmental Architecture | HaloCyberLife</title>
 
-  const IMAGE_DIRECTORY = '/images/BioTree/';
+  <meta
+    name="description"
+    content="Discover BioTree, an original HaloCyberLife innovation exploring solar architecture, thermal energy storage, environmental cooling and sustainable public infrastructure."
+  />
 
-  const IMAGE_FILES = {
+  <meta name="author" content="Luis Amaya" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#050814" />
 
-    'biotree-01-hero.webp':
-      'biotree-01-hero.webp',
+  <link
+    rel="canonical"
+    href="https://halocyberlife.com/biotree.html"
+  />
 
-    'biotree-02-solar-canopy.webp':
-      'Futuristic BioTree Solar Installation-2.png',
+  <!-- OPEN GRAPH -->
 
-    'Futuristic BioTree Solar Installation-2.webp':
-      'Futuristic BioTree Solar Installation-2.png',
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="HaloCyberLife" />
+  <meta property="og:title" content="BioTree™ — One Tree. Multiple Systems. Endless Possibilities." />
 
-    'biotree-03-material-detail.webp':
-      'biotree-03-material-detail.webp',
+  <meta
+    property="og:description"
+    content="Explore an original architectural innovation integrating renewable energy, thermal storage, environmental comfort and community services."
+  />
 
-    'biotree-04-thermal-tank.webp':
-      'biotree-04-thermal-tank.webp',
+  <meta
+    property="og:url"
+    content="https://halocyberlife.com/biotree.html"
+  />
 
-    'biotree-05-public-comfort.webp':
-      'biotree-05-public-comfort.webp',
+  <meta
+    property="og:image"
+    content="https://halocyberlife.com/images/logo_v4_2.webp"
+  />
 
-    'biotree-06-charging.webp':
-      'biotree-06-charging.webp',
+  <!-- TWITTER / X -->
 
-    'biotree-07-water-station.webp':
-      'BioTree Public Water Station.png',
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="BioTree™ | HaloCyberLife" />
 
-    'biotree-08-night.webp':
-      'Futuristic BioTree Night Plaza.png',
+  <meta
+    name="twitter:description"
+    content="One Tree. Multiple Systems. Endless Possibilities."
+  />
 
-    'biotree-09-urban-plaza.webp':
-      'biotree-09-urban-plaza.webp',
+  <meta
+    name="twitter:image"
+    content="https://halocyberlife.com/images/logo_v4_2.png"
+  />
 
-    'biotree-10-community-park.webp':
-      'biotree-10-community-park.webp',
+  <!-- FAVICONS -->
 
-    'biotree-11-campus.webp':
-      'biotree-11-campus.webp',
+  <link rel="icon" href="/images/favicon.ico" sizes="any" />
 
-    'biotree-12-network.webp':
-      'biotree-12-network.webp'
+  <link
+    rel="apple-touch-icon"
+    href="/images/favicons/apple-touch-icon.webp"
+  />
 
-  };
+  <!-- GOOGLE FONTS -->
 
-  /* ========================================
-     UNIVERSAL IMAGE PATH RESOLVER
-  ========================================= */
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
 
-  function resolveImagePath(value) {
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  />
 
-    if (!value) {
-      return '';
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Michroma&amp;display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- SHARED HALOCYBERLIFE STYLESHEET -->
+
+  <link rel="stylesheet" href="/style_v2_0_0.css?v=206" />
+
+  <!-- GOOGLE ADSENSE -->
+
+  <script
+    async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8214545730626805"
+    crossorigin="anonymous">
+  </script>
+
+  <!-- GOOGLE ANALYTICS -->
+
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-0HZN617CB1">
+  </script>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
     }
 
-    const filename = value.trim().split('/').pop();
-
-    const actualFilename =
-      IMAGE_FILES[filename] || filename;
-
-    return IMAGE_DIRECTORY +
-      encodeURIComponent(actualFilename);
-
-  }
-
-  /* ========================================
-     PUBLIC SYSTEM CONFIGURATION
-     IDs reserved for future GLB model groups.
-  ========================================= */
-
-  const systems = [
-
-    {
-      id: 'BT_PUBLIC_EXTERIOR',
-      label: 'Complete Exterior',
-      title: 'Integrated Environmental Architecture',
-      image: 'biotree-01-hero.webp',
-      description:
-        'BioTree investigates how nature-inspired architecture, renewable energy, thermal storage, environmental comfort and community services could be integrated within one public infrastructure system.'
-    },
-
-    {
-      id: 'BT_PUBLIC_SOLAR',
-      label: 'Solar Canopy',
-      title: 'Photovoltaic Leaf Canopy',
-      image: 'biotree-02-solar-canopy.webp',
-      description:
-        'Leaf-shaped photovoltaic surfaces explore solar electricity generation while providing architectural shade. Energy production depends on location, orientation, climate and final photovoltaic specifications.'
-    },
-
-    {
-      id: 'BT_PUBLIC_THERMAL_TANK',
-      label: 'Thermal Energy Storage',
-      title: 'Above-Ground Sand-Based Thermal Battery',
-      image: 'biotree-04-thermal-tank.webp',
-      description:
-        'The proposed above-ground thermal storage tank investigates the retention of energy as heat within a sand-based storage medium. Recovering electricity from stored heat would require suitable energy conversion equipment.'
-    },
-
-    {
-      id: 'BT_PUBLIC_THERMAL_PROTECTION',
-      label: 'Thermal Protection',
-      title: 'Thermal Insulation and Protective Systems',
-      image: null,
-      description:
-        'Proposed insulation, temperature monitoring and protective barriers investigate ways to limit heat transfer, protect surrounding components and prevent unintended public contact. Performance remains subject to engineering validation.'
-    },
-
-    {
-      id: 'BT_PUBLIC_STRUCTURE',
-      label: 'Structural Framework',
-      title: 'Integrated Structural Architecture',
-      image: 'biotree-03-material-detail.webp',
-      description:
-        'The proposed engineered metallic framework supports the architectural canopy and integrated systems. Wind resistance, foundation design, loading and structural capacity require detailed engineering assessment.'
-    },
-
-    {
-      id: 'BT_PUBLIC_ELECTRICAL',
-      label: 'Energy Management',
-      title: 'Renewable Energy Management',
-      image: null,
-      description:
-        'BioTree explores electrical energy distribution, monitoring and management across selected public services. Final electrical architecture, protection and storage requirements remain under investigation.'
-    },
-
-    {
-      id: 'BT_PUBLIC_CHARGING',
-      label: 'Charging Lockers',
-      title: 'Public Personal-Device Charging',
-      image: 'biotree-06-charging.webp',
-      description:
-        'Ten proposed integrated charging lockers explore convenient access to personal-device charging within public spaces. Electrical protection, accessibility and operational management require further evaluation.'
-    },
-
-    {
-      id: 'BT_PUBLIC_RESPIRATORY',
-      label: 'Respiratory System',
-      title: 'Air Intake and Circulation',
-      image: null,
-      description:
-        'The central respiratory intake crown explores controlled air movement and circulation within the architectural system. Airflow performance, filtration and energy requirements remain subject to technical research.'
-    },
-
-    {
-      id: 'BT_PUBLIC_MIST',
-      label: 'Mist Cooling',
-      title: 'Controlled Environmental Cooling',
-      image: 'biotree-05-public-comfort.webp',
-      description:
-        'Controlled mist cooling investigates potential improvements to outdoor thermal comfort. Effectiveness depends on humidity, temperature, water quality, wind conditions and system design.'
-    },
-
-    {
-      id: 'BT_PUBLIC_WATER',
-      label: 'Water Systems',
-      title: 'Independent Public Water Station',
-      image: 'biotree-07-water-station.webp',
-      description:
-        'Proposed water collection, treatment and independent drinking-water services explore public accessibility. Potable water must meet applicable health and regulatory requirements before public use.'
-    },
-
-    {
-      id: 'BT_PUBLIC_UNDERGROUND',
-      label: 'Underground Utilities',
-      title: 'Underground Mechanical Utilities',
-      image: null,
-      description:
-        'Selected mechanical and utility connections may be integrated below ground to support the architectural installation. The sand-based thermal storage tank remains above ground.'
-    },
-
-    {
-      id: 'BT_PUBLIC_MAINTENANCE',
-      label: 'Maintenance Access',
-      title: 'Serviceability and Controlled Access',
-      image: null,
-      description:
-        'Proposed service walkways and maintenance access investigate how qualified personnel could inspect and maintain system components while separating technical areas from public activity.'
-    },
-
-    {
-      id: 'BT_PUBLIC_LIGHTING',
-      label: 'Architectural Lighting',
-      title: 'BioTree After Sunset',
-      image: 'biotree-08-night.webp',
-      description:
-        'Integrated warm-white lighting explores nighttime visibility, architectural character and public-space comfort. Nighttime operation depends on the final energy supply and lighting design.'
-    },
-
-    {
-      id: 'BT_PUBLIC_SEATING',
-      label: 'Integrated Seating',
-      title: 'Human-Centered Public Space',
-      image: 'biotree-05-public-comfort.webp',
-      description:
-        'Circular integrated seating explores a welcoming environment for relaxation, social interaction and everyday community use. Accessibility and ergonomic requirements remain part of the design process.'
-    }
-
-  ];
-
-  /* ========================================
-     DOM REFERENCES
-  ========================================= */
-
-  const viewport =
-    document.getElementById('biotree-viewport');
-
-  const preview =
-    document.getElementById('biotree-preview');
-
-  const placeholder =
-    document.getElementById('biotree-placeholder');
-
-  const placeholderTitle =
-    document.getElementById('biotree-placeholder-title');
-
-  const viewerStatus =
-    document.getElementById('biotree-viewer-status');
-
-  const layerList =
-    document.getElementById('biotree-layer-list');
-
-  const systemTitle =
-    document.getElementById('biotree-system-title');
-
-  const systemDescription =
-    document.getElementById('biotree-system-description');
-
-  const fullscreenButton =
-    document.getElementById('biotree-fullscreen');
-
-  if (
-    !viewport ||
-    !preview ||
-    !placeholder ||
-    !placeholderTitle ||
-    !viewerStatus ||
-    !layerList ||
-    !systemTitle ||
-    !systemDescription ||
-    !fullscreenButton
-  ) {
-
-    console.error('BioTree Explorer: Required elements missing.');
-    return;
-
-  }
-
-  let activeImageRequest = 0;
-
-  /* ========================================
-     LOAD STATIC IMAGES
-  ========================================= */
-
-  document.querySelectorAll(
-    '.bt-media img[data-src]'
-  ).forEach((image) => {
-
-    const media = image.closest('.bt-media');
-
-    const fallback = media
-      ? media.querySelector('.bt-media-placeholder')
-      : null;
-
-    image.addEventListener('load', () => {
-
-      image.hidden = false;
-
-      if (fallback) {
-        fallback.hidden = true;
-      }
-
-    });
-
-    image.addEventListener('error', () => {
-
-      image.hidden = true;
-
-      if (fallback) {
-        fallback.hidden = false;
-      }
-
-      console.warn(
-        'BioTree image unavailable:',
-        image.src
-      );
-
-    });
-
-    image.decoding = 'async';
-
-    /* CORRECTED IMAGE PATH */
-
-    image.src = resolveImagePath(image.dataset.src);
-
-  });
-
-  /* ========================================
-     MAIN VIEWPORT IMAGE LOADER
-  ========================================= */
-
-  function loadPreview(system) {
-
-    const request = ++activeImageRequest;
-
-    preview.hidden = true;
-    placeholder.hidden = false;
-
-    placeholderTitle.textContent = system.label;
-
-    if (!system.image) {
-
-      viewerStatus.textContent =
-        'System information available. Dedicated visualization and interactive 3D layer in development.';
-
-      return;
-
-    }
-
-    viewerStatus.textContent =
-      'Loading architectural preview...';
-
-    const loader = new Image();
-
-    loader.onload = () => {
-
-      if (request !== activeImageRequest) {
-        return;
-      }
-
-      preview.src = loader.src;
-
-      preview.alt =
-        'BioTree — ' + system.label;
-
-      preview.hidden = false;
-      placeholder.hidden = true;
-
-      viewerStatus.textContent =
-        system.label +
-        ' · Architectural concept preview. Interactive 3D model in development.';
-
-    };
-
-    loader.onerror = () => {
-
-      if (request !== activeImageRequest) {
-        return;
-      }
-
-      preview.hidden = true;
-      placeholder.hidden = false;
-
-      viewerStatus.textContent =
-        system.label +
-        ' · Visualization in preparation.';
-
-      console.warn(
-        'BioTree preview unavailable:',
-        loader.src
-      );
-
-    };
-
-    /* CORRECTED IMAGE PATH */
-
-    loader.src = resolveImagePath(system.image);
-
-  }
-
-  /* ========================================
-     SELECT SYSTEM
-  ========================================= */
-
-  function selectSystem(systemId) {
-
-    const system = systems.find(
-      (item) => item.id === systemId
-    );
-
-    if (!system) {
-      return;
-    }
-
-    systemTitle.textContent = system.title;
-
-    systemDescription.textContent =
-      system.description;
-
-    layerList.querySelectorAll(
-      '.bt-layer-button'
-    ).forEach((button) => {
-
-      button.setAttribute(
-        'aria-pressed',
-        String(button.dataset.system === systemId)
-      );
-
-    });
-
-    document.querySelectorAll(
-      '.bt-perspective'
-    ).forEach((button) => {
-
-      button.setAttribute(
-        'aria-pressed',
-        String(button.dataset.system === systemId)
-      );
-
-    });
-
-    loadPreview(system);
-
-  }
-
-  /* ========================================
-     CREATE SYSTEM DISCOVERY BUTTONS
-  ========================================= */
-
-  layerList.textContent = '';
-
-  systems.forEach((system) => {
-
-    const button = document.createElement('button');
-
-    button.type = 'button';
-
-    button.className = 'bt-layer-button';
-
-    button.dataset.system = system.id;
-
-    button.textContent = system.label;
-
-    button.setAttribute('aria-pressed', 'false');
-
-    button.addEventListener('click', () => {
-
-      selectSystem(system.id);
-
-    });
-
-    layerList.appendChild(button);
-
-  });
-
-  /* ========================================
-     PERSPECTIVE BUTTONS
-  ========================================= */
-
-  document.querySelectorAll(
-    '.bt-perspective'
-  ).forEach((button) => {
-
-    button.addEventListener('click', () => {
-
-      selectSystem(button.dataset.system);
-
-    });
-
-  });
-
-  /* ========================================
-     FULLSCREEN CONTROLS
-  ========================================= */
-
-  let expandedMode = false;
-  let previousBodyOverflow = '';
-
-  function updateFullscreenButton() {
-
-    const active =
-      document.fullscreenElement === viewport ||
-      expandedMode;
-
-    fullscreenButton.textContent =
-      active ? 'Exit Fullscreen' : 'Fullscreen';
-
-    fullscreenButton.setAttribute(
-      'aria-pressed',
-      String(active)
-    );
-
-  }
-
-  function closeExpandedMode() {
-
-    expandedMode = false;
-
-    viewport.classList.remove('bt-expanded');
-
-    document.body.style.overflow =
-      previousBodyOverflow;
-
-    updateFullscreenButton();
-
-  }
-
-  function openExpandedMode() {
-
-    previousBodyOverflow =
-      document.body.style.overflow;
-
-    expandedMode = true;
-
-    viewport.classList.add('bt-expanded');
-
-    document.body.style.overflow = 'hidden';
-
-    updateFullscreenButton();
-
-  }
-
-  fullscreenButton.addEventListener(
-    'click',
-    async () => {
-
-      if (expandedMode) {
-
-        closeExpandedMode();
-        return;
-
-      }
-
-      if (document.fullscreenElement === viewport) {
-
-        if (document.exitFullscreen) {
-
-          try {
-
-            await document.exitFullscreen();
-
-          } catch (error) {
-
-            console.warn(
-              'Unable to exit fullscreen:',
-              error
-            );
-
+    gtag('js', new Date());
+    gtag('config', 'G-0HZN617CB1');
+  </script>
+
+  <!-- ========================================
+       STRUCTURED DATA
+  ========================================= -->
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://halocyberlife.com/#organization",
+        "name": "HaloCyberLife",
+        "url": "https://halocyberlife.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://halocyberlife.com/images/logo_v4_2.webp"
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://halocyberlife.com/#author",
+        "name": "Luis Amaya",
+        "url": "https://halocyberlife.com/about.html"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://halocyberlife.com/#website",
+        "name": "HaloCyberLife",
+        "url": "https://halocyberlife.com/",
+        "publisher": {
+          "@id": "https://halocyberlife.com/#organization"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://halocyberlife.com/biotree.html#webpage",
+        "url": "https://halocyberlife.com/biotree.html",
+        "name": "BioTree — Integrated Environmental Architecture",
+        "description": "An original research and engineering concept exploring renewable energy, thermal energy storage and sustainable public infrastructure.",
+        "inLanguage": "en",
+        "isPartOf": {
+          "@id": "https://halocyberlife.com/#website"
+        },
+        "author": {
+          "@id": "https://halocyberlife.com/#author"
+        },
+        "breadcrumb": {
+          "@id": "https://halocyberlife.com/biotree.html#breadcrumb"
+        },
+        "mainEntity": {
+          "@type": "CreativeWork",
+          "name": "BioTree",
+          "creator": {
+            "@id": "https://halocyberlife.com/#author"
+          },
+          "description": "A conceptual integrated environmental architecture and public infrastructure system."
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://halocyberlife.com/biotree.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://halocyberlife.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Projects",
+            "item": "https://halocyberlife.com/projects.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "BioTree",
+            "item": "https://halocyberlife.com/biotree.html"
           }
+        ]
+      }
+    ]
+  }
+  </script>
 
+  <!-- ========================================
+       BIOTREE — COMPLETE PAGE CSS
+  ========================================= -->
+
+  <style>
+
+    :root {
+      --bt-background: #050814;
+      --bt-panel: #101624;
+      --bt-panel-dark: #0a0f20;
+      --bt-green: #34d399;
+      --bt-green-light: #6ee7b7;
+      --bt-text: #e2e8f0;
+      --bt-muted: #aab3d6;
+      --bt-secondary: #8395a3;
+      --bt-border: rgba(52, 211, 153, 0.22);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body.biotree-page {
+      margin: 0;
+      background: var(--bt-background);
+      color: var(--bt-text);
+      font-family: 'Inter', sans-serif;
+    }
+
+    .bt-section,
+    .bt-section *,
+    .bt-hero,
+    .bt-hero * {
+      box-sizing: border-box;
+    }
+
+    .bt-section [hidden] {
+      display: none !important;
+    }
+
+    .bt-section button {
+      font-family: inherit;
+    }
+
+    .bt-section button:focus-visible,
+    .bt-section a:focus-visible {
+      outline: 2px solid var(--bt-green-light);
+      outline-offset: 4px;
+    }
+
+    /* ========================================
+       HEADER LOGO
+    ========================================= */
+
+    .neon-header .logo-pair {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 120px;
+      height: 85px;
+      overflow: hidden;
+    }
+
+    .neon-header .halo-color-logo {
+      display: block;
+      width: 120px;
+      height: 120px;
+      max-width: none;
+      flex-shrink: 0;
+      object-fit: contain;
+      transform: scale(1.65);
+      filter: none;
+    }
+
+    .neon-link.color-projects {
+      color: #34d399;
+      border-color: #34d399;
+    }
+
+    .neon-link.color-projects:hover,
+    .neon-link.color-projects:focus-visible,
+    .neon-link.color-projects.is-active {
+      color: #6ee7b7;
+      background: rgba(52, 211, 153, 0.08);
+      box-shadow: 0 0 18px rgba(52, 211, 153, 0.25);
+    }
+
+    .color-rpas {
+      color: #7c5cff;
+      text-shadow: 0 0 10px rgba(124, 92, 255, 0.7);
+    }
+
+    /* ========================================
+       BREADCRUMB
+    ========================================= */
+
+    .bt-breadcrumb {
+      max-width: 1500px;
+      margin: 0 auto;
+      padding: 25px 25px 0;
+      font-size: 0.82rem;
+      color: var(--bt-secondary);
+    }
+
+    .bt-breadcrumb a {
+      color: var(--bt-muted);
+      text-decoration: none;
+    }
+
+    .bt-breadcrumb a:hover {
+      color: var(--bt-green);
+    }
+
+    .bt-breadcrumb span {
+      margin: 0 8px;
+    }
+
+    /* ========================================
+       BIOTREE HERO
+    ========================================= */
+
+    .bt-hero {
+      position: relative;
+      padding: 85px 25px 75px;
+      text-align: center;
+      overflow: hidden;
+
+      background:
+        radial-gradient(
+          ellipse at 50% 0%,
+          rgba(52, 211, 153, 0.14),
+          transparent 65%
+        ),
+        linear-gradient(
+          180deg,
+          #101624,
+          #050814
+        );
+
+      border-bottom: 1px solid var(--bt-border);
+    }
+
+    .bt-hero-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .bt-kicker {
+      margin: 0 0 18px;
+      color: var(--bt-green);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      line-height: 1.8;
+      text-transform: uppercase;
+    }
+
+    .bt-hero h1 {
+      margin: 0 0 20px;
+      font-family: 'Michroma', sans-serif;
+      font-size: clamp(1.9rem, 5vw, 4.4rem);
+      font-weight: 400;
+      line-height: 1.35;
+      color: var(--bt-green-light);
+
+      background: linear-gradient(
+        110deg,
+        #34d399,
+        #6ee7b7,
+        #d5f5ee
+      );
+
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .bt-hero-subtitle {
+      margin: 0 0 25px;
+      color: var(--bt-text);
+      font-size: clamp(1.1rem, 2.5vw, 1.65rem);
+      font-weight: 500;
+      line-height: 1.6;
+    }
+
+    .bt-hero-description {
+      max-width: 850px;
+      margin: 0 auto 28px;
+      color: var(--bt-muted);
+      font-size: 1.05rem;
+      line-height: 1.9;
+    }
+
+    .bt-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 16px;
+      border: 1px solid var(--bt-border);
+      border-radius: 30px;
+      background: rgba(52, 211, 153, 0.06);
+      color: var(--bt-green-light);
+      font-size: 0.75rem;
+      line-height: 1.5;
+    }
+
+    .bt-status::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: var(--bt-green);
+      box-shadow: 0 0 10px var(--bt-green);
+    }
+
+    /* ========================================
+       MAIN CONTENT
+    ========================================= */
+
+    .bt-section {
+      max-width: 1500px;
+      margin: 0 auto;
+      padding: 40px 25px 80px;
+    }
+
+    .bt-heading {
+      max-width: 900px;
+      margin: 0 auto 40px;
+      text-align: center;
+    }
+
+    .bt-heading h2 {
+      margin: 0 0 20px;
+      color: var(--bt-text);
+      font-size: clamp(1.5rem, 3vw, 2.5rem);
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .bt-heading p:not(.bt-kicker) {
+      margin: 0;
+      color: var(--bt-muted);
+      line-height: 1.85;
+    }
+
+    .bt-spaced {
+      margin-top: 100px;
+    }
+
+    /* ========================================
+       HALOCYBERLIFE EXPLORER
+    ========================================= */
+
+    .bt-explorer {
+      overflow: hidden;
+      border: 1px solid var(--bt-border);
+      border-radius: 18px;
+      background: var(--bt-panel);
+      box-shadow: 0 15px 60px rgba(0, 0, 0, 0.25);
+    }
+
+    .bt-explorer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding: 22px 25px;
+      border-bottom: 1px solid var(--bt-border);
+    }
+
+    .bt-explorer-header h2 {
+      margin: 0;
+      color: var(--bt-text);
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+
+    .bt-explorer-header span {
+      color: var(--bt-secondary);
+      font-size: 0.75rem;
+    }
+
+    .bt-explorer-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 290px;
+      align-items: stretch;
+    }
+
+    /* LARGE ARCHITECTURAL VIEWPORT */
+
+    .bt-viewport {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 75vh;
+      min-height: 480px;
+      overflow: hidden;
+
+      background:
+        radial-gradient(
+          ellipse at center,
+          #182638,
+          #080d19 75%
+        );
+    }
+
+    .bt-viewport > img {
+      position: absolute;
+      inset: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .bt-viewport-label {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      z-index: 2;
+      padding: 8px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 6px;
+      background: rgba(5, 8, 20, 0.8);
+      color: var(--bt-muted);
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+    }
+
+    .bt-viewport-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 2;
+      padding: 18px;
+      background: rgba(5, 8, 20, 0.85);
+      color: var(--bt-muted);
+      font-size: 0.8rem;
+      line-height: 1.6;
+    }
+
+    .bt-control {
+      padding: 10px 15px;
+      border: 1px solid var(--bt-border);
+      border-radius: 7px;
+      background: rgba(5, 8, 20, 0.9);
+      color: var(--bt-green-light);
+      font-size: 0.78rem;
+      cursor: pointer;
+    }
+
+    .bt-control:hover {
+      border-color: var(--bt-green);
+      background: #152a2b;
+    }
+
+    .bt-fullscreen {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      z-index: 3;
+    }
+
+    .bt-viewport:fullscreen {
+      width: 100%;
+      height: 100%;
+      min-height: 0;
+      background: #050814;
+    }
+
+    .bt-viewport.bt-expanded {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      width: 100%;
+      height: 100dvh;
+      min-height: 0;
+    }
+
+    /* ========================================
+       IMAGE PLACEHOLDERS
+    ========================================= */
+
+    .bt-preview-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 65px 30px;
+      text-align: center;
+    }
+
+    .bt-placeholder-symbol {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 90px;
+      height: 90px;
+      margin-bottom: 25px;
+      border: 1px solid var(--bt-border);
+      border-radius: 50%;
+      color: var(--bt-green);
+      font-family: 'Michroma', sans-serif;
+      font-size: 1.3rem;
+    }
+
+    .bt-preview-placeholder h3 {
+      margin: 0 0 12px;
+      color: var(--bt-text);
+      font-size: 1.25rem;
+    }
+
+    .bt-preview-placeholder p {
+      max-width: 400px;
+      margin: 0;
+      color: var(--bt-secondary);
+      font-size: 0.85rem;
+      line-height: 1.8;
+    }
+
+    .bt-media {
+      position: relative;
+      min-width: 0;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      background: #0a1120;
+    }
+
+    .bt-media img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .bt-media-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 20px;
+      text-align: center;
+
+      background:
+        radial-gradient(
+          ellipse at center,
+          rgba(52, 211, 153, 0.07),
+          transparent 75%
+        );
+
+      color: var(--bt-secondary);
+      font-size: 0.78rem;
+    }
+
+    .bt-media-placeholder strong {
+      color: var(--bt-green-light);
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    /* ========================================
+       SYSTEM DISCOVERY SIDEBAR
+    ========================================= */
+
+    .bt-layers {
+      min-width: 0;
+      max-height: 75vh;
+      padding: 24px 18px;
+      overflow-y: auto;
+      background: #101624;
+      border-left: 1px solid var(--bt-border);
+    }
+
+    .bt-layers h3 {
+      margin: 0 0 12px;
+      font-size: 1.05rem;
+      color: var(--bt-text);
+    }
+
+    .bt-layers p {
+      margin: 0 0 20px;
+      color: var(--bt-muted);
+      font-size: 0.8rem;
+      line-height: 1.7;
+    }
+
+    #biotree-layer-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .bt-layer-button {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      padding: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 7px;
+      background: #0a0f20;
+      color: var(--bt-muted);
+      text-align: left;
+      font-size: 0.8rem;
+      line-height: 1.4;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .bt-layer-button::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      flex-shrink: 0;
+      border: 1px solid var(--bt-secondary);
+      border-radius: 50%;
+    }
+
+    .bt-layer-button:hover,
+    .bt-layer-button[aria-pressed="true"] {
+      border-color: var(--bt-green);
+      background: rgba(52, 211, 153, 0.08);
+      color: var(--bt-green-light);
+    }
+
+    .bt-layer-button[aria-pressed="true"]::before {
+      border-color: var(--bt-green);
+      background: var(--bt-green);
+      box-shadow: 0 0 8px var(--bt-green);
+    }
+
+    .bt-layers .bt-layer-notice {
+      margin: 22px 0 0;
+      padding-top: 18px;
+      border-top: 1px solid var(--bt-border);
+      color: var(--bt-secondary);
+      font-size: 0.75rem;
+    }
+
+    /* SYSTEM INFORMATION */
+
+    .bt-information {
+      padding: 30px;
+      border-top: 1px solid var(--bt-border);
+      background: #0d1423;
+    }
+
+    .bt-information h3 {
+      margin: 0 0 12px;
+      color: var(--bt-green-light);
+      font-size: 1.35rem;
+      line-height: 1.4;
+    }
+
+    .bt-information p:not(.bt-kicker) {
+      max-width: 1000px;
+      margin: 0;
+      color: var(--bt-muted);
+      font-size: 0.95rem;
+      line-height: 1.85;
+    }
+
+    /* ========================================
+       SELECTABLE PERSPECTIVES
+    ========================================= */
+
+    .bt-perspectives {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .bt-perspective {
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      background: var(--bt-panel);
+      color: var(--bt-muted);
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .bt-perspective .bt-media {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+    }
+
+    .bt-perspective > span {
+      display: block;
+      width: 100%;
+      padding: 14px 10px;
+      font-size: 0.8rem;
+      line-height: 1.5;
+    }
+
+    .bt-perspective:hover,
+    .bt-perspective[aria-pressed="true"] {
+      border-color: var(--bt-green);
+      color: var(--bt-green-light);
+      box-shadow: 0 0 15px rgba(52, 211, 153, 0.1);
+    }
+
+    /* ========================================
+       CONCEPT DIMENSIONS
+    ========================================= */
+
+    .bt-dimensions {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+      margin: 45px 0 0;
+    }
+
+    .bt-dimension {
+      padding: 28px 20px;
+      text-align: center;
+      border: 1px solid var(--bt-border);
+      border-radius: 12px;
+      background: var(--bt-panel-dark);
+    }
+
+    .bt-dimension strong {
+      display: block;
+      margin-bottom: 10px;
+      font-family: 'Michroma', sans-serif;
+      font-size: clamp(1.3rem, 3vw, 2.1rem);
+      font-weight: 400;
+      color: var(--bt-green-light);
+    }
+
+    .bt-dimension span {
+      color: var(--bt-muted);
+      font-size: 0.85rem;
+    }
+
+    .bt-dimension-note {
+      margin: 15px 0 0;
+      text-align: center;
+      color: var(--bt-secondary);
+      font-size: 0.78rem;
+      line-height: 1.7;
+    }
+
+    /* ========================================
+       BENEFITS
+    ========================================= */
+
+    .bt-benefits {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .bt-benefits article {
+      padding: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      background: var(--bt-panel);
+    }
+
+    .bt-benefits article > span {
+      display: block;
+      margin-bottom: 15px;
+      color: var(--bt-green);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+    }
+
+    .bt-benefits h3 {
+      margin: 0 0 15px;
+      color: var(--bt-text);
+      font-size: 1.15rem;
+      line-height: 1.5;
+    }
+
+    .bt-benefits p {
+      margin: 0;
+      color: var(--bt-muted);
+      font-size: 0.9rem;
+      line-height: 1.85;
+    }
+
+    /* ========================================
+       ARCHITECTURAL FEATURE SECTIONS
+    ========================================= */
+
+    .bt-feature {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      align-items: center;
+      gap: 45px;
+      margin-top: 80px;
+      padding: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      background: var(--bt-panel-dark);
+    }
+
+    .bt-feature .bt-media {
+      border-radius: 12px;
+    }
+
+    .bt-feature h3 {
+      margin: 0 0 20px;
+      color: var(--bt-text);
+      font-size: clamp(1.3rem, 2.5vw, 2rem);
+      line-height: 1.5;
+    }
+
+    .bt-feature p:not(.bt-kicker) {
+      margin: 0 0 15px;
+      color: var(--bt-muted);
+      font-size: 0.95rem;
+      line-height: 1.85;
+    }
+
+    .bt-feature.bt-reverse .bt-media {
+      order: 2;
+    }
+
+    /* ========================================
+       APPLICATION CARDS
+    ========================================= */
+
+    .bt-applications {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 25px;
+      margin-top: 35px;
+    }
+
+    .bt-applications article {
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      background: var(--bt-panel);
+    }
+
+    .bt-application-content {
+      padding: 25px;
+    }
+
+    .bt-applications h3 {
+      margin: 0 0 12px;
+      color: var(--bt-text);
+      font-size: 1.2rem;
+    }
+
+    .bt-applications p {
+      margin: 0;
+      color: var(--bt-muted);
+      font-size: 0.9rem;
+      line-height: 1.8;
+    }
+
+    /* ========================================
+       NIGHT EXPERIENCE
+    ========================================= */
+
+    .bt-night {
+      position: relative;
+      overflow: hidden;
+      margin-top: 80px;
+      border: 1px solid var(--bt-border);
+      border-radius: 18px;
+      background: var(--bt-panel);
+    }
+
+    .bt-night .bt-media {
+      aspect-ratio: 21 / 9;
+    }
+
+    .bt-night-content {
+      padding: 35px;
+      text-align: center;
+    }
+
+    .bt-night h2 {
+      margin: 0 0 18px;
+      font-size: clamp(1.5rem, 3vw, 2.3rem);
+      color: var(--bt-text);
+    }
+
+    .bt-night p:not(.bt-kicker) {
+      max-width: 850px;
+      margin: 0 auto;
+      color: var(--bt-muted);
+      line-height: 1.85;
+    }
+
+    /* ========================================
+       ENGINEERING TRANSPARENCY
+    ========================================= */
+
+    .bt-notice {
+      margin-top: 80px;
+      padding: 30px;
+      border-left: 3px solid var(--bt-green);
+      border-radius: 0 12px 12px 0;
+      background: rgba(52, 211, 153, 0.04);
+    }
+
+    .bt-notice h2 {
+      margin: 0 0 15px;
+      color: var(--bt-green-light);
+      font-size: 1.25rem;
+    }
+
+    .bt-notice p,
+    .bt-notice li {
+      color: var(--bt-muted);
+      font-size: 0.9rem;
+      line-height: 1.85;
+    }
+
+    .bt-notice ul {
+      padding-left: 22px;
+    }
+
+    /* ========================================
+       CLOSING STATEMENT
+    ========================================= */
+
+    .bt-closing {
+      margin-top: 70px;
+      padding: 65px 20px;
+      text-align: center;
+      border-top: 1px solid var(--bt-border);
+    }
+
+    .bt-closing h2 {
+      max-width: 1000px;
+      margin: 0 auto 25px;
+      font-family: 'Michroma', sans-serif;
+      font-size: clamp(1.3rem, 3vw, 2.5rem);
+      font-weight: 400;
+      line-height: 1.6;
+      color: var(--bt-green-light);
+    }
+
+    .bt-closing p:not(.bt-kicker) {
+      color: var(--bt-muted);
+      line-height: 1.8;
+    }
+
+    .bt-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .bt-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 24px;
+      border: 1px solid var(--bt-green);
+      border-radius: 8px;
+      color: var(--bt-green-light);
+      background: transparent;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      line-height: 1.5;
+    }
+
+    .bt-button:hover {
+      background: rgba(52, 211, 153, 0.1);
+      box-shadow: 0 0 20px rgba(52, 211, 153, 0.15);
+    }
+
+    /* ========================================
+       RESPONSIVE TABLET
+    ========================================= */
+
+    @media (max-width: 1050px) {
+
+      .bt-explorer-layout {
+        grid-template-columns: minmax(0, 1fr) 245px;
+      }
+
+      .bt-benefits {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .bt-feature {
+        gap: 25px;
+      }
+
+    }
+
+    /* ========================================
+       RESPONSIVE MOBILE
+    ========================================= */
+
+    @media (max-width: 768px) {
+
+      .neon-header .logo-pair {
+        width: 85px;
+        height: 65px;
+      }
+
+      .neon-header .halo-color-logo {
+        width: 85px;
+        height: 85px;
+      }
+
+      .bt-hero {
+        padding: 60px 18px 50px;
+      }
+
+      .bt-hero-description {
+        font-size: 0.95rem;
+      }
+
+      .bt-section {
+        padding: 25px 15px 50px;
+      }
+
+      .bt-explorer-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .bt-viewport {
+        height: 55vh;
+        min-height: 320px;
+      }
+
+      .bt-layers {
+        max-height: none;
+        border-left: none;
+        border-top: 1px solid var(--bt-border);
+      }
+
+      #biotree-layer-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .bt-perspectives {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .bt-information {
+        padding: 24px;
+      }
+
+      .bt-feature {
+        grid-template-columns: 1fr;
+        padding: 20px;
+        margin-top: 45px;
+      }
+
+      .bt-feature.bt-reverse .bt-media {
+        order: 0;
+      }
+
+      .bt-applications {
+        grid-template-columns: 1fr;
+      }
+
+      .bt-dimensions {
+        gap: 10px;
+      }
+
+      .bt-dimension {
+        padding: 20px 10px;
+      }
+
+      .bt-night .bt-media {
+        aspect-ratio: 16 / 10;
+      }
+
+      .bt-spaced {
+        margin-top: 60px;
+      }
+
+      .bt-notice {
+        margin-top: 45px;
+        padding: 22px;
+      }
+
+      .bt-closing {
+        padding: 40px 10px;
+      }
+
+    }
+
+    @media (max-width: 480px) {
+
+      .bt-benefits {
+        grid-template-columns: 1fr;
+      }
+
+      .bt-viewport-label {
+        font-size: 0.55rem;
+        left: 10px;
+        top: 10px;
+        padding: 8px;
+      }
+
+      .bt-fullscreen {
+        top: 10px;
+        right: 10px;
+        padding: 8px;
+        font-size: 0.7rem;
+      }
+
+      .bt-layer-button {
+        font-size: 0.72rem;
+        padding: 10px;
+      }
+
+      .bt-dimension span {
+        font-size: 0.7rem;
+      }
+
+      .bt-actions {
+        flex-direction: column;
+      }
+
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      html {
+        scroll-behavior: auto;
+      }
+
+      .bt-section * {
+        transition: none !important;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body class="biotree-page">
+
+  <a class="skip-link" href="#main-content">
+    Skip to content
+  </a>
+
+  <!-- ========================================
+       HEADER AND NAVIGATION
+  ========================================= -->
+
+  <header class="neon-header">
+
+    <div class="container neon-header-inner">
+
+      <a
+        href="/"
+        class="neon-brand"
+        aria-label="HaloCyberLife Home">
+
+        <div class="logo-pair">
+
+          <img
+            src="/images/logo_v4_2.webp"
+            alt="HaloCyberLife logo"
+            class="neon-logo main-logo halo-color-logo"
+            fetchpriority="high"
+          />
+
+        </div>
+
+      </a>
+
+      <button
+        type="button"
+        class="neon-nav-toggle"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+        aria-controls="primary-nav">
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+      </button>
+
+      <nav
+        id="primary-nav"
+        class="neon-nav"
+        aria-label="Primary navigation">
+
+        <a href="/#insights" class="neon-link color-blue">
+          Insights
+        </a>
+
+        <a href="/blog.html" class="neon-link color-cyan">
+          Articles
+        </a>
+
+        <a
+          href="/projects.html"
+          class="neon-link color-projects is-active">
+
+          Projects
+
+        </a>
+
+        <a href="/about.html" class="neon-link color-magenta">
+          About
+        </a>
+
+        <a href="/contact_us.html" class="neon-link color-gold">
+          Contact
+        </a>
+
+        <a href="/rpas-studio.html" class="neon-link color-rpas">
+          RPAS Studio
+        </a>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+  <!-- ========================================
+       MAIN CONTENT
+  ========================================= -->
+
+  <main id="main-content">
+
+    <!-- BIOTREE HERO -->
+
+    <section class="bt-hero">
+
+      <div class="bt-hero-inner">
+
+        <p class="bt-kicker">
+          HaloCyberLife™ · Original Innovation
+        </p>
+
+        <h1>BioTree™ — Integrated Environmental Architecture</h1>
+
+        <p class="bt-hero-subtitle">
+          One Tree. Multiple Systems. Endless Possibilities.
+        </p>
+
+        <p class="bt-hero-description">
+          BioTree explores a new generation of public
+          infrastructure where nature-inspired architecture,
+          renewable energy, thermal energy storage,
+          environmental comfort and everyday community
+          services come together within a single structure.
+        </p>
+
+        <span class="bt-status">
+          Active Design &amp; Engineering Development
+        </span>
+
+      </div>
+
+    </section>
+
+    <!-- BREADCRUMB -->
+
+    <nav class="bt-breadcrumb" aria-label="Breadcrumb">
+
+      <a href="/">Home</a>
+
+      <span aria-hidden="true">/</span>
+
+      <a href="/projects.html">Projects</a>
+
+      <span aria-hidden="true">/</span>
+
+      <span aria-current="page">BioTree</span>
+
+    </nav>
+
+    <!-- ========================================
+         BIOTREE EXHIBITION
+    ========================================= -->
+
+    <section id="biotree" class="bt-section">
+
+      <!-- ========================================
+           INTERACTIVE EXPLORER
+      ========================================= -->
+
+      <div class="bt-explorer">
+
+        <div class="bt-explorer-header">
+
+          <h2>HaloCyberLife 3D Explorer — BioTree™</h2>
+
+          <span>Digital Engineering Exhibition · Preview Mode</span>
+
+        </div>
+
+        <div class="bt-explorer-layout">
+
+          <!-- MAIN VIEWPORT -->
+
+          <div id="biotree-viewport" class="bt-viewport">
+
+            <div
+              id="biotree-placeholder"
+              class="bt-preview-placeholder">
+
+              <div class="bt-placeholder-symbol">
+                BT
+              </div>
+
+              <h3 id="biotree-placeholder-title">
+                Complete Exterior
+              </h3>
+
+              <p>
+                Architectural visualization in preparation.
+                Explore the proposed systems using the
+                discovery controls.
+              </p>
+
+            </div>
+
+            <img
+              id="biotree-preview"
+              alt="BioTree architectural concept preview"
+              hidden
+            />
+
+            <!-- RESERVED FOR FUTURE THREE.JS MODEL -->
+
+            <div id="biotree-renderer" hidden></div>
+
+            <div class="bt-viewport-label">
+              HALOCYBERLIFE™ / BIOTREE
+            </div>
+
+            <button
+              type="button"
+              class="bt-control bt-fullscreen"
+              id="biotree-fullscreen"
+              aria-pressed="false">
+
+              Fullscreen
+
+            </button>
+
+            <div
+              class="bt-viewport-caption"
+              id="biotree-viewer-status"
+              aria-live="polite">
+
+              Architectural preview mode.
+              Interactive 3D model in development.
+
+            </div>
+
+          </div>
+
+          <!-- SYSTEM DISCOVERY -->
+
+          <aside class="bt-layers">
+
+            <h3>Explore BioTree</h3>
+
+            <p>
+              Discover the individual systems behind
+              the architecture.
+            </p>
+
+            <div id="biotree-layer-list"></div>
+
+            <noscript>
+              <p>
+                Enable JavaScript to use the interactive
+                system discovery controls.
+              </p>
+            </noscript>
+
+            <p class="bt-layer-notice">
+              Select a system to discover its purpose.
+              Independent 3D visibility controls will
+              become available with the public model.
+            </p>
+
+          </aside>
+
+        </div>
+
+        <!-- DYNAMIC SYSTEM INFORMATION -->
+
+        <div class="bt-information" aria-live="polite">
+
+          <p class="bt-kicker">System Discovery</p>
+
+          <h3 id="biotree-system-title">
+            Integrated Environmental Architecture
+          </h3>
+
+          <p id="biotree-system-description">
+            Explore the relationship between renewable
+            energy, thermal storage, architecture,
+            environmental systems and public services.
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- ========================================
+           CINEMATIC PERSPECTIVES
+      ========================================= -->
+
+      <div class="bt-perspectives">
+
+        <button
+          type="button"
+          class="bt-perspective"
+          data-system="BT_PUBLIC_EXTERIOR"
+          aria-pressed="true">
+
+          <div class="bt-media">
+
+            <img
+              data-src="biotree-01-hero.webp"
+              alt="Complete BioTree exterior"
+              loading="lazy"
+              hidden
+            />
+
+            <div class="bt-media-placeholder">
+              <strong>Exterior</strong>
+              Visualization in preparation
+            </div>
+
+          </div>
+
+          <span>Complete Exterior</span>
+
+        </button>
+
+        <button
+          type="button"
+          class="bt-perspective"
+          data-system="BT_PUBLIC_SOLAR"
+          aria-pressed="false">
+
+          <div class="bt-media">
+
+            <img
+              data-src="images/BioTree/Futuristic BioTree Solar Installation-2.webp"
+              alt="Elevated solar canopy perspective"
+              loading="lazy"
+              hidden
+            />
+
+            <div class="bt-media-placeholder">
+              <strong>Solar Canopy</strong>
+              Visualization in preparation
+            </div>
+
+          </div>
+
+          <span>Solar Canopy</span>
+
+        </button>
+
+        <button
+          type="button"
+          class="bt-perspective"
+          data-system="BT_PUBLIC_THERMAL_TANK"
+          aria-pressed="false">
+
+          <div class="bt-media">
+
+            <img
+              data-src="images/BioTree/biotree-04-thermal-tank.webp"
+              alt="Above-ground thermal storage tank concept"
+              loading="lazy"
+              hidden
+            />
+
+            <div class="bt-media-placeholder">
+              <strong>Thermal Storage</strong>
+              Visualization in preparation
+            </div>
+
+          </div>
+
+          <span>Thermal Energy Storage</span>
+
+        </button>
+
+        <button
+          type="button"
+          class="bt-perspective"
+          data-system="BT_PUBLIC_LIGHTING"
+          aria-pressed="false">
+
+          <div class="bt-media">
+
+            <img
+              data-src="images/BioTree/biotree-08-night.webp"
+              alt="BioTree illuminated after sunset"
+              loading="lazy"
+              hidden
+            />
+
+            <div class="bt-media-placeholder">
+              <strong>Night Experience</strong>
+              Visualization in preparation
+            </div>
+
+          </div>
+
+          <span>After Sunset</span>
+
+        </button>
+
+      </div>
+
+      <!-- ========================================
+           PRELIMINARY DIMENSIONS
+      ========================================= -->
+
+      <div class="bt-dimensions">
+
+        <div class="bt-dimension">
+          <strong>~8 m</strong>
+          <span>Conceptual Height</span>
+        </div>
+
+        <div class="bt-dimension">
+          <strong>~12 m</strong>
+          <span>Canopy Diameter</span>
+        </div>
+
+        <div class="bt-dimension">
+          <strong>10</strong>
+          <span>Proposed Charging Lockers</span>
+        </div>
+
+      </div>
+
+      <p class="bt-dimension-note">
+        Preliminary design parameters.
+        Final dimensions and configurations remain
+        subject to engineering validation.
+      </p>
+
+      <!-- ========================================
+           PROJECT PURPOSE
+      ========================================= -->
+
+      <div class="bt-heading bt-spaced">
+
+        <p class="bt-kicker">
+          Purpose Beyond Architecture
+        </p>
+
+        <h2>More Than a Tree</h2>
+
+        <p>
+          BioTree investigates how a single architectural
+          installation could address multiple environmental
+          and community needs while making better use
+          of shared public spaces.
+        </p>
+
+      </div>
+
+      <div class="bt-benefits">
+
+        <article>
+
+          <span>01 / ENERGY</span>
+
+          <h3>Renewable Generation</h3>
+
+          <p>
+            Nature-inspired photovoltaic leaves designed
+            to explore solar energy collection and
+            architectural shading.
+          </p>
+
+        </article>
+
+        <article>
+
+          <span>02 / STORAGE</span>
+
+          <h3>A Thermal Battery Within the Tree</h3>
+
+          <p>
+            An integrated above-ground tank investigates
+            sand-based thermal energy storage, supported
+            by proposed insulation, monitoring and
+            protective systems.
+          </p>
+
+        </article>
+
+        <article>
+
+          <span>03 / COMFORT</span>
+
+          <h3>Environmental Cooling</h3>
+
+          <p>
+            Architectural shade, air circulation and
+            controlled mist cooling explore improved
+            outdoor comfort.
+          </p>
+
+        </article>
+
+        <article>
+
+          <span>04 / WATER</span>
+
+          <h3>Water Accessibility</h3>
+
+          <p>
+            Selected configurations investigate water
+            collection, treatment and independent public
+            drinking-water and bottle-refill services.
+          </p>
+
+        </article>
+
+        <article>
+
+          <span>05 / CONNECTIVITY</span>
+
+          <h3>Public Charging</h3>
+
+          <p>
+            Integrated personal-device charging lockers
+            explore convenient access to electrical
+            services in shared environments.
+          </p>
+
+        </article>
+
+        <article>
+
+          <span>06 / INFRASTRUCTURE</span>
+
+          <h3>Connected Communities</h3>
+
+          <p>
+            Multiple BioTree installations could
+            potentially participate in coordinated
+            energy management and distributed
+            community infrastructure.
+          </p>
+
+        </article>
+
+      </div>
+
+      <!-- ========================================
+           ARCHITECTURAL MATERIALS
+      ========================================= -->
+
+      <article class="bt-feature">
+
+        <div class="bt-media">
+
+          <img
+            data-src="images/BioTree/biotree-03-material-detail.webp"
+            alt="Proposed walnut-effect cladding, bronze ribs and photovoltaic leaf materials"
+            loading="lazy"
+            hidden
+          />
+
+          <div class="bt-media-placeholder">
+            <strong>Architectural Material Study</strong>
+            Visualization in preparation
+          </div>
+
+        </div>
+
+        <div>
+
+          <p class="bt-kicker">
+            Architectural Identity
+          </p>
+
+          <h3>
+            Inspired by Nature. Developed Through Engineering.
+          </h3>
+
+          <p>
+            BioTree's proposed architectural language
+            combines organic geometry, warm walnut-effect
+            finishes, bronze-toned structural elements,
+            deep-blue photovoltaic surfaces and
+            forest-green leaf frames.
+          </p>
+
+          <p>
+            Its ground-flush installation, integrated
+            seating and serviceable components are
+            intended to create a welcoming environment
+            without sacrificing engineering functionality.
+          </p>
+
+        </div>
+
+      </article>
+
+      <!-- ========================================
+           THERMAL ENERGY STORAGE
+      ========================================= -->
+
+      <article class="bt-feature bt-reverse">
+
+        <div class="bt-media">
+
+          <img
+            data-src="images/BioTree/biotree-04-thermal-tank.webp"
+            alt="Conceptual thermal storage tank integrated above ground within BioTree"
+            loading="lazy"
+            hidden
+          />
+
+          <div class="bt-media-placeholder">
+            <strong>Above-Ground Thermal Storage</strong>
+            Visualization in preparation
+          </div>
+
+        </div>
+
+        <div>
+
+          <p class="bt-kicker">
+            Integrated Energy Storage
+          </p>
+
+          <h3>
+            Collect Energy. Store Energy. Share Energy.
+          </h3>
+
+          <p>
+            BioTree investigates the integration of a
+            large sand-based thermal storage tank within
+            its above-ground architectural structure.
+          </p>
+
+          <p>
+            Thermal insulation, structural support,
+            temperature monitoring and system separation
+            are essential engineering considerations.
+          </p>
+
+          <p>
+            Thermal energy storage retains energy as heat.
+            It is different from electrical battery storage.
+            Recovering electricity from stored heat would
+            require appropriate energy conversion equipment.
+          </p>
+
+        </div>
+
+      </article>
+
+      <!-- ========================================
+           PUBLIC COMFORT
+      ========================================= -->
+
+      <article class="bt-feature">
+
+        <div class="bt-media">
+
+          <img
+            data-src="images/BioTree/biotree-05-public-comfort.webp"
+            alt="People enjoying shade and proposed environmental cooling beneath BioTree"
+            loading="lazy"
+            hidden
+          />
+
+          <div class="bt-media-placeholder">
+            <strong>Public Comfort Experience</strong>
+            Visualization in preparation
+          </div>
+
+        </div>
+
+        <div>
+
+          <p class="bt-kicker">
+            Human-Centered Design
+          </p>
+
+          <h3>A Place to Rest, Connect and Recharge</h3>
+
+          <p>
+            BioTree explores how public infrastructure
+            could become an inviting destination for
+            relaxation, social interaction and access
+            to everyday amenities.
+          </p>
+
+          <p>
+            Integrated seating, architectural shade,
+            air circulation and controlled mist cooling
+            investigate ways to improve outdoor
+            environmental comfort.
+          </p>
+
+        </div>
+
+      </article>
+
+      <!-- ========================================
+           CHARGING AND WATER
+      ========================================= -->
+
+      <div class="bt-applications">
+
+        <article>
+
+          <div class="bt-media">
+
+            <img
+              data-src="images/BioTree/biotree-06-charging.webp"
+              alt="BioTree integrated personal-device charging lockers"
+              loading="lazy"
+              hidden
+            />
+
+            <div class="bt-media-placeholder">
+              <strong>Public Charging Lockers</strong>
+              Visualization in preparation
+            </div>
+
+          </div>
+
+          <div class="bt-application-content">
+
+            <h3>Public Charging Lockers</h3>
+
+            <p>
+              Ten proposed integrated charging compartments
+              for personal electronic devices, with
+              appropriate electrical protection and
+              service accessibility to be evaluated.
+            </p>
+
+          </div>
+
+        </article>
+
+        <article>
+
+          <div class="bt-media">
+
+            <img
+              data-src="images/BioTree/biotree-07-water-station.webp"
+              alt="Independent BioTree drinking-water and bottle-refill station"
+              loading="lazy"
+              hidden
+            />
+
+            <div class="bt-media-placeholder">
+              <strong>Independent Water Station</strong>
+              Visualization in preparation
+            </div>
+
+          </div>
+
+          <div class="bt-application-content">
+
+            <h3>Independent Public Water Station</h3>
+
+            <p>
+              Proposed drinking and bottle-refill facilities,
+              subject to water-quality validation and
+              regulatory approval.
+            </p>
+
+          </div>
+
+        </article>
+
+      </div>
+
+      <!-- ========================================
+           NIGHT EXPERIENCE
+      ========================================= -->
+
+      <div class="bt-night">
+
+        <div class="bt-media">
+
+          <img
+            data-src="images/BioTree/biotree-08-night.webp"
+            alt="BioTree architectural lighting after sunset"
+            loading="lazy"
+            hidden
+          />
+
+          <div class="bt-media-placeholder">
+            <strong>BioTree After Sunset</strong>
+            Visualization in preparation
+          </div>
+
+        </div>
+
+        <div class="bt-night-content">
+
+          <p class="bt-kicker">Beyond Daylight</p>
+
+          <h2>A Different Experience After Sunset</h2>
+
+          <p>
+            Proposed integrated lighting transforms
+            BioTree into a welcoming architectural
+            landmark. Nighttime services depend on
+            the final energy supply design.
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- ========================================
+           COMMUNITY APPLICATIONS
+      ========================================= -->
+
+      <div class="bt-heading bt-spaced">
+
+        <p class="bt-kicker">
+          One Concept. Many Possibilities.
+        </p>
+
+        <h2>Where Could BioTree Make a Difference?</h2>
+
+        <p>
+          Adaptable configurations could respond to
+          different climates, environments, community
+          needs and infrastructure requirements.
+        </p>
+
+      </div>
+
+      <div class="bt-applications">
+
+        <article>
+
+          <div class="bt-media">
+
+            <img
+              data-src="images/BioTree/biotree-09-urban-plaza.webp"
+              alt="Proposed BioTree installation in an urban plaza"
+              loading="lazy"
+              hidden
+            />
+
+            <div class="bt-media-placeholder">
+              <strong>Urban Plaza Installation</strong>
+              Visualization in preparation
+            </div>
+
+          </div>
+
+          <div class="bt-application-content">
+
+            <h3>Urban Plazas</h3>
+
+            <p>
+              Renewable energy, shade and everyday
+              amenities within pedestrian environments.
+            </p>
+
+          </div>
+
+        </article>
+
+        <article>
+
+          <div class="bt-media">
+
+            <img
+              data-src="images/BioTree/biotree-10-community-park.webp"
+              alt="BioTree concept in a landscaped community park"
+              loading="lazy"
+              hidden
+            />
+
+            <div class="bt-media-placeholder">
+              <strong>Community Park Installation</strong>
+              Visualization in preparation
+            </div>
+
+          </div>
+
+          <div class="bt-application-content">
+
+            <h3>Community Parks</h3>
+
+            <p>
+              Welcoming gathering spaces that combine
+              landscape architecture and technology.
+            </p>
+
+          </div>
+
+        </article>
+
+        <article>
+
+          <div class="bt-media">
+
+            <img
+              data-src="images/BioTree/biotree-11-campus.webp"
+              alt="BioTree concept within a university campus"
+              loading="lazy"
+              hidden
+            />
+
+            <div class="bt-media-placeholder">
+              <strong>University Campus Installation</strong>
+              Visualization in preparation
+            </div>
+
+          </div>
+
+          <div class="bt-application-content">
+
+            <h3>Educational Campuses</h3>
+
+            <p>
+              Outdoor study environments, charging
+              facilities and environmental education.
+            </p>
+
+          </div>
+
+        </article>
+
+        <article>
+
+          <div class="bt-media">
+
+            <img
+              data-src="images/BioTree/biotree-12-network.webp"
+              alt="Conceptual network of multiple BioTree installations"
+              loading="lazy"
+              hidden
+            />
+
+            <div class="bt-media-placeholder">
+              <strong>Connected BioTree Network</strong>
+              Visualization in preparation
+            </div>
+
+          </div>
+
+          <div class="bt-application-content">
+
+            <h3>Connected BioTree Networks</h3>
+
+            <p>
+              Explore coordinated renewable energy
+              management across multiple installations.
+            </p>
+
+          </div>
+
+        </article>
+
+      </div>
+
+      <!-- ========================================
+           MODULAR CONFIGURATIONS
+      ========================================= -->
+
+      <div class="bt-heading bt-spaced">
+
+        <p class="bt-kicker">
+          Adaptable Infrastructure
+        </p>
+
+        <h2>One Architecture. Different Configurations.</h2>
+
+        <p>
+          BioTree investigates modular configurations
+          that could respond to different budgets,
+          climates, energy requirements and community needs.
+          Selected systems could be omitted or introduced
+          independently, subject to engineering feasibility.
+        </p>
+
+      </div>
+
+      <div class="bt-benefits">
+
+        <article>
+
+          <span>CONFIGURATION 01</span>
+
+          <h3>Core Architectural System</h3>
+
+          <p>
+            A simplified concept focused on photovoltaic
+            shading, seating and architectural integration.
+          </p>
+
+        </article>
+
+        <article>
+
+          <span>CONFIGURATION 02</span>
+
+          <h3>Community Services</h3>
+
+          <p>
+            A proposed configuration incorporating
+            selected charging, cooling, lighting
+            and water-access services.
+          </p>
+
+        </article>
+
+        <article>
+
+          <span>CONFIGURATION 03</span>
+
+          <h3>Integrated Energy System</h3>
+
+          <p>
+            A more comprehensive research configuration
+            exploring thermal storage, renewable energy
+            management and interconnected infrastructure.
+          </p>
+
+        </article>
+
+      </div>
+
+      <!-- ========================================
+           DEVELOPMENT TRANSPARENCY
+      ========================================= -->
+
+      <section class="bt-notice">
+
+        <h2>Engineering, Safety &amp; Development</h2>
+
+        <p>
+          BioTree is an original HaloCyberLife research
+          and development initiative. Structural capacity,
+          thermal storage performance, electrical safety,
+          water quality and operational feasibility
+          remain subject to engineering validation.
+        </p>
+
+        <p>
+          Proposed engineering considerations include:
+        </p>
+
+        <ul>
+
+          <li>Thermal insulation and temperature monitoring.</li>
+
+          <li>Structural support and public contact protection.</li>
+
+          <li>Electrical isolation and protective shutdown systems.</li>
+
+          <li>Water and electrical system separation.</li>
+
+          <li>Controlled maintenance access and serviceability.</li>
+
+          <li>Environmental performance and water-quality evaluation.</li>
+
+        </ul>
+
+        <p>
+          Concept visualizations do not represent
+          certified, commercially ready or operational
+          installations. Public visualizations are
+          intended to communicate the architectural
+          vision and proposed system relationships.
+        </p>
+
+      </section>
+
+      <!-- ========================================
+           HALOCYBERLIFE VISION
+      ========================================= -->
+
+      <div class="bt-closing">
+
+        <p class="bt-kicker">
+          The HaloCyberLife Vision
+        </p>
+
+        <h2>
+          Don't Just Read About Innovation. Experience It.
+        </h2>
+
+        <p>
+          Inspired by nature.
+          Developed through engineering.
+          Designed for humanity.
+        </p>
+
+        <p>
+          Explore. Interact. Discover. Imagine.
+        </p>
+
+        <div class="bt-actions">
+
+          <a href="#biotree" class="bt-button">
+            Return to BioTree Explorer ↑
+          </a>
+
+          <a href="/projects.html" class="bt-button">
+            Explore All Projects
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ========================================
+       SITE FOOTER
+  ========================================= -->
+
+  <footer class="site-footer">
+
+    <div class="container footer-inner">
+
+      <!-- BRAND -->
+
+      <div class="footer-column">
+
+        <div class="footer-brand">
+
+          <img
+            src="/images/negative_white_halocyberlife_logo.webp"
+            alt="HaloCyberLife logo"
+            class="footer-logo"
+            loading="lazy"
+            decoding="async"
+          />
+
+          <span class="footer-brand-text">
+            HaloCyberLife
+          </span>
+
+        </div>
+
+        <p class="footer-text">
+          Original articles on architecture,
+          technology, systems, and design concepts.
+        </p>
+
+        <p class="footer-meta">
+          © <span id="year">2026</span> HaloCyberLife.com
+        </p>
+
+      </div>
+
+      <!-- FOOTER NAVIGATION -->
+
+      <div class="footer-column">
+
+        <h3 class="footer-heading">Navigate</h3>
+
+        <ul class="footer-links">
+
+          <li>
+            <a href="/#insights">Featured Articles</a>
+          </li>
+
+          <li>
+            <a href="/blog.html">All Articles</a>
+          </li>
+
+          <li>
+            <a href="/projects.html">Projects</a>
+          </li>
+
+          <li>
+            <a href="/biotree.html" aria-current="page">
+              BioTree
+            </a>
+          </li>
+
+          <li>
+            <a href="/about.html">About</a>
+          </li>
+
+          <li>
+            <a href="/contact_us.html">Contact</a>
+          </li>
+
+          <li>
+            <a href="/rpas-studio.html">RPAS Studio</a>
+          </li>
+
+          <li>
+            <a href="/Privacy%20%26%20Terms.html">
+              Privacy &amp; Terms
+            </a>
+          </li>
+
+          <li>
+            <a href="/sitemap.html">Site Map</a>
+          </li>
+
+        </ul>
+
+      </div>
+
+      <!-- CONTACT AND SOCIAL -->
+
+      <div class="footer-column">
+
+        <h3 class="footer-heading">
+          Contact &amp; Social
+        </h3>
+
+        <div class="footer-social">
+
+          <a href="mailto:luisamaya@halocyberlife.com">
+            luisamaya@halocyberlife.com
+          </a>
+
+        </div>
+
+        <div class="footer-social">
+
+          <a
+            href="https://www.linkedin.com/in/halocyberlife/"
+            aria-label="HaloCyberLife on LinkedIn">
+
+            LinkedIn: halocyberlife
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <button
+      type="button"
+      class="back-to-top"
+      aria-label="Back to top">
+
+      ↑
+
+    </button>
+
+  </footer>
+
+  <!-- ========================================
+       SHARED WEBSITE JAVASCRIPT
+  ========================================= -->
+
+  <script src="/main_v2_0_0.js"></script>
+
+  <!-- ========================================
+       BIOTREE EXPLORER — PREVIEW ENGINE
+  ========================================= -->
+
+  <script>
+
+    (() => {
+
+      'use strict';
+
+      const IMAGE_DIRECTORY = '/images/BioTree/';
+
+const IMAGE_FILES = {
+  'biotree-01-hero.webp':
+    'biotree-01-hero.webp',
+
+  'biotree-02-solar-canopy.webp':
+    'Futuristic BioTree Solar Installation-2.webp',
+
+  'biotree-03-material-detail.webp':
+    'biotree-03-material-detail.webp',
+
+  'biotree-04-thermal-tank.webp':
+    'biotree-04-thermal-tank.webp',
+
+  'biotree-05-public-comfort.webp':
+    'biotree-05-public-comfort.webp',
+
+  'biotree-06-charging.webp':
+    'biotree-06-charging.webp',
+
+  'biotree-07-water-station.webp':
+    'BioTree Public Water Station.png',
+
+  'biotree-08-night.webp':
+    'Futuristic BioTree Night Plaza.png',
+
+  'biotree-09-urban-plaza.webp':
+    'biotree-09-urban-plaza.webp',
+
+  'biotree-10-community-park.webp':
+    'biotree-10-community-park.webp',
+
+  'biotree-11-campus.webp':
+    'biotree-11-campus.webp',
+
+  'biotree-12-network.webp':
+    'biotree-12-network.webp'
+};
+
+function resolveImagePath(value) {
+
+  const filename = value.split('/').pop();
+
+  const actualFilename =
+    IMAGE_FILES[filename] || filename;
+
+  return IMAGE_DIRECTORY +
+    encodeURIComponent(actualFilename);
+
+}
+
+      /* ========================================
+         PUBLIC SYSTEM CONFIGURATION
+
+         IDs reserved for future GLB model groups.
+         These are proposed names, not verified
+         Blender object names.
+      ========================================= */
+
+      const systems = [
+
+        {
+          id: 'BT_PUBLIC_EXTERIOR',
+          label: 'Complete Exterior',
+          title: 'Integrated Environmental Architecture',
+          image: 'biotree-01-hero.webp',
+          description:
+            'BioTree investigates how nature-inspired architecture, renewable energy, thermal storage, environmental comfort and community services could be integrated within one public infrastructure system.'
+        },
+
+        {
+          id: 'BT_PUBLIC_SOLAR',
+          label: 'Solar Canopy',
+          title: 'Photovoltaic Leaf Canopy',
+          image: 'biotree-02-solar-canopy.webp',
+          description:
+            'Leaf-shaped photovoltaic surfaces explore solar electricity generation while providing architectural shade. Energy production depends on location, orientation, climate and final photovoltaic specifications.'
+        },
+
+        {
+          id: 'BT_PUBLIC_THERMAL_TANK',
+          label: 'Thermal Energy Storage',
+          title: 'Above-Ground Sand-Based Thermal Battery',
+          image: 'biotree-04-thermal-tank.webp',
+          description:
+            'The proposed above-ground thermal storage tank investigates the retention of energy as heat within a sand-based storage medium. Recovering electricity from stored heat would require suitable energy conversion equipment.'
+        },
+
+        {
+          id: 'BT_PUBLIC_THERMAL_PROTECTION',
+          label: 'Thermal Protection',
+          title: 'Thermal Insulation and Protective Systems',
+          image: null,
+          description:
+            'Proposed insulation, temperature monitoring and protective barriers investigate ways to limit heat transfer, protect surrounding components and prevent unintended public contact. Performance remains subject to engineering validation.'
+        },
+
+        {
+          id: 'BT_PUBLIC_STRUCTURE',
+          label: 'Structural Framework',
+          title: 'Integrated Structural Architecture',
+          image: 'biotree-03-material-detail.webp',
+          description:
+            'The proposed engineered metallic framework supports the architectural canopy and integrated systems. Wind resistance, foundation design, loading and structural capacity require detailed engineering assessment.'
+        },
+
+        {
+          id: 'BT_PUBLIC_ELECTRICAL',
+          label: 'Energy Management',
+          title: 'Renewable Energy Management',
+          image: null,
+          description:
+            'BioTree explores electrical energy distribution, monitoring and management across selected public services. Final electrical architecture, protection and storage requirements remain under investigation.'
+        },
+
+        {
+          id: 'BT_PUBLIC_CHARGING',
+          label: 'Charging Lockers',
+          title: 'Public Personal-Device Charging',
+          image: 'biotree-06-charging.webp',
+          description:
+            'Ten proposed integrated charging lockers explore convenient access to personal-device charging within public spaces. Electrical protection, accessibility and operational management require further evaluation.'
+        },
+
+        {
+          id: 'BT_PUBLIC_RESPIRATORY',
+          label: 'Respiratory System',
+          title: 'Air Intake and Circulation',
+          image: null,
+          description:
+            'The central respiratory intake crown explores controlled air movement and circulation within the architectural system. Airflow performance, filtration and energy requirements remain subject to technical research.'
+        },
+
+        {
+          id: 'BT_PUBLIC_MIST',
+          label: 'Mist Cooling',
+          title: 'Controlled Environmental Cooling',
+          image: 'biotree-05-public-comfort.webp',
+          description:
+            'Controlled mist cooling investigates potential improvements to outdoor thermal comfort. Effectiveness depends on humidity, temperature, water quality, wind conditions and system design.'
+        },
+
+        {
+          id: 'BT_PUBLIC_WATER',
+          label: 'Water Systems',
+          title: 'Independent Public Water Station',
+          image: 'biotree-07-water-station.webp',
+          description:
+            'Proposed water collection, treatment and independent drinking-water services explore public accessibility. Potable water must meet applicable health and regulatory requirements before public use.'
+        },
+
+        {
+          id: 'BT_PUBLIC_UNDERGROUND',
+          label: 'Underground Utilities',
+          title: 'Underground Mechanical Utilities',
+          image: null,
+          description:
+            'Selected mechanical and utility connections may be integrated below ground to support the architectural installation. The sand-based thermal storage tank remains above ground.'
+        },
+
+        {
+          id: 'BT_PUBLIC_MAINTENANCE',
+          label: 'Maintenance Access',
+          title: 'Serviceability and Controlled Access',
+          image: null,
+          description:
+            'Proposed service walkways and maintenance access investigate how qualified personnel could inspect and maintain system components while separating technical areas from public activity.'
+        },
+
+        {
+          id: 'BT_PUBLIC_LIGHTING',
+          label: 'Architectural Lighting',
+          title: 'BioTree After Sunset',
+          image: 'biotree-08-night.webp',
+          description:
+            'Integrated warm-white lighting explores nighttime visibility, architectural character and public-space comfort. Nighttime operation depends on the final energy supply and lighting design.'
+        },
+
+        {
+          id: 'BT_PUBLIC_SEATING',
+          label: 'Integrated Seating',
+          title: 'Human-Centered Public Space',
+          image: 'biotree-05-public-comfort.webp',
+          description:
+            'Circular integrated seating explores a welcoming environment for relaxation, social interaction and everyday community use. Accessibility and ergonomic requirements remain part of the design process.'
         }
 
-        return;
+      ];
 
+      /* ========================================
+         DOM REFERENCES
+      ========================================= */
+
+      const viewport = document.getElementById(
+        'biotree-viewport'
+      );
+
+      const preview = document.getElementById(
+        'biotree-preview'
+      );
+
+      const placeholder = document.getElementById(
+        'biotree-placeholder'
+      );
+
+      const placeholderTitle = document.getElementById(
+        'biotree-placeholder-title'
+      );
+
+      const viewerStatus = document.getElementById(
+        'biotree-viewer-status'
+      );
+
+      const layerList = document.getElementById(
+        'biotree-layer-list'
+      );
+
+      const systemTitle = document.getElementById(
+        'biotree-system-title'
+      );
+
+      const systemDescription = document.getElementById(
+        'biotree-system-description'
+      );
+
+      const fullscreenButton = document.getElementById(
+        'biotree-fullscreen'
+      );
+
+      if (
+        !viewport ||
+        !preview ||
+        !placeholder ||
+        !placeholderTitle ||
+        !viewerStatus ||
+        !layerList ||
+        !systemTitle ||
+        !systemDescription ||
+        !fullscreenButton
+      ) {
+        return;
       }
 
-      if (viewport.requestFullscreen) {
+      let activeImageRequest = 0;
 
-        try {
+      /* ========================================
+         LOAD STATIC IMAGES
 
-          await viewport.requestFullscreen();
+         Missing assets remain as clean placeholders.
+      ========================================= */
 
-          updateFullscreenButton();
+      document.querySelectorAll(
+        '.bt-media img[data-src]'
+      ).forEach((image) => {
+
+        const media = image.closest('.bt-media');
+
+        const fallback = media
+          ? media.querySelector('.bt-media-placeholder')
+          : null;
+
+        image.addEventListener('load', () => {
+
+          image.hidden = false;
+
+          if (fallback) {
+            fallback.hidden = true;
+          }
+
+        });
+
+        image.addEventListener('error', () => {
+
+          image.hidden = true;
+
+          if (fallback) {
+            fallback.hidden = false;
+          }
+
+        });
+
+        image.src = IMAGE_DIRECTORY + image.dataset.src;
+
+      });
+
+      /* ========================================
+         MAIN VIEWPORT IMAGE LOADER
+      ========================================= */
+
+      function loadPreview(system) {
+
+        const request = ++activeImageRequest;
+
+        preview.hidden = true;
+        placeholder.hidden = false;
+        placeholderTitle.textContent = system.label;
+
+        if (!system.image) {
+
+          viewerStatus.textContent =
+            'System information available. Dedicated visualization and interactive 3D layer in development.';
 
           return;
 
-        } catch (error) {
+        }
 
-          console.warn(
-            'Native fullscreen unavailable:',
-            error
+        viewerStatus.textContent =
+          'Loading architectural preview...';
+
+        const loader = new Image();
+
+        loader.onload = () => {
+
+          if (request !== activeImageRequest) {
+            return;
+          }
+
+          preview.src = loader.src;
+
+          preview.alt =
+            'BioTree — ' + system.label;
+
+          preview.hidden = false;
+          placeholder.hidden = true;
+
+          viewerStatus.textContent =
+            system.label +
+            ' · Architectural concept preview. Interactive 3D model in development.';
+
+        };
+
+        loader.onerror = () => {
+
+          if (request !== activeImageRequest) {
+            return;
+          }
+
+          preview.hidden = true;
+          placeholder.hidden = false;
+
+          viewerStatus.textContent =
+            system.label +
+            ' · Visualization in preparation.';
+
+        };
+
+        loader.src = IMAGE_DIRECTORY + system.image;
+
+      }
+
+      /* ========================================
+         SELECT SYSTEM
+      ========================================= */
+
+      function selectSystem(systemId) {
+
+        const system = systems.find(
+          (item) => item.id === systemId
+        );
+
+        if (!system) {
+          return;
+        }
+
+        systemTitle.textContent = system.title;
+
+        systemDescription.textContent =
+          system.description;
+
+        layerList.querySelectorAll(
+          '.bt-layer-button'
+        ).forEach((button) => {
+
+          button.setAttribute(
+            'aria-pressed',
+            String(button.dataset.system === systemId)
           );
+
+        });
+
+        document.querySelectorAll(
+          '.bt-perspective'
+        ).forEach((button) => {
+
+          button.setAttribute(
+            'aria-pressed',
+            String(button.dataset.system === systemId)
+          );
+
+        });
+
+        loadPreview(system);
+
+      }
+
+      /* ========================================
+         CREATE SYSTEM DISCOVERY BUTTONS
+      ========================================= */
+
+      systems.forEach((system) => {
+
+        const button = document.createElement('button');
+
+        button.type = 'button';
+
+        button.className = 'bt-layer-button';
+
+        button.dataset.system = system.id;
+
+        button.textContent = system.label;
+
+        button.setAttribute('aria-pressed', 'false');
+
+        button.addEventListener('click', () => {
+
+          selectSystem(system.id);
+
+        });
+
+        layerList.appendChild(button);
+
+      });
+
+      /* ========================================
+         PERSPECTIVE BUTTONS
+      ========================================= */
+
+      document.querySelectorAll(
+        '.bt-perspective'
+      ).forEach((button) => {
+
+        button.addEventListener('click', () => {
+
+          selectSystem(button.dataset.system);
+
+        });
+
+      });
+
+      /* ========================================
+         FULLSCREEN CONTROLS
+      ========================================= */
+
+      let expandedMode = false;
+      let previousBodyOverflow = '';
+
+      function updateFullscreenButton() {
+
+        const active =
+          document.fullscreenElement === viewport ||
+          expandedMode;
+
+        fullscreenButton.textContent =
+          active ? 'Exit Fullscreen' : 'Fullscreen';
+
+        fullscreenButton.setAttribute(
+          'aria-pressed',
+          String(active)
+        );
+
+      }
+
+      function closeExpandedMode() {
+
+        expandedMode = false;
+
+        viewport.classList.remove('bt-expanded');
+
+        document.body.style.overflow =
+          previousBodyOverflow;
+
+        updateFullscreenButton();
+
+      }
+
+      function openExpandedMode() {
+
+        previousBodyOverflow =
+          document.body.style.overflow;
+
+        expandedMode = true;
+
+        viewport.classList.add('bt-expanded');
+
+        document.body.style.overflow = 'hidden';
+
+        updateFullscreenButton();
+
+      }
+
+      fullscreenButton.addEventListener(
+        'click',
+        async () => {
+
+          if (expandedMode) {
+
+            closeExpandedMode();
+            return;
+
+          }
+
+          if (document.fullscreenElement === viewport) {
+
+            if (document.exitFullscreen) {
+
+              try {
+                await document.exitFullscreen();
+              } catch (error) {
+                console.warn(
+                  'Unable to exit fullscreen:',
+                  error
+                );
+              }
+
+            }
+
+            return;
+
+          }
+
+          if (viewport.requestFullscreen) {
+
+            try {
+
+              await viewport.requestFullscreen();
+
+            } catch (error) {
+
+              openExpandedMode();
+
+            }
+
+          } else {
+
+            openExpandedMode();
+
+          }
+
+          updateFullscreenButton();
+
+        }
+      );
+
+      document.addEventListener(
+        'fullscreenchange',
+        updateFullscreenButton
+      );
+
+      document.addEventListener('keydown', (event) => {
+
+        if (event.key === 'Escape' && expandedMode) {
+
+          closeExpandedMode();
+
+          fullscreenButton.focus();
 
         }
 
+      });
+
+      /* ========================================
+         INITIALIZE EXPLORER
+      ========================================= */
+
+      selectSystem('BT_PUBLIC_EXTERIOR');
+
+      /* COPYRIGHT YEAR */
+
+      const year = document.getElementById('year');
+
+      if (year) {
+        year.textContent = new Date().getFullYear();
       }
 
-      openExpandedMode();
+    })();
 
-    }
-  );
-
-  document.addEventListener(
-    'fullscreenchange',
-    updateFullscreenButton
-  );
-
-  document.addEventListener(
-    'keydown',
-    (event) => {
-
-      if (event.key === 'Escape' && expandedMode) {
-
-        closeExpandedMode();
-
-      }
-
-    }
-  );
-
-  /* ========================================
-     INITIALIZE BIOTREE EXPLORER
-  ========================================= */
-
-  selectSystem('BT_PUBLIC_EXTERIOR');
-
-  updateFullscreenButton();
-
-  console.info(
-    'HaloCyberLife BioTree Explorer initialized.'
-  );
-
-})();
-</script>
+  </script>
 
 </body>
 </html>
